@@ -4,17 +4,8 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { useEffect } from "react";
 import AOS from "aos";
-import HeroBanner from "./heroBanner";
-import About from "./about";
-import Stats from "./stats";
-import Services from "./services";
-import Projects from "./projects";
-// import Testimonials from "./testimonialsExisting";
-import Insights from "./insights";
 import Footer from "../common/footer";
-import BrandSlider from "./brandSlider";
-import Testimonials from "./testimonials";
-import MissionSection from "./mission";
+import HeroBanner from "./heroBanner";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -60,16 +51,6 @@ const LandingPage = () => {
     <>
       <div className={classNames(styles.homeWrapper, "min-h-screen")}>
         <HeroBanner />
-        <BrandSlider />
-        {/* <div className={styles.customContainer}> */}
-        <MissionSection />
-        {/* </div> */}
-        {/* <Stats /> */}
-        {/* <About /> */}
-        <Services />
-        <Projects />
-        <Testimonials />
-        <Insights />
       </div>
       <Footer />
     </>
