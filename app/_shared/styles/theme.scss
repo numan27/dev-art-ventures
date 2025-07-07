@@ -1,0 +1,141 @@
+:root {
+  // Light theme (default)
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a5568;
+  --border-color: #e2e8f0;
+  --accent-primary: #2563eb;
+  --accent-secondary: #3b82f6;
+  --accent-hover: #1d4ed8;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+:root.dark {
+  --background-primary: #1a1a1a;
+  --background-secondary: #2d3748;
+  --text-primary: #ffffff;
+  --text-secondary: #a0aec0;
+  --border-color: #4a5568;
+  --accent-primary: #60a5fa;
+  --accent-secondary: #3b82f6;
+  --accent-hover: #93c5fd;
+  --header-bg: #1a1a1a;
+  --card-bg: #2d3748;
+  --input-bg: #2d3748;
+  --input-border: #4a5568;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+}
+
+// Global styles
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Common components
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+}
+
+.input {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+}
+
+.button {
+  background-color: var(--accent-primary);
+  color: white;
+  &:hover {
+    background-color: var(--accent-hover);
+  }
+}
+
+// Header specific
+.header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+// Navigation
+.nav-link {
+  color: var(--text-primary);
+  &:hover {
+    color: var(--accent-primary);
+  }
+}
+
+// Dropdown
+.dropdown-menu {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+// Form elements
+input,
+textarea,
+select {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+
+  &:focus {
+    border-color: var(--accent-primary);
+  }
+}
+
+// Links
+a {
+  color: var(--accent-primary);
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+
+// Code blocks
+pre,
+code {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+}
+
+// Tables
+table {
+  border-color: var(--border-color);
+  th,
+  td {
+    border-color: var(--border-color);
+  }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--text-secondary);
+  }
+}

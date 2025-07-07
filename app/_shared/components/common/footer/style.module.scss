@@ -1,0 +1,422 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.footer {
+  background: linear-gradient(135deg, #0d255a 0%, #1e1e1e 50%, #141212 100%);
+  position: relative;
+  z-index: 999 !important;
+  width: 100%;
+  min-height: 400px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 40,
+    )
+  );
+
+  p {
+    @media screen and (max-width: 768px) {
+      text-align: center !important;
+    }
+  }
+
+  .contentContainer {
+    .logoContainer {
+      .logo {
+        height: auto !important;
+        @include RP(
+          (
+            "width": 200,
+          ),
+          1
+        );
+        margin-bottom: 1.5rem;
+
+        @media screen and (max-width: 767px) {
+          margin: 0 auto !important;
+          @include RP(
+            (
+              "width": 200,
+            ),
+            1
+          );
+        }
+      }
+
+      .companyDescription {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        text-wrap: balance;
+      }
+    }
+
+    .menuContainer {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+
+      .menuHeading {
+        font-weight: 600;
+        color: $PRIMARY_LIGHT !important;
+        @include RP(
+          (
+            "font-size": 18,
+          ),
+          1
+        );
+        margin-bottom: 1.5rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          width: 30px;
+          height: 2px;
+          background: $PRIMARY_GRADIENT;
+          border-radius: 1px;
+        }
+      }
+
+      .menus {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        li {
+          transition: all 0.3s ease-in-out;
+          color: rgba(255, 255, 255, 0.7) !important;
+
+          a {
+            font-weight: 400;
+            @include RP(
+              (
+                "font-size": 14,
+              )
+            );
+            position: relative;
+            transition: all 0.3s ease;
+
+            &::before {
+              content: "";
+              position: absolute;
+              bottom: -2px;
+              left: 0;
+              width: 0;
+              height: 1px;
+              background: $PRIMARY_GRADIENT;
+              transition: width 0.3s ease;
+            }
+          }
+
+          &:hover {
+            color: $PRIMARY_LIGHT;
+            transform: translateX(5px);
+
+            a::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .socialContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .socialHeading {
+        color: $PRIMARY_LIGHT !important;
+        @include RP(
+          (
+            "font-size": 20,
+          ),
+          1
+        );
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      .socialDescription {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+
+      .socialContent {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+
+        .socialItem {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          @include RP(
+            (
+              "width": 48,
+              "height": 48,
+            ),
+            1
+          );
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          overflow: hidden;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: $PRIMARY_GRADIENT;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+          }
+
+          svg {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+            width: 20px;
+            height: 20px;
+            color: rgba(255, 255, 255, 0.8) !important;
+
+            path {
+              transition: all 0.3s ease;
+            }
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            border-color: $PRIMARY_LIGHT;
+            box-shadow: 0 8px 25px rgba(15, 118, 178, 0.3);
+
+            &::before {
+              opacity: 1;
+            }
+
+            svg {
+              color: white;
+              transform: scale(1.1);
+            }
+          }
+
+          @media screen and (max-width: 576px) {
+            @include RP(
+              (
+                "width": 44,
+                "height": 44,
+              ),
+              1
+            );
+
+            svg {
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contactSection {
+    @include RP(
+      (
+        "margin-top": 30,
+        "padding-top": 30,
+        "padding-bottom": 30,
+      ),
+      1
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    .contactIcon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include RP(
+        (
+          "width": 48,
+          "height": 48,
+        ),
+        1
+      );
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: $PRIMARY_GRADIENT;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      svg {
+        position: relative;
+        z-index: 2;
+        @include RP(
+          (
+            "width": 20,
+            "height": 20,
+          ),
+          1
+        );
+        color: $PRIMARY_LIGHT;
+        transition: all 0.3s ease;
+        stroke-width: 1.5;
+
+        path {
+          transition: all 0.3s ease;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        border-color: $PRIMARY_LIGHT;
+        box-shadow: 0 8px 25px rgba(15, 118, 178, 0.2);
+
+        &::before {
+          opacity: 1;
+        }
+
+        svg {
+          color: white;
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .contactLabel {
+      @include RP(
+        (
+          "font-size": 14,
+        ),
+        1
+      );
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6) !important;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .contactValue {
+      @include RP(
+        (
+          "font-size": 16,
+        ),
+        1
+      );
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9) !important;
+      transition: color 0.3s ease;
+    }
+
+    div:hover .contactValue {
+      color: $PRIMARY_LIGHT !important;
+    }
+  }
+
+  .bottomSection {
+    @include RP(
+      (
+        "margin-top": 20,
+        "padding-top": 20,
+      ),
+      1
+    );
+    position: relative;
+
+    .copyright {
+      p {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 500 !important;
+        @include RP(
+          (
+            "font-size": 15,
+          ),
+          1
+        );
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .legalLinks {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+
+      a {
+        color: rgba(255, 255, 255, 0.8) !important;
+        @include RP(
+          (
+            "font-size": 14,
+          ),
+          1
+        );
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background: $PRIMARY_LIGHT;
+          transition: width 0.3s ease;
+        }
+
+        &:hover {
+          color: $PRIMARY_LIGHT !important;
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        gap: 1rem;
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+    }
+  }
+}

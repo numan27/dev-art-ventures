@@ -1,0 +1,220 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.languageContainer {
+  position: relative;
+  display: inline-block;
+  z-index: 10000 !important;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 80px;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: $PRIMARY_LIGHT;
+  }
+
+  .flag {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .languageText {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    margin-left: 2px;
+    font-size: 10px;
+
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Desktop variant (Topbar)
+  &.desktop {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: $PRIMARY_LIGHT;
+    }
+  }
+
+  // Mobile variant (Header)
+  &.mobile {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.8);
+    min-width: 70px;
+    padding: 4px 8px;
+    font-size: 12px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.2);
+      color: $PRIMARY;
+    }
+
+    .flag {
+      font-size: 14px;
+    }
+
+    .languageText {
+      font-size: 12px;
+    }
+  }
+}
+
+.languageDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  min-width: 160px;
+  overflow: hidden;
+  z-index: 1000;
+  animation: slideDown 0.2s ease-out;
+
+  .languageOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 16px;
+    text-align: left;
+    background: none;
+    border: none;
+    color: #1a1a1a;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: #2563eb;
+    }
+
+    &.active {
+      background: rgba(59, 130, 246, 0.15);
+      color: #2563eb;
+      font-weight: 600;
+    }
+
+    .flag {
+      font-size: 18px;
+      line-height: 1;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .languageText {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  // Desktop variant
+  &.desktop {
+    min-width: 160px;
+    right: 0;
+  }
+
+  // Mobile variant
+  &.mobile {
+    min-width: 140px;
+    right: 0;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .languageOption {
+      padding: 8px 12px;
+      font-size: 13px;
+
+      .flag {
+        font-size: 16px;
+      }
+
+      .languageText {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive adjustments
+@media screen and (max-width: 768px) {
+  .languageButton.mobile {
+    min-width: 60px;
+    padding: 3px 6px;
+    font-size: 11px;
+
+    .flag {
+      font-size: 12px;
+    }
+
+    .languageText {
+      font-size: 11px;
+    }
+  }
+
+  .languageDropdown.mobile {
+    min-width: 120px;
+    max-height: 250px;
+
+    .languageOption {
+      padding: 6px 10px;
+      font-size: 12px;
+
+      .flag {
+        font-size: 14px;
+      }
+
+      .languageText {
+        font-size: 12px;
+      }
+    }
+  }
+}

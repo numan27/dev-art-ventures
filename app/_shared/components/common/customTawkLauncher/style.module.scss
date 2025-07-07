@@ -1,0 +1,67 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.launcherContainer {
+  position: fixed;
+  bottom: 20px !important;
+  right: 24px !important;
+  z-index: 9999;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 10000 !important;
+}
+
+.launcherButton {
+  background: $PRIMARY_GRADIENT;
+  border-radius: 50%;
+  width: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  height: 60px !important;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, background 0.2s;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.launcherButton:active {
+  box-shadow: var(--shadow-md);
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  path {
+    stroke: $WHITE !important;
+  }
+}
+
+// .toggleButton {
+//   margin-top: 4px;
+//   background: var(--background-primary);
+//   border: 1px solid var(--accent-primary);
+//   border-radius: 12px;
+//   width: 40px;
+//   height: 32px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   box-shadow: var(--shadow-sm);
+//   color: var(--accent-primary);
+//   cursor: pointer;
+//   transition: background 0.2s, border 0.2s;
+// }
+
+// .toggleButton:hover {
+//   background: var(--accent-hover);
+//   color: white;
+//   border-color: var(--accent-hover);
+// }

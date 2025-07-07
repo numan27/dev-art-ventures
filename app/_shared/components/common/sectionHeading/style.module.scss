@@ -1,0 +1,79 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionHeading {
+  margin-bottom: 3rem;
+  position: relative;
+
+  &.center {
+    text-align: center;
+
+    .underline {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.right {
+    text-align: right;
+
+    .underline {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  .subtitle {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $PRIMARY;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    position: relative;
+    // padding-left: 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    background: $PRIMARY_GRADIENT;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .underline {
+    width: 60px;
+    height: 3px;
+    background: $PRIMARY_GRADIENT;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -0.1rem;
+  }
+}
+
+.whiteText {
+  color: #fff !important;
+
+  .subtitle,
+  .title,
+  h3,
+  h4,
+  p {
+    color: #fff !important;
+    -webkit-text-fill-color: #fff !important;
+    background: none !important;
+  }
+
+  .underline {
+    background: #fff !important;
+  }
+}

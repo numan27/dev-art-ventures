@@ -1,0 +1,84 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.ctaSection {
+  background: linear-gradient(135deg, #0f76b2 0%, #41c8f1 100%);
+  color: #fff;
+  @include RP(
+    (
+      "padding-top": 50,
+      "padding-bottom": 50,
+      "margin-top": 80,
+    ),
+    1
+  );
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(15, 118, 178, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem auto 0 auto;
+  max-width: 700px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.ctaTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #fff 60%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ctaSubtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.95) !important;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.primaryButton {
+  background: #fff;
+  color: #0f76b2;
+  border: none;
+  border-radius: 2rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.primaryButton:hover {
+  background: #e6f4fa;
+  color: #0f76b2;
+  box-shadow: 0 4px 20px rgba(15, 118, 178, 0.15);
+}
+
+@media screen and (max-width: 700px) {
+  .ctaSection {
+    padding: 2.5rem 0.5rem;
+    border-radius: 1.2rem;
+    max-width: 98vw;
+  }
+  .ctaTitle {
+    font-size: 2rem;
+  }
+}

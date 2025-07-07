@@ -1,0 +1,263 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.customBtnContainer {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 100px !important;
+
+  &:hover {
+    background: $PRIMARY_GRADIENT !important;
+    .buttonContent {
+      border-radius: 100px 0 0 100px !important;
+      color: $WHITE !important;
+      background: transparent !important;
+    }
+
+    .arrowContainer {
+      background: transparent !important;
+      border-radius: 0 100px 100px 0 !important;
+      svg {
+        path {
+          fill: $WHITE !important;
+        }
+      }
+    }
+  }
+
+  .buttonContent {
+    background-color: $SECONDARY;
+    font-weight: 500;
+    justify-content: center;
+    text-wrap: nowrap !important;
+    align-items: center;
+    display: flex;
+    color: $WHITE;
+    @include RP(
+      (
+        "font-size": 14,
+        "padding-left": 20,
+        "padding-right": 20,
+        "padding-top": 13.5,
+        "padding-bottom": 13.5,
+        "max-height": 44,
+      )
+    );
+    border-radius: 100px;
+    outline: 0px;
+    transition: all 0.3s ease-in-out;
+
+    svg {
+      @include RP(
+        (
+          "height": 18,
+          "width": 18,
+        )
+      );
+    }
+
+    span {
+      line-height: normal;
+      @include RP(
+        (
+          "font-size": 14,
+        )
+      );
+    }
+  }
+
+  .arrowContainer {
+    background-color: $PRIMARY;
+    border-radius: 100%;
+    @include RP(
+      (
+        "height": 44,
+        "width": 44,
+      ),
+      1
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    // margin-left: -1px;
+
+    svg {
+      position: relative;
+      z-index: 2;
+      transform: rotate(-45deg);
+      max-width: 24px !important;
+      max-height: 24px !important;
+      @include RP(
+        (
+          "height": 30,
+          "width": 30,
+        ),
+        1
+      );
+      display: block;
+      flex-shrink: 0;
+
+      path {
+        fill: $WHITE !important;
+      }
+
+      @media screen and (max-width: 768px) {
+        max-width: 24px !important;
+        max-height: 24px !important;
+      }
+      @media screen and (max-width: 600px) {
+        width: 16px !important;
+        height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
+      }
+    }
+  }
+
+  &.whiteButtonContainer {
+    .buttonContent {
+      background-color: $WHITE !important;
+      color: $PRIMARY !important;
+      // span {
+      //   font-weight: 600 !important;
+      //   @include RP(
+      //     (
+      //       "font-size": 16,
+      //     ),
+      //     1
+      //   );
+      // }
+      // @include RP(
+      //   (
+      //     "padding-left": 32,
+      //     "padding-right": 32,
+      //     "max-height": 50,
+      //   ),
+      //   1
+      // );
+    }
+
+    // .arrowContainer {
+    //   background-color: $PRIMARY !important;
+    //   margin-left: -1px;
+    //   @include RP(
+    //     (
+    //       "height": 50,
+    //       "width": 50,
+    //     ),
+    //     1
+    //   );
+
+    //   svg path {
+    //     fill: $WHITE !important;
+    //   }
+    // }
+
+    &:hover {
+      background: $PRIMARY_GRADIENT !important;
+      border-color: transparent;
+
+      .buttonContent {
+        background: transparent !important;
+        color: $WHITE !important;
+      }
+
+      .arrowContainer {
+        background: transparent !important;
+        border-color: transparent;
+
+        svg path {
+          fill: $WHITE !important;
+        }
+      }
+    }
+  }
+  &.heroBannerButtonContainer {
+    .buttonContent {
+      background-color: $WHITE !important;
+      color: $PRIMARY !important;
+      span {
+        font-weight: 600 !important;
+        @include RP(
+          (
+            "font-size": 16,
+          ),
+          1
+        );
+      }
+      @include RP(
+        (
+          "padding-left": 32,
+          "padding-right": 32,
+          "max-height": 50,
+        ),
+        1
+      );
+    }
+
+    .arrowContainer {
+      background-color: $PRIMARY !important;
+      margin-left: -1px;
+      @include RP(
+        (
+          "height": 50,
+          "width": 50,
+        ),
+        1
+      );
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        position: relative;
+        z-index: 2;
+        transform: rotate(-45deg);
+        @include RP(
+          (
+            "height": 30,
+            "width": 30,
+          ),
+          1
+        );
+        display: block;
+        flex-shrink: 0;
+
+        path {
+          fill: $WHITE !important;
+        }
+      }
+    }
+
+    &:hover {
+      background: $PRIMARY_GRADIENT !important;
+      border-color: transparent;
+
+      .buttonContent {
+        background: transparent !important;
+        color: $WHITE !important;
+      }
+
+      .arrowContainer {
+        background: transparent !important;
+        border-color: transparent;
+
+        svg path {
+          fill: $WHITE !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .customBtnContainer {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}

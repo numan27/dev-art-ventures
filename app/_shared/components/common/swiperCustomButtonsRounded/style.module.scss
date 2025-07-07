@@ -1,0 +1,65 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sale__listing {
+  @include RP(
+    (
+      "padding-bottom": 40,
+      "padding-top": 40,
+    )
+  );
+}
+
+.customNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+
+  .swiperButton {
+    border: none;
+    border-radius: 100%;
+    background-color: $PRIMARY !important;
+    color: $WHITE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba($PRIMARY, 0.1);
+    @include RP(
+      (
+        "width": 36,
+        "height": 36,
+      ),
+      1
+    );
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    svg {
+      @include RP(
+        (
+          "width": 24,
+          "height": 24,
+        ),
+        1
+      );
+      path {
+        stroke: none;
+        fill: $WHITE;
+      }
+    }
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        $PRIMARY 0%,
+        $PRIMARY_LIGHT 100%
+      ) !important;
+      box-shadow: 0 4px 16px rgba($PRIMARY, 0.18);
+      transform: translateY(-2px) scale(1.07);
+    }
+  }
+
+  .swiperButton:first-child {
+    margin-top: 0.5px;
+  }
+}

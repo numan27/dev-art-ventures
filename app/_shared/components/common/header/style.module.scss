@@ -1,0 +1,919 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-height: 100px;
+  height: auto;
+  @include RP(
+    (
+      "height": 100,
+    ),
+    1
+  );
+
+  // Position header below topbar on desktop
+  @media screen and (min-width: 769px) {
+    top: 40px; // Height of topbar
+    height: 100px;
+    min-height: 100px;
+  }
+
+  // Transparent header hover styles
+  &.header-hovered {
+    .navLink {
+      color: #1a1a1a !important;
+
+      &:hover {
+        color: #000000 !important;
+      }
+    }
+
+    // More specific selectors to override any conflicting styles
+    .main__menu {
+      .navLink {
+        color: #1a1a1a !important;
+
+        &:hover {
+          color: #000000 !important;
+        }
+      }
+    }
+
+    svg {
+      color: $PRIMARY !important;
+      stroke: $PRIMARY !important;
+    }
+
+    .menu {
+      color: $PRIMARY !important;
+      svg {
+        color: $PRIMARY !important;
+        stroke: $PRIMARY !important;
+      }
+    }
+
+    // Target the specific link elements
+    a[href] {
+      color: #1a1a1a !important;
+
+      &:hover {
+        color: #000000 !important;
+      }
+    }
+
+    // Override the existing navLink hover styles
+    .navLink:hover,
+    .navLink.navLinkMegaActive {
+      color: #000000 !important;
+
+      &::before {
+        background: #000000 !important;
+      }
+    }
+
+    button.md\:hidden > svg {
+      color: $PRIMARY !important;
+      stroke: $PRIMARY !important;
+    }
+  }
+
+  .logo {
+    img {
+      height: auto !important;
+      @include RP(
+        (
+          "width": 180,
+        ),
+        1
+      );
+      @media screen and (max-width: 425px) {
+        @include RP(
+          (
+            "max-width": 130,
+          ),
+          1
+        );
+      }
+    }
+  }
+
+  .sideCanvasTrigger {
+    .iconContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #1e1e1eaa;
+      padding: 8px;
+      // border-radius: 8px;
+      transition: all 0.3s ease;
+      // @include RP(("height": 200,
+      //   ), 1);
+
+      &:hover {
+        background: $PRIMARY;
+      }
+
+      .icon {
+        color: $SECONDARY;
+      }
+
+      .iconText {
+        color: $SECONDARY;
+        font-size: 12px;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .main__menu {
+    & > li {
+      position: relative;
+    }
+
+    .dropdown__menu {
+      position: absolute;
+      top: 30px;
+    }
+
+    .subMenu {
+      list-style: none;
+      min-width: 200px;
+      border-radius: 8px;
+      background-color: white;
+      margin-left: -4px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transform-origin: top;
+      transition: all 0.3s ease-in-out;
+
+      .subMenuItem {
+        cursor: pointer !important;
+        @include RP(
+          (
+            "height": 40,
+          )
+        );
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .subMenuLink {
+          text-wrap: nowrap;
+          @include RP(
+            (
+              "font-size": 14,
+              "padding-left": 16,
+              "padding-right": 16,
+              "padding-top": 8,
+              "padding-bottom": 8,
+            )
+          );
+          color: #1a1a1a;
+          font-weight: 500;
+          width: 100%;
+          height: 100%;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+          }
+        }
+      }
+    }
+  }
+
+  .navLink {
+    font-weight: 600;
+    position: relative;
+    @include RP(
+      (
+        "font-size": 14,
+      )
+    );
+    transition: all 0.3s ease-in-out;
+    color: $WHITE; // Default color for transparent header
+    transform: translateZ(0); // Force hardware acceleration
+    backface-visibility: hidden; // Prevent flickering
+    perspective: 1000px; // Improve performance
+
+    &:hover,
+    &.navLinkMegaActive {
+      color: $PRIMARY !important;
+      opacity: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: $PRIMARY !important;
+        bottom: -4px;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+    }
+
+    svg {
+      width: 16px;
+      path {
+        stroke: currentColor;
+      }
+    }
+  }
+
+  // Default dark text for non-home pages
+  &.bg-white {
+    .navLink {
+      color: $DARK !important;
+
+      &:hover,
+      &.navLinkMegaActive {
+        color: $PRIMARY !important;
+
+        &::before {
+          background: $PRIMARY !important;
+        }
+      }
+    }
+
+    .activeLink {
+      color: $PRIMARY !important;
+
+      &::before {
+        background: $PRIMARY !important;
+      }
+    }
+
+    // Ensure mobile menu toggle is visible
+    button[aria-label] {
+      color: $DARK !important;
+    }
+
+    // Ensure any other interactive elements are visible
+    svg {
+      color: $DARK !important;
+    }
+
+    // Override any conflicting styles with higher specificity
+    .main__menu {
+      .navLink {
+        color: $DARK !important;
+
+        &:hover,
+        &.navLinkMegaActive {
+          color: $PRIMARY !important;
+
+          &::before {
+            background: $PRIMARY !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Glass navbar styles - when header has white background (home page scrolled)
+  &.glass-navbar {
+    .navLink {
+      color: #141212 !important;
+
+      &:hover,
+      &.navLinkMegaActive {
+        color: $PRIMARY !important;
+
+        &::before {
+          background: $PRIMARY !important;
+        }
+      }
+    }
+
+    .activeLink {
+      color: $PRIMARY !important;
+
+      &::before {
+        background: $PRIMARY !important;
+      }
+    }
+
+    // Ensure mobile menu toggle is visible
+    button[aria-label] {
+      color: #141212 !important;
+    }
+
+    // Ensure any other interactive elements are visible
+    svg {
+      color: #141212 !important;
+    }
+
+    // Override any conflicting styles with higher specificity
+    .main__menu {
+      .navLink {
+        color: #141212 !important;
+
+        &:hover,
+        &.navLinkMegaActive {
+          color: $PRIMARY !important;
+
+          &::before {
+            background: $PRIMARY !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Additional specific selector for glass navbar
+  &.glass-navbar.bg-white\/80 {
+    .navLink {
+      color: #141212 !important;
+    }
+  }
+
+  // Force dark color when scrolled (highest specificity)
+  &.glass-navbar .main__menu .navLink {
+    color: #141212 !important;
+  }
+
+  // Target by data attribute for maximum specificity
+  &[data-scrolled="true"] {
+    .navLink {
+      color: #141212 !important;
+    }
+
+    .main__menu .navLink {
+      color: #141212 !important;
+    }
+  }
+
+  // Specific styling for non-home pages
+  &[data-page="other"] {
+    .navLink {
+      color: $DARK !important;
+
+      &:hover,
+      &.navLinkMegaActive {
+        color: $PRIMARY !important;
+
+        &::before {
+          background: $PRIMARY !important;
+        }
+      }
+    }
+
+    .activeLink {
+      color: $PRIMARY !important;
+
+      &::before {
+        background: $PRIMARY !important;
+      }
+    }
+
+    // Ensure mobile menu toggle is visible
+    button[aria-label] {
+      color: $DARK !important;
+    }
+
+    // Ensure any other interactive elements are visible
+    svg {
+      color: $DARK !important;
+    }
+
+    // Override any conflicting styles with higher specificity
+    .main__menu {
+      .navLink {
+        color: $DARK !important;
+
+        &:hover,
+        &.navLinkMegaActive {
+          color: $PRIMARY !important;
+
+          &::before {
+            background: $PRIMARY !important;
+          }
+        }
+      }
+    }
+  }
+
+  .activeLink {
+    position: relative;
+    color: $PRIMARY !important;
+    font-weight: 600 !important;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $PRIMARY !important;
+      bottom: -4px;
+      left: 0;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInTransparent {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+      backdrop-filter: blur(0px);
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+      backdrop-filter: blur(20px);
+    }
+  }
+
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 0 !important;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    overflow-y: auto;
+
+    &.open {
+      transform: translateX(0);
+      visibility: visible;
+
+      &.transparent {
+        animation: slideInTransparent 0.3s ease-out;
+      }
+    }
+
+    nav {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      padding-top: 0;
+    }
+
+    .mobileNavLink {
+      display: block;
+      padding: 1rem;
+      color: #1a1a1a !important;
+      font-size: 1.25rem;
+      font-weight: 500;
+      text-align: center;
+      transition: all 0.3s ease;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+      width: 100%;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        transform: translateX(5px);
+      }
+
+      &.active {
+        color: $PRIMARY;
+        background: rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    .mobileSubMenu {
+      margin-left: 1rem;
+      margin-top: 0.5rem;
+      border-left: 2px solid rgba(0, 0, 0, 0.1);
+      padding-left: 1rem;
+      animation: slideDown 0.3s ease-out;
+      max-height: 300px;
+      overflow-y: auto;
+
+      .mobileSubMenuLink {
+        display: block;
+        padding: 0.75rem;
+        color: #1a1a1a;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        border-radius: 6px;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+          color: $PRIMARY;
+          background: rgba(59, 130, 246, 0.05);
+          transform: translateX(5px);
+        }
+
+        &.active {
+          color: $PRIMARY;
+          background: rgba(59, 130, 246, 0.1);
+        }
+      }
+    }
+
+    // Theme toggle button in mobile menu
+    button[aria-label] {
+      color: #1a1a1a;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    // Solid mobile menu styles
+    .mobileNavLink {
+      color: #1a1a1a !important;
+      font-weight: 600;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: $PRIMARY !important;
+      }
+
+      &.active {
+        color: $PRIMARY !important;
+        background: rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    .mobileSubMenuLink {
+      color: #1a1a1a !important;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.03);
+        color: $PRIMARY !important;
+      }
+
+      &.active {
+        color: $PRIMARY !important;
+        background: rgba(59, 130, 246, 0.08);
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 80px;
+    min-height: 80px;
+
+    .logo {
+      img {
+        width: 140px !important;
+      }
+    }
+
+    // Ensure mobile menu toggle button is always visible
+    button[aria-label] {
+      position: relative;
+      z-index: 1001;
+    }
+
+    // Mobile transparent header styles - force override
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(40px) !important;
+    -webkit-backdrop-filter: blur(40px) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+    // Solid background when mobile menu is open
+    &.mobile-menu-open {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    // Mobile transparent header styles
+    &.bg-white\/90 {
+      background: rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(40px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    // Additional mobile transparent class for better specificity
+    &.mobile-transparent {
+      background: rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(40px) !important;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+
+  .mobileTransparent {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .mobileMenuOpen {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .cross {
+    color: #1a1a1a !important;
+  }
+}
+
+.container {
+  overflow: visible !important;
+  position: static !important;
+}
+
+.megaMenu {
+  left: 0 !important;
+  right: 0 !important;
+  transform: none !important;
+  width: 100vw !important;
+  min-width: unset !important;
+  position: fixed;
+  top: 140px; /* Fixed position to prevent layout shifts */
+  background: transparent;
+  border-radius: 0 0 24px 24px;
+  z-index: 9999 !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+  padding-top: 8px;
+  border-top: 0;
+  margin-top: 0;
+  will-change: opacity;
+  .megaMenuInner {
+    max-width: none;
+    width: 100vw !important;
+    background: #fff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    padding: 0 0 2.5rem 0;
+    position: relative;
+    overflow: hidden;
+    max-height: 80vh;
+    overflow-y: auto;
+
+    /* Custom scrollbar styles */
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 3px;
+
+      &:hover {
+        background: #a8a8a8;
+      }
+    }
+  }
+  .megaMenuHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #f7fafd;
+    padding: 2rem 2.5rem 1.5rem 2.5rem;
+    border-radius: 24px 24px 0 0;
+    border-bottom: 1px solid #e5e7eb;
+    transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+    box-shadow: 0 2px 12px rgba(65, 200, 241, 0.06);
+    cursor: pointer;
+    position: relative;
+    animation: megaMenuHeaderFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background: #e0e7ef;
+      box-shadow: 0 6px 24px rgba(65, 200, 241, 0.13);
+      transform: translateY(-2px) scale(1.025);
+      text-decoration: none;
+    }
+    &:hover .megaMenuHeaderArrow {
+      transform: translateX(8px) scale(1.15);
+      opacity: 1;
+    }
+  }
+  .megaMenuHeaderIcon {
+    font-size: 2.5rem;
+    background: #e0e7ef;
+    border-radius: 12px;
+    padding: 0.75rem 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .megaMenuHeaderTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.25rem;
+  }
+  .megaMenuHeaderSubtitle {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+  .megaMenuHeaderArrow {
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+    opacity: 0.85;
+  }
+  .megaMenuColumnsWrapper {
+    display: flex;
+    gap: 2.5rem;
+    padding: 2rem 2.5rem 0 2.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .megaMenuColumn {
+    min-width: 220px;
+    flex: 1 1 0;
+  }
+  .megaMenuColumnTitle {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: $PRIMARY;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+    margin-left: 10px;
+  }
+  .megaMenuColumn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .megaMenuColumn ul li {
+    margin-bottom: 1.25rem;
+  }
+  .megaMenuServiceTitle {
+    display: block;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.08rem;
+    margin-bottom: 0.15rem;
+  }
+  .megaMenuServiceDesc {
+    display: block;
+    color: #6b7280;
+    font-size: 0.97rem;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  &.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateZ(0) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .megaMenu .megaMenuInner {
+    max-width: 98vw;
+    padding: 0 0 2rem 0;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  .megaMenu .megaMenuColumnsWrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1.2rem 0 1.2rem;
+  }
+  .megaMenu .megaMenuColumn {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .megaMenu .megaMenuInner {
+    max-height: 60vh;
+    overflow-y: auto;
+    border-radius: 16px;
+  }
+  .megaMenu .megaMenuHeader {
+    padding: 1.5rem 1.2rem 1rem 1.2rem;
+  }
+  .megaMenu .megaMenuColumnsWrapper {
+    padding: 1rem 1.2rem 0 1.2rem;
+  }
+}
+
+// Mega menu link styles
+.megaMenuInner ul li a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  @include RP(
+    (
+      "font-size": 14,
+    ),
+    1
+  );
+
+  &:hover,
+  &.active {
+    background: $PRIMARY_LIGHTER;
+    color: $PRIMARY !important;
+    text-decoration: none;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// Global override for transparent header hover state
+.header.header-hovered:not(.glass-navbar) {
+  .navLink,
+  .navLink:hover,
+  .navLink.navLinkMegaActive {
+    color: #1a1a1a !important;
+
+    &::before {
+      background: #1a1a1a !important;
+    }
+  }
+
+  .navLink:hover {
+    color: #000000 !important;
+
+    &::before {
+      background: #000000 !important;
+    }
+  }
+}
+
+.megaMenu.megaMenu--active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+@keyframes megaMenuHeaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.menuHovered svg {
+  color: #0f76b2 !important;
+  stroke: #0f76b2 !important;
+}
+
+.mobileMenu .mobileNavLink {
+  color: #1a1a1a !important;
+}

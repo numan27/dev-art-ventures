@@ -1,0 +1,216 @@
+@import "../about-us/style.module.scss";
+@import "utils/colors.scss";
+
+.pageWrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.introSection {
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 40,
+    ),
+    1
+  );
+  background: $WHITE;
+  .introText {
+    color: $DESC;
+    font-size: 1.18rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+}
+
+.projectsSection {
+  @include RP(
+    (
+      "padding-top": 40,
+      "padding-bottom": 100,
+    ),
+    1
+  );
+  background: $WHITE;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.customContainer {
+  @extend .customContainer;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
+}
+
+.projectCard {
+  background: linear-gradient(135deg, $WHITE 0%, $LIGHT_BLUE 100%);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(65, 200, 241, 0.08),
+    0 1.5px 6px rgba(0, 0, 0, 0.04);
+  padding: 0 0 2.5rem 0;
+  border: 1.5px solid $LIGHT_BLUE;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.28s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.4, 0.2, 0.2, 1);
+  will-change: transform;
+  &:hover {
+    transform: scale(1.045) translateY(-4px);
+    box-shadow: 0 12px 36px rgba(65, 200, 241, 0.13),
+      0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.projectImageWrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  @include RP(
+    (
+      "height": 220,
+    ),
+    1
+  );
+  background: $LIGHT_BLUE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+  transition: transform 0.32s cubic-bezier(0.4, 0.2, 0.2, 1);
+  will-change: transform;
+  .projectCard:hover & {
+    transform: scale(1.07) rotate(-2deg);
+  }
+}
+
+.projectIcon {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: $WHITE;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(65, 200, 241, 0.1);
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.32s cubic-bezier(0.4, 0.2, 0.2, 1);
+  will-change: transform;
+  .projectCard:hover & {
+    transform: rotate(-8deg) scale(1.13);
+  }
+}
+
+.projectContent {
+  padding: 2.5rem 2.2rem 0 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.projectTitle {
+  color: $PRIMARY;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.projectDesc {
+  color: $DESC;
+  font-size: 1.08rem;
+  margin-bottom: 0.5rem;
+  min-height: 48px;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.projectTag {
+  background: $PRIMARY_GRADIENT;
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.38rem 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(65, 200, 241, 0.1);
+}
+
+.projectLink {
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border-radius: 8px;
+  padding: 0.4rem 1.1rem;
+  background: rgba(65, 200, 241, 0.07);
+  transition: background 0.2s, color 0.2s;
+  &:hover {
+    background: $PRIMARY_GRADIENT;
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.tabsNav {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 2.5rem 0 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  background: $LIGHT_BLUE;
+  color: $PRIMARY;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem 1.7rem;
+  cursor: pointer;
+  transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+  box-shadow: 0 2px 8px rgba(65, 200, 241, 0.06);
+  margin-bottom: 0.5rem;
+  &:hover {
+    background: $PRIMARY_GRADIENT;
+    color: #fff;
+  }
+}
+
+.activeTab {
+  background: $PRIMARY_GRADIENT;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(65, 200, 241, 0.13);
+  border: none;
+  border-radius: 12px;
+  padding: 0.7rem 1.7rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}

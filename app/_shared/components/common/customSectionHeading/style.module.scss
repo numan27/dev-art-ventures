@@ -1,0 +1,33 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionHeading {
+  .titleContainer {
+    position: relative;
+
+    h2 {
+      color: #141212 !important;
+      margin-bottom: 0;
+      text-transform: uppercase !important;
+      @include RP(( // "line-height": 55,
+          "font-size": 42,
+        ), 1);
+
+      @media screen and (max-width: 992px) {
+        @include RP(("font-size": 28,
+          ), 1);
+      }
+
+      @media screen and (max-width: 475px) {
+        @include RP(("font-size": 22,
+          ), 1);
+      }
+
+    }
+
+    p {
+      color: $WHITE;
+      margin-top: 10px;
+    }
+  }
+}

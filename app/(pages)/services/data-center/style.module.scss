@@ -1,0 +1,894 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.pageWrapper {
+  background: #f9fafe !important;
+  color: #222 !important;
+  @include RP(
+    (
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  min-height: 100vh !important;
+}
+
+.section {
+  padding: 3rem 0 !important;
+  border-bottom: 1px solid #eaeaea !important;
+  background: #fff !important;
+}
+
+.heading {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: $PRIMARY !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+}
+
+.featureList,
+.benefitList {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  // justify-content: center !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.featureList li,
+.benefitList li {
+  background: $PRIMARY_GRADIENT !important;
+  color: #fff !important;
+  padding: 1rem 2rem !important;
+  border-radius: 2rem !important;
+  font-weight: 500 !important;
+  font-size: 1.1rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.techGrid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 1.5rem !important;
+  justify-content: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.techGrid span {
+  background: #f1f3f9 !important;
+  color: $PRIMARY !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 1.5rem !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+}
+
+.processList {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 2rem !important;
+  justify-content: center !important;
+  list-style: decimal inside !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.processList li {
+  background: #f1f3f9 !important;
+  color: $SECONDARY !important;
+  padding: 1rem 2rem !important;
+  border-radius: 2rem !important;
+  font-weight: 500 !important;
+  font-size: 1.1rem !important;
+}
+
+.ctaSection {
+  background: $PRIMARY_GRADIENT !important;
+  color: #fff !important;
+  text-align: center !important;
+  @include RP(
+    (
+      "padding-top": 64,
+      "padding-bottom": 64,
+    ),
+    1
+  );
+}
+
+.primaryButton {
+  background: #fff !important;
+  color: $PRIMARY !important;
+  border: none !important;
+  border-radius: 2rem !important;
+  @include RP(
+    (
+      "padding": 20,
+      "font-size": 20,
+      "margin-top": 32,
+    ),
+    1
+  );
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  transition: background 0.2s !important;
+}
+
+.primaryButton:hover {
+  background: #f1f3f9 !important;
+}
+
+.sideBySide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  background: #fff;
+
+  @include RP(
+    (
+      "padding-top": 32,
+      "padding-bottom": 32,
+    ),
+    1
+  );
+}
+.sideText {
+  // flex: 1 1 350px;
+  min-width: 280px;
+  h2 {
+    color: $PRIMARY;
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 16,
+      ),
+      1
+    );
+  }
+  p {
+    color: #444;
+    line-height: 1.6;
+    @include RP(
+      (
+        "font-size": 18,
+      ),
+      1
+    );
+  }
+}
+.sideImageWrapper {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sideImage {
+  // box-shadow: 0 8px 32px rgba(15, 118, 178, 0.1);
+  width: 100%;
+  // max-width: 500px;
+  height: auto;
+  transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.4s;
+  &:hover {
+    transform: scale(1.04) rotate(-2deg);
+    // box-shadow: 0 16px 48px rgba(65, 200, 241, 0.18);
+  }
+}
+
+.servicesSection {
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  background: #f6f8fc;
+  h2 {
+    text-align: center;
+    color: $PRIMARY;
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 32,
+      ),
+      1
+    );
+  }
+}
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  @include RP(
+    (
+      "margin-top": 16,
+    ),
+    1
+  );
+}
+.serviceCard {
+  background: linear-gradient(90deg, #41c8f1 0%, #0f76b2 100%);
+  color: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(65, 200, 241, 0.1);
+  @include RP(
+    (
+      "padding": 36,
+    ),
+    1
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  @include RP(
+    (
+      "font-size": 20,
+    ),
+    1
+  );
+  transition: transform 0.15s, box-shadow 0.15s;
+  svg {
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 8,
+      ),
+      1
+    );
+    color: #fff;
+  }
+  &:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 36px rgba(65, 200, 241, 0.18);
+  }
+}
+
+.mapSection {
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  background: #fff;
+  h2 {
+    text-align: center;
+    color: $PRIMARY;
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 32,
+      ),
+      1
+    );
+  }
+}
+.mapWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.dataCenterSvg {
+  max-width: 100%;
+  height: auto;
+  background: #f6f8fc;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  @include RP(
+    (
+      "margin-bottom": 16,
+    ),
+    1
+  );
+}
+.mapLegend {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  span {
+    display: flex;
+    align-items: center;
+    @include RP(
+      (
+        "font-size": 16,
+      ),
+      1
+    );
+    color: #444;
+    .legendBox {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.metricsSection {
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  background: #f6f8fc;
+  h2 {
+    text-align: center;
+    color: $PRIMARY;
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 32,
+      ),
+      1
+    );
+  }
+}
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+.metricCard {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(65, 200, 241, 0.1);
+  @include RP(
+    (
+      "padding": 36,
+    ),
+    1
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  @include RP(
+    (
+      "font-size": 20,
+    ),
+    1
+  );
+  color: $PRIMARY;
+  svg {
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 8,
+      ),
+      1
+    );
+    color: $PRIMARY;
+  }
+}
+
+.expertiseSection {
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  background: #fff;
+  h2 {
+    text-align: center;
+    color: $PRIMARY;
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 32,
+      ),
+      1
+    );
+  }
+}
+.expertiseGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  span {
+    background: linear-gradient(90deg, #41c8f1 0%, #0f76b2 100%);
+    color: #fff;
+    @include RP(
+      (
+        "padding": 12,
+      ),
+      1
+    );
+    border-radius: 1.5rem;
+    font-weight: 600;
+    @include RP(
+      (
+        "font-size": 18,
+      ),
+      1
+    );
+    box-shadow: 0 2px 12px rgba(65, 200, 241, 0.08);
+    letter-spacing: 0.5px;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      background: linear-gradient(90deg, #0f76b2 0%, #41c8f1 100%);
+      box-shadow: 0 6px 24px rgba(15, 118, 178, 0.18);
+      transform: translateY(-2px) scale(1.04);
+    }
+  }
+}
+
+.processSection {
+  @include RP(
+    (
+      "padding-top": 80,
+      "padding-bottom": 80,
+    ),
+    1
+  );
+  background: #f6f8fc;
+  h2 {
+    text-align: center;
+    color: $PRIMARY;
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 32,
+        "margin-bottom": 32,
+      ),
+      1
+    );
+  }
+}
+.processStepper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  list-style: decimal inside;
+  padding: 0;
+  margin: 0;
+  li {
+    background: #fff;
+    color: $SECONDARY;
+    @include RP(
+      (
+        "padding": 24,
+        "min-width": 180,
+      ),
+      1
+    );
+    border-radius: 2rem;
+    font-weight: 500;
+    @include RP(
+      (
+        "font-size": 18,
+      ),
+      1
+    );
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    b {
+      color: $PRIMARY;
+      @include RP(
+        (
+          "margin-bottom": 4,
+        ),
+        1
+      );
+    }
+    span {
+      color: #444;
+      @include RP(
+        (
+          "font-size": 16,
+          "margin-top": 4,
+        ),
+        1
+      );
+    }
+  }
+}
+
+// Modern Side-by-Side Section
+.sideBySideSection {
+  background: #fff;
+  @include RP(
+    (
+      "padding": 64,
+    ),
+    1
+  );
+
+  .customContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      gap: 2rem;
+      @include RP(
+        (
+          "padding": 32,
+        ),
+        1
+      );
+    }
+  }
+}
+.sideTextWrapper {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  // justify-content: fle;
+  gap: 1.5rem;
+}
+.sideImageWrapper {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sideImage {
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.4s;
+  &:hover {
+    transform: scale(1.04) rotate(-2deg);
+  }
+}
+
+// Vertical Stepper for Core Services
+.verticalStepper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 2.5rem 0 0 0;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.stepperItem {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px rgba(65, 200, 241, 0.1), 0 0 0 1.5px #e3eafc;
+  @include RP(
+    (
+      "padding": 24,
+    ),
+    1
+  );
+  transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
+  z-index: 1;
+  &:hover {
+    background: rgba(65, 200, 241, 0.13);
+    box-shadow: 0 12px 36px rgba(65, 200, 241, 0.18), 0 0 0 2px #41c8f1;
+    transform: translateY(-4px) scale(1.035);
+  }
+}
+.stepperIcon {
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f76b2 0%, #41c8f1 100%);
+  color: #fff !important;
+  border-radius: 50%;
+  @include RP(
+    (
+      "font-size": 28,
+    ),
+    1
+  );
+  margin-right: 1.5rem;
+  box-shadow: 0 2px 8px rgba(65, 200, 241, 0.1);
+  border: 2.5px solid #fff;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.stepperContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.stepperContent h4 {
+  color: #0f76b2;
+  @include RP(
+    (
+      "font-size": 24,
+    ),
+    1
+  );
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.5px;
+}
+.stepperContent p {
+  color: #444;
+  @include RP(
+    (
+      "font-size": 16,
+    ),
+    1
+  );
+  margin: 0;
+}
+
+// Facility Highlights (Flow Grid)
+.flowSection {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e3eafc 100%);
+  @include RP(
+    (
+      "padding": 64,
+    ),
+    1
+  );
+}
+.flowGrid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  position: relative;
+}
+.flowStep {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(65, 200, 241, 0.1), 0 0 0 1.5px #e3eafc;
+  @include RP(
+    (
+      "padding": 24,
+    ),
+    1
+  );
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1.5px solid #e3eafc;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+  z-index: 1;
+  &:hover {
+    background: rgba(65, 200, 241, 0.13);
+    box-shadow: 0 12px 36px rgba(65, 200, 241, 0.18), 0 0 0 2px #41c8f1;
+    transform: translateY(-4px) scale(1.045) rotate(-1deg);
+  }
+  h4 {
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 24,
+        "margin-bottom": 12,
+      ),
+      1
+    );
+  }
+  p {
+    @include RP(
+      (
+        "font-size": 16,
+      ),
+      1
+    );
+    color: #444;
+    margin: 0;
+  }
+}
+.flowIcon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #0f76b2 0%, #41c8f1 100%);
+  color: #fff !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include RP(
+    (
+      "font-size": 24,
+    ),
+    1
+  );
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2.5px solid #fff;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.cardStat {
+  color: #41c8f1;
+  font-weight: 700;
+  @include RP(
+    (
+      "font-size": 18,
+      "margin-bottom": 8,
+    ),
+    1
+  );
+}
+
+// Process Grid
+.processGrid {
+  // display: flex;
+  // justify-content: center;
+  // align-items: stretch;
+  gap: 2.5rem;
+  // flex-wrap: wrap;
+  margin-top: 2rem;
+  position: relative;
+}
+.processStep {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(65, 200, 241, 0.1), 0 0 0 1.5px #e3eafc;
+  @include RP(
+    (
+      "padding": 24,
+    ),
+    1
+  );
+  // min-width: 220px;
+  // max-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1.5px solid #e3eafc;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+  z-index: 1;
+  &:hover {
+    background: rgba(65, 200, 241, 0.13);
+    box-shadow: 0 12px 36px rgba(65, 200, 241, 0.18), 0 0 0 2px #41c8f1;
+    transform: translateY(-6px) scale(1.045) rotate(-1deg);
+  }
+  h4 {
+    font-weight: 700;
+    @include RP(
+      (
+        "font-size": 24,
+        "margin-bottom": 12,
+      ),
+      1
+    );
+  }
+  p {
+    @include RP(
+      (
+        "font-size": 16,
+      ),
+      1
+    );
+    color: #444;
+    margin: 0;
+  }
+}
+.processIcon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #0f76b2 0%, #41c8f1 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include RP(
+    (
+      "font-size": 24,
+    ),
+    1
+  );
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 2.5px solid #fff;
+  transition: box-shadow 0.3s, background 0.3s;
+}
+
+// Card Grid for Benefits
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(65, 200, 241, 0.1), 0 0 0 1.5px #e3eafc;
+  @include RP(
+    (
+      "padding": 24,
+    ),
+    1
+  );
+  text-align: left;
+  border: 1.5px solid #e3eafc;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+  h4 {
+    color: #0f76b2;
+    @include RP(
+      (
+        "font-size": 24,
+      ),
+      1
+    );
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.5px;
+  }
+  p {
+    color: #444;
+    @include RP(
+      (
+        "font-size": 18,
+      ),
+      1
+    );
+    margin: 0;
+  }
+  &:hover {
+    background: rgba(65, 200, 241, 0.13);
+    box-shadow: 0 12px 36px rgba(65, 200, 241, 0.18), 0 0 0 2px #41c8f1;
+    transform: translateY(-6px) scale(1.045) rotate(-1deg);
+  }
+}
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
