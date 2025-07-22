@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import classNames from "classnames";
 import "./globals.css";
 import "./styles.scss";
@@ -60,6 +62,22 @@ const redHatDisplay = Red_Hat_Display({
   display: "swap",
   subsets: ["latin"],
 });
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  display: "swap",
+  subsets: ["latin"],
+});
+
+const satoshi = localFont({
+  src: [
+    {
+      path: "./_assets/fonts/Satoshi-Variable.ttf",
+      weight: "700, 600",
+      style: "normal",
+    },
+  ],
+  variable: "--font-satoshi",
+});
 
 export default function RootLayout({
   children,
@@ -67,21 +85,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={classNames(redHatDisplay.variable)}>
+    <html
+      lang="en"
+      className={classNames(
+        redHatDisplay.variable,
+        instrumentSans.variable,
+        satoshi.variable
+      )}
+    >
       <head>
         <link rel="icon" href="/fav.png" />
         <link rel="apple-touch-icon" href="/fav.png" />
-
-        <style>{`
-          /* Hide Tawk.to default launcher and powered by tag */
-          iframe[src*="tawk.to"] ~ div[style*="z-index"] {
-            display: none !important;
-          }
-          /* Hide powered by tawk tag inside iframe (best effort) */
-          iframe[src*="tawk.to"] {
-            pointer-events: none;
-          }
-        `}</style>
 
         {/* Meta Pixel Code */}
         {/* <script
@@ -100,7 +114,7 @@ export default function RootLayout({
             `,
           }}
         /> */}
-        <Script
+        {/* <Script
           id="tawkto-chatbot"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -116,8 +130,8 @@ export default function RootLayout({
               })();
             `,
           }}
-        />
-        <Script
+        /> */}
+        {/* <Script
           id="tawkto-disclaimer"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -155,8 +169,8 @@ export default function RootLayout({
                 }, 2000);
               };
             `,
-          }}
-        />
+          }} */}
+        {/* /> */}
       </head>
 
       <body>
@@ -176,7 +190,7 @@ export default function RootLayout({
             {children}
             {/* <WhatsAppCTA /> */}
             {/* <ScrollToTop /> */}
-            <CustomTawkLauncher />
+            {/* <CustomTawkLauncher /> */}
             <Script
               id="tawkto-hide-default-launcher"
               strategy="afterInteractive"

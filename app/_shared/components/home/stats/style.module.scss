@@ -1,0 +1,24 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  position: relative;
+  z-index: 999 !important;
+  .cardContainer {
+    .cardItem {
+      border: 1px solid $BORDER;
+      @include RP(
+        (
+          padding-top: 32,
+          padding-bottom: 32,
+          padding-left: 16,
+          padding-right: 16,
+          border-radius: 16,
+        )
+      );
+      h2 {
+        color: #e5ebff !important;
+      }
+    }
+  }
+}

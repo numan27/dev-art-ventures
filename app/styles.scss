@@ -6,8 +6,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-red-hat-display) !important;
-  color: $PRIMARY_DARK !important;
+  font-family: var(--font-satoshi) !important;
+  font-weight: 600 !important;
+  color: $WHITE !important;
 
   span {
     color: $PRIMARY !important;
@@ -17,7 +18,7 @@ h6 {
 h1 {
   @include RP(
     (
-      "font-size": 52,
+      "font-size": 60,
       "line-height": 60,
     ),
     1
@@ -115,12 +116,12 @@ h6 {
 }
 
 p {
-  font-weight: 500;
+  font-weight: 400;
   text-wrap: balance;
-  color: #1a1a1a !important;
+  color: rgba($color: #fff, $alpha: 0.6) !important;
   @include RP(
     (
-      "font-size": 16,
+      "font-size": 14,
     ),
     1
   );
@@ -315,4 +316,13 @@ input:-webkit-autofill:focus {
 
 .swiper-pagination-bullet-active {
   background: $PRIMARY !important;
+}
+
+.secondary-button {
+  border-color: $SECONDARY_BUTTON !important;
+  background: radial-gradient(
+    circle at 70% 40%,
+    rgba(42, 59, 143, 0.25) 0%,
+    #101636 80%
+  ) !important;
 }

@@ -18,80 +18,6 @@ import {
 const Footer = () => {
   const { width } = useWindowDimensions();
 
-  const footerLinks = [
-    {
-      heading: "Company",
-      links: [
-        {
-          title: routeConstant.aboutUs.title,
-          path: routeConstant.aboutUs.path,
-        },
-        {
-          title: routeConstant.services.title,
-          path: routeConstant.services.path,
-        },
-        {
-          title: routeConstant.contact.title,
-          path: routeConstant.contact.path,
-        },
-        {
-          title: routeConstant.careers.title,
-          path: routeConstant.careers.path,
-        },
-        {
-          title: routeConstant.portfolio.title,
-          path: routeConstant.portfolio.path,
-        },
-      ],
-    },
-    {
-      heading: "IT & Network",
-      links: [
-        {
-          title: routeConstant.services.managedIT.title,
-          path: routeConstant.services.managedIT.path,
-        },
-        {
-          title: routeConstant.services.itSupport.title,
-          path: routeConstant.services.itSupport.path,
-        },
-        {
-          title: routeConstant.services.itBusinessConsulting.title,
-          path: routeConstant.services.itBusinessConsulting.path,
-        },
-        {
-          title: routeConstant.services.cyberSecurity.title,
-          path: routeConstant.services.cyberSecurity.path,
-        },
-        {
-          title: routeConstant.services.networkInfrastructure.title,
-          path: routeConstant.services.networkInfrastructure.path,
-        },
-        {
-          title: routeConstant.services.dataCenter.title,
-          path: routeConstant.services.dataCenter.path,
-        },
-      ],
-    },
-    {
-      heading: "Web & Creative",
-      links: [
-        {
-          title: routeConstant.services.webDevelopment.title,
-          path: routeConstant.services.webDevelopment.path,
-        },
-        {
-          title: routeConstant.services.creative.title,
-          path: routeConstant.services.creative.path,
-        },
-        {
-          title: routeConstant.services.seoDigitalMarketing.title,
-          path: routeConstant.services.seoDigitalMarketing.path,
-        },
-      ],
-    },
-  ];
-
   const socialLinks = [
     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
@@ -141,22 +67,7 @@ const Footer = () => {
               "lg:col-span-5 md:col-span-6 col-span-12"
             )}
           >
-            <div className="grid grid-cols-3 gap-8">
-              {footerLinks.map((items, index) => (
-                <div key={index} className="flex flex-col">
-                  <h2 className={classNames(styles.menuHeading)}>
-                    {items.heading}
-                  </h2>
-                  <ul className={classNames(styles.menus)}>
-                    {items.links.map((link, linkIndex) => (
-                      <li key={linkIndex}>
-                        <Link href={link.path || "#"}>{link.title}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <div className="grid grid-cols-3 gap-8"></div>
           </div>
 
           {/* Social Links */}
@@ -259,7 +170,7 @@ const Footer = () => {
               <Link href={routeConstant.privacyPolicy.path}>
                 Privacy Policy
               </Link>
-              <Link href={routeConstant.cookiePolicy.path}>Cookie Policy</Link>
+              <Link href="">Cookie Policy</Link>
             </div>
           </div>
         </div>
