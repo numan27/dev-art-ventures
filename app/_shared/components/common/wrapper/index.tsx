@@ -6,7 +6,7 @@ import Header from "../header";
 import Topbar from "../topbar";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import Footer from "../footer";
+// import Footer from "../footer";
 import { useTranslationContext } from "_shared/context/TranslationContext";
 
 interface WrapperProps {
@@ -33,11 +33,11 @@ const Wrapper = ({ children, isLandingPage = false }: WrapperProps) => {
   return (
     <>
       <Topbar />
-      <Header isLandingPage={isLandingPage} />
+      <Header />
       <main ref={mainRef} className={classNames(styles.main)}>
         {children}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { useEffect } from "react";
 import AOS from "aos";
-import Footer from "../common/footer";
+// import Footer from "../common/footer";
 import HeroBanner from "./heroBanner";
 import Stats from "./stats";
 
