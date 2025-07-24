@@ -2,125 +2,133 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import { nav_items } from "./constant";
 import classNames from "classnames";
-import dynamic from "next/dynamic";
 import CustomButton from "../customButton";
-import { routeConstant } from "routes/constants";
 import { useRouter } from "next13-progressbar";
 
 interface HeaderProps {
-  // scrollToSection: (val: string) => void;
-  // isBannerVisible: boolean;
+  // scrollToSection?: (val: string) => void;
+  // isBannerVisible?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = (
-  {
-    // scrollToSection,
-    // isBannerVisible,
-  }
-) => {
+const Header: React.FC<HeaderProps> = () => {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
 
+  // Handle responsive behavior
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => setIsMobile(window.innerWidth < 990);
-      handleResize(); // Set the initial state
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
+    const handleResize = () => setIsMobile(window.innerWidth < 990);
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      headerRef.current &&
-      !headerRef.current.contains(event.target as Node)
-    ) {
-      setIsMobileMenuOpen(false);
-    }
-  };
-
+  // Handle click outside to close mobile menu
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        headerRef.current &&
+        !headerRef.current.contains(event.target as Node)
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // const handleNavigateAuth = () => {
-  //   router.push(routeConstant.signUp.path);
-  // };
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
+
+  const handleNavigateAuth = () => {
+    // router.push(routeConstant.signUp.path);
+    console.log("Navigate to auth");
+  };
+
+  const handleNavItemClick = (sectionRefKey: string) => {
+    // scrollToSection?.(sectionRefKey);
+    console.log("Navigate to section:", sectionRefKey);
+    if (isMobile) {
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
-    <header
-      className={
-        (styles.mainContainer,
-        "fixed xxl:top-16 xl:top:12 lg:top-10 top-8 left-0 right-0")
-      }
-      ref={headerRef}
-    >
-      <div
-        className={classNames(styles.blurBackground, styles.customContainer)}
-        // style={!isBannerVisible ? { background: "#0b000040" } : {}}
-      >
-        <nav className={classNames(styles.contentContainer, "w-full")}>
-          <div className="flex flex-wrap justify-between items-center w-full h-full">
-            <div className="flex items-center gap-6">
-              <div className={classNames(styles.logoContainer)}>
-                <a
-                  href="https://google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3"
-                >
-                  <Image src={Images.Logo} className={styles.logo} alt="Logo" />
-                  <span>DevArtVentures</span>
-                </a>
-              </div>
+    <header className={styles.mainContainer} ref={headerRef}>
+      <div className={styles.customContainer}>
+        <div className={styles.contentContainer}>
+          <div className={styles.blurBackground}>
+            {/* Logo Section */}
+            <div className={styles.logoContainer}>
+              <a
+                href="/"
+                className="flex items-center gap-3"
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push("/");
+                }}
+              >
+                <Image src={Images.Logo} className={styles.logo} alt="Logo" />
+                <span>DevArtVentures</span>
+              </a>
             </div>
 
-            <div className="flex items-center h-full gap-4">
+            <div className="flex items-center gap-5">
+              {/* Desktop Navigation */}
+              <div>
+                {!isMobile && (
+                  <nav className={styles.desktopNav}>
+                    <ul
+                      className={classNames(
+                        styles.navList,
+                        "flex items-center gap-2"
+                      )}
+                    >
+                      {nav_items.map((item, index) => (
+                        <li key={index}>
+                          <button
+                            onClick={() =>
+                              handleNavItemClick(item.sectionRefKey)
+                            }
+                            className={styles.navItem}
+                          >
+                            <span className={styles.navlabels}>
+                              {item.label}
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                )}
+              </div>
+
+              {/* CTA Button - Desktop Only */}
               {!isMobile && (
-                <div
-                  className={classNames(
-                    "transition-all duration-300 ease-in-out overflow-hidden w-full lg:flex lg:max-h-full lg:opacity-100 items-center",
-                    "lg:w-auto max-h-0 opacity-0"
-                  )}
-                >
-                  <ul className="flex flex-row gap-6">
-                    {nav_items.map((item, index) => (
-                      <li key={index}>
-                        <a
-                          // onClick={() => scrollToSection(item.sectionRefKey)}
-                          className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
-                          aria-current="page"
-                        >
-                          <label className={styles.navlabels}>
-                            {item.label}
-                          </label>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                <div className={styles.ctaSection}>
+                  <CustomButton
+                    title="Book Call"
+                    onClick={handleNavigateAuth}
+                  />
                 </div>
               )}
-              <CustomButton
-                title="Book Call"
-                // onClick={handleNavigateAuth}
-                containerStyle={classNames(styles.joinUsBtn, "ml-2")}
-              />
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            {isMobile && (
               <button
                 onClick={toggleMobileMenu}
                 type="button"
-                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none dark:text-gray-400 dark:hover:bg-gray-700"
+                className={styles.mobileMenuToggle}
+                aria-label="Toggle mobile menu"
               >
                 {isMobileMenuOpen ? (
                   <svg
-                    className="w-6 h-6 pointer-events-none"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -133,7 +141,7 @@ const Header: React.FC<HeaderProps> = (
                   </svg>
                 ) : (
                   <svg
-                    className="w-6 h-6 pointer-events-none"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
@@ -146,37 +154,43 @@ const Header: React.FC<HeaderProps> = (
                   </svg>
                 )}
               </button>
-            </div>
+            )}
+          </div>
 
-            {/* Mobile Menu */}
-            {isMobile && (
-              <div
-                className={classNames(
-                  "transition-all duration-300 ease-in-out overflow-hidden lg:flex lg:max-h-full lg:opacity-100 items-center w-full lg:w-auto lg:order-1",
-                  isMobileMenuOpen
-                    ? "max-h-96 opacity-100"
-                    : "max-h-0 opacity-0"
-                )}
-              >
-                <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          {/* Mobile Menu */}
+          {isMobile && (
+            <div
+              className={classNames(
+                styles.mobileMenu,
+                isMobileMenuOpen && styles.mobileMenuOpen
+              )}
+            >
+              <nav className={styles.mobileNav}>
+                <ul className={styles.mobileNavList}>
                   {nav_items.map((item, index) => (
-                    <li
-                      key={index}
-                      // onClick={() => scrollToSection(item.sectionRefKey)}
-                    >
-                      <a
-                        className="flex py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
-                        aria-current="page"
+                    <li key={index}>
+                      <button
+                        onClick={() => handleNavItemClick(item.sectionRefKey)}
+                        className={styles.mobileNavItem}
                       >
-                        <label className={styles.navlabels}>{item.label}</label>
-                      </a>
+                        <span className={styles.navlabels}>{item.label}</span>
+                      </button>
                     </li>
                   ))}
                 </ul>
-              </div>
-            )}
-          </div>
-        </nav>
+
+                {/* CTA Button - Mobile Only */}
+                <div className={styles.mobileCtaSection}>
+                  <CustomButton
+                    title="Book Call"
+                    onClick={handleNavigateAuth}
+                    containerStyle={styles.mobileCtaButton}
+                  />
+                </div>
+              </nav>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

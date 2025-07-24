@@ -2,19 +2,18 @@
 
 import { useEffect, useRef } from "react";
 import AOS from "aos";
-import Header from "../header";
-import Topbar from "../topbar";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 // import Footer from "../footer";
 import { useTranslationContext } from "_shared/context/TranslationContext";
+// import Header from "../header";
 
 interface WrapperProps {
   children: React.ReactNode;
   isLandingPage?: boolean;
 }
 
-const Wrapper = ({ children, isLandingPage = false }: WrapperProps) => {
+const Wrapper = ({ children }: WrapperProps) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -32,8 +31,7 @@ const Wrapper = ({ children, isLandingPage = false }: WrapperProps) => {
 
   return (
     <>
-      <Topbar />
-      <Header />
+      {/* <Header /> */}
       <main ref={mainRef} className={classNames(styles.main)}>
         {children}
       </main>

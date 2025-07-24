@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
 import { Instrument_Sans } from "next/font/google";
+import { Rethink_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import classNames from "classnames";
 import "./globals.css";
@@ -62,6 +63,13 @@ const redHatDisplay = Red_Hat_Display({
   display: "swap",
   subsets: ["latin"],
 });
+
+const rethinkSans = Rethink_Sans({
+  variable: "--font-rethink-sans",
+  display: "swap",
+  subsets: ["latin"],
+});
+
 const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
   display: "swap",
@@ -90,7 +98,8 @@ export default function RootLayout({
       className={classNames(
         redHatDisplay.variable,
         instrumentSans.variable,
-        satoshi.variable
+        satoshi.variable,
+        rethinkSans.variable
       )}
     >
       <head>

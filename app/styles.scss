@@ -1,7 +1,6 @@
 @import "utils/responsive.module.scss";
 
 h1,
-h2,
 h3,
 h4,
 h5,
@@ -46,9 +45,10 @@ h1 {
 }
 
 h2 {
+  font-family: var(--font-rethink-sans) !important;
   @include RP(
     (
-      "font-size": 48,
+      "font-size": 42,
       "line-height": 48,
     ),
     1

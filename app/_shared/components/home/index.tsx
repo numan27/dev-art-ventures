@@ -4,9 +4,11 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { useEffect } from "react";
 import AOS from "aos";
-// import Footer from "../common/footer";
 import HeroBanner from "./heroBanner";
-import Stats from "./stats";
+import Mission from "./mission";
+import Services from "./services";
+import Testimonials from "./testimonials";
+import Features from "./features";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -52,8 +54,11 @@ const LandingPage = () => {
     <>
       <div className={classNames(styles.homeWrapper, "min-h-screen")}>
         <HeroBanner />
+        <Mission />
+        <Services />
+        <Testimonials />
+        <Features />
       </div>
-      {/* <Footer /> */}
     </>
   );
 };

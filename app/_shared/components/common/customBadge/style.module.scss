@@ -4,6 +4,7 @@
 .badge_container {
   border: 1px solid $BORDER;
   border-radius: 30px;
+  font-family: var(--font-rethink-sans) !important;
   // background-color: #ed1c240f;
   display: flex;
   align-items: center;
@@ -20,7 +21,7 @@
   width: fit-content;
 
   .badge_title {
-    color: rgba($color: #fff, $alpha: 0.6) !important;
+    color: rgba($color: #fff, $alpha: 0.9) !important;
     font-size: 12px;
     font-weight: 500;
     margin: 0;

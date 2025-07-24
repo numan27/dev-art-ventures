@@ -23,40 +23,49 @@ const socialIcons = [
 const BrandSlider = () => {
   return (
     <section className={classNames(styles.brands__section)}>
-      <div className={styles.brands__fadeOverlay} />
-      <div className={classNames(styles.brands__sectionContent)}>
-        <div data-aos="fade-up" className={classNames(styles.loopSlider)}>
-          <div className={classNames(styles.inner, "flex items-center gap-2")}>
-            {/* Render the PNGs once */}
-            {socialIcons.map((icon, index) => (
-              <span
-                key={`original-${index}`}
-                className={styles.techIconWrapper}
-              >
-                <img
-                  src={icon}
-                  alt={`Social brand ${index + 1}`}
-                  width={64}
-                  height={64}
-                  style={{ objectFit: "contain" }}
-                />
-              </span>
-            ))}
-            {/* Render the PNGs again for seamless looping */}
-            {socialIcons.map((icon, index) => (
-              <span
-                key={`duplicate-${index}`}
-                className={styles.techIconWrapper}
-              >
-                <img
-                  src={icon}
-                  alt={`Social brand ${index + 1}`}
-                  width={64}
-                  height={64}
-                  style={{ objectFit: "contain" }}
-                />
-              </span>
-            ))}
+      <div className={styles.brands__container}>
+        <div className={styles.brands__fadeOverlay} />
+        <div
+          className={classNames(
+            styles.brands__sectionContent,
+            styles.customContainer
+          )}
+        >
+          <div data-aos="fade-up" className={classNames(styles.loopSlider)}>
+            <div
+              className={classNames(styles.inner, "flex items-center gap-2")}
+            >
+              {/* Render the PNGs three times for seamless looping */}
+              {socialIcons.map((icon, index) => (
+                <span
+                  key={`original-${index}`}
+                  className={styles.techIconWrapper}
+                >
+                  <img
+                    src={icon}
+                    alt={`Social brand ${index + 1}`}
+                    width={200}
+                    height={200}
+                    style={{ objectFit: "contain" }}
+                  />
+                </span>
+              ))}
+              {/* Second set for seamless looping */}
+              {socialIcons.map((icon, index) => (
+                <span
+                  key={`duplicate-${index}`}
+                  className={styles.techIconWrapper}
+                >
+                  <img
+                    src={icon}
+                    alt={`Social brand ${index + 1}`}
+                    width={200}
+                    height={200}
+                    style={{ objectFit: "contain" }}
+                  />
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

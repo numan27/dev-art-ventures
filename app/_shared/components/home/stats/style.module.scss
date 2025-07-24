@@ -2,22 +2,32 @@
 @import "utils/colors.scss";
 
 .sectionWrapper {
-  position: relative;
-  z-index: 999 !important;
+  z-index: 1 !important;
+  width: 100%;
+  height: 100%;
+  background-image: url("/app/_assets/images/stat-back-light.png"),
+    url("/app/_assets/images/stat-grid.png");
+  background-repeat: no-repeat, repeat;
+  background-position: center center, center center;
+  background-size: contain, auto;
   .cardContainer {
     .cardItem {
       border: 1px solid $BORDER;
+      background-color: rgba(255, 255, 255, 0.04);
       @include RP(
         (
-          padding-top: 32,
-          padding-bottom: 32,
-          padding-left: 16,
-          padding-right: 16,
-          border-radius: 16,
+          "padding-top": 32,
+          "padding-bottom": 32,
+          "padding-left": 16,
+          "padding-right": 16,
+          "border-radius": 16,
         )
       );
       h2 {
         color: #e5ebff !important;
+      }
+      h5 {
+        color: #a7adbe !important;
       }
     }
   }

@@ -15,10 +15,18 @@ const Stats = () => {
     <div className={classNames(styles.sectionWrapper, "")}>
       <div className={classNames(styles.customContainer)}>
         <div
-          className={classNames(styles.cardContainer, "grid grid-cols-4 gap-4")}
+          className={classNames(
+            styles.cardContainer,
+            "grid grid-cols-4 gap-4 bg-transparent"
+          )}
         >
           {statsData.map((stat) => (
-            <div className={classNames(styles.cardItem)}>
+            <div
+              className={classNames(
+                styles.cardItem,
+                "flex flex-col items-center justify-center gap-3"
+              )}
+            >
               <h2>{stat.value}</h2>
               <h5>{stat.label}</h5>
             </div>

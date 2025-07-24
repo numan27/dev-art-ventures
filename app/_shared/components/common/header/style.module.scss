@@ -3,19 +3,30 @@
 
 .mainContainer {
   position: fixed;
-  z-index: 999999;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999999 !important;
   width: 100%;
-
-  // filter: blur(1.5rem);
+  @include RP(
+    (
+      "padding-top": 50,
+    ),
+    1
+  );
 }
+
 .contentContainer {
   border: 1px solid $BORDER !important;
+  z-index: 9999999 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   border-radius: 100px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  width: 100%;
   @include RP(
     (
       "height": 65,
-      "padding-right": 11,
-      "padding-left": 24,
     ),
     1
   );
@@ -23,31 +34,31 @@
 
 .blurBackground {
   position: relative;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   color: #fff;
   text-align: center;
   overflow: hidden;
   margin: 0 auto;
   align-items: center;
   display: flex;
-  border-radius: 8px;
+  border-radius: 100px;
   justify-content: space-between;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  height: 100% !important;
+  @include RP(
+    (
+      "padding-left": 24,
+      "padding-right": 11,
+    )
+  );
 }
 
-.blurBackground::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgb(0 0 0 / 8%);
-  // background: rgba(0, 0, 0, 0.5);
-  filter: blur(5px);
-  z-index: -1;
-  backdrop-filter: blur(10px);
-}
+// Logo container
 .logoContainer {
+  display: flex;
+  align-items: center;
+
   span {
     transition: all 0.2s ease-in-out !important;
     color: rgba($color: #fff, $alpha: 0.8);
@@ -57,13 +68,23 @@
       )
     );
   }
+
   &:hover {
     span {
       color: #fff !important;
     }
   }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
+// Logo image
 .logo {
   @include RP(
     (
@@ -73,6 +94,38 @@
   );
 }
 
+// Desktop navigation
+.desktopNav {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 990px) {
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+// Navigation labels
 .navlabels {
   cursor: pointer;
   color: rgba($color: #fff, $alpha: 0.8) !important;
@@ -84,41 +137,109 @@
       "line-height": 24,
     )
   );
+
   &:hover {
     color: rgba($color: #fff, $alpha: 1) !important;
   }
 }
 
-// .joinUsBtn {
-//   background-color: rgba(var(--primary-color), 1);
-//   border: 1px solid transparent;
-//   border-radius: 6px;
-//   font-family: "Red Hat Display" !important;
-//   font-weight: 400 !important;
-//   display: flex;
-//   gap: 8px;
+// CTA section - Desktop only
+.ctaSection {
+  display: flex;
+  align-items: center;
 
-//   @include RP(
-//     (
-//       "font-size": 16,
-//       "line-height": 24,
-//     )
-//   );
-// }
+  @media (max-width: 990px) {
+    display: none;
+  }
+}
 
-@media screen and (max-width: 600px) {
-  .mainContainer {
-    padding-left: 20px;
-    padding-right: 20px;
+// Mobile CTA section
+.mobileCtaSection {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileCtaButton {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+// Mobile menu toggle
+.mobileMenuToggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
   }
 
-  .getAppbtn {
-    padding: 10px;
-    @include RP(
-      (
-        "font-size": 14,
-        "line-height": 21,
-      )
-    );
+  @media (max-width: 990px) {
+    display: flex;
+  }
+}
+
+// Mobile menu
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 9999999;
+
+  &.mobileMenuOpen {
+    max-height: 300px;
+    opacity: 1;
+  }
+}
+
+.mobileNav {
+  padding: 1rem;
+}
+
+.mobileNavList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobileNavItem {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+  width: 100%;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
   }
 }

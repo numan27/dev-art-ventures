@@ -1,0 +1,170 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  z-index: 100 !important;
+  @include RP(
+    (
+      "padding-top": 15,
+      "padding-bottom": 15,
+      "margin-top": 100,
+      "margin-bottom": 60,
+    ),
+    1
+  );
+  width: 100%;
+  height: 100%;
+
+  .sectionContainer {
+    background-image: url("../../../../_assets/images/service-section-bg.png");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    @include RP(
+      (
+        "border-radius": 20,
+        "height": 300,
+      )
+    );
+    p {
+      color: #6d7792 !important;
+      @include RP(
+        (
+          "font-size": 18,
+          "line-height": 26,
+        ),
+        1
+      );
+    }
+
+    .particlesContainer {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+  }
+
+  .servicesContainer {
+    .serviceItem {
+      background-color: #00041f !important;
+      background-image: url("../../../../_assets/images/service-card-bg.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top right;
+      border: 1px solid #131839;
+      @include RP(
+        (
+          "border-radius": 20,
+          "padding": 30,
+          "height": 420,
+        )
+      );
+      .content {
+        @include RP(
+          (
+            "padding-right": 30,
+          ),
+          1
+        );
+        .iconContainer {
+          @include RP(
+            (
+              "width": 52,
+              "height": 52,
+            )
+          );
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        h3 {
+          @include RP(
+            (
+              "font-size": 36,
+              "line-height": 44,
+            )
+          );
+          color: $WHITE;
+        }
+        p {
+          letter-spacing: 0.5px;
+          @include RP(
+            (
+              "font-size": 18,
+              "line-height": 26,
+            ),
+            1
+          );
+          color: #a7adbe;
+        }
+        button {
+          @include RP(
+            (
+              "padding-left": 16,
+              "padding-right": 16,
+            ),
+            1
+          );
+          svg {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      .videoContainer {
+        overflow: hidden;
+        @include RP(
+          (
+            "border-radius": 20,
+          ),
+          1
+        );
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          max-height: 420px;
+          @include RP(
+            (
+              "border-radius": 20,
+            ),
+            1
+          );
+        }
+      }
+    }
+  }
+
+  .missionText {
+    h2 {
+      // max-width: 70%;
+      @include RP(
+        (
+          "font-size": 58,
+          "line-height": 68,
+        ),
+        1
+      );
+      color: $WHITE;
+    }
+    p {
+      max-width: 90%;
+      @include RP(
+        (
+          "font-size": 20,
+          "line-height": 28,
+          "margin-top": 16,
+        ),
+        1
+      );
+      color: $DESC;
+    }
+  }
+}
