@@ -4,11 +4,11 @@ import classNames from "classnames";
 import SectionHeading from "components/common/sectionHeading";
 
 export const metadata: Metadata = {
-  title: "Core IT Ventures | Policies",
+  title: "DevArt Ventures | Policies",
   description:
-    "Learn about Core IT Ventures policies, terms of service, privacy policy, and other important legal information.",
+    "Learn about DevArt Ventures policies, terms of service, privacy policy, and other important legal information.",
   alternates: {
-    canonical: "https://coreitventures.com/policies",
+    canonical: "https://devartventures.com/policies",
   },
 };
 

@@ -19,42 +19,42 @@ import { ThemeProvider } from "./_shared/context/ThemeContext";
 import "./_shared/styles/theme.scss";
 import Script from "next/script";
 import CustomTawkLauncher from "./_shared/components/common/customTawkLauncher/CustomTawkLauncher";
-
+import { Images } from "./_assets/images";
 export const metadata: Metadata = {
-  title: "Core IT Ventures",
+  title: "DevArt Ventures",
   description:
-    "Core IT Ventures is a software development company that provides software development services to businesses.",
+    "DevArt Ventures is a software development company that provides software development services to businesses.",
   keywords:
-    "Core IT Ventures, software development, software development services, software development company, software development agency, software development solutions, software development solutions company, software development solutions agency, software development solutions services, software development solutions company, software development solutions agency, software development solutions services",
+    "DevArt Ventures, software development, software development services, software development company, software development agency, software development solutions, software development solutions company, software development solutions agency, software development solutions services, software development solutions company, software development solutions agency, software development solutions services",
   openGraph: {
-    title: "Core IT Ventures",
+    title: "DevArt Ventures",
     description:
-      "Core IT Ventures is a software development company that provides software development services to businesses.",
+      "DevArt Ventures is a software development company that provides software development services to businesses.",
     url: "https://noyr.store",
     siteName: "Noyr Store",
     images: [
       {
-        url: "/og-image.jpg",
+        url: Images.Logo.src,
         width: 1200,
         height: 630,
-        alt: "Core IT Ventures - Software Development Company",
+        alt: "DevArt Ventures - Software Development Company",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Core IT Ventures - Software Development Company",
+    title: "DevArt Ventures - Software Development Company",
     description:
-      "Core IT Ventures is a software development company that provides software development services to businesses.",
-    images: ["/og-image.jpg"],
+      "DevArt Ventures is a software development company that provides software development services to businesses.",
+    images: [Images.Logo.src],
   },
   robots: {
     index: true,
     follow: true,
   },
   alternates: {
-    canonical: "https://coreitventures.com",
+    canonical: "https://devartventures.com",
   },
 };
 
@@ -103,8 +103,8 @@ export default function RootLayout({
       )}
     >
       <head>
-        <link rel="icon" href="/fav.png" />
-        <link rel="apple-touch-icon" href="/fav.png" />
+        <link rel="icon" href={Images.Logo.src} />
+        <link rel="apple-touch-icon" href={Images.Logo.src} />
 
         {/* Meta Pixel Code */}
         {/* <script
