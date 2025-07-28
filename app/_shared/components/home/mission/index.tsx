@@ -21,7 +21,7 @@ const Mission = () => {
           <div
             className={classNames(
               styles.missionText,
-              "flex flex-col gap-4 justify-center items-center text-center relative z-10"
+              "flex flex-col md:gap-4 sm:gap-3 gap-2 justify-center items-center text-center relative z-10"
             )}
           >
             <h2>

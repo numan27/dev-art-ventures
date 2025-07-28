@@ -2,7 +2,7 @@
 @import "utils/colors.scss";
 
 .sectionWrapper {
-  z-index: 100 !important;
+  z-index: 9999 !important;
   @include RP(
     (
       "padding-top": 15,
@@ -14,6 +14,14 @@
   );
   width: 100%;
   height: 100%;
+  @media screen and (max-width: 510px) {
+    @include RP(
+      (
+        "margin-top": 50,
+      ),
+      1
+    );
+  }
 
   .sectionContainer {
     background-image: url("../../../../_assets/images/testimonials-section-bg.png");
@@ -64,12 +72,12 @@
     z-index: 1;
 
     @media screen and (max-width: 768px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 15px;
     }
 
-    @media screen and (min-width: 769px) and (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
+    @media screen and (max-width: 510px) {
+      grid-template-columns: 1fr;
       gap: 15px;
     }
   }
@@ -78,6 +86,7 @@
     height: 100%;
     overflow: hidden;
     position: relative;
+    z-index: 1;
 
     @media screen and (max-width: 768px) {
       animation: none !important;
@@ -97,17 +106,17 @@
   .slideUp {
     animation: slideUp 30s linear infinite;
 
-    @media screen and (max-width: 768px) {
-      animation: none;
-    }
+    // @media screen and (max-width: 768px) {
+    //   animation: none;
+    // }
   }
 
   .slideDown {
     animation: slideDown 30s linear infinite;
 
-    @media screen and (max-width: 768px) {
-      animation: none;
-    }
+    // @media screen and (max-width: 768px) {
+    //   animation: none;
+    // }
   }
 
   @keyframes slideUp {
@@ -185,13 +194,16 @@
       (
         "padding": 30,
         "border-radius": 20,
-      )
+        "min-height": 200,
+      ),
+      1
     );
-    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 
     &:hover {
       transform: translateY(-5px);
@@ -199,9 +211,8 @@
       border-color: #2a3a6a;
     }
 
-    @media screen and (max-width: 768px) {
-      min-height: 180px;
-      padding: 20px;
+    @media screen and (max-width: 991px) {
+      z-index: 3;
     }
 
     img {
@@ -214,11 +225,6 @@
       );
       border-radius: 50%;
       object-fit: cover;
-
-      @media screen and (max-width: 768px) {
-        width: 45px;
-        height: 45px;
-      }
     }
     h5 {
       @include RP(
@@ -230,11 +236,6 @@
       );
       color: $WHITE;
       font-weight: 600;
-
-      @media screen and (max-width: 768px) {
-        font-size: 16px;
-        line-height: 22px;
-      }
     }
     p {
       color: $DESC;
@@ -245,16 +246,12 @@
         ),
         1
       );
-
-      @media screen and (max-width: 768px) {
-        font-size: 14px;
-        line-height: 20px;
-      }
     }
     .testimonialText {
       margin-top: 8px;
       p {
         font-weight: 500;
+        text-align: left;
         @include RP(
           (
             "font-size": 16,
@@ -265,8 +262,7 @@
         color: $WHITE !important;
 
         @media screen and (max-width: 768px) {
-          font-size: 14px;
-          line-height: 22px;
+          margin-top: 0px;
         }
       }
     }
@@ -282,6 +278,15 @@
         1
       );
       color: $WHITE;
+      @media screen and (max-width: 640px) {
+        @include RP(
+          (
+            "font-size": 40,
+            "line-height": 50,
+          ),
+          1
+        );
+      }
     }
     p {
       max-width: 90%;
@@ -293,6 +298,10 @@
         ),
         1
       );
+      @media screen and (max-width: 640px) {
+        max-width: 100% !important;
+        margin-top: 0px !important;
+      }
       color: $DESC;
     }
   }

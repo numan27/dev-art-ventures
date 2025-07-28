@@ -97,13 +97,13 @@ const Mission = () => {
               key={service.id}
               className={classNames(
                 styles.serviceItem,
-                "grid grid-cols-2 lg:gap-10 md:gap-8 sm:gap-6 gap-5"
+                "grid lg:grid-cols-2 grid-cols-1 lg:gap-10 md:gap-8 sm:gap-6 gap-5"
               )}
             >
               <div
                 className={classNames(
                   styles.content,
-                  "flex flex-col justify-between items-start gap-4",
+                  "flex flex-col justify-between items-start lg:gap-4 gap-3",
                   index % 2 === 1 ? "order-2" : "order-1"
                 )}
               >

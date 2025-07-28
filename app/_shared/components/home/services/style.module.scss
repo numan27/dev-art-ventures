@@ -12,6 +12,15 @@
     ),
     1
   );
+  @media screen and (max-width: 510px) {
+    margin-bottom: 0px !important;
+    @include RP(
+      (
+        "margin-top": 40,
+      ),
+      1
+    );
+  }
   width: 100%;
   height: 100%;
 
@@ -25,8 +34,18 @@
       (
         "border-radius": 20,
         "height": 300,
-      )
+      ),
+      1
     );
+    @media screen and (max-width: 768px) {
+      height: auto !important;
+      @include RP(
+        (
+          "margin-bottom": 50,
+        ),
+        1
+      );
+    }
     p {
       color: #6d7792 !important;
       @include RP(
@@ -62,9 +81,12 @@
         (
           "border-radius": 20,
           "padding": 30,
-          "height": 420,
+          "height": 480,
         )
       );
+      @media screen and (max-width: 991px) {
+        height: auto !important;
+      }
       .content {
         @include RP(
           (
@@ -72,6 +94,9 @@
           ),
           1
         );
+        @media screen and (max-width: 640px) {
+          padding-right: 0 !important;
+        }
         .iconContainer {
           @include RP(
             (
@@ -95,6 +120,7 @@
           color: $WHITE;
         }
         p {
+          text-align: left;
           letter-spacing: 0.5px;
           @include RP(
             (
@@ -119,18 +145,26 @@
         }
       }
       .videoContainer {
-        overflow: hidden;
+        overflow: hidden !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include RP(
           (
             "border-radius": 20,
+            "height": 420,
           ),
           1
         );
+        @media screen and (max-width: 640px) {
+          height: auto !important;
+          max-height: 300px !important;
+        }
+
         video {
           width: 100%;
-          height: 100%;
+          height: 100% !important;
           object-fit: cover;
-          max-height: 420px;
           @include RP(
             (
               "border-radius": 20,
@@ -144,7 +178,6 @@
 
   .missionText {
     h2 {
-      // max-width: 70%;
       @include RP(
         (
           "font-size": 58,
@@ -153,6 +186,15 @@
         1
       );
       color: $WHITE;
+      @media screen and (max-width: 640px) {
+        @include RP(
+          (
+            "font-size": 40,
+            "line-height": 50,
+          ),
+          1
+        );
+      }
     }
     p {
       max-width: 90%;
@@ -164,6 +206,10 @@
         ),
         1
       );
+      @media screen and (max-width: 640px) {
+        max-width: 100% !important;
+        margin-top: 0px !important;
+      }
       color: $DESC;
     }
   }

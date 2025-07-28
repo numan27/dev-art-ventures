@@ -58,6 +58,16 @@
         1
       );
       color: $WHITE;
+      @media screen and (max-width: 768px) {
+        max-width: 100% !important;
+        @include RP(
+          (
+            "font-size": 40,
+            "line-height": 50,
+          ),
+          1
+        );
+      }
     }
     p {
       @include RP(

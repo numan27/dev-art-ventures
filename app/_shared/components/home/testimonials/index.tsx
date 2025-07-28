@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
@@ -107,58 +107,235 @@ const testimonialsData = [
 ];
 
 const Testimonials = () => {
-  // Create three columns with different animation directions
-  const createColumn = (columnIndex: number, direction: "up" | "down") => {
-    const itemsPerColumn = Math.ceil(testimonialsData.length / 3);
-    const startIndex = columnIndex * itemsPerColumn;
-    const columnItems = testimonialsData.slice(
-      startIndex,
-      startIndex + itemsPerColumn
-    );
+  const [screenSize, setScreenSize] = useState({
+    width: typeof window !== "undefined" ? window.innerWidth : 1200,
+    height: typeof window !== "undefined" ? window.innerHeight : 800,
+  });
 
-    // Duplicate items for seamless loop
-    const duplicatedItems = [...columnItems, ...columnItems];
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
 
-    return (
-      <div
-        key={columnIndex}
-        className={classNames(
-          styles.column,
-          styles[`column${columnIndex + 1}`]
-        )}
-      >
-        <div
-          className={classNames(
-            styles.columnContent,
-            direction === "up" ? styles.slideUp : styles.slideDown
-          )}
-        >
-          {duplicatedItems.map((testimonial, index) => (
-            <div
-              key={`${testimonial.id}-${index}`}
-              className={styles.testimonialItem}
-            >
-              <div className={classNames("flex items-center gap-4")}>
-                <span className={classNames(styles.testimonialImage)}>
-                  <img src={testimonial.image} alt={testimonial.name} />
-                </span>
-                <div
-                  className={classNames(
-                    styles.testimonialContent,
-                    "flex flex-col gap-1"
-                  )}
-                >
-                  <h5>{testimonial.name}</h5>
-                  <p>{testimonial.title}</p>
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Create responsive columns based on screen size
+  const createResponsiveColumns = () => {
+    // For mobile (below 510px) - 1 column, down animation
+    if (screenSize.width <= 510) {
+      const duplicatedItems = [...testimonialsData, ...testimonialsData];
+      return (
+        <div className={classNames(styles.column, styles.column1)}>
+          <div className={classNames(styles.columnContent, styles.slideDown)}>
+            {duplicatedItems.map((testimonial, index) => (
+              <div
+                key={`${testimonial.id}-${index}`}
+                className={styles.testimonialItem}
+              >
+                <div className={classNames("flex items-center gap-4")}>
+                  <span className={classNames(styles.testimonialImage)}>
+                    <img src={testimonial.image} alt={testimonial.name} />
+                  </span>
+                  <div
+                    className={classNames(
+                      styles.testimonialContent,
+                      "flex flex-col gap-1"
+                    )}
+                  >
+                    <h5>{testimonial.name}</h5>
+                    <p>{testimonial.title}</p>
+                  </div>
+                </div>
+                <div className={classNames(styles.testimonialText)}>
+                  <p>"{testimonial.quote}"</p>
                 </div>
               </div>
-              <div className={classNames(styles.testimonialText)}>
-                <p>"{testimonial.quote}"</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      );
+    }
+
+    // For tablet (768px and below) - 2 columns, 1 up, 1 down
+    if (screenSize.width <= 768) {
+      const itemsPerColumn = Math.ceil(testimonialsData.length / 2);
+      const column1Items = testimonialsData.slice(0, itemsPerColumn);
+      const column2Items = testimonialsData.slice(itemsPerColumn);
+
+      const duplicatedColumn1 = [...column1Items, ...column1Items];
+      const duplicatedColumn2 = [...column2Items, ...column2Items];
+
+      return (
+        <>
+          <div className={classNames(styles.column, styles.column1)}>
+            <div className={classNames(styles.columnContent, styles.slideUp)}>
+              {duplicatedColumn1.map((testimonial, index) => (
+                <div
+                  key={`${testimonial.id}-${index}`}
+                  className={styles.testimonialItem}
+                >
+                  <div className={classNames("flex items-center gap-4")}>
+                    <span className={classNames(styles.testimonialImage)}>
+                      <img src={testimonial.image} alt={testimonial.name} />
+                    </span>
+                    <div
+                      className={classNames(
+                        styles.testimonialContent,
+                        "flex flex-col gap-1"
+                      )}
+                    >
+                      <h5>{testimonial.name}</h5>
+                      <p>{testimonial.title}</p>
+                    </div>
+                  </div>
+                  <div className={classNames(styles.testimonialText)}>
+                    <p>"{testimonial.quote}"</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={classNames(styles.column, styles.column2)}>
+            <div className={classNames(styles.columnContent, styles.slideDown)}>
+              {duplicatedColumn2.map((testimonial, index) => (
+                <div
+                  key={`${testimonial.id}-${index}`}
+                  className={styles.testimonialItem}
+                >
+                  <div
+                    className={classNames(
+                      "flex md:flex-row flex-col md:items-center items-start md:gap-4 gap-2"
+                    )}
+                  >
+                    <span className={classNames(styles.testimonialImage)}>
+                      <img src={testimonial.image} alt={testimonial.name} />
+                    </span>
+                    <div
+                      className={classNames(
+                        styles.testimonialContent,
+                        "flex flex-col gap-1"
+                      )}
+                    >
+                      <h5>{testimonial.name}</h5>
+                      <p>{testimonial.title}</p>
+                    </div>
+                  </div>
+                  <div className={classNames(styles.testimonialText)}>
+                    <p>"{testimonial.quote}"</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      );
+    }
+
+    // For desktop (above 768px) - 3 columns with different animation directions
+    const itemsPerColumn = Math.ceil(testimonialsData.length / 3);
+    const column1Items = testimonialsData.slice(0, itemsPerColumn);
+    const column2Items = testimonialsData.slice(
+      itemsPerColumn,
+      itemsPerColumn * 2
+    );
+    const column3Items = testimonialsData.slice(itemsPerColumn * 2);
+
+    const duplicatedColumn1 = [...column1Items, ...column1Items];
+    const duplicatedColumn2 = [...column2Items, ...column2Items];
+    const duplicatedColumn3 = [...column3Items, ...column3Items];
+
+    return (
+      <>
+        <div className={classNames(styles.column, styles.column1)}>
+          <div className={classNames(styles.columnContent, styles.slideDown)}>
+            {duplicatedColumn1.map((testimonial, index) => (
+              <div
+                key={`${testimonial.id}-${index}`}
+                className={styles.testimonialItem}
+              >
+                <div className={classNames("flex items-center gap-4")}>
+                  <span className={classNames(styles.testimonialImage)}>
+                    <img src={testimonial.image} alt={testimonial.name} />
+                  </span>
+                  <div
+                    className={classNames(
+                      styles.testimonialContent,
+                      "flex flex-col gap-1"
+                    )}
+                  >
+                    <h5>{testimonial.name}</h5>
+                    <p>{testimonial.title}</p>
+                  </div>
+                </div>
+                <div className={classNames(styles.testimonialText)}>
+                  <p>"{testimonial.quote}"</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={classNames(styles.column, styles.column2)}>
+          <div className={classNames(styles.columnContent, styles.slideUp)}>
+            {duplicatedColumn2.map((testimonial, index) => (
+              <div
+                key={`${testimonial.id}-${index}`}
+                className={styles.testimonialItem}
+              >
+                <div className={classNames("flex items-center gap-4")}>
+                  <span className={classNames(styles.testimonialImage)}>
+                    <img src={testimonial.image} alt={testimonial.name} />
+                  </span>
+                  <div
+                    className={classNames(
+                      styles.testimonialContent,
+                      "flex flex-col gap-1"
+                    )}
+                  >
+                    <h5>{testimonial.name}</h5>
+                    <p>{testimonial.title}</p>
+                  </div>
+                </div>
+                <div className={classNames(styles.testimonialText)}>
+                  <p>"{testimonial.quote}"</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={classNames(styles.column, styles.column3)}>
+          <div className={classNames(styles.columnContent, styles.slideDown)}>
+            {duplicatedColumn3.map((testimonial, index) => (
+              <div
+                key={`${testimonial.id}-${index}`}
+                className={styles.testimonialItem}
+              >
+                <div className={classNames("flex items-center gap-4")}>
+                  <span className={classNames(styles.testimonialImage)}>
+                    <img src={testimonial.image} alt={testimonial.name} />
+                  </span>
+                  <div
+                    className={classNames(
+                      styles.testimonialContent,
+                      "flex flex-col gap-1"
+                    )}
+                  >
+                    <h5>{testimonial.name}</h5>
+                    <p>{testimonial.title}</p>
+                  </div>
+                </div>
+                <div className={classNames(styles.testimonialText)}>
+                  <p>"{testimonial.quote}"</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
     );
   };
 
@@ -180,7 +357,7 @@ const Testimonials = () => {
           <div
             className={classNames(
               styles.missionText,
-              "flex flex-col gap-4 justify-center items-center text-center relative z-10"
+              "flex flex-col lg:gap-4 md:gap-3 gap-2 justify-center items-center text-center relative z-10"
             )}
           >
             <CustomBadge title="Testimonials" />
@@ -195,9 +372,7 @@ const Testimonials = () => {
         <div className={classNames(styles.contentContainer)}>
           <div className={styles.fadeOverlayTop} />
           <div className={styles.sliderContainer}>
-            {createColumn(0, "down")}
-            {createColumn(1, "up")}
-            {createColumn(2, "down")}
+            {createResponsiveColumns()}
           </div>
           <div className={styles.fadeOverlayBottom} />
         </div>

@@ -3,9 +3,8 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import Image from "next/image";
-import CustomButton from "components/common/customButton";
 import CustomBadge from "components/common/customBadge";
 import { featuresData } from "utils/featuresData";
 
@@ -15,7 +14,12 @@ const Mission = () => {
       className={classNames(styles.sectionWrapper, "relative")}
       data-section="services"
     >
-      <span className={classNames(styles.shape1, "absolute left-0 top-0")}>
+      <span
+        className={classNames(
+          styles.shape1,
+          "absolute left-0 top-0 md:block hidden"
+        )}
+      >
         <Image
           width={300}
           height={300}
@@ -23,7 +27,12 @@ const Mission = () => {
           alt="shape"
         />
       </span>
-      <span className={classNames(styles.shape2, "absolute right-0 top-0")}>
+      <span
+        className={classNames(
+          styles.shape2,
+          "absolute right-0 top-0 md:block hidden"
+        )}
+      >
         <Image
           width={300}
           height={300}
@@ -44,7 +53,7 @@ const Mission = () => {
           <div
             className={classNames(
               styles.missionText,
-              "flex flex-col gap-4 justify-center items-center text-center relative z-10"
+              "flex flex-col lg:gap-4 md:gap-3 gap-2 justify-center items-center text-center relative z-10"
             )}
           >
             <CustomBadge title="Why Us" />

@@ -44,8 +44,7 @@ const BrandSlider = () => {
                   <img
                     src={icon}
                     alt={`Social brand ${index + 1}`}
-                    width={200}
-                    height={200}
+                    className={styles.brandImage}
                     style={{ objectFit: "contain" }}
                   />
                 </span>
@@ -59,8 +58,7 @@ const BrandSlider = () => {
                   <img
                     src={icon}
                     alt={`Social brand ${index + 1}`}
-                    width={200}
-                    height={200}
+                    className={styles.brandImage}
                     style={{ objectFit: "contain" }}
                   />
                 </span>

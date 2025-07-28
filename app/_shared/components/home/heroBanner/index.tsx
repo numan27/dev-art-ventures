@@ -19,7 +19,7 @@ const HeroBanner = () => {
             "flex items-center justify-center relative"
           )}
         >
-          <div className="relative w-full flex justify-center h-full">
+          <div className="relative w-full flex justify-center h-full xs:mt-0 -mt-32">
             <div
               className={classNames(
                 styles.sectionContainer,
@@ -52,7 +52,7 @@ const HeroBanner = () => {
           <div
             className={classNames(
               styles.statsContainer,
-              "absolute bottom-4 w-full"
+              "absolute bottom-4 w-full flex flex-col xs:gap-0 gap-4"
             )}
           >
             <BrandSlider />
