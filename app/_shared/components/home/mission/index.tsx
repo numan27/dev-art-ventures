@@ -14,7 +14,7 @@ const Mission = () => {
         <div
           className={classNames(
             styles.sectionContainer,
-            "relative flex items-center justify-center "
+            "relative flex items-center justify-center xs:px-0 px-3"
           )}
         >
           <AdaptiveParticles section="mission" maxParticles={75} />

@@ -6,9 +6,6 @@
   z-index: 1 !important;
   min-height: 100vh !important;
   height: 100% !important;
-  @media screen and (max-width: 510px) {
-    min-height: 90vh !important;
-  }
 }
 .sectionWrapper {
   background-image: url("../../../../_assets/images/banner-grid.png"),
@@ -31,7 +28,6 @@
   }
   @media screen and (max-width: 510px) {
     background-position: center center, center center, top -50px center !important;
-    min-height: 90vh !important;
   }
 
   .sectionContainer {

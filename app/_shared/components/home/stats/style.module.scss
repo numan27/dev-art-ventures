@@ -27,6 +27,14 @@
           "max-height": 135,
         )
       );
+      @media screen and (max-width: 510px) {
+        @include RP(
+          (
+            "max-height": 110,
+          ),
+          1
+        );
+      }
 
       &:hover {
         transform: translateY(-2px);
