@@ -7,40 +7,37 @@ import { Icons, Images } from "assets";
 import Image from "next/image";
 import CustomButton from "components/common/customButton";
 import CustomBadge from "components/common/customBadge";
+import { featuresData } from "utils/featuresData";
 
 const Mission = () => {
   return (
     <div
-      className={classNames(styles.sectionWrapper, "")}
+      className={classNames(styles.sectionWrapper, "relative")}
       data-section="services"
     >
-      <div className={classNames(styles.customContainer)}>
+      <span className={classNames(styles.shape1, "absolute left-0 top-0")}>
+        <Image
+          width={300}
+          height={300}
+          src={Images.FeaturesShapeLeft.src}
+          alt="shape"
+        />
+      </span>
+      <span className={classNames(styles.shape2, "absolute right-0 top-0")}>
+        <Image
+          width={300}
+          height={300}
+          src={Images.FeaturesShapeRight.src}
+          alt="shape"
+        />
+      </span>
+      <div className={classNames(styles.customContainer, "")}>
         <div
           className={classNames(
             styles.sectionContainer,
             "relative flex items-center justify-center"
           )}
         >
-          <span
-            className={classNames(styles.shape1, "absolute -top-32 -left-32")}
-          >
-            <Image
-              width={616}
-              height={556}
-              src={Images.FeaturesShapeLeft.src}
-              alt="shape"
-            />
-          </span>
-          <span
-            className={classNames(styles.shape2, "absolute -top-32 -right-32")}
-          >
-            <Image
-              width={616}
-              height={556}
-              src={Images.FeaturesShapeRight.src}
-              alt="shape"
-            />
-          </span>
           <div className={styles.particlesContainer}>
             <AdaptiveParticles section="services" maxParticles={100} />
           </div>
@@ -57,6 +54,28 @@ const Mission = () => {
               web design solutions.
             </p>
           </div>
+        </div>
+
+        <div
+          className={classNames(
+            styles.featuresContainer,
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+          )}
+        >
+          {featuresData.map((feature) => (
+            <div key={feature.id} className={styles.feature}>
+              <span className={styles.featureIcon}>
+                <Image
+                  width={50}
+                  height={50}
+                  src={feature.icon}
+                  alt={feature.title}
+                />
+              </span>
+              <h4>{feature.title}</h4>
+              <p>{feature.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

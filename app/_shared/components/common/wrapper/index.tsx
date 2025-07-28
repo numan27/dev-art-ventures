@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import AOS from "aos";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-// import Footer from "../footer";
 import { useTranslationContext } from "_shared/context/TranslationContext";
-// import Header from "../header";
+import Footer from "../footer";
+import Header from "../header";
 
 interface WrapperProps {
   children: React.ReactNode;
@@ -26,16 +26,13 @@ const Wrapper = ({ children }: WrapperProps) => {
   const { language } = useTranslationContext();
   const mainRef = useRef<HTMLDivElement>(null);
 
-  // Google Translate Widget handles all translation automatically
-  // No need for manual text node manipulation
-
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main ref={mainRef} className={classNames(styles.main)}>
         {children}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

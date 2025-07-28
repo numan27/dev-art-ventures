@@ -1,6 +1,52 @@
 import { Images } from "assets";
 import { StaticImageData } from "next/image";
 import { routeConstant } from "routes/constants";
+
+export interface FooterLink {
+  title: string;
+  href: string;
+}
+
+export interface FooterColumn {
+  title: string;
+  links?: FooterLink[];
+  contactInfo?: {
+    email?: string;
+    address?: string[];
+  };
+}
+
+export const footerLinks: FooterColumn[] = [
+  {
+    title: "Company",
+    links: [
+      { title: "About", href: routeConstant.home.path },
+      {
+        title: "Terms & Conditions",
+        href: routeConstant.termsAndConditions.path,
+      },
+      { title: "Privacy Policy", href: routeConstant.privacyPolicy.path },
+      { title: "Disclaimer", href: "" },
+      { title: "Contact", href: "" },
+    ],
+  },
+  {
+    title: "Ventures",
+    links: [
+      { title: "UI/UX Design", href: "" },
+      { title: "Web Development", href: "" },
+      { title: "Recruitment", href: "" },
+      { title: "DevArt Academy", href: "" },
+    ],
+  },
+  {
+    title: "Contact",
+    contactInfo: {
+      email: "hello@devartventures.com",
+      address: ["3, Block B1 PGECHS, Lahore,", "Pakistan"],
+    },
+  },
+];
 // import { routeConstant, type RouteConstant } from "../../../routes/constants";
 
 export type Product = {

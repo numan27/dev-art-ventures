@@ -19,6 +19,7 @@ import FeaturesIcon3 from "./features-icon-3.png";
 import FeaturesIcon4 from "./features-icon-4.png";
 import FeaturesIcon5 from "./features-icon-5.png";
 import FeaturesIcon6 from "./features-icon-6.png";
+import FeatureItemBg from "./feature-item-bg.png";
 
 const Images = {
   Logo,
@@ -42,6 +43,7 @@ const Images = {
   FeaturesIcon4,
   FeaturesIcon5,
   FeaturesIcon6,
+  FeatureItemBg,
 };
 
 export { Images };

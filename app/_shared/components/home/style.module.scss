@@ -2,12 +2,12 @@
 @import "utils/colors.scss";
 
 .homeWrapper {
-  position: relative;
-  background-image: url("/app/_assets/images/hero-bg.png");
+  // position: relative;
+  // background-image: url("/app/_assets/images/hero-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100vh !important;
   z-index: 1 !important;
 }

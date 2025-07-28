@@ -2,20 +2,20 @@
 @import "utils/colors.scss";
 
 .main {
-  @include RP(
-    (
-      "padding-top": 100,
-    ),
-    1
-  );
+  // @include RP(
+  //   (
+  //     "padding-top": 100,
+  //   ),
+  //   1
+  // );
 
   // Add extra padding for topbar on desktop
-  @media screen and (min-width: 769px) {
-    @include RP(
-      (
-        "padding-top": 140,
-      ),
-      1
-    );
-  }
+  // @media screen and (min-width: 769px) {
+  //   @include RP(
+  //     (
+  //       "padding-top": 140,
+  //     ),
+  //     1
+  //   );
+  // }
 }

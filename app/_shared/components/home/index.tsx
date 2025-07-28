@@ -9,6 +9,7 @@ import Mission from "./mission";
 import Services from "./services";
 import Testimonials from "./testimonials";
 import Features from "./features";
+import CTA from "./cta";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -58,6 +59,7 @@ const LandingPage = () => {
         <Services />
         <Testimonials />
         <Features />
+        <CTA />
       </div>
     </>
   );

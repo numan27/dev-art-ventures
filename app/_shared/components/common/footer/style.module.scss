@@ -2,11 +2,11 @@
 @import "utils/colors.scss";
 
 .footer {
-  background: linear-gradient(135deg, #0d255a 0%, #1e1e1e 50%, #141212 100%);
+  background: #01041f;
   position: relative;
   z-index: 999 !important;
   width: 100%;
-  min-height: 400px;
+  border-top: 1px solid #0e122e;
 
   &::before {
     content: "";
@@ -21,8 +21,8 @@
 
   @include RP(
     (
-      "padding-top": 80,
-      "padding-bottom": 40,
+      "padding-top": 50,
+      // "padding-bottom": 50,
     )
   );
 
@@ -33,32 +33,46 @@
   }
 
   .contentContainer {
+    max-width: 100% !important;
+
     .logoContainer {
+      // @include RP(
+      //   (
+      //     "padding-right": 100,
+      //   )
+      // );
+
       .logo {
         height: auto !important;
         @include RP(
           (
-            "width": 200,
+            "width": 48,
+            "height": 48,
           ),
           1
         );
-        margin-bottom: 1.5rem;
-
-        @media screen and (max-width: 767px) {
-          margin: 0 auto !important;
-          @include RP(
-            (
-              "width": 200,
-            ),
-            1
-          );
-        }
+      }
+      .logoText {
+        font-weight: 600;
+        color: $WHITE !important;
+        font-family: Inter !important;
+        @include RP(
+          (
+            "font-size": 30,
+          ),
+          1
+        );
       }
 
       .companyDescription {
-        color: rgba(255, 255, 255, 0.8) !important;
-        font-size: 0.95rem;
-        line-height: 1.6;
+        text-align: left !important;
+        color: rgba(255, 255, 255, 0.6) !important;
+        @include RP(
+          (
+            "font-size": 16,
+          ),
+          1
+        );
         margin-bottom: 2rem;
         font-weight: 400;
         text-wrap: balance;
@@ -66,52 +80,39 @@
     }
 
     .menuContainer {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-
-      .menuHeading {
-        font-weight: 600;
-        color: $PRIMARY_LIGHT !important;
+      .columnTitle {
+        font-weight: 500;
+        color: #f0f1f4 !important;
         @include RP(
           (
-            "font-size": 18,
+            "font-size": 20,
+            "margin-bottom": 25,
           ),
           1
         );
-        margin-bottom: 1.5rem;
-        position: relative;
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -8px;
-          left: 0;
-          width: 30px;
-          height: 2px;
-          background: $PRIMARY_GRADIENT;
-          border-radius: 1px;
-        }
       }
 
-      .menus {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
+      .linkList {
+        @include RP(
+          (
+            "gap": 16,
+          )
+        );
 
         li {
           transition: all 0.3s ease-in-out;
-          color: rgba(255, 255, 255, 0.7) !important;
+          color: rgba($color: #fafafa, $alpha: 0.6) !important;
 
           a {
             font-weight: 400;
             @include RP(
               (
-                "font-size": 14,
+                "font-size": 16,
               )
             );
             position: relative;
             transition: all 0.3s ease;
+            color: rgba($color: #fafafa, $alpha: 0.6) !important;
 
             &::before {
               content: "";
@@ -119,21 +120,77 @@
               bottom: -2px;
               left: 0;
               width: 0;
-              height: 1px;
-              background: $PRIMARY_GRADIENT;
+              height: 0.5px;
+              background: $WHITE;
               transition: width 0.3s ease;
             }
-          }
 
-          &:hover {
-            color: $PRIMARY_LIGHT;
-            transform: translateX(5px);
+            &:hover {
+              color: $WHITE !important;
 
-            a::before {
-              width: 100%;
+              &::before {
+                width: 100%;
+              }
             }
           }
         }
+      }
+
+      .contactInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .contactItem {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .contactLabel {
+        font-weight: 500;
+        color: rgba($color: #fafafa, $alpha: 0.6) !important;
+        @include RP(
+          (
+            "font-size": 16,
+          )
+        );
+      }
+
+      .emailBox {
+        background: rgba($color: #bbbbbb, $alpha: 0.15);
+        border: 1px solid rgba($color: #888888, $alpha: 0.1);
+        color: #999999 !important;
+        font-weight: 400;
+        border-radius: 10px;
+        padding: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include RP(
+          (
+            "font-size": 14,
+            "height": 40,
+          ),
+          1
+        );
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.15);
+          border-color: rgba($color: #888888, $alpha: 0.1);
+        }
+      }
+
+      .addressText {
+        color: rgba($color: #fafafa, $alpha: 0.6) !important;
+        font-weight: 400;
+        @include RP(
+          (
+            "font-size": 14,
+          )
+        );
       }
     }
 
@@ -171,252 +228,80 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          border-radius: 12px;
+          border-radius: 10px;
           @include RP(
             (
-              "width": 48,
-              "height": 48,
+              "width": 42,
+              "height": 42,
             ),
             1
           );
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: #161c44;
+          border: 1px solid #161c44;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           overflow: hidden;
-
-          &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: $PRIMARY_GRADIENT;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-          }
 
           svg {
             position: relative;
             z-index: 2;
             transition: all 0.3s ease;
-            width: 20px;
-            height: 20px;
+            @include RP(
+              (
+                "width": 20,
+                "height": 20,
+              ),
+              1
+            );
             color: rgba(255, 255, 255, 0.8) !important;
-
-            path {
-              transition: all 0.3s ease;
-            }
           }
 
           &:hover {
             transform: translateY(-3px);
-            border-color: $PRIMARY_LIGHT;
-            box-shadow: 0 8px 25px rgba(15, 118, 178, 0.3);
-
-            &::before {
-              opacity: 1;
-            }
-
+            border-color: #1f275f;
             svg {
-              color: white;
-              transform: scale(1.1);
-            }
-          }
-
-          @media screen and (max-width: 576px) {
-            @include RP(
-              (
-                "width": 44,
-                "height": 44,
-              ),
-              1
-            );
-
-            svg {
-              width: 18px;
-              height: 18px;
+              color: $WHITE;
+              transform: scale(1.05);
             }
           }
         }
       }
-    }
-  }
-
-  .contactSection {
-    @include RP(
-      (
-        "margin-top": 30,
-        "padding-top": 30,
-        "padding-bottom": 30,
-      ),
-      1
-    );
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-    .contactIcon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      @include RP(
-        (
-          "width": 48,
-          "height": 48,
-        ),
-        1
-      );
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-
-      &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: $PRIMARY_GRADIENT;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-      }
-
-      svg {
-        position: relative;
-        z-index: 2;
-        @include RP(
-          (
-            "width": 20,
-            "height": 20,
-          ),
-          1
-        );
-        color: $PRIMARY_LIGHT;
-        transition: all 0.3s ease;
-        stroke-width: 1.5;
-
-        path {
-          transition: all 0.3s ease;
-        }
-      }
-
-      &:hover {
-        transform: translateY(-2px);
-        border-color: $PRIMARY_LIGHT;
-        box-shadow: 0 8px 25px rgba(15, 118, 178, 0.2);
-
-        &::before {
-          opacity: 1;
-        }
-
-        svg {
-          color: white;
-          transform: scale(1.1);
-        }
-      }
-    }
-
-    .contactLabel {
-      @include RP(
-        (
-          "font-size": 14,
-        ),
-        1
-      );
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.6) !important;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.25rem;
-    }
-
-    .contactValue {
-      @include RP(
-        (
-          "font-size": 16,
-        ),
-        1
-      );
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.9) !important;
-      transition: color 0.3s ease;
-    }
-
-    div:hover .contactValue {
-      color: $PRIMARY_LIGHT !important;
     }
   }
 
   .bottomSection {
+    border-top: 1px solid #0e122e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include RP(
       (
-        "margin-top": 20,
-        "padding-top": 20,
+        "margin-top": 70,
+        "padding-top": 24,
+        "padding-bottom": 24,
       ),
       1
     );
-    position: relative;
+    @media screen and (max-width: 640px) {
+      @include RP(
+        (
+          "margin-top": 35,
+        ),
+        1
+      );
+    }
 
     .copyright {
       p {
-        color: rgba(255, 255, 255, 0.9) !important;
-        font-weight: 500 !important;
+        color: #a7adbe !important;
+        font-weight: 400 !important;
+        margin-bottom: 0 !important;
         @include RP(
           (
-            "font-size": 15,
+            "font-size": 18,
           ),
           1
         );
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
       }
-    }
-
-    .legalLinks {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-
-      a {
-        color: rgba(255, 255, 255, 0.8) !important;
-        @include RP(
-          (
-            "font-size": 14,
-          ),
-          1
-        );
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background: $PRIMARY_LIGHT;
-          transition: width 0.3s ease;
-        }
-
-        &:hover {
-          color: $PRIMARY_LIGHT !important;
-
-          &::after {
-            width: 100%;
-          }
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        gap: 1rem;
-        justify-content: center;
-      }
-    }
-
-    @media screen and (max-width: 576px) {
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
     }
   }
 }

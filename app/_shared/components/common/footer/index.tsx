@@ -1,182 +1,161 @@
-// import Link from "next/link";
-// import styles from "./style.module.scss";
-// import classNames from "classnames";
-// import Image from "next/image";
-// import { Icons, Images } from "assets";
-// import { routeConstant } from "routes/constants";
-// import useWindowDimensions from "hooks/useWindowDimensions";
-// import {
-//   Phone,
-//   Mail,
-//   MapPin,
-//   Facebook,
-//   Instagram,
-//   Linkedin,
-//   Youtube,
-// } from "lucide-react";
+import Link from "next/link";
+import styles from "./style.module.scss";
+import classNames from "classnames";
+import Image from "next/image";
+import { Icons, Images } from "assets";
+import { routeConstant } from "routes/constants";
+import { footerLinks } from "utils/constants";
+import useWindowDimensions from "hooks/useWindowDimensions";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
-// const Footer = () => {
-//   const { width } = useWindowDimensions();
+const Footer = () => {
+  const { width } = useWindowDimensions();
 
-//   const socialLinks = [
-//     { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-//     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-//     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-//     { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-//   ];
+  const socialLinks = [
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  ];
 
-//   return (
-//     <footer className={classNames(styles.footer)}>
-//       <div className={classNames(styles.customContainer, "h-full")}>
-//         {/* Main Footer Content */}
-//         <div
-//           className={classNames(
-//             styles.contentContainer,
-//             "grid grid-cols-12 lg:gap-8 md:gap-6 gap-8 h-full"
-//           )}
-//         >
-//           {/* Logo and Company Info */}
-//           <div
-//             className={classNames(
-//               styles.logoContainer,
-//               "lg:col-span-4 md:col-span-6 col-span-12"
-//             )}
-//           >
-//             <div className="flex flex-col h-full md:justify-start justify-center gap-3">
-//               <Image
-//                 data-aos={width > 768 && "flip-right"}
-//                 className={classNames(styles.logo)}
-//                 width={150}
-//                 height={150}
-//                 src={Images.LogoWhite}
-//                 alt="Core IT Ventures logo"
-//                 priority
-//               />
-//               <p className={classNames(styles.companyDescription)}>
-//                 Empowering businesses with innovative technology solutions. We
-//                 transform ideas into digital reality with cutting-edge
-//                 development services.
-//               </p>
-//             </div>
-//           </div>
+  return (
+    <footer className={classNames(styles.footer)}>
+      <div className={classNames(styles.customContainer, "h-full")}>
+        {/* Main Footer Content */}
+        <div
+          className={classNames(
+            styles.contentContainer,
+            "flex md:flex-row flex-col gap-8  h-full"
+          )}
+        >
+          {/* Logo and Company Info */}
+          <div
+            className={classNames(
+              styles.logoContainer,
+              "lg:w-5/12 md:w-4/12 w-full"
+            )}
+          >
+            <div className="flex flex-col md:justify-start justify-center gap-3">
+              <Link
+                className="flex items-center gap-2"
+                href={routeConstant.home.path}
+              >
+                <Image
+                  className={classNames(styles.logo)}
+                  width={48}
+                  height={48}
+                  src={Images.Logo}
+                  alt="Core IT Ventures logo"
+                  priority
+                />
+                <span className={classNames(styles.logoText)}>
+                  DevArtVentures
+                </span>
+              </Link>
+              <p className={classNames(styles.companyDescription)}>
+                Your Partner in Transforming ideas into impactful{" "}
+                {width > 768 && <br />} digital solutions. <br /> <br />{" "}
+                Experienced team delivering exceptional digital solutions{" "}
+                {width > 768 && <br />} tailored to your brand.
+              </p>
+            </div>
+            {/* Social Links */}
+            <div className={classNames(styles.socialContainer, "")}>
+              <div className={classNames(styles.socialContent)}>
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={classNames(styles.socialItem)}
+                    aria-label={social.label}
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
 
-//           {/* Footer Links */}
-//           <div
-//             className={classNames(
-//               styles.menuContainer,
-//               "lg:col-span-5 md:col-span-6 col-span-12"
-//             )}
-//           >
-//             <div className="grid grid-cols-3 gap-8"></div>
-//           </div>
+          {/* Footer Links */}
+          <div
+            className={classNames(
+              styles.menuContainer,
+              "lg:w-7/12 md:w-8/12 w-full"
+            )}
+          >
+            <div className="grid sm:grid-cols-3 grid-cols-2 gap-4">
+              {footerLinks.map((column, columnIndex) => (
+                <div className="flex flex-col" key={columnIndex}>
+                  <h5 className={classNames(styles.columnTitle)}>
+                    {column.title}
+                  </h5>
 
-//           {/* Social Links */}
-//           <div
-//             className={classNames(
-//               styles.socialContainer,
-//               "lg:col-span-3 md:col-span-12 col-span-12"
-//             )}
-//           >
-//             <div className="flex flex-col h-full">
-//               <h3
-//                 className={classNames(
-//                   styles.socialHeading,
-//                   "md:text-left text-center"
-//                 )}
-//               >
-//                 Connect With Us
-//               </h3>
-//               <p className={classNames(styles.socialDescription)}>
-//                 Follow us on social media for the latest updates, insights, and
-//                 industry news.
-//               </p>
-//               <div
-//                 className={classNames(
-//                   styles.socialContent,
-//                   "md:justify-start justify-center"
-//                 )}
-//               >
-//                 {socialLinks.map((social, index) => (
-//                   <a
-//                     key={index}
-//                     href={social.href}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className={classNames(styles.socialItem)}
-//                     aria-label={social.label}
-//                   >
-//                     <social.icon size={20} />
-//                   </a>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         </div>
+                  {/* Render links if they exist */}
+                  {column.links && (
+                    <ul
+                      className={classNames(
+                        styles.linkList,
+                        "flex flex-col items-start"
+                      )}
+                    >
+                      {column.links.map((link, linkIndex) => (
+                        <li key={linkIndex}>
+                          <Link href={link.href}>{link.title}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-//         {/* Contact Details Section */}
-//         <div className={classNames(styles.contactSection)}>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-//             <div className="flex items-center gap-4">
-//               <div className={classNames(styles.contactIcon)}>
-//                 <Phone size={20} />
-//               </div>
-//               <div className="flex flex-col">
-//                 <span className={classNames(styles.contactLabel)}>Phone</span>
-//                 <span className={classNames(styles.contactValue)}>
-//                   +1 (713) 483-4953
-//                 </span>
-//               </div>
-//             </div>
-//             <div className="flex items-center gap-4">
-//               <div className={classNames(styles.contactIcon)}>
-//                 <Mail size={20} />
-//               </div>
-//               <div className="flex flex-col">
-//                 <span className={classNames(styles.contactLabel)}>Email</span>
-//                 <span className={classNames(styles.contactValue)}>
-//                   info@coreitventures.com
-//                 </span>
-//               </div>
-//             </div>
-//             <div className="flex items-center gap-4">
-//               <div className={classNames(styles.contactIcon)}>
-//                 <MapPin size={20} />
-//               </div>
-//               <div className="flex flex-col">
-//                 <span className={classNames(styles.contactLabel)}>
-//                   Location
-//                 </span>
-//                 <span className={classNames(styles.contactValue)}>
-//                   Houston, TX, United States
-//                 </span>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
+                  {/* Render contact info if it exists */}
+                  {column.contactInfo && (
+                    <div className={classNames(styles.contactInfo)}>
+                      {column.contactInfo.email && (
+                        <div className={classNames(styles.contactItem)}>
+                          <span className={classNames(styles.contactLabel)}>
+                            Email Address
+                          </span>
+                          <div className={classNames(styles.emailBox)}>
+                            {column.contactInfo.email}
+                          </div>
+                        </div>
+                      )}
+                      {column.contactInfo.address && (
+                        <div className={classNames(styles.contactItem)}>
+                          <span className={classNames(styles.contactLabel)}>
+                            Address
+                          </span>
+                          <div className={classNames(styles.addressText)}>
+                            {column.contactInfo?.address?.map(
+                              (line, lineIndex) => (
+                                <span key={lineIndex}>
+                                  {line}
+                                  {lineIndex <
+                                    (column.contactInfo?.address?.length || 0) -
+                                      1 && <br />}
+                                </span>
+                              )
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
-//         {/* Bottom Section */}
-//         <div className={classNames(styles.bottomSection)}>
-//           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-//             {/* Copyright */}
-//             <div className={classNames(styles.copyright)}>
-//               <p>© 2025 Core IT Ventures Inc. All rights reserved.</p>
-//             </div>
+      {/* Bottom Section */}
+      <div className={classNames(styles.bottomSection)}>
+        <div className={classNames(styles.copyright)}>
+          <p>© 2025 DevArtVentures. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
-//             {/* Legal Links */}
-//             <div className={classNames(styles.legalLinks)}>
-//               <Link href={routeConstant.termsAndConditions.path}>
-//                 Terms & Conditions
-//               </Link>
-//               <Link href={routeConstant.privacyPolicy.path}>
-//                 Privacy Policy
-//               </Link>
-//               <Link href="">Cookie Policy</Link>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
+export default Footer;

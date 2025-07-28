@@ -6,12 +6,12 @@ import CustomButton from "../../common/customButton";
 import CustomBadge from "components/common/customBadge";
 import BrandSlider from "components/common/brandSlider";
 import Stats from "../stats";
-import Header from "components/common/header";
+import useWindowDimensions from "hooks/useWindowDimensions";
 
 const HeroBanner = () => {
+  const { width } = useWindowDimensions();
   return (
     <>
-      <Header />
       <div className={styles.fullWidthWrapper}>
         <div
           className={classNames(
@@ -28,7 +28,8 @@ const HeroBanner = () => {
             >
               <CustomBadge title="Building Future Ventures" />
               <h1 className="text-center">
-                We Partner With Industry Leaders To Build Exceptional Solutions
+                We Partner With Industry {width > 768 && <br />} Leaders To
+                Build Exceptional Solutions
               </h1>
               <p>
                 Your Partner in Transforming ideas into impactful digital

@@ -16,6 +16,11 @@
   );
 }
 
+.heroHeader {
+  position: absolute !important;
+  padding-top: 0 !important;
+}
+
 .contentContainer {
   border: 1px solid $BORDER !important;
   z-index: 9999999 !important;

@@ -1,0 +1,180 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  z-index: 100 !important;
+  @include RP(
+    (
+      "padding-top": 15,
+      "padding-bottom": 15,
+      "margin-top": 60,
+      "margin-bottom": 60,
+    )
+  );
+  width: 100%;
+  height: 100%;
+
+  .sectionContainer {
+    border: 1px solid #0e122e !important;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 4, 31, 0.7) 0%,
+      rgba(0, 4, 31, 0.7) 100%
+    );
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.9) !important;
+    position: relative;
+    width: 100%;
+    @include RP(
+      (
+        "border-radius": 30,
+        "height": 540,
+      ),
+      1
+    );
+    @media screen and (max-width: 640px) {
+      @include RP(
+        (
+          "height": 400,
+        ),
+        1
+      );
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("../../../../_assets/images/cta-bg.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.59;
+      @include RP(
+        (
+          "border-radius": 30,
+          // "max-height": 420,
+        ),
+        1
+      );
+      z-index: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+      );
+      border-radius: 30px 30px 0 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba(76, 117, 255, 0.3);
+      box-shadow: inset 0 0 20px 0 rgba(76, 117, 255, 0.1),
+        0 -12px 35px rgba(0, 0, 0, 0.9) !important;
+      transition: all 0.3s ease;
+
+      &::before {
+        opacity: 0.75;
+        transition: opacity 0.3s ease;
+      }
+
+      &::after {
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.85) 0%,
+          rgba(0, 0, 0, 0.45) 50%,
+          transparent 100%
+        );
+        transition: background 0.3s ease;
+      }
+    }
+  }
+
+  .missionText {
+    h2 {
+      font-weight: bold !important;
+      @include RP(
+        (
+          "font-size": 60,
+          "line-height": 70,
+        ),
+        1
+      );
+      color: $WHITE;
+      @media screen and (max-width: 640px) {
+        @include RP(
+          (
+            "font-size": 40,
+            "line-height": 50,
+          ),
+          1
+        );
+      }
+    }
+    p {
+      max-width: 60%;
+      font-family: var(--font-rethink-sans) !important;
+      @include RP(
+        (
+          "font-size": 20,
+          "line-height": 28,
+        ),
+        1
+      );
+      color: $DESC;
+
+      @media screen and (max-width: 640px) {
+        max-width: 100%;
+      }
+    }
+    button {
+      @include RP(
+        (
+          "height": 55,
+          "min-height": 55,
+          "margin-top": 20,
+        ),
+        1
+      );
+    }
+    .badge {
+      padding: 8px 0;
+      background-color: $WHITE;
+      border-radius: 100px;
+      color: $DARK;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include RP(
+        (
+          "height": 38,
+          "font-size": 14,
+          "line-height": 20,
+          "padding-left": 20,
+          "padding-right": 20,
+        ),
+        1
+      );
+
+      &::before {
+        content: "●";
+        color: #00ff00;
+        font-size: 20px;
+        margin-right: 8px;
+      }
+    }
+  }
+}

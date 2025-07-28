@@ -17,11 +17,12 @@ const Stats = () => {
         <div
           className={classNames(
             styles.cardContainer,
-            "grid grid-cols-4 gap-4 bg-transparent"
+            "grid sm:grid-cols-4 grid-cols-2 gap-4 bg-transparent"
           )}
         >
-          {statsData.map((stat) => (
+          {statsData.map((stat, index) => (
             <div
+              key={index}
               className={classNames(
                 styles.cardItem,
                 "flex flex-col items-center justify-center gap-3"

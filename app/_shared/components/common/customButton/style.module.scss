@@ -2,7 +2,7 @@
 @import "utils/colors.scss";
 
 .customBtnContainer {
-  background-color: $BUTTON;
+  background: linear-gradient(135deg, #4c75ff 0%, #4c75ff 100%) !important;
   border: 1px solid $PRIMARY;
   justify-content: center;
   align-items: center;
