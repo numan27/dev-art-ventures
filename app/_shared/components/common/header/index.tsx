@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./style.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 import { Images } from "assets";
 import { nav_items } from "./constant";
+
 import classNames from "classnames";
 import CustomButton from "../customButton";
 import { useRouter } from "next13-progressbar";
@@ -18,6 +21,9 @@ const Header: React.FC<HeaderProps> = () => {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<
+    string | null
+  >(null);
 
   // Handle responsive behavior
   useEffect(() => {
@@ -42,6 +48,8 @@ const Header: React.FC<HeaderProps> = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Handle dropdown item clicks with delay
+
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
   const handleNavigateAuth = () => {
@@ -49,11 +57,20 @@ const Header: React.FC<HeaderProps> = () => {
     console.log("Navigate to auth");
   };
 
-  const handleNavItemClick = (sectionRefKey: string) => {
+  const handleNavItemClick = (path: string) => {
     // scrollToSection?.(sectionRefKey);
-    console.log("Navigate to section:", sectionRefKey);
+    console.log("Navigate to section:", path);
+    router.push(path);
     if (isMobile) {
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleMobileDropdownToggle = (itemLabel: string) => {
+    if (activeMobileDropdown === itemLabel) {
+      setActiveMobileDropdown(null);
+    } else {
+      setActiveMobileDropdown(itemLabel);
     }
   };
 
@@ -89,17 +106,83 @@ const Header: React.FC<HeaderProps> = () => {
                       )}
                     >
                       {nav_items.map((item, index) => (
-                        <li key={index}>
-                          <button
-                            onClick={() =>
-                              handleNavItemClick(item.sectionRefKey)
-                            }
+                        <li
+                          key={index}
+                          className={classNames(
+                            styles.navItemWrapper,
+                            "relative group"
+                          )}
+                        >
+                          <Link
+                            href={item.path || "#"}
                             className={styles.navItem}
                           >
                             <span className={styles.navlabels}>
                               {item.label}
                             </span>
-                          </button>
+                            {item.hasDropdown && (
+                              <svg
+                                className={styles.dropdownIcon}
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M3 4.5L6 7.5L9 4.5"
+                                  stroke="currentColor"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            )}
+                          </Link>
+
+                          {item.hasDropdown && (
+                            <ul
+                              className={classNames(
+                                styles.dropdownMenu,
+                                "absolute left-0 hidden group-hover:block"
+                              )}
+                            >
+                              {item.dropdownItems?.map(
+                                (dropdownItem, dropdownIndex) => (
+                                  <li
+                                    key={dropdownIndex}
+                                    className={styles.dropdownItem}
+                                  >
+                                    <Link
+                                      href={dropdownItem.path}
+                                      className={styles.dropdownItemLink}
+                                    >
+                                      <div
+                                        className={styles.dropdownItemContent}
+                                      >
+                                        <span
+                                          className={styles.dropdownItemTitle}
+                                        >
+                                          {dropdownItem.title}
+                                        </span>
+                                        <span
+                                          className={
+                                            styles.dropdownItemDescription
+                                          }
+                                        >
+                                          {dropdownItem.description}
+                                        </span>
+                                      </div>
+                                    </Link>
+                                    {dropdownIndex <
+                                      (item.dropdownItems?.length || 0) - 1 && (
+                                      <div className={styles.dropdownDivider} />
+                                    )}
+                                  </li>
+                                )
+                              )}
+                            </ul>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -170,11 +253,70 @@ const Header: React.FC<HeaderProps> = () => {
                   {nav_items.map((item, index) => (
                     <li key={index}>
                       <button
-                        onClick={() => handleNavItemClick(item.sectionRefKey)}
+                        onClick={() =>
+                          item.hasDropdown
+                            ? handleMobileDropdownToggle(item.label)
+                            : item.path && handleNavItemClick(item.path)
+                        }
                         className={styles.mobileNavItem}
                       >
                         <span className={styles.navlabels}>{item.label}</span>
+                        {item.hasDropdown && (
+                          <svg
+                            className={classNames(
+                              styles.mobileDropdownIcon,
+                              activeMobileDropdown === item.label &&
+                                styles.mobileDropdownIconRotated
+                            )}
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M3 4.5L6 7.5L9 4.5"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
                       </button>
+
+                      {/* Mobile Dropdown Menu */}
+                      {item.hasDropdown &&
+                        activeMobileDropdown === item.label && (
+                          <div className={styles.mobileDropdownMenu}>
+                            {item.dropdownItems?.map(
+                              (dropdownItem, dropdownIndex) => (
+                                <Link
+                                  key={dropdownIndex}
+                                  href={dropdownItem.path}
+                                  className={styles.mobileDropdownItem}
+                                >
+                                  <div
+                                    className={styles.mobileDropdownItemContent}
+                                  >
+                                    <span
+                                      className={styles.mobileDropdownItemTitle}
+                                    >
+                                      {dropdownItem.title}
+                                    </span>
+                                    <span
+                                      className={
+                                        styles.mobileDropdownItemDescription
+                                      }
+                                    >
+                                      {dropdownItem.description}
+                                    </span>
+                                  </div>
+                                </Link>
+                              )
+                            )}
+                          </div>
+                        )}
                     </li>
                   ))}
                 </ul>
@@ -192,6 +334,18 @@ const Header: React.FC<HeaderProps> = () => {
           )}
         </div>
       </div>
+
+      {/* Portal Mobile Menu Backdrop */}
+      {isMobile &&
+        isMobileMenuOpen &&
+        typeof window !== "undefined" &&
+        createPortal(
+          <div
+            className={styles.mobileMenuBackdrop}
+            onClick={() => setIsMobileMenuOpen(false)}
+          />,
+          document.body
+        )}
     </header>
   );
 };

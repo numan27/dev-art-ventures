@@ -16,10 +16,10 @@ const HeroBanner = () => {
         <div
           className={classNames(
             styles.sectionWrapper,
-            "flex items-center justify-center relative"
+            "flex items-center justify-center relative flex-col gap-16"
           )}
         >
-          <div className="relative w-full flex justify-center h-full xs:mt-0 -mt-32">
+          <div className="relative w-full flex justify-center h-full">
             <div
               className={classNames(
                 styles.sectionContainer,
@@ -49,13 +49,13 @@ const HeroBanner = () => {
               </div>
             </div>
           </div>
+          <BrandSlider />
           <div
             className={classNames(
               styles.statsContainer,
               "absolute bottom-4 w-full flex flex-col xs:gap-0 gap-4"
             )}
           >
-            <BrandSlider />
             <Stats />
           </div>
         </div>

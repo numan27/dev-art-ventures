@@ -4,12 +4,12 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { useEffect } from "react";
 import AOS from "aos";
-import HeroBanner from "./heroBanner";
 import Mission from "./mission";
 import Services from "./services";
 import Testimonials from "./testimonials";
 import Features from "./features";
 import CTA from "./cta";
+import HeroBanner from "./heroBanner";
 
 const LandingPage = () => {
   useEffect(() => {

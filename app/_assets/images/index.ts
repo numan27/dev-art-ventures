@@ -20,6 +20,19 @@ import FeaturesIcon4 from "./features-icon-4.png";
 import FeaturesIcon5 from "./features-icon-5.png";
 import FeaturesIcon6 from "./features-icon-6.png";
 import FeatureItemBg from "./feature-item-bg.png";
+import DesignSlider1 from "./design-slider-1.png";
+import DesignSlider2 from "./design-slider-2.png";
+import DesignSlider3 from "./design-slider-3.png";
+import DesignSlider4 from "./design-slider-4.png";
+import DesignSlider5 from "./design-slider-5.png";
+import DesignSlider6 from "./design-slider-6.png";
+import DesignSlider7 from "./design-slider-7.png";
+import DesignSlider8 from "./design-slider-8.png";
+import DesignSlider9 from "./design-slider-9.png";
+import DesignFeature1 from "./design-features-1.png";
+import DesignFeature2 from "./design-features-2.png";
+import DesignFeature3 from "./design-features-3.png";
+import DesignFeaturesBg from "./design-features-bg.png";
 
 const Images = {
   Logo,
@@ -44,6 +57,19 @@ const Images = {
   FeaturesIcon5,
   FeaturesIcon6,
   FeatureItemBg,
+  DesignSlider1,
+  DesignSlider2,
+  DesignSlider3,
+  DesignSlider4,
+  DesignSlider5,
+  DesignSlider6,
+  DesignSlider7,
+  DesignSlider8,
+  DesignSlider9,
+  DesignFeature1,
+  DesignFeature2,
+  DesignFeature3,
+  DesignFeaturesBg,
 };
 
 export { Images };
