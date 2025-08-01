@@ -34,16 +34,46 @@ function isImage(filetype: string): boolean {
 function findScreenTitle(pathname: string): string {
   const normalizedPath = normalizePath(pathname);
 
-  const matchedRoute = Object.values(routeConstant).find(
-    (item) => item.path === normalizedPath
+  // First, check direct routes
+  const directRoute = Object.values(routeConstant).find(
+    (item: any) =>
+      item &&
+      typeof item === "object" &&
+      "path" in item &&
+      item.path === normalizedPath
   );
 
-  if (!matchedRoute) {
-    console.warn(`No matching route found for pathname: ${normalizedPath}`);
-    return "";
+  if (
+    directRoute &&
+    typeof directRoute === "object" &&
+    "title" in directRoute
+  ) {
+    return (directRoute as any).title || "Untitled";
   }
 
-  return matchedRoute.title || "Untitled";
+  // Then, check nested routes (like ventures)
+  for (const [key, value] of Object.entries(routeConstant)) {
+    if (typeof value === "object" && value !== null && !("path" in value)) {
+      // This is a nested object like ventures
+      const nestedRoute = Object.values(value as any).find(
+        (item: any) =>
+          item &&
+          typeof item === "object" &&
+          "path" in item &&
+          item.path === normalizedPath
+      );
+      if (
+        nestedRoute &&
+        typeof nestedRoute === "object" &&
+        "title" in nestedRoute
+      ) {
+        return (nestedRoute as any).title || "Untitled";
+      }
+    }
+  }
+
+  console.warn(`No matching route found for pathname: ${normalizedPath}`);
+  return "";
 }
 
 // const resetRedux = () => {
