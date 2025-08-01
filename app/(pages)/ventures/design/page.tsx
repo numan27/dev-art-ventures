@@ -4,6 +4,13 @@ import styles from "./style.module.scss";
 import HeroBanner from "components/common/generalHeroBanner";
 import PortfolioSlider from "components/design/portfolioSlider";
 import Features from "components/design/features";
+import Services from "components/design/services";
+import Work from "components/design/work";
+import Process from "components/design/process";
+import Comparison from "components/design/comparison";
+import Testimonials from "components/home/testimonials";
+import CTA from "components/home/cta";
+import FAQs from "components/design/faqs";
 
 export const metadata: Metadata = {
   title: "UI/UX and Graphic Design | DevArt Ventures",
@@ -32,6 +39,13 @@ export default function Design() {
       />
       <PortfolioSlider />
       <Features />
+      <Services />
+      <Work />
+      <Process />
+      <Comparison />
+      <Testimonials />
+      <FAQs />
+      <CTA showBadge={false} />
     </div>
   );
 }

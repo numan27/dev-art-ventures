@@ -3,6 +3,8 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomBadge from "components/common/customBadge";
 import { Images } from "assets";
+import CustomButton from "components/common/customButton";
+import CustomSectionHeading from "components/common/customSectionHeading";
 
 const Features = () => {
   return (
@@ -24,23 +26,16 @@ const Features = () => {
         }}
       ></div>
       <div className={classNames(styles.customContainer, "relative z-10")}>
-        <div
-          className={classNames(
-            styles.heading,
-            "flex flex-col gap-4 justify-center items-center text-center relative z-10"
-          )}
-        >
-          <CustomBadge title="Solution" />
-          <h3>
-            Poor conversions despite great products? Outdated or inconsistent
-            UI?
-          </h3>
-          <p>We fix these with:</p>
-        </div>
+        <CustomSectionHeading
+          badge="Solution"
+          heading="Poor conversions despite great products? Outdated or inconsistent UI?"
+          description="We fix these with:"
+          centered={true}
+        />
         <div
           className={classNames(
             styles.cardContainer,
-            "grid sm:grid-cols-3 grid-cols-2 md:gap-4 sm:gap-3 gap-2 bg-transparent"
+            "grid sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 md:gap-4 gap-3  bg-transparent"
           )}
         >
           <div className={classNames(styles.cardItem, "flex flex-col")}>
@@ -76,6 +71,9 @@ const Features = () => {
               enhanced user experience
             </p>
           </div>
+        </div>
+        <div className="flex justify-center items-center mt-10">
+          <CustomButton title="Get Started Today" />
         </div>
       </div>
     </div>

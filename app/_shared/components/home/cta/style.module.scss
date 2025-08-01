@@ -27,18 +27,20 @@
     @include RP(
       (
         "border-radius": 30,
-        "height": 540,
+        // "height": 540,
+        "padding-top": 100,
+        "padding-bottom": 100,
       ),
       1
     );
-    @media screen and (max-width: 640px) {
-      @include RP(
-        (
-          "height": 400,
-        ),
-        1
-      );
-    }
+    // @media screen and (max-width: 640px) {
+    //   @include RP(
+    //     (
+    //       "height": 400,
+    //     ),
+    //     1
+    //   );
+    // }
 
     &::before {
       content: "";

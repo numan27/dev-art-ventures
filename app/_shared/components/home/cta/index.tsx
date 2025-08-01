@@ -5,7 +5,11 @@ import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
 import CustomButton from "components/common/customButton";
 
-const CTA = () => {
+interface CTAProps {
+  showBadge?: boolean;
+}
+
+const CTA = ({ showBadge = true }: CTAProps) => {
   return (
     <div
       className={classNames(styles.sectionWrapper, "")}
@@ -24,7 +28,11 @@ const CTA = () => {
               "flex flex-col gap-4 justify-center items-center text-center relative z-10"
             )}
           >
-            <span className={classNames(styles.badge)}>3 Spots Left!</span>
+            {showBadge && (
+              <span className={classNames(styles.badge)}>
+                Transform Your Vision
+              </span>
+            )}
             <h2>Let's work together!</h2>
             <p>
               Contact us today to start crafting your exceptional and customized

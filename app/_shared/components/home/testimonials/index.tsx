@@ -124,9 +124,7 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Create responsive columns based on screen size
   const createResponsiveColumns = () => {
-    // For mobile (below 510px) - 1 column, down animation
     if (screenSize.width <= 510) {
       const duplicatedItems = [...testimonialsData, ...testimonialsData];
       return (
@@ -161,7 +159,6 @@ const Testimonials = () => {
       );
     }
 
-    // For tablet (768px and below) - 2 columns, 1 up, 1 down
     if (screenSize.width <= 768) {
       const itemsPerColumn = Math.ceil(testimonialsData.length / 2);
       const column1Items = testimonialsData.slice(0, itemsPerColumn);
@@ -236,7 +233,6 @@ const Testimonials = () => {
       );
     }
 
-    // For desktop (above 768px) - 3 columns with different animation directions
     const itemsPerColumn = Math.ceil(testimonialsData.length / 3);
     const column1Items = testimonialsData.slice(0, itemsPerColumn);
     const column2Items = testimonialsData.slice(
@@ -352,7 +348,7 @@ const Testimonials = () => {
           )}
         >
           <div className={styles.particlesContainer}>
-            <AdaptiveParticles section="testimonials" maxParticles={100} />
+            <AdaptiveParticles section="testimonials" maxParticles={250} />
           </div>
           <div
             className={classNames(

@@ -2,32 +2,45 @@
 @import "utils/colors.scss";
 
 .sectionHeading {
-  .titleContainer {
-    position: relative;
+  max-width: 55%;
+  margin: 0 auto;
 
-    h2 {
-      color: #141212 !important;
-      margin-bottom: 0;
-      text-transform: uppercase !important;
-      @include RP(( // "line-height": 55,
-          "font-size": 42,
-        ), 1);
+  @media screen and (max-width: 640px) {
+    max-width: 100% !important;
+  }
 
-      @media screen and (max-width: 992px) {
-        @include RP(("font-size": 28,
-          ), 1);
-      }
-
-      @media screen and (max-width: 475px) {
-        @include RP(("font-size": 22,
-          ), 1);
-      }
-
+  h3 {
+    text-transform: capitalize !important;
+    @include RP(
+      (
+        "font-size": 40,
+        "line-height": 48,
+      ),
+      1
+    );
+    color: $WHITE;
+    @media screen and (max-width: 640px) {
+      @include RP(
+        (
+          "font-size": 32,
+          "line-height": 40,
+        ),
+        1
+      );
     }
-
-    p {
-      color: $WHITE;
-      margin-top: 10px;
+  }
+  p {
+    @include RP(
+      (
+        "font-size": 18,
+        "line-height": 26,
+      ),
+      1
+    );
+    @media screen and (max-width: 640px) {
+      max-width: 100% !important;
+      margin-top: 0px !important;
     }
+    color: #a7adbe !important;
   }
 }

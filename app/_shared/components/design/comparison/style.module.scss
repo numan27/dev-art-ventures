@@ -1,0 +1,240 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  z-index: 100 !important;
+  @include RP(
+    (
+      "padding-top": 15,
+      "padding-bottom": 15,
+      "margin-top": 100,
+      "margin-bottom": -100,
+    ),
+    1
+  );
+  @media screen and (max-width: 510px) {
+    margin-bottom: 0px !important;
+    @include RP(
+      (
+        "margin-top": 40,
+      ),
+      1
+    );
+  }
+  width: 100%;
+  height: 100%;
+
+  .contentContainer {
+    background: radial-gradient(
+      100% 100% at 50% 0%,
+      #00020f80 65.7463788986206%,
+      #00041f80
+    );
+
+    @include RP(
+      (
+        "margin-top": 20,
+        "border-radius": 40,
+        "padding": 60,
+      ),
+      1
+    );
+
+    @media screen and (max-width: 600px) {
+      overflow-x: auto;
+
+      // Custom scrollbar styles
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(19, 24, 57, 0.3);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #3363ff, #4133ff);
+        border-radius: 4px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(90deg, #4f7bff, #5a4bff);
+      }
+
+      // Firefox scrollbar
+      scrollbar-width: thin;
+      scrollbar-color: #3363ff rgba(19, 24, 57, 0.3);
+
+      .header {
+        min-width: 600px;
+      }
+
+      .content {
+        min-width: 600px;
+      }
+    }
+    .header {
+      @include RP(
+        (
+          "margin-bottom": 40,
+        ),
+        1
+      );
+      img {
+        @include RP(
+          (
+            "width": 70,
+            "height": 70,
+          ),
+          1
+        );
+      }
+      h4 {
+        font-family: var(--font-rethink-sans) !important;
+        @include RP(
+          (
+            "font-size": 28,
+            "line-height": 36,
+          ),
+          1
+        );
+      }
+      .logoContainer {
+        span {
+          font-family: var(--font-satoshi) !important;
+          color: #fff !important;
+          @include RP(
+            (
+              "font-size": 20,
+              "line-height": 26,
+            ),
+            1
+          );
+        }
+        img {
+          @include RP(
+            (
+              "width": 31,
+              "height": 31,
+            ),
+            1
+          );
+        }
+      }
+    }
+    .content {
+      background-image: url("../../../../_assets/images/light-bg.png");
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      width: 100%;
+      height: 100%;
+      .cardItem {
+        border: 1px solid #131839;
+
+        @include RP(
+          (
+            "border-radius": 16,
+            "height": 90,
+          ),
+          1
+        );
+
+        h5 {
+          color: #a7adbe !important;
+          font-family: var(--font-rethink-sans) !important;
+          @include RP(
+            (
+              "font-size": 18,
+              "line-height": 26,
+            ),
+            1
+          );
+        }
+
+        .otherAgencies {
+          position: relative;
+
+          @include RP(
+            (
+              "padding-top": 18,
+              "padding-bottom": 18,
+              "padding-left": 20,
+              "padding-right": 20,
+            ),
+            1
+          );
+
+          img {
+            @include RP(
+              (
+                "width": 24,
+                "height": 24,
+              ),
+              1
+            );
+          }
+          // Diagonal pattern overlay
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100% !important;
+            background-image: repeating-linear-gradient(
+              -45deg,
+              transparent,
+              transparent 3px,
+              rgba(59, 130, 246, 0.03) 3px,
+              rgba(59, 130, 246, 0.03) 6px
+            );
+            border-radius: inherit;
+            pointer-events: none;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1px;
+            @include RP(
+              (
+                "height": 36,
+              ),
+              1
+            );
+            background: #4133ff;
+            border-radius: inherit;
+            pointer-events: none;
+          }
+        }
+
+        .devArtVentures {
+          background: linear-gradient(90deg, #3363ff26, #00020f00);
+          @include RP(
+            (
+              "padding-top": 18,
+              "padding-bottom": 18,
+              "padding-left": 20,
+              "padding-right": 20,
+            ),
+            1
+          );
+
+          img {
+            @include RP(
+              (
+                "width": 24,
+                "height": 24,
+              ),
+              1
+            );
+          }
+        }
+      }
+    }
+  }
+}
