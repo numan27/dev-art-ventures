@@ -10,7 +10,7 @@ import useWindowDimensions from "../../../hooks/useWindowDimensions";
 interface HeroBannerProps {
   tag?: string;
   heading: string | any;
-  description: string;
+  description: string | any;
   primaryButtonText: string;
   primaryButtonPath: string;
   secondaryButtonText?: string;

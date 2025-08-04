@@ -69,6 +69,14 @@ import ServiceSectionBg from "./service-section-bg.png";
 import TestimonialsSectionBg from "./testimonials-section-bg.png";
 import PlusIcon from "./plus.png";
 import MinusIcon from "./minus.png";
+import DevFeature2 from "./dev-feature-2.png";
+import DevFeature3 from "./dev-feature-3.png";
+import DevFeature4 from "./dev-feature-4.png";
+import DevFeature5 from "./dev-feature-5.png";
+import DevFeature6 from "./dev-feature-6.png";
+import DevService5 from "./dev-service-5.png";
+import WorkshopIcon from "./workshop.png";
+import BootcampIcon from "./bootcamp.png";
 
 const Images = {
   Logo,
@@ -135,6 +143,12 @@ const Images = {
   DesignProcess4,
   DesignProcess5,
   DesignProcess6,
+  DevFeature2,
+  DevFeature3,
+  DevFeature4,
+  DevFeature5,
+  DevFeature6,
+  DevService5,
   Vs,
   StarBullet,
   PowerBullet,
@@ -142,6 +156,8 @@ const Images = {
   TestimonialsSectionBg,
   PlusIcon,
   MinusIcon,
+  WorkshopIcon,
+  BootcampIcon,
 };
 
 export { Images };

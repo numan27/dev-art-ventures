@@ -5,6 +5,7 @@ import CustomBadge from "components/common/customBadge";
 import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import CustomSectionHeading from "components/common/customSectionHeading";
+import CustomCard from "components/common/customCard";
 
 const Features = () => {
   return (
@@ -38,39 +39,21 @@ const Features = () => {
             "grid sm:grid-cols-3 xs:grid-cols-2 grid-cols-1 md:gap-4 gap-3  bg-transparent"
           )}
         >
-          <div className={classNames(styles.cardItem, "flex flex-col")}>
-            <img
-              src={Images.DesignFeature1.src}
-              alt="Data-Driven UX Research"
-            />
-            <h4>Data-Driven UX Research</h4>
-            <p>
-              Crafting intuitive and visually stunning interfaces for an
-              enhanced user experience
-            </p>
-          </div>
-          <div className={classNames(styles.cardItem, "flex flex-col")}>
-            <img
-              src={Images.DesignFeature2.src}
-              alt="Pixel-Perfect, Scalable UI"
-            />
-            <h4>Pixel-Perfect, Scalable UI</h4>
-            <p>
-              Crafting intuitive and visually stunning interfaces for an
-              enhanced user experience
-            </p>
-          </div>
-          <div className={classNames(styles.cardItem, "flex flex-col")}>
-            <img
-              src={Images.DesignFeature3.src}
-              alt="Testing & Iteration For ROI"
-            />
-            <h4>Testing & Iteration For ROI</h4>
-            <p>
-              Crafting intuitive and visually stunning interfaces for an
-              enhanced user experience
-            </p>
-          </div>
+          <CustomCard
+            icon={Images.DesignFeature1.src}
+            title="Data-Driven UX Research"
+            description="Crafting intuitive and visually stunning interfaces for an enhanced user experience"
+          />
+          <CustomCard
+            icon={Images.DesignFeature2.src}
+            title="Pixel-Perfect, Scalable UI"
+            description="Crafting intuitive and visually stunning interfaces for an enhanced user experience"
+          />
+          <CustomCard
+            icon={Images.DesignFeature3.src}
+            title="Testing & Iteration For ROI"
+            description="Crafting intuitive and visually stunning interfaces for an enhanced user experience"
+          />
         </div>
         <div className="flex justify-center items-center mt-10">
           <CustomButton title="Get Started Today" />

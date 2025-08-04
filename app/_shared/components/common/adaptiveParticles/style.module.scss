@@ -10,6 +10,29 @@
   pointer-events: none;
   overflow: hidden;
   will-change: transform;
+
+  // Performance-based optimizations
+  &[data-performance="low"] {
+    .circleContainer {
+      animation-duration: calc(var(--duration, 25s) * 1.5);
+
+      .circle {
+        animation-duration: 10s;
+        transform: scale(0.6);
+      }
+    }
+  }
+
+  &[data-performance="medium"] {
+    .circleContainer {
+      animation-duration: calc(var(--duration, 25s) * 1.2);
+
+      .circle {
+        animation-duration: 8s;
+        transform: scale(0.8);
+      }
+    }
+  }
 }
 
 .circleContainer {
@@ -21,6 +44,12 @@
   animation-delay: var(--delay, 0s);
   left: var(--x, 50%);
   top: var(--y, 50%);
+  transform: translate3d(0, 100vh, 0); /* Start from bottom */
+
+  // Optimized for GPU acceleration
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
 
   .circle {
     width: 100%;
@@ -34,6 +63,11 @@
     );
     will-change: transform, opacity;
     animation: pulse 8s infinite ease-in-out;
+    transform: scale(var(--size, 1));
+
+    // Optimized for GPU acceleration
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
   }
 }
 
@@ -49,11 +83,11 @@
 @keyframes pulse {
   0%,
   100% {
-    transform: scale(0.4);
+    transform: scale(calc(var(--size, 1) * 0.4));
     opacity: 0.7;
   }
   50% {
-    transform: scale(2.2);
+    transform: scale(calc(var(--size, 1) * 2.2));
     opacity: 1;
   }
 }
@@ -61,14 +95,31 @@
 // Performance optimizations for different screen sizes
 @media (max-width: 768px) {
   .circleContainer {
-    animation-duration: calc(var(--duration, 25s) * 0.8); // Faster on mobile
+    animation-duration: calc(var(--duration, 25s) * 0.8);
+  }
+
+  .circle {
+    animation-duration: 6s; // Faster pulse on mobile
   }
 }
 
 @media (max-width: 480px) {
   .circleContainer {
-    animation-duration: calc(
-      var(--duration, 25s) * 0.6
-    ); // Even faster on small screens
+    animation-duration: calc(var(--duration, 25s) * 0.6);
+  }
+
+  .circle {
+    animation-duration: 4s; // Even faster pulse on small screens
+  }
+}
+
+// Reduce motion for users who prefer it
+@media (prefers-reduced-motion: reduce) {
+  .circleContainer {
+    animation-duration: calc(var(--duration, 25s) * 2);
+  }
+
+  .circle {
+    animation-duration: 12s;
   }
 }

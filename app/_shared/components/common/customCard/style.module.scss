@@ -1,0 +1,50 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.cardItem {
+  background-color: rgb(0, 4, 31) !important;
+  border: 1px solid #131839 !important;
+  @include RP(
+    (
+      "padding": 40,
+      "border-radius": 20,
+      "gap": 16,
+    ),
+    1
+  );
+}
+
+.cardIcon {
+  @include RP(
+    (
+      "width": 40,
+      "height": 40,
+    ),
+    1
+  );
+}
+
+.cardTitle {
+  @include RP(
+    (
+      "font-size": 20,
+      "line-height": 28,
+    ),
+    1
+  );
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.cardDescription {
+  width: 100%;
+  opacity: 0.8;
+  @include RP(
+    (
+      "font-size": 14,
+      "line-height": 24,
+    ),
+    1
+  );
+  color: #ffffff;
+}

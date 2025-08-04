@@ -8,43 +8,43 @@ import CustomCard from "components/common/customCard";
 const servicesData = [
   {
     id: 1,
-    icon: Images.DesignFeature1.src,
-    title: "Design Strategy",
+    icon: Images.DesignFeature3.src,
+    title: "Frontend Development",
     description:
       "Crafting intuitive and visually stunning interfaces for an enhanced user experience",
   },
   {
     id: 2,
-    icon: Images.DesignFeature2.src,
-    title: "Branding",
+    icon: Images.DevFeature3.src,
+    title: "Backend Development",
     description:
-      "Crafting intuitive and visually stunning interfaces for an enhanced user experience",
+      "Building robust server-side applications and APIs for scalable solutions",
   },
   {
     id: 3,
-    icon: Images.DesignFeature3.src,
-    title: "UI/UX Design",
+    icon: Images.DesignService6.src,
+    title: "E-Commerce Development",
     description:
-      "Crafting intuitive and visually stunning interfaces for an enhanced user experience",
+      "Creating powerful online stores with seamless shopping experiences",
   },
   {
     id: 4,
-    icon: Images.DesignService4.src,
-    title: "Web Apps",
+    icon: Images.DevFeature6.src,
+    title: "Maintenance & Support",
     description:
-      "Crafting intuitive and visually stunning interfaces for an enhanced user experience",
+      "Providing ongoing technical support and maintenance for your applications",
   },
   {
     id: 5,
-    icon: Images.DesignService5.src,
-    title: "Mobile Apps",
+    icon: Images.DevService5.src,
+    title: "API Development",
     description:
       "Delivering websites that are fast, functional, and tailored to your business goals",
   },
   {
     id: 6,
-    icon: Images.DesignService6.src,
-    title: "Web Design",
+    icon: Images.DesignService4.src,
+    title: "MVP Development",
     description:
       "Get access to a pool of amazing resources to help you get ahead with your tech challenges.",
   },
@@ -72,6 +72,7 @@ const Features = () => {
               icon={service.icon}
               title={service.title}
               description={service.description}
+              button={true}
             />
           ))}
         </div>

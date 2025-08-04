@@ -20,7 +20,7 @@ const CustomProvider = ({ children }: any) => {
     <div>
       <Next13ProgressBar
         height="4px"
-        color="#0f76b2"
+        color="linear-gradient(rgb(97, 77, 255) 0%, rgb(64, 25, 255) 100%)"
         options={{ showSpinner: false }}
         showOnShallow
       />

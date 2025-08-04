@@ -33,9 +33,7 @@ const CustomSectionHeading = ({
         className
       )}
     >
-      <span {...(isDesktop && { "data-aos": "fade-up" })}>
-        {badge && <CustomBadge title={badge} />}
-      </span>
+      {badge && <CustomBadge title={badge} />}
       <div
         className={classNames(
           styles.titleContainer,

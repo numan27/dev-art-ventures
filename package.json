@@ -19,6 +19,7 @@
     "@xyflow/react": "^12.4.2",
     "aos": "^2.3.4",
     "axios": "^1.6.0",
+    "canvas": "^3.1.2",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",

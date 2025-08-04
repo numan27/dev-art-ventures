@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { checkDevicePerformance } from "../../../utils/performance";
+import { useMemo, useEffect, useState } from "react";
+import {
+  checkDevicePerformance,
+  createPerformanceMonitor,
+} from "../../../utils/performance";
 import styles from "./style.module.scss";
 
 interface AdaptiveParticlesProps {
@@ -13,71 +16,107 @@ const AdaptiveParticles = ({
   section,
   maxParticles = 100,
 }: AdaptiveParticlesProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [particleCount, setParticleCount] = useState(50);
+  const [performanceLevel, setPerformanceLevel] = useState<
+    "high" | "medium" | "low"
+  >("high");
 
+  // Optimized performance detection with frame rate monitoring
   useEffect(() => {
-    // Check device performance and adjust particle count
-    const performance = checkDevicePerformance();
+    const devicePerformance = checkDevicePerformance();
+    let initialLevel: "high" | "medium" | "low" = "high";
 
+    // Initial performance detection
+    if (
+      devicePerformance.isSlowDevice ||
+      devicePerformance.hardwareConcurrency <= 2
+    ) {
+      initialLevel = "low";
+    } else if (
+      devicePerformance.isLowMemory ||
+      devicePerformance.isSlowConnection
+    ) {
+      initialLevel = "medium";
+    }
+
+    setPerformanceLevel(initialLevel);
+
+    // Create and start performance monitor
+    const performanceMonitor = createPerformanceMonitor((level) => {
+      setPerformanceLevel(level);
+    });
+
+    performanceMonitor.start();
+
+    return () => {
+      // Cleanup is handled by the monitor
+    };
+  }, []);
+
+  // Optimized particle generation with better distribution
+  const particles = useMemo(() => {
     let count = maxParticles;
-    if (performance.isSlowDevice) {
-      count = Math.floor(maxParticles * 0.3); // 30% for slow devices
-    } else if (performance.isLowMemory) {
-      count = Math.floor(maxParticles * 0.5); // 50% for low memory devices
-    } else if (performance.isSlowConnection) {
-      count = Math.floor(maxParticles * 0.7); // 70% for slow connections
+
+    // Dynamic particle count based on performance
+    switch (performanceLevel) {
+      case "low":
+        count = Math.max(10, Math.floor(maxParticles * 0.15));
+        break;
+      case "medium":
+        count = Math.max(20, Math.floor(maxParticles * 0.4));
+        break;
+      case "high":
+        count = Math.max(30, Math.floor(maxParticles * 0.7));
+        break;
     }
 
-    setParticleCount(count);
+    // Create optimized particle array with better distribution
+    return Array.from({ length: count }, (_, index) => {
+      // Ensure continuous flow by calculating proper delays
+      const staggerDelay = (index / count) * 6; // 6 seconds total stagger
+      const duration = 15 + Math.random() * 8; // 15-23s duration for smoother flow
 
-    // Only render particles when section is in viewport
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
+      // Better distribution across the screen
+      const x = (index * 1.618) % 100; // Golden ratio for better distribution
+      const y = Math.random() * 100;
 
-    const sectionElement = document.querySelector(
-      `[data-section="${section}"]`
-    );
-    if (sectionElement) {
-      observer.observe(sectionElement);
-    }
+      return {
+        key: index,
+        delay: `${staggerDelay}s`,
+        duration: `${duration}s`,
+        x: `${x}%`,
+        y: `${y}%`,
+        size: Math.random() * 0.8 + 0.2, // Varied sizes for visual interest
+      };
+    });
+  }, [maxParticles, performanceLevel]);
 
-    return () => observer.disconnect();
-  }, [section, maxParticles]);
+  // Optimized rendering with fewer DOM manipulations
+  const circles = particles.map((particle) => (
+    <div
+      key={particle.key}
+      className={styles.circleContainer}
+      style={
+        {
+          "--delay": particle.delay,
+          "--duration": particle.duration,
+          "--x": particle.x,
+          "--y": particle.y,
+          "--size": particle.size,
+        } as React.CSSProperties
+      }
+    >
+      <div className={styles.circle}></div>
+    </div>
+  ));
 
-  const circles = Array.from({ length: particleCount }, (_, index) => {
-    const delay = Math.random() * 3;
-    const duration = 25 + Math.random() * 15;
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-
-    return (
-      <div
-        key={index}
-        className={styles.circleContainer}
-        style={
-          {
-            "--delay": `${delay}s`,
-            "--duration": `${duration}s`,
-            "--x": `${x}%`,
-            "--y": `${y}%`,
-          } as React.CSSProperties
-        }
-      >
-        <div className={styles.circle}></div>
-      </div>
-    );
-  });
-
-  if (!isVisible) {
-    return null;
-  }
-
-  return <div className={styles.particlesWrapper}>{circles}</div>;
+  return (
+    <div
+      className={styles.particlesWrapper}
+      data-performance={performanceLevel}
+    >
+      {circles}
+    </div>
+  );
 };
 
 export default AdaptiveParticles;
