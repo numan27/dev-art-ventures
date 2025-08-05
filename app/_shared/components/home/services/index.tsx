@@ -55,7 +55,7 @@ const servicesData = [
   },
 ];
 
-const Mission = () => {
+const Services = () => {
   return (
     <div
       className={classNames(styles.sectionWrapper, "")}
@@ -104,7 +104,7 @@ const Mission = () => {
                 className={classNames(
                   styles.content,
                   "flex flex-col justify-between items-start lg:gap-4 gap-3",
-                  index % 2 === 1 ? "order-2" : "order-1"
+                  index % 2 === 1 ? "lg:order-2 order-2" : "lg:order-1 order-2"
                 )}
               >
                 <div className={classNames("flex items-center gap-2.5")}>
@@ -128,11 +128,10 @@ const Mission = () => {
                 />
               </div>
 
-              {/* Video Section - Position based on index */}
               <div
                 className={classNames(
                   styles.videoContainer,
-                  index % 2 === 1 ? "order-1" : "order-2" // Reverse order for odd indices
+                  index % 2 === 1 ? "lg:order-1 order-1" : "lg:order-2 order-1"
                 )}
               >
                 <video src={service.videoSrc} autoPlay muted loop />
@@ -145,4 +144,4 @@ const Mission = () => {
   );
 };
 
-export default Mission;
+export default Services;

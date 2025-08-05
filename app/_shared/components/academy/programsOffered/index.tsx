@@ -7,39 +7,6 @@ import Image from "next/image";
 import CustomButton from "components/common/customButton";
 
 const ProgramsOffered = () => {
-  const cardData = [
-    {
-      icon: Images.DesignProcess1.src,
-      title: "Understanding Goals",
-      description: "Every candidate passes technical + soft-skills",
-    },
-    {
-      icon: Images.DevFeature2.src,
-      title: "User Centric Approach",
-      description: "Every candidate passes technical + soft-skills",
-    },
-    {
-      icon: Images.DevFeature3.src,
-      title: "Future Proof Development",
-      description: "Every candidate passes technical + soft-skills",
-    },
-    {
-      icon: Images.DevFeature4.src,
-      title: "Collaborative Workflow",
-      description: "Every candidate passes technical + soft-skills",
-    },
-    {
-      icon: Images.DevFeature5.src,
-      title: "Rigorous QA Process",
-      description: "Get matched in 24 hours, hire in 3 days.",
-    },
-    {
-      icon: Images.DevFeature6.src,
-      title: "On Going Maintenance",
-      description: "Transparent pricing—only pay when you hire.",
-    },
-  ];
-
   return (
     <div className={classNames(styles.sectionWrapper)}>
       <div className={classNames(styles.customContainer, "relative z-10")}>

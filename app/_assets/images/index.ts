@@ -77,6 +77,13 @@ import DevFeature6 from "./dev-feature-6.png";
 import DevService5 from "./dev-service-5.png";
 import WorkshopIcon from "./workshop.png";
 import BootcampIcon from "./bootcamp.png";
+import DesignBootcamp from "./upcoming-bootcamp.png";
+import DevBootcamp from "./upcoming-dev.png";
+import Clock from "./clock.png";
+import Calendar from "./calendar.png";
+import WorkshopCard from "./workshop-card.png";
+import AcademyTeam1 from "./academy-team-1.png";
+import AcademyTeam2 from "./academy-team-2.png";
 
 const Images = {
   Logo,
@@ -158,6 +165,13 @@ const Images = {
   MinusIcon,
   WorkshopIcon,
   BootcampIcon,
+  DesignBootcamp,
+  DevBootcamp,
+  Clock,
+  Calendar,
+  WorkshopCard,
+  AcademyTeam1,
+  AcademyTeam2,
 };
 
 export { Images };

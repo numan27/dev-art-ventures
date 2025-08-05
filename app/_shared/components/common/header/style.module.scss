@@ -29,6 +29,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   width: 100%;
+  overflow: visible !important;
   @include RP(
     (
       "height": 65,
@@ -42,7 +43,7 @@
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   text-align: center;
-  overflow: visible;
+  overflow: visible !important;
   margin: 0 auto;
   align-items: center;
   display: flex;
@@ -120,6 +121,41 @@
 .navItemWrapper {
   position: relative;
   z-index: 2147483647 !important;
+  overflow: visible !important;
+
+  // Add extended hover area for dropdown items
+  &:has(.navItem:hover) {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 16px;
+      background: transparent;
+      z-index: 2147483647;
+    }
+  }
+}
+
+// Extended hover area for dropdown navigation items
+.navItemWrapperExtended {
+  position: relative;
+  z-index: 2147483647 !important;
+  overflow: visible !important;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 20px;
+    background: transparent;
+    z-index: 2147483647;
+  }
 }
 
 .navItem {
@@ -145,14 +181,10 @@
 
 // Dropdown Menu Styles
 .dropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 1rem;
+  position: fixed;
   min-width: 220px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  z-index: 999999999999 !important;
+  z-index: 2147483647 !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(46px);
   -webkit-backdrop-filter: blur(46px);
@@ -174,11 +206,11 @@
   &::before {
     content: "";
     position: absolute;
-    top: -1rem;
+    top: -1rem; // Restored the proper height
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    height: 1rem;
+    height: 1rem; // Restored the proper height
     background: transparent;
   }
 }

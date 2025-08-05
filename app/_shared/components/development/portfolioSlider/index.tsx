@@ -2,7 +2,7 @@ import { memo } from "react";
 import { Images } from "assets";
 import InfiniteSlider from "components/common/infiniteSlider";
 
-const socialIcons = [
+const developmentIcons = [
   Images.DesignSlider1,
   Images.DesignSlider2,
   Images.DesignSlider3,
@@ -14,13 +14,13 @@ const socialIcons = [
   Images.DesignSlider9,
 ];
 
-const PortfolioSlider = () => {
-  const images = socialIcons.map((icon, index) => ({
+const DevelopmentPortfolioSlider = () => {
+  const images = developmentIcons.map((icon, index) => ({
     src: icon.src,
-    alt: `Social brand ${index + 1}`,
+    alt: `Development brand ${index + 1}`,
   }));
 
   return <InfiniteSlider images={images} />;
 };
 
-export default memo(PortfolioSlider);
+export default memo(DevelopmentPortfolioSlider);

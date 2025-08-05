@@ -2,48 +2,39 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 import styles from "./style.module.scss";
 import HeroBanner from "components/common/generalHeroBanner";
-import PreviousWorkshops from "components/academy/previousWorkshops";
 import BootCamps from "components/academy/bootCamps";
 import Testimonials from "components/home/testimonials";
-import FAQs from "components/design/faqs";
 import Mission from "components/home/mission";
-import ProgramsOffered from "components/academy/programsOffered";
-import AcademyCTA from "components/academy/academyCTA";
-import Workshops from "components/academy/workshops";
 import Team from "components/academy/team";
-import Features from "components/academy/features";
-import BootcampMentors from "components/academy/bootcampMentors";
 import AcademyCTABottom from "components/academy/academyCTABottom";
 
 export const metadata: Metadata = {
-  title: "Academy | DevArt Ventures",
-  description:
-    "We offer a range of courses to help you learn new skills and advance your career.",
+  title: "Recruitment | DevArt Ventures",
+  description: "Hire Best Designers & Developers for your next project.",
   alternates: {
-    canonical: "https://devartventures.com/academy",
+    canonical: "https://devartventures.com/recruitment",
   },
 };
 
-export default function Academy() {
+export default function Recruitment() {
   return (
     <div className={classNames(styles.pageWrapper)}>
       <HeroBanner
-        tag="Bring Your Ideas To Life"
+        tag="Trusted by 50+ Tech Teams"
         heading={
           <>
-            Master Tech & Design with <br /> Industry Leaders
+            Hire Pre-Trained <br /> Job-Ready Tech Talent{" "}
           </>
         }
         description={
           <>
-            Choose Your Path: Fast-Track Workshops with CEOs or Skill-Building{" "}
-            <br />
-            Bootcamps for Aspiring Designers & Developers.
+            We connect you with top-tier developers, designers, and <br />{" "}
+            engineers trained by leading tech programs.
           </>
         }
-        primaryButtonText="Join Bootcamps"
+        primaryButtonText="Hire in 72 Hours"
         primaryButtonPath="/contact"
-        secondaryButtonText="Explore Workshops"
+        secondaryButtonText=""
         secondaryButtonPath="/portfolio"
       />
       <Mission
@@ -54,16 +45,9 @@ export default function Academy() {
           growth.
         </>
       />
-      <ProgramsOffered />
       <BootCamps />
-      <AcademyCTA />
-      <Workshops />
-      <PreviousWorkshops />
       <Team />
-      <Features />
-      <BootcampMentors />
       <Testimonials />
-      <FAQs />
       <AcademyCTABottom />
     </div>
   );

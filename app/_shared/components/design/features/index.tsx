@@ -1,7 +1,6 @@
 "use client";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import CustomBadge from "components/common/customBadge";
 import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import CustomSectionHeading from "components/common/customSectionHeading";

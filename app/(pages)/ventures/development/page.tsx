@@ -2,7 +2,7 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 import styles from "./style.module.scss";
 import HeroBanner from "components/common/generalHeroBanner";
-import PortfolioSlider from "components/design/portfolioSlider";
+import DevelopmentPortfolioSlider from "components/development/portfolioSlider";
 import Services from "components/development/services";
 import Work from "components/design/work";
 import Process from "components/development/process";
@@ -38,7 +38,7 @@ export default function Development() {
         secondaryButtonText="Learn More"
         secondaryButtonPath="/portfolio"
       />
-      <PortfolioSlider />
+      <DevelopmentPortfolioSlider />
       <Highlights />
       <Tools />
       <Services />

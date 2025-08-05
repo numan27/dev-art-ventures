@@ -24,6 +24,15 @@ const Header: React.FC<HeaderProps> = () => {
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<
     string | null
   >(null);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [dropdownPosition, setDropdownPosition] = useState<{
+    x: number;
+    y: number;
+    width: number;
+  } | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
 
   // Handle responsive behavior
   useEffect(() => {
@@ -74,6 +83,38 @@ const Header: React.FC<HeaderProps> = () => {
     }
   };
 
+  const handleDropdownMouseEnter = (
+    itemLabel: string,
+    event: React.MouseEvent
+  ) => {
+    if (isMobile) return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const position = {
+      x: rect.left + rect.width / 2,
+      y: rect.bottom + 16, // Restored the proper gap
+      width: rect.width,
+    };
+    setDropdownPosition(position);
+    setActiveDropdown(itemLabel);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    if (isMobile) return;
+
+    // Simple timeout approach
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+    }
+
+    const timeout = setTimeout(() => {
+      setActiveDropdown(null);
+      setDropdownPosition(null);
+    }, 3000); // Very long timeout
+
+    setDropdownTimeout(timeout);
+  };
+
   return (
     <header className={styles.mainContainer} ref={headerRef}>
       <div className={styles.customContainer}>
@@ -110,12 +151,26 @@ const Header: React.FC<HeaderProps> = () => {
                           key={index}
                           className={classNames(
                             styles.navItemWrapper,
+                            item.hasDropdown && styles.navItemWrapperExtended,
                             "relative group"
                           )}
+                          style={{
+                            // For dropdown items, extend the hover area downward
+                            ...(item.hasDropdown && {
+                              paddingBottom: "40px", // Increased from 20px
+                              marginBottom: "-40px", // Increased from -20px
+                            }),
+                          }}
                         >
                           <Link
                             href={item.path || "#"}
                             className={styles.navItem}
+                            onMouseEnter={(e) => {
+                              if (item.hasDropdown) {
+                                handleDropdownMouseEnter(item.label, e);
+                              }
+                            }}
+                            onMouseLeave={handleDropdownMouseLeave}
                           >
                             <span className={styles.navlabels}>
                               {item.label}
@@ -139,50 +194,6 @@ const Header: React.FC<HeaderProps> = () => {
                               </svg>
                             )}
                           </Link>
-
-                          {item.hasDropdown && (
-                            <ul
-                              className={classNames(
-                                styles.dropdownMenu,
-                                "absolute left-0 hidden group-hover:block"
-                              )}
-                            >
-                              {item.dropdownItems?.map(
-                                (dropdownItem, dropdownIndex) => (
-                                  <li
-                                    key={dropdownIndex}
-                                    className={styles.dropdownItem}
-                                  >
-                                    <Link
-                                      href={dropdownItem.path}
-                                      className={styles.dropdownItemLink}
-                                    >
-                                      <div
-                                        className={styles.dropdownItemContent}
-                                      >
-                                        <span
-                                          className={styles.dropdownItemTitle}
-                                        >
-                                          {dropdownItem.title}
-                                        </span>
-                                        <span
-                                          className={
-                                            styles.dropdownItemDescription
-                                          }
-                                        >
-                                          {dropdownItem.description}
-                                        </span>
-                                      </div>
-                                    </Link>
-                                    {dropdownIndex <
-                                      (item.dropdownItems?.length || 0) - 1 && (
-                                      <div className={styles.dropdownDivider} />
-                                    )}
-                                  </li>
-                                )
-                              )}
-                            </ul>
-                          )}
                         </li>
                       ))}
                     </ul>
@@ -346,6 +357,57 @@ const Header: React.FC<HeaderProps> = () => {
           />,
           document.body
         )}
+
+      {/* Portal Dropdown Menu */}
+      {activeDropdown && dropdownPosition && typeof window !== "undefined" && (
+        <div
+          className={styles.dropdownMenu}
+          style={{
+            position: "fixed",
+            top: dropdownPosition.y,
+            left: dropdownPosition.x,
+            transform: "translateX(-50%)",
+            zIndex: 2147483647,
+          }}
+          onMouseEnter={(e) => {
+            if (dropdownTimeout) {
+              clearTimeout(dropdownTimeout);
+              setDropdownTimeout(null);
+            }
+          }}
+          onMouseLeave={(e) => {
+            const timeout = setTimeout(() => {
+              setActiveDropdown(null);
+              setDropdownPosition(null);
+            }, 1000);
+            setDropdownTimeout(timeout);
+          }}
+        >
+          {nav_items
+            .find((item) => item.label === activeDropdown)
+            ?.dropdownItems?.map((dropdownItem, dropdownIndex) => (
+              <div key={dropdownIndex} className={styles.dropdownItem}>
+                <Link
+                  href={dropdownItem.path}
+                  className={styles.dropdownItemLink}
+                >
+                  <div className={styles.dropdownItemContent}>
+                    <span className={styles.dropdownItemTitle}>
+                      {dropdownItem.title}
+                    </span>
+                    <span className={styles.dropdownItemDescription}>
+                      {dropdownItem.description}
+                    </span>
+                  </div>
+                </Link>
+                {dropdownIndex <
+                  (nav_items.find((item) => item.label === activeDropdown)
+                    ?.dropdownItems?.length || 0) -
+                    1 && <div className={styles.dropdownDivider} />}
+              </div>
+            ))}
+        </div>
+      )}
     </header>
   );
 };

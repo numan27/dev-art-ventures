@@ -5,8 +5,8 @@ import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
 
 interface MissionProps {
-  heading: string;
-  description: string | any;
+  heading?: string;
+  description?: string | any;
 }
 
 const Mission = ({
