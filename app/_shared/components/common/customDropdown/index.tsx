@@ -80,6 +80,7 @@ const CustomDropdown = ({
         notRequiredMargin ? "" : error ? "mb-0" : "mb-3"
       )}
       id={`custom-select-container-${uid}`}
+      style={{ position: "relative" }}
     >
       <div className="flex flex-col items-start w-full gap-2">
         {label ? (
@@ -98,7 +99,7 @@ const CustomDropdown = ({
             styles.inputContainer,
             readOnly ? styles.readonly : "",
             customInputContainer && customInputContainer,
-            "w-full gap-2 cursor-pointer "
+            "w-full flex justify-between items-center gap-2 cursor-pointer"
           )}
           style={readOnlyColor ? { background: readOnlyColor } : {}}
           onClick={() => {

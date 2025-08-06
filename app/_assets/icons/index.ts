@@ -98,6 +98,7 @@ import GradientGridBox from "./gradient-grid-shape.svg";
 import CheckBullet from "./check-bullet.svg";
 import Bullet from "./bullet.svg";
 import BigQuotesIcon from "./quotes.svg";
+import JoinArrow from "./join-arrow.svg";
 
 const Icons = {
   ArrowRight,
@@ -200,6 +201,7 @@ const Icons = {
   CheckBullet,
   Bullet,
   BigQuotesIcon,
+  JoinArrow,
 };
 
 export { Icons };

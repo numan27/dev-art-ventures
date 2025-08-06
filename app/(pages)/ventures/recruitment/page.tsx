@@ -2,11 +2,14 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 import styles from "./style.module.scss";
 import HeroBanner from "components/common/generalHeroBanner";
-import BootCamps from "components/academy/bootCamps";
 import Testimonials from "components/home/testimonials";
 import Mission from "components/home/mission";
-import Team from "components/academy/team";
-import AcademyCTABottom from "components/academy/academyCTABottom";
+import Features from "components/recruitment/features";
+import HireTalent from "components/recruitment/hireTalent";
+import Highlights from "components/recruitment/highlights";
+import Talent from "components/recruitment/talent";
+import RecruitmentCTABottom from "components/recruitment/recruitmentCTABottom";
+import TalentForm from "components/recruitment/talentForm";
 
 export const metadata: Metadata = {
   title: "Recruitment | DevArt Ventures",
@@ -45,10 +48,13 @@ export default function Recruitment() {
           growth.
         </>
       />
-      <BootCamps />
-      <Team />
+      <Features />
+      <HireTalent />
+      <Highlights />
+      <Talent />
       <Testimonials />
-      <AcademyCTABottom />
+      <TalentForm />
+      <RecruitmentCTABottom />
     </div>
   );
 }

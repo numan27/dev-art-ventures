@@ -2,36 +2,36 @@
 @import "utils/colors.scss";
 
 .inputLabel {
-  @include RP(
-    (
-      "font-size": 16,
-      "line-height": 21,
-    )
-  );
-  color: $LABEL;
-  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: $WHITE !important;
 }
 
 .asterik {
-  color: $RED;
+  color: $PRIMARY;
 }
 
 .readonly {
-  background: #f4f4f4;
+  background: $DARK;
 }
 
 .inputContainer {
-  @include RP(
-    (
-      "height": 56,
-      "padding": 16,
-    )
-  );
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid $BORDER;
-  background-color: $WHITE;
+  // background-color: $GRAY2;
+  border-radius: 8px !important;
+  @include RP(
+    (
+      "height": 50,
+      "padding-left": 15,
+      "padding-right": 15,
+    )
+  );
+  @media screen and (max-width: 640px) {
+    height: 40px !important;
+  }
 }
 
 .value {
@@ -40,7 +40,7 @@
       "font-size": 14,
     )
   );
-  color: white !important;
+  color: $WHITE !important;
 }
 
 .placeholder {
@@ -63,16 +63,22 @@
 }
 
 .iconStyle {
+  margin: 0;
+  padding: 0;
   @include RP(
     (
       "height": 24,
       "width": 24,
     )
   );
+  path {
+    stroke: $WHITE;
+  }
 }
 
 .optionsContainer {
   z-index: 21;
+  width: 100%;
   @include RP(
     (
       "max-height": 250,

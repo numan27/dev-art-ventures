@@ -84,6 +84,9 @@ import Calendar from "./calendar.png";
 import WorkshopCard from "./workshop-card.png";
 import AcademyTeam1 from "./academy-team-1.png";
 import AcademyTeam2 from "./academy-team-2.png";
+import HireTalent from "./hire-talent.png";
+import FindJobs from "./find-jobs.png";
+import Dollar from "./dollar.png";
 
 const Images = {
   Logo,
@@ -172,6 +175,9 @@ const Images = {
   WorkshopCard,
   AcademyTeam1,
   AcademyTeam2,
+  HireTalent,
+  FindJobs,
+  Dollar,
 };
 
 export { Images };

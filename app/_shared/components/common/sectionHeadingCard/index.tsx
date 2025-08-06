@@ -6,7 +6,7 @@ import AdaptiveParticles from "../adaptiveParticles";
 import CustomSectionHeading from "../customSectionHeading";
 
 interface SectionHeadingCardProps {
-  heading: string;
+  heading: string | any;
   description?: string;
   badge?: string;
   centered?: boolean;

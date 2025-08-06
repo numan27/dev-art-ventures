@@ -3,11 +3,7 @@
 
 .inputLabel {
   font-weight: 500;
-  @include RP(
-    (
-      "font-size": 14,
-    )
-  );
+  font-size: 14px;
   color: $WHITE !important;
 }
 
@@ -24,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   border: 1px solid $BORDER;
-  background-color: $GRAY2;
+  // background-color: $GRAY2;
   border-radius: 8px !important;
   @include RP(
     (
@@ -33,6 +29,9 @@
       "padding-right": 15,
     )
   );
+  @media screen and (max-width: 640px) {
+    height: 40px !important;
+  }
 
   svg circle {
     stroke: #b2aeae;
@@ -54,6 +53,7 @@
   height: 100%;
   border: 0px;
   border-radius: 8px !important;
+  background-color: transparent;
   outline: 0;
   @include RP(
     (
@@ -61,11 +61,11 @@
     ),
     1
   );
-  background: $DARK;
+  // background: $DARK;
 
-  &:focus {
-    background-color: $DARK !important;
-  }
+  // &:focus {
+  //   background-color: $DARK !important;
+  // }
 }
 
 .inputStyle::placeholder {
