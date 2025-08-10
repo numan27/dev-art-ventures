@@ -6,6 +6,7 @@ import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
 import CustomBadge from "components/common/customBadge";
 import { Images } from "assets";
+import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const testimonialsData = [
   {
@@ -341,28 +342,16 @@ const Testimonials = () => {
       data-section="testimonials"
     >
       <div className={classNames(styles.customContainer)}>
-        <div
-          className={classNames(
-            styles.sectionContainer,
-            "relative flex items-center justify-center "
-          )}
-        >
-          <div className={styles.particlesContainer}>
-            <AdaptiveParticles section="testimonials" maxParticles={250} />
-          </div>
-          <div
-            className={classNames(
-              styles.missionText,
-              "flex flex-col lg:gap-4 md:gap-3 gap-2 justify-center items-center text-center relative z-10"
-            )}
-          >
-            <CustomBadge title="Testimonials" />
-            <h2>Client Success Stories</h2>
-            <p>
-              Discover what our clients say about their experiences and success
-              working with us.
-            </p>
-          </div>
+        <div>
+          <SectionHeadingCard
+            badge="Testimonials"
+            heading="Client Success Stories"
+            description="Discover what our clients say about their experiences and success working with us."
+            centered={true}
+            maxParticles={250}
+            section="testimonials"
+            backgroundImage={Images.TestimonialsSectionBg.src}
+          />
         </div>
 
         <div className={classNames(styles.contentContainer)}>

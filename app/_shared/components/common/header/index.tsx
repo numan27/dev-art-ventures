@@ -33,6 +33,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle responsive behavior
   useEffect(() => {
@@ -40,6 +41,17 @@ const Header: React.FC<HeaderProps> = () => {
     handleResize(); // Set initial state
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Handle scroll effects
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Handle click outside to close mobile menu
@@ -116,10 +128,26 @@ const Header: React.FC<HeaderProps> = () => {
   };
 
   return (
-    <header className={styles.mainContainer} ref={headerRef}>
+    <header
+      className={classNames(
+        styles.mainContainer,
+        isScrolled && styles.scrolled
+      )}
+      ref={headerRef}
+    >
       <div className={styles.customContainer}>
-        <div className={styles.contentContainer}>
-          <div className={styles.blurBackground}>
+        <div
+          className={classNames(
+            styles.contentContainer,
+            isScrolled && styles.contentContainerScrolled
+          )}
+        >
+          <div
+            className={classNames(
+              styles.blurBackground,
+              isScrolled && styles.blurBackgroundScrolled
+            )}
+          >
             {/* Logo Section */}
             <div className={styles.logoContainer}>
               <a
@@ -129,8 +157,13 @@ const Header: React.FC<HeaderProps> = () => {
                   e.preventDefault();
                   router.push("/");
                 }}
+                aria-label="Go to homepage"
               >
-                <Image src={Images.Logo} className={styles.logo} alt="Logo" />
+                <Image
+                  src={Images.Logo}
+                  className={styles.logo}
+                  alt="DevArtVentures Logo"
+                />
                 <span>DevArtVentures</span>
               </a>
             </div>
@@ -139,7 +172,11 @@ const Header: React.FC<HeaderProps> = () => {
               {/* Desktop Navigation */}
               <div>
                 {!isMobile && (
-                  <nav className={styles.desktopNav}>
+                  <nav
+                    className={styles.desktopNav}
+                    role="navigation"
+                    aria-label="Main navigation"
+                  >
                     <ul
                       className={classNames(
                         styles.navList,
@@ -171,6 +208,12 @@ const Header: React.FC<HeaderProps> = () => {
                               }
                             }}
                             onMouseLeave={handleDropdownMouseLeave}
+                            aria-expanded={
+                              item.hasDropdown
+                                ? activeDropdown === item.label
+                                : undefined
+                            }
+                            aria-haspopup={item.hasDropdown}
                           >
                             <span className={styles.navlabels}>
                               {item.label}
@@ -183,6 +226,7 @@ const Header: React.FC<HeaderProps> = () => {
                                 viewBox="0 0 12 12"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true"
                               >
                                 <path
                                   d="M3 4.5L6 7.5L9 4.5"
@@ -219,6 +263,8 @@ const Header: React.FC<HeaderProps> = () => {
                 type="button"
                 className={styles.mobileMenuToggle}
                 aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
                   <svg
@@ -226,6 +272,7 @@ const Header: React.FC<HeaderProps> = () => {
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <path
                       fillRule="evenodd"
@@ -239,6 +286,7 @@ const Header: React.FC<HeaderProps> = () => {
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <path
                       fillRule="evenodd"
@@ -254,10 +302,13 @@ const Header: React.FC<HeaderProps> = () => {
           {/* Mobile Menu */}
           {isMobile && (
             <div
+              id="mobile-menu"
               className={classNames(
                 styles.mobileMenu,
                 isMobileMenuOpen && styles.mobileMenuOpen
               )}
+              role="navigation"
+              aria-label="Mobile navigation"
             >
               <nav className={styles.mobileNav}>
                 <ul className={styles.mobileNavList}>
@@ -270,6 +321,12 @@ const Header: React.FC<HeaderProps> = () => {
                             : item.path && handleNavItemClick(item.path)
                         }
                         className={styles.mobileNavItem}
+                        aria-expanded={
+                          item.hasDropdown
+                            ? activeMobileDropdown === item.label
+                            : undefined
+                        }
+                        aria-haspopup={item.hasDropdown}
                       >
                         <span className={styles.navlabels}>{item.label}</span>
                         {item.hasDropdown && (
@@ -284,6 +341,7 @@ const Header: React.FC<HeaderProps> = () => {
                             viewBox="0 0 12 12"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
                           >
                             <path
                               d="M3 4.5L6 7.5L9 4.5"
@@ -299,13 +357,18 @@ const Header: React.FC<HeaderProps> = () => {
                       {/* Mobile Dropdown Menu */}
                       {item.hasDropdown &&
                         activeMobileDropdown === item.label && (
-                          <div className={styles.mobileDropdownMenu}>
+                          <div
+                            className={styles.mobileDropdownMenu}
+                            role="menu"
+                            aria-label={`${item.label} submenu`}
+                          >
                             {item.dropdownItems?.map(
                               (dropdownItem, dropdownIndex) => (
                                 <Link
                                   key={dropdownIndex}
                                   href={dropdownItem.path}
                                   className={styles.mobileDropdownItem}
+                                  role="menuitem"
                                 >
                                   <div
                                     className={styles.mobileDropdownItemContent}
@@ -354,6 +417,7 @@ const Header: React.FC<HeaderProps> = () => {
           <div
             className={styles.mobileMenuBackdrop}
             onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
           />,
           document.body
         )}
@@ -382,6 +446,8 @@ const Header: React.FC<HeaderProps> = () => {
             }, 1000);
             setDropdownTimeout(timeout);
           }}
+          role="menu"
+          aria-label={`${activeDropdown} submenu`}
         >
           {nav_items
             .find((item) => item.label === activeDropdown)
@@ -390,6 +456,7 @@ const Header: React.FC<HeaderProps> = () => {
                 <Link
                   href={dropdownItem.path}
                   className={styles.dropdownItemLink}
+                  role="menuitem"
                 >
                   <div className={styles.dropdownItemContent}>
                     <span className={styles.dropdownItemTitle}>

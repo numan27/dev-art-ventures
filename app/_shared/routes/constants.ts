@@ -24,14 +24,14 @@ const routeConstant = {
       path: "/ventures/development",
       title: "Web & App Development",
     },
-    recruitment: {
-      path: "/ventures/recruitment",
-      title: "Hire Best Talent",
+    staffAugmentation: {
+      path: "/ventures/staff-augmentation",
+      title: "Hire Best Designers",
     },
-    academy: {
-      path: "/ventures/academy",
-      title: "Learn Design & Development",
-    },
+    // academy: {
+    //   path: "/ventures/academy",
+    //   title: "Learn Design & Development",
+    // },
   },
 
   // General Pages

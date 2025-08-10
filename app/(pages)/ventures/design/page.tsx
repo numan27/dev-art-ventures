@@ -32,20 +32,22 @@ export default function Design() {
           </>
         }
         description="Your Partner in Transforming ideas into impactful digital solutions. Let's Build Things Together."
-        primaryButtonText="Book Call"
+        primaryButtonText="Book Free Consultation"
         primaryButtonPath="/contact"
-        secondaryButtonText="Learn More"
-        secondaryButtonPath="/portfolio"
+        secondaryButtonText="Start a Project"
+        secondaryButtonPath="/contact"
       />
-      <PortfolioSlider />
-      <Features />
-      <Services />
-      <Work />
-      <Process />
-      <Comparison />
-      <Testimonials />
-      <FAQs />
-      <CTA showBadge={false} />
+      <div className="mt-16">
+        <PortfolioSlider />
+        <Features />
+        <Services />
+        <Work />
+        <Process />
+        <Comparison />
+        <Testimonials />
+        <FAQs />
+        <CTA showBadge={false} />
+      </div>
     </div>
   );
 }

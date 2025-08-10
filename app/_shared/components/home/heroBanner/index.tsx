@@ -5,7 +5,6 @@ import styles from "./style.module.scss";
 import CustomButton from "../../common/customButton";
 import CustomBadge from "components/common/customBadge";
 import BrandSlider from "components/common/brandSlider";
-import Stats from "../stats";
 import useWindowDimensions from "hooks/useWindowDimensions";
 
 const HeroBanner = () => {
@@ -16,14 +15,14 @@ const HeroBanner = () => {
         <div
           className={classNames(
             styles.sectionWrapper,
-            "flex items-center justify-center relative flex-col gap-16"
+            "flex items-center justify-center relative flex-col gap-12"
           )}
         >
           <div className="relative w-full flex justify-center h-full">
             <div
               className={classNames(
                 styles.sectionContainer,
-                "flex items-center flex-col justify-center h-full gap-3 relative"
+                "flex items-center flex-col justify-center h-full lg:gap-5 md:gap-4 gap-3 relative"
               )}
             >
               <CustomBadge title="Building Future Ventures" />
@@ -41,22 +40,17 @@ const HeroBanner = () => {
                   "flex items-center gap-2 mt-2"
                 )}
               >
-                <CustomButton title="Book Call" />
-                <CustomButton
+                <CustomButton title="Book Free Consultation" />
+                {/* <CustomButton
                   containerStyle="secondary-button"
                   title="Let's Partner"
-                />
+                /> */}
               </div>
             </div>
           </div>
-          <BrandSlider />
-          <div
-            className={classNames(
-              styles.statsContainer,
-              "absolute bottom-4 w-full flex flex-col xs:gap-0 gap-4"
-            )}
-          >
-            <Stats />
+          <div className="absolute bottom-0 left-0 w-full">
+            <h6 className="text-center">Our Trusted Partners</h6>
+            <BrandSlider />
           </div>
         </div>
       </div>

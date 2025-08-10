@@ -6,12 +6,12 @@ import AdaptiveParticles from "../../common/adaptiveParticles";
 import { Icons, Images } from "assets";
 import Image from "next/image";
 import CustomButton from "components/common/customButton";
-import CustomBadge from "components/common/customBadge";
+import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const servicesData = [
   {
     id: 1,
-    title: "UI/UX Design",
+    title: "Design & Creative",
     icon: Images.ServiceIcon1,
     description: [
       "At DevArtVentures, we design digital experiences that feel natural and easy to use. Our focus is on creating interfaces that are clean, intuitive, and aligned with your brand.",
@@ -33,24 +33,13 @@ const servicesData = [
   },
   {
     id: 3,
-    title: "Recruitment",
+    title: "Staff Augmentation",
     icon: Images.ServiceIcon3,
     description: [
-      "Hiring the right people can be challenging, but we make it simple. Our recruitment process connects you with skilled, job-ready candidates through a reliable and thoughtful approach.",
-      "With support from our academy and professional network, we ensure every match fits both the role and your company culture. Whether you're growing a team or scaling fast, we've got you covered.",
+      "Scale your team with pre-vetted tech talent. Access developers, designers, and engineers who can join your projects immediately.",
+      "Get matched within 24 hours and start in as little as 3 days. Flexible engagements, culture-fit matching, and ongoing support from our network and academy.",
     ],
     videoSrc: "/recruitment.mp4",
-    buttonText: "Visit Now",
-  },
-  {
-    id: 4,
-    title: "DevArtAcademy",
-    icon: Images.ServiceIcon4,
-    description: [
-      "DevArtAcademy is where practical learning meets real opportunities. Our bootcamps and workshops are built to teach hands-on skills in design, development, and digital tools.",
-      "Led by industry professionals, our programs are designed to help beginners start strong and give working professionals a boost. It's not just learning, it's career-building.",
-    ],
-    videoSrc: "/academy.mp4",
     buttonText: "Visit Now",
   },
 ];
@@ -71,19 +60,14 @@ const Services = () => {
           <div className={styles.particlesContainer}>
             <AdaptiveParticles section="services" maxParticles={100} />
           </div>
-          <div
-            className={classNames(
-              styles.missionText,
-              "flex flex-col gap-4 justify-center items-center text-center relative z-10"
-            )}
-          >
-            <CustomBadge title="Ventures" />
-            <h2>Things We're Building</h2>
-            <p>
-              Explore our streamlined approach to creating bespoke websites that
-              align with your goals.
-            </p>
-          </div>
+          <SectionHeadingCard
+            heading="What We Do"
+            description="Explore our streamlined approach to creating bespoke websites that align with your goals."
+            badge="Ventures"
+            centered={true}
+            maxParticles={150}
+            section="services"
+          />
         </div>
 
         <div

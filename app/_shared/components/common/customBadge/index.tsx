@@ -11,9 +11,9 @@ interface CustomBadgeProps {
 
 const CustomBadge = ({
   title,
-  bg = "transparent",
-  textUppercase = "capitalize",
-  height = 29,
+  bg = "#000529",
+  textUppercase = "uppercase",
+  height = 40,
 }: CustomBadgeProps) => {
   return (
     <div

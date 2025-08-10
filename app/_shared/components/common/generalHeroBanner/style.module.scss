@@ -5,87 +5,230 @@
   margin: 0 auto;
   z-index: 1 !important;
   height: 100% !important;
+  min-height: 100vh !important;
 }
 
 .sectionWrapper {
-  background-image: url("../../../../_assets/images/banner-grid.png"),
+  background-image: radial-gradient(
+      1000px 600px at 10% -10%,
+      rgba(24, 119, 242, 0.28),
+      rgba(24, 119, 242, 0) 60%
+    ),
+    radial-gradient(
+      900px 500px at 90% 0%,
+      rgba(244, 114, 182, 0.22),
+      rgba(244, 114, 182, 0) 60%
+    ),
+    linear-gradient(180deg, rgba(8, 12, 24, 0.55), rgba(8, 12, 24, 0.15)),
+    url("../../../../_assets/images/banner-grid.png"),
     url("../../../../_assets/images/hero-bg-gradient.png");
-  background-size: contain, cover;
-  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover, cover, contain, cover;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position: top center, top center, top center, bottom -100px center,
+    top center !important;
+
+  // Visible faint grid overlay layer
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.06) 0,
+        rgba(255, 255, 255, 0.06) 1px,
+        transparent 1px,
+        transparent 28px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 28px
+      );
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+  }
+
   height: 100% !important;
-  min-height: 65vh !important;
+  min-height: 100vh !important;
   margin: 0 auto;
   width: 100%;
   position: relative;
   @include RP(
     (
-      "padding-top": 100,
+      // "padding-top": 56,
+      "padding-bottom": 56
     ),
     1
   );
   z-index: 1;
 
-  background-position: bottom -100px center, top center !important;
-
-  // @media screen and (max-width: 1440px) {
-  //   background-position: bottom -100px center, top center !important;
-  // }
-  // @media screen and (max-width: 1200px) {
-  //   background-position: bottom -100px center, top center !important;
-  // }
   @media screen and (max-width: 510px) {
-    background-position: center center, top center !important;
-    padding-top: 0 !important;
+    background-position: top center, top center, top center, center center,
+      top center !important;
+    padding-top: 72px !important;
   }
 
   .sectionContainer {
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+    // Minimal elevated card
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18),
+      0 2px 0 rgba(255, 255, 255, 0.06) inset;
+
     text-align: center;
-    max-width: 50% !important;
+    max-width: 58% !important;
     margin: 0 auto !important;
     position: relative;
     z-index: 1 !important;
+    @include RP(
+      (
+        "padding-top": 32,
+        "padding-bottom": 36,
+        "padding-left": 28,
+        "padding-right": 28,
+      ),
+      1
+    );
 
-    .buttons {
-      button {
+    h1 {
+      @include RP(
+        (
+          "font-size": 52,
+          "line-height": 62,
+        ),
+        1
+      );
+      color: #ffffff;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      margin: 0 auto;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+
+      // Gradient underline accent
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -12px;
+        height: 3px;
+        width: 120px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
+        opacity: 0.9;
+      }
+
+      @media screen and (max-width: 510px) {
         @include RP(
           (
-            "width": 132,
-            "padding-left": 10,
-            "padding-right": 10,
+            "font-size": 38,
+            "line-height": 46,
           ),
           1
         );
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      @include RP(
+        (
+          "font-size": 18,
+          "line-height": 28,
+        ),
+        1
+      );
+      max-width: 72ch;
+      margin-left: auto;
+      margin-right: auto;
+      @include RP(
+        (
+          "margin-top": 8,
+        ),
+        1
+      );
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      @include RP(
+        (
+          "margin-top": 16,
+        ),
+        1
+      );
+
+      button {
+        @include RP(
+          (
+            "padding-left": 28,
+            "padding-right": 28,
+          ),
+          1
+        );
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+        }
       }
     }
 
     @media screen and (max-width: 1440px) {
-      max-width: 60% !important;
-
-      h1 {
-        @include RP(
-          (
-            "font-size": 50,
-            "line-height": 60,
-          ),
-          1
-        );
-        @media screen and (max-width: 510px) {
-          @include RP(
-            (
-              "font-size": 40,
-              "line-height": 48,
-            ),
-            1
-          );
-        }
-      }
+      max-width: 64% !important;
+    }
+    @media screen and (max-width: 1200px) {
+      max-width: 72% !important;
     }
     @media screen and (max-width: 1024px) {
-      max-width: 70% !important;
+      max-width: 78% !important;
+    }
+    @media screen and (max-width: 900px) {
+      max-width: 88% !important;
     }
     @media screen and (max-width: 768px) {
       max-width: 95% !important;
+      border-radius: 16px;
     }
+  }
+}
+
+@keyframes gentleFloat1 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) translateX(6px) scale(1.01);
+  }
+}
+
+@keyframes gentleFloat2 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(8px) translateX(-6px) scale(1.01);
+  }
+}
+
+@keyframes gentleFloat3 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) translateX(-10px) scale(1.01);
   }
 }

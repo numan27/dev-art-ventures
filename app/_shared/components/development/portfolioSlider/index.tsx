@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Images } from "assets";
 import InfiniteSlider from "components/common/infiniteSlider";
+import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const developmentIcons = [
   Images.DesignSlider1,
@@ -20,7 +21,21 @@ const DevelopmentPortfolioSlider = () => {
     alt: `Development brand ${index + 1}`,
   }));
 
-  return <InfiniteSlider images={images} />;
+  return (
+    <div className="w-full">
+      <SectionHeadingCard
+        heading="Our Portfolio"
+        description="We have worked with some of the best brands in the world"
+        badge="Our Portfolio"
+        centered={true}
+        maxParticles={150}
+        section="testimonials"
+      />
+      <div className="w-full">
+        <InfiniteSlider images={images} />
+      </div>
+    </div>
+  );
 };
 
 export default memo(DevelopmentPortfolioSlider);

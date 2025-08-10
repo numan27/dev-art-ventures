@@ -3,24 +3,18 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import { useEffect } from "react";
-import AOS from "aos";
 import Mission from "./mission";
 import Services from "./services";
 import Testimonials from "./testimonials";
 import Features from "./features";
 import CTA from "./cta";
 import HeroBanner from "./heroBanner";
+import PortfolioSlider from "components/development/portfolioSlider";
+import Process from "./process";
+import PreviousWorkshops from "components/academy/previousWorkshops";
 
 const LandingPage = () => {
   useEffect(() => {
-    // Initialize AOS
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false,
-      mirror: true,
-    });
-
     document.documentElement.style.scrollBehavior = "smooth";
 
     const sections = document.querySelectorAll("section");
@@ -57,8 +51,11 @@ const LandingPage = () => {
         <HeroBanner />
         <Mission />
         <Services />
-        <Testimonials />
+        {/* <PortfolioSlider /> */}
+        <Process />
+        <PreviousWorkshops />
         <Features />
+        <Testimonials />
         <CTA />
       </div>
     </>

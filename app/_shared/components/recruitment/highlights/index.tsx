@@ -12,17 +12,17 @@ const Highlights = () => {
     {
       icon: Images.DevFeature2.src,
       title: "Pre-Vetted Talent",
-      description: "Every candidate passes technical + soft-skills",
+      description: "Every candidate passes technical + soft-skills assessment",
     },
     {
       icon: Images.DevFeature5.src,
-      title: "Fast Placements",
-      description: "Get matched in 24 hours, hire in 3 days.",
+      title: "Immediate Availability",
+      description: "Get matched in 24 hours, start working in 3 days.",
     },
     {
       icon: Images.Dollar.src,
-      title: "No Hidden Fees",
-      description: "Transparent pricing—only pay when you hire.",
+      title: "Flexible Engagement",
+      description: "Scale up or down based on your project needs.",
     },
   ];
 
@@ -33,10 +33,10 @@ const Highlights = () => {
           badge="WHY US"
           heading={
             <>
-              Why Hire Through <br /> DevArt Ventures?
+              Why Choose DevArt <br /> Staff Augmentation?
             </>
           }
-          description="Take The Route That is Easy For You & Get Ahead In Your Design Skills"
+          description="Access top-tier tech talent with proven expertise and immediate availability"
           centered={true}
           maxParticles={200}
           section="services"

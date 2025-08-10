@@ -10,47 +10,52 @@ import Highlights from "components/recruitment/highlights";
 import Talent from "components/recruitment/talent";
 import RecruitmentCTABottom from "components/recruitment/recruitmentCTABottom";
 import TalentForm from "components/recruitment/talentForm";
+import RolesWeProvide from "components/recruitment/rolesWeProvide";
+import PricingExample from "components/recruitment/pricingExample";
 
 export const metadata: Metadata = {
-  title: "Recruitment | DevArt Ventures",
-  description: "Hire Best Designers & Developers for your next project.",
+  title: "Staff Augmentation | DevArt Ventures",
+  description:
+    "Scale your team with pre-vetted tech talent. Hire skilled developers, designers, and engineers on-demand.",
   alternates: {
-    canonical: "https://devartventures.com/recruitment",
+    canonical: "https://devartventures.com/staff-augmentation",
   },
 };
 
-export default function Recruitment() {
+export default function StaffAugmentation() {
   return (
     <div className={classNames(styles.pageWrapper)}>
       <HeroBanner
         tag="Trusted by 50+ Tech Teams"
         heading={
           <>
-            Hire Pre-Trained <br /> Job-Ready Tech Talent{" "}
+            Scale Your Team with Pre-Vetted <br /> Tech Talent
           </>
         }
         description={
           <>
-            We connect you with top-tier developers, designers, and <br />{" "}
-            engineers trained by leading tech programs.
+            Access a curated pool of skilled developers, designers, and <br />{" "}
+            engineers ready to join your projects immediately.
           </>
         }
         primaryButtonText="Hire in 72 Hours"
         primaryButtonPath="/contact"
-        secondaryButtonText=""
+        secondaryButtonText="View Talent Pool"
         secondaryButtonPath="/portfolio"
       />
       <Mission
         heading="Our Mission"
         description=<>
-          Provide high-impact, hands-on learning experiences led by top
-          professionals, ensuring <br /> real-world applicability and career
-          growth.
+          Connect businesses with exceptional tech talent through our <br />{" "}
+          rigorous vetting process and proven track record of successful
+          placements.
         </>
       />
       <Features />
       <HireTalent />
       <Highlights />
+      <RolesWeProvide />
+      <PricingExample />
       <Talent />
       <Testimonials />
       <TalentForm />

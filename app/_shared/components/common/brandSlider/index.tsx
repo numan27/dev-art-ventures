@@ -23,7 +23,7 @@ const BrandSlider = () => {
             styles.customContainer
           )}
         >
-          <div data-aos="fade-up" className={classNames(styles.loopSlider)}>
+          <div className={classNames(styles.loopSlider)}>
             <div
               className={classNames(styles.inner, "flex items-center gap-2")}
             >

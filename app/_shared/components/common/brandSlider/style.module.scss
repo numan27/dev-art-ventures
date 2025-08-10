@@ -22,11 +22,11 @@
   background: #000000;
   @include RP(
     (
-      padding-top: 15,
-      padding-bottom: 15,
+      padding-top: 24,
+      padding-bottom: 24,
       border-radius: 20,
       margin-top: 15,
-      margin-bottom: 15,
+      // margin-bottom: 15,
       min-height: 40,
     ),
     1

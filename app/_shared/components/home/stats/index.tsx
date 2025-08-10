@@ -17,7 +17,7 @@ const Stats = () => {
         <div
           className={classNames(
             styles.cardContainer,
-            "grid sm:grid-cols-4 grid-cols-2 md:gap-4 sm:gap-3 gap-2 bg-transparent"
+            "grid sm:grid-cols-2 grid-cols-1 md:gap-4 sm:gap-3 gap-2 bg-transparent"
           )}
         >
           {statsData.map((stat, index) => (

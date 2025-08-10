@@ -51,7 +51,7 @@
     position: relative;
     @include RP(
       (
-        "margin-top": 60,
+        "margin-top": 30,
         "height": 600,
       )
     );
@@ -271,44 +271,6 @@
           margin-top: 0px;
         }
       }
-    }
-  }
-
-  .missionText {
-    h2 {
-      @include RP(
-        (
-          "font-size": 58,
-          "line-height": 68,
-        ),
-        1
-      );
-      color: $WHITE;
-      @media screen and (max-width: 640px) {
-        @include RP(
-          (
-            "font-size": 40,
-            "line-height": 50,
-          ),
-          1
-        );
-      }
-    }
-    p {
-      max-width: 90%;
-      @include RP(
-        (
-          "font-size": 20,
-          "line-height": 28,
-          "margin-top": 16,
-        ),
-        1
-      );
-      @media screen and (max-width: 640px) {
-        max-width: 100% !important;
-        margin-top: 0px !important;
-      }
-      color: $DESC;
     }
   }
 }

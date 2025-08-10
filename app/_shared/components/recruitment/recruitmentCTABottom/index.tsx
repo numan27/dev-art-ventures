@@ -23,11 +23,11 @@ const RecruitmentCTABottom = () => {
               "flex flex-col gap-4 justify-center items-center text-center relative z-10"
             )}
           >
-            <h3>Design like a pro. Start your journey today.</h3>
+            <h3>Scale your team like a pro. Start your project today.</h3>
             <p>
-              Learn how to bring your ideas to life with modern design tools and
-              pro-level techniques. Whether you're building a brand or a career,
-              this is where your design journey begins.
+              Access pre-vetted tech talent and scale your development team with
+              confidence. Whether you need developers, designers, or engineers,
+              we've got you covered.
             </p>
             <CustomButton
               // Icon={Icons.Phone}

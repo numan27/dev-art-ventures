@@ -60,7 +60,7 @@ const GeneralHeroBanner = ({
             "flex items-center justify-center relative"
           )}
         >
-          <div className="relative w-full flex justify-center h-full pt-16">
+          <div className="relative w-full flex justify-center h-full">
             <div
               className={classNames(
                 styles.sectionContainer,
@@ -92,8 +92,11 @@ const GeneralHeroBanner = ({
               </div>
             </div>
           </div>
+          <div className="absolute bottom-0 left-0 w-full">
+            <h6 className="text-center">Our Trusted Partners</h6>
+            <BrandSlider />
+          </div>
         </div>
-        <BrandSlider />
       </div>
     </>
   );

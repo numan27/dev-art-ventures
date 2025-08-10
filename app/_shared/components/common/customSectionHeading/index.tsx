@@ -1,11 +1,10 @@
 "use client";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import useWindowDimensions from "hooks/useWindowDimensions";
 import CustomBadge from "components/common/customBadge";
 
 interface CustomSectionHeadingProps {
-  heading: string;
+  heading: string | any;
   description?: string;
   badge?: string;
   centered?: boolean;
@@ -19,9 +18,6 @@ const CustomSectionHeading = ({
   centered = false,
   className,
 }: CustomSectionHeadingProps) => {
-  const { width } = useWindowDimensions();
-  const isDesktop = width >= 1024;
-
   return (
     <div
       className={classNames(
@@ -41,11 +37,9 @@ const CustomSectionHeading = ({
           centered ? "items-center" : "items-center"
         )}
       >
-        <h3 {...(isDesktop && { "data-aos": "fade-up" })}>{heading}</h3>
+        <h3 data-aos="fade-up">{heading}</h3>
       </div>
-      {description && (
-        <p {...(isDesktop && { "data-aos": "fade-up" })}>{description}</p>
-      )}
+      {description && <p data-aos="fade-up">{description}</p>}
     </div>
   );
 };

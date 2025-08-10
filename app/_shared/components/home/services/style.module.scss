@@ -77,16 +77,61 @@
       background-repeat: no-repeat;
       background-position: top right;
       border: 1px solid #131839;
+      position: relative;
       @include RP(
         (
           "border-radius": 20,
           "padding": 30,
-          "height": 480,
+          "min-height": 260,
         )
       );
-      @media screen and (max-width: 991px) {
-        height: auto !important;
+
+      transition: transform 0.35s ease, box-shadow 0.35s ease,
+        border-color 0.35s ease, background-position 0.35s ease;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: radial-gradient(
+          120px 120px at 15% 20%,
+          rgba(197, 185, 246, 0.12),
+          rgba(197, 185, 246, 0) 60%
+        );
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        pointer-events: none;
       }
+
+      &:hover {
+        transform: translateY(-2px);
+        border-color: #293061;
+        background-position: 92% 8%;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+        &::before {
+          opacity: 1;
+        }
+        .iconContainer {
+          background: rgba(197, 185, 246, 0.18);
+          transform: scale(1.02);
+        }
+        .videoContainer video {
+          transform: scale(1.025);
+        }
+        h3::after {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+        button {
+          transform: translateY(-1px);
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        min-height: auto !important;
+      }
+
       .content {
         @include RP(
           (
@@ -98,12 +143,18 @@
           padding-right: 0 !important;
         }
         .iconContainer {
+          display: grid;
+          place-items: center;
           @include RP(
             (
               "width": 52,
               "height": 52,
+              "border-radius": 12,
             )
           );
+          background: rgba(197, 185, 246, 0.12);
+          border: 1px solid rgba(197, 185, 246, 0.22);
+          transition: background 0.3s ease, transform 0.3s ease;
           img {
             width: 100%;
             height: 100%;
@@ -113,23 +164,43 @@
         h3 {
           @include RP(
             (
-              "font-size": 36,
-              "line-height": 44,
+              "font-size": 28,
+              "line-height": 36,
             )
           );
           color: $WHITE;
+          font-weight: 700;
+          position: relative;
+          display: inline-block;
+          // &::after {
+          //   content: "";
+          //   position: absolute;
+          //   left: 0;
+          //   bottom: -6px;
+          //   height: 2px;
+          //   width: 100%;
+          //   background: linear-gradient(
+          //     90deg,
+          //     rgba(197, 185, 246, 0.6),
+          //     rgba(197, 185, 246, 0)
+          //   );
+          //   transform-origin: left center;
+          //   transform: scaleX(0.4);
+          //   opacity: 0.6;
+          //   transition: transform 0.35s ease, opacity 0.35s ease;
+          // }
         }
         p {
           text-align: left;
-          letter-spacing: 0.5px;
+          letter-spacing: 0.2px;
           @include RP(
             (
-              "font-size": 18,
-              "line-height": 26,
+              "font-size": 16,
+              "line-height": 24,
             ),
             1
           );
-          color: #a7adbe;
+          color: $DESC;
         }
         button {
           @include RP(
@@ -139,6 +210,7 @@
             ),
             1
           );
+          transition: transform 0.3s ease;
           svg {
             transform: rotate(-45deg);
           }
@@ -152,12 +224,13 @@
         @include RP(
           (
             "border-radius": 20,
-            "height": 420,
           ),
           1
         );
+        aspect-ratio: 16 / 9;
+        width: 100%;
         @media screen and (max-width: 640px) {
-          height: auto !important;
+          aspect-ratio: auto;
           max-height: 300px !important;
         }
 
@@ -165,6 +238,7 @@
           width: 100%;
           height: 100% !important;
           object-fit: cover;
+          transition: transform 0.4s ease;
           @include RP(
             (
               "border-radius": 20,

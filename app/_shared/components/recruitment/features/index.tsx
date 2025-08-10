@@ -9,18 +9,18 @@ import SectionHeadingCard from "components/common/sectionHeadingCard";
 const featuresData = [
   {
     id: 1,
-    title: "Tell Us Your Needs",
-    description: "Share role details in 2 minutes.",
+    title: "Define Your Needs",
+    description: "Tell us about your project requirements and team needs.",
   },
   {
     id: 2,
     title: "Get Matched",
-    description: "Receive 3-5 pre-interviewed candidates.",
+    description: "Receive pre-vetted candidates within 24 hours.",
   },
   {
     id: 3,
-    title: "Interview & Hire",
-    description: "Onboard risk-free with a trial period.",
+    title: "Start Immediately",
+    description: "Onboard talent and begin your project right away.",
   },
 ];
 
@@ -32,11 +32,11 @@ const Features = () => {
           badge="How it works"
           heading={
             <>
-              3 Simple Steps to Hire Your <br />
-              Ideal Candidate
+              3 Simple Steps to Scale <br />
+              Your Team
             </>
           }
-          description="Take The Route That is Easy For You & Get Ahead In Your Design Skills"
+          description="Streamlined process to get you the right talent when you need it"
           centered={true}
           maxParticles={200}
           section="services"
@@ -81,7 +81,7 @@ const Features = () => {
             "flex justify-center lg:mt-16 md:mt-12 mt-8"
           )}
         >
-          <CustomButton title="Hire in 72 Hours" />
+          <CustomButton title="Scale Your Team" />
         </div>
       </div>
     </div>

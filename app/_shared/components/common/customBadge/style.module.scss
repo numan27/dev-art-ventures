@@ -2,31 +2,27 @@
 @import "utils/responsive.module.scss";
 
 .badge_container {
-  border: 1px solid $BORDER;
-  border-radius: 30px;
-  font-family: var(--font-rethink-sans) !important;
-  // background-color: #ed1c240f;
+  background-color: #000529;
+  border: 1px solid #161c44;
+  height: 40px;
+  border-radius: 24px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  @include RP(
-    (
-      "padding-left": 14,
-      "padding-right": 14,
-    ),
-    1
-  );
-  padding: 5px 0;
-  width: fit-content;
+  justify-content: center;
+  padding: 0 24px;
+  width: fit-content !important;
 
   .badge_title {
-    color: rgba($color: #fff, $alpha: 0.9) !important;
-    font-size: 12px;
-    font-weight: 500;
-    margin: 0;
-
-    @media screen and (max-width: 576px) {
-      font-size: 10px !important;
-    }
+    background-image: linear-gradient(
+      45deg,
+      rgb(54, 94, 255) 0%,
+      rgb(176, 192, 255) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-transform: uppercase;
+    font-size: 14px;
   }
 }

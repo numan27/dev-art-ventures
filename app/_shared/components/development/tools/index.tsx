@@ -34,9 +34,9 @@ const Tools = () => {
     <div className={classNames(styles.sectionWrapper)}>
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <SectionHeadingCard
-          badge="Tools"
-          heading="Tools We Utilize for Excellence"
-          description="Discover the advanced tools and technologies we leverage to create cutting-edge websites."
+          badge="Technologies"
+          heading="Modern Tech Stack for Excellence"
+          description="We leverage cutting-edge technologies and frameworks to build robust, scalable, and future-proof applications that drive business growth."
           centered={true}
           maxParticles={300}
           section="testimonials"

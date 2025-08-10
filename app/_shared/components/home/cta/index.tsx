@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
 import CustomButton from "components/common/customButton";
+import CustomBadge from "components/common/customBadge";
 
 interface CTAProps {
   showBadge?: boolean;
@@ -28,11 +29,7 @@ const CTA = ({ showBadge = true }: CTAProps) => {
               "flex flex-col gap-4 justify-center items-center text-center relative z-10"
             )}
           >
-            {showBadge && (
-              <span className={classNames(styles.badge)}>
-                Transform Your Vision
-              </span>
-            )}
+            {showBadge && <CustomBadge title="Transform Your Vision" />}
             <h2>Let's work together!</h2>
             <p>
               Contact us today to start crafting your exceptional and customized

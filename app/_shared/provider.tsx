@@ -7,15 +7,46 @@ import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
 import { CartProvider } from "./context/CartContext";
 import { TranslationProvider } from "./context/TranslationContext";
+import { usePathname } from "next/navigation";
 
 const CustomProvider = ({ children }: any) => {
+  const pathname = usePathname();
+
   useEffect(() => {
     AOS.init({
       easing: "ease-in-out",
       duration: 1000,
       delay: 0,
+      once: false,
+      mirror: true,
     });
+
+    const handleResize = () => {
+      AOS.refresh();
+    };
+
+    const handleLoad = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+      window.removeEventListener("load", handleLoad);
+    };
   }, []);
+
+  useEffect(() => {
+    const id = window.requestAnimationFrame(() => {
+      AOS.refreshHard();
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [pathname]);
+
   return (
     <div>
       <Next13ProgressBar

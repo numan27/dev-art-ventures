@@ -8,21 +8,21 @@ import CustomButton from "components/common/customButton";
 const bootcampsData = [
   {
     id: 1,
-    badge: "Hiring Talent",
-    title: "Select from the Best of The Pool.",
+    badge: "Scale Your Team",
+    title: "Access Pre-Vetted Tech Talent.",
     description:
-      "We know finding the right hire is tough. That’s why we only approve top talent on our platform.",
+      "We know finding the right talent is tough. That's why we only approve top professionals on our platform.",
     imageSrc: Images.HireTalent.src,
-    buttonText: "Start Hiring",
+    buttonText: "Start Scaling",
   },
   {
     id: 2,
-    badge: "Finding Jobs",
-    title: "Collaborate with Leading Companies.",
+    badge: "Project Augmentation",
+    title: "Flexible Team Scaling.",
     description:
-      "You don’t need connections to work with top brands—just the right platform.",
+      "Scale your development team up or down based on project needs without the overhead of permanent hiring.",
     imageSrc: Images.FindJobs.src,
-    buttonText: "Apply Now",
+    buttonText: "Learn More",
   },
 ];
 

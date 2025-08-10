@@ -11,30 +11,34 @@ const servicesData = [
   {
     id: 1,
     icon: Images.DesignProcess1.src,
-    title: "Tailored Designs",
+    title: "Discovery & Planning",
     description:
-      "Talk to users and understand deeply the challenges they're facing to solve problems for them",
+      "We analyze your requirements, define project scope, and create a detailed development roadmap with timelines and milestones",
+    step: "01",
   },
   {
     id: 2,
     icon: Images.DesignProcess2.src,
-    title: "Mobile-First Approach",
+    title: "Design & Architecture",
     description:
-      "Define the actual problem and document everything so we're focused on what exactly is the problem we're solving",
+      "Our team designs the system architecture, creates wireframes, and establishes the technical foundation for your project",
+    step: "02",
   },
   {
     id: 3,
     icon: Images.DesignProcess3.src,
-    title: "Optimized Performance",
+    title: "Development & Testing",
     description:
-      "Come up with diverse ideas on how can we solve the problem effectively with more than one solutions",
+      "We build your application using modern technologies, following agile methodologies with continuous testing and quality assurance",
+    step: "03",
   },
   {
     id: 4,
     icon: Images.DesignProcess4.src,
-    title: "Scalability",
+    title: "Deployment & Launch",
     description:
-      "Build the actual design from the feedback and make it come to life. make it come to life",
+      "We deploy your application to production, perform final testing, and provide comprehensive documentation and training",
+    step: "04",
   },
 ];
 
@@ -45,40 +49,48 @@ const Process = () => {
       data-section="services"
     >
       <div className={classNames(styles.customContainer)}>
-        <SectionHeadingCard
-          badge="Process"
-          heading="Our Proven Process"
-          description="Explore our streamlined approach to creating bespoke solutions that align with your goals."
-          centered={true}
-          maxParticles={200}
-          section="services"
-          backgroundImage={Images.ServiceSectionBg.src}
-        />
+        <div>
+          <SectionHeadingCard
+            badge="Our Process"
+            heading="Streamlined Development Workflow"
+            description="Our proven development methodology ensures quality, transparency, and timely delivery at every stage of your project."
+            centered={true}
+            maxParticles={200}
+            backgroundImage={Images.ServiceSectionBg.src}
+          />
+        </div>
 
-        <div
-          className={classNames(
-            styles.cardContainer,
-            "grid sm:grid-cols-2 grid-cols-1 md:gap-4 gap-3 bg-transparent"
-          )}
-        >
-          {servicesData.map((service) => (
-            <div
-              key={service.id}
-              className={classNames(styles.cardItem, "flex flex-col")}
-            >
-              <Image
-                src={service.icon}
-                alt={service.title}
-                width={48}
-                height={48}
-              />
-              <h4>{service.title}</h4>
-              <p>{service.description}</p>
+        <div className={styles.timelineContainer}>
+          {servicesData.map((service, index) => (
+            <div key={service.id} className={styles.timelineItem}>
+              <div className={styles.timelineStep}>
+                <span className={styles.stepNumber}>{service.step}</span>
+                <div className={styles.stepIcon}>
+                  <Image
+                    src={service.icon}
+                    alt={service.title}
+                    width={32}
+                    height={32}
+                    className={styles.icon}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.timelineContent}>
+                <h3 className={styles.timelineTitle}>{service.title}</h3>
+                <p className={styles.timelineDescription}>
+                  {service.description}
+                </p>
+              </div>
+
+              {index < servicesData.length - 1 && (
+                <div className={styles.timelineConnector} />
+              )}
             </div>
           ))}
         </div>
 
-        <div className="flex items-center justify-center md:mt-12 sm:mt-10 mt-8">
+        <div className="flex items-center justify-center md:mt-16 sm:mt-10 mt-8">
           <CustomButton title="Get Started Today" />
         </div>
       </div>

@@ -1,0 +1,142 @@
+.sectionWrapper {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.customContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pricingContainer {
+  margin-top: 60px;
+}
+
+.pricingCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+  }
+}
+
+.popularCard {
+  border-color: rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+
+  &:hover {
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+  }
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 24px;
+
+  .roleTitle {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .experience {
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+}
+
+.pricing {
+  margin-bottom: 24px;
+
+  .monthlyRate,
+  .hourlyRate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .rateLabel {
+      color: #d1d5db;
+      font-size: 14px;
+    }
+
+    .rateValue {
+      color: #3b82f6;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+}
+
+.features {
+  margin-bottom: 24px;
+
+  .featuresTitle {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .featureItem {
+      color: #d1d5db;
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+
+      .checkmark {
+        color: #10b981;
+        margin-right: 8px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.action {
+  text-align: center;
+}
+
+.disclaimer {
+  margin-top: 40px;
+  text-align: center;
+
+  p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

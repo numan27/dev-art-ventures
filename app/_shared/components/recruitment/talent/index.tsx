@@ -9,37 +9,37 @@ import Image from "next/image";
 const talentData = [
   {
     id: 1,
-    title: "UI/UX Designer",
+    title: "Frontend Developers",
     rating: "4.9/5",
     image: Images.AcademyTeam1.src,
   },
   {
     id: 2,
-    title: "Product Manager",
+    title: "Backend Developers",
     rating: "4.9/5",
     image: Images.AcademyTeam2.src,
   },
   {
     id: 3,
-    title: "Data Scientists",
+    title: "UI/UX Designers",
     rating: "4.9/5",
     image: Images.AcademyTeam1.src,
   },
   {
     id: 4,
-    title: "QA Automation Testers",
+    title: "DevOps Engineers",
     rating: "4.9/5",
     image: Images.AcademyTeam2.src,
   },
   {
     id: 5,
-    title: "DevOps Engineers",
+    title: "Full-Stack Developers",
     rating: "4.9/5",
     image: Images.AcademyTeam1.src,
   },
   {
     id: 6,
-    title: "Full-Stack Developers",
+    title: "QA Engineers",
     rating: "4.9/5",
     image: Images.AcademyTeam2.src,
   },
@@ -76,8 +76,8 @@ const Talent = () => {
       <div className={classNames(styles.customContainer)}>
         <SectionHeadingCard
           badge="our talents"
-          heading="Talent Specializations"
-          description="Take The Route That is Easy For You & Get Ahead In Your Design Skills"
+          heading="Available Roles"
+          description="Access pre-vetted tech professionals ready to join your team immediately"
           centered={true}
           maxParticles={300}
           section="services"

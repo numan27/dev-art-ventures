@@ -3,18 +3,18 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Images } from "assets";
 import CustomButton from "components/common/customButton";
-import CustomSectionHeading from "components/common/customSectionHeading";
 import CustomCard from "components/common/customCard";
+import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const Features = () => {
   return (
     <div className={classNames(styles.sectionWrapper)}>
-      <div
+      {/* <div
         className={styles.backgroundImage}
         style={{
           backgroundImage: `url(${Images.DesignFeaturesBg.src})`,
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center center",
+          backgroundPosition: "bottom center",
           backgroundSize: "cover",
           width: "712px",
           height: "692px",
@@ -24,13 +24,16 @@ const Features = () => {
           opacity: "0.75",
           zIndex: 0,
         }}
-      ></div>
+      ></div> */}
       <div className={classNames(styles.customContainer, "relative z-10")}>
-        <CustomSectionHeading
+        <SectionHeadingCard
           badge="Solution"
           heading="Poor conversions despite great products? Outdated or inconsistent UI?"
           description="We fix these with:"
+          maxParticles={200}
           centered={true}
+          section="services"
+          backgroundImage={Images.ServiceSectionBg.src}
         />
         <div
           className={classNames(

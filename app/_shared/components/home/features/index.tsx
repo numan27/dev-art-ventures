@@ -3,7 +3,6 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import AdaptiveParticles from "../../common/adaptiveParticles";
-import { Images } from "assets";
 import Image from "next/image";
 import CustomBadge from "components/common/customBadge";
 import { featuresData } from "utils/featuresData";
@@ -14,7 +13,7 @@ const Mission = () => {
       className={classNames(styles.sectionWrapper, "relative")}
       data-section="services"
     >
-      <span
+      {/* <span
         className={classNames(
           styles.shape1,
           "absolute left-0 top-0 md:block hidden"
@@ -39,7 +38,7 @@ const Mission = () => {
           src={Images.FeaturesShapeRight.src}
           alt="shape"
         />
-      </span>
+      </span> */}
       <div className={classNames(styles.customContainer, "")}>
         <div
           className={classNames(

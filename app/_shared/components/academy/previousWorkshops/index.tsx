@@ -4,6 +4,7 @@ import InfiniteSlider from "components/common/infiniteSlider";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomSectionHeading from "components/common/customSectionHeading";
+import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const academyIcons = [
   Images.DesignSlider1,
@@ -29,7 +30,7 @@ const academyIconsSecondRow = [
   Images.DesignSlider1,
 ];
 
-const PreviousWorkshops = () => {
+const Portfolio = () => {
   const firstRowImages = academyIcons.map((icon, index) => ({
     src: icon.src,
     alt: `Academy brand ${index + 1}`,
@@ -42,10 +43,14 @@ const PreviousWorkshops = () => {
 
   return (
     <div className={classNames(styles.portfolioSlider)}>
-      <CustomSectionHeading
-        heading="Previous Workshops"
-        description="See why we stand out with superior service, innovation, and client satisfaction benchmarks."
+      <SectionHeadingCard
+        badge="Portfolio"
+        heading="Our Portfolio"
+        description="A look back at recent sessions, projects, and design showcases from our community."
         centered={true}
+        maxParticles={250}
+        section="services"
+        backgroundImage={Images.ServiceSectionBg.src}
       />
       <InfiniteSlider
         images={firstRowImages}
@@ -60,4 +65,4 @@ const PreviousWorkshops = () => {
   );
 };
 
-export default memo(PreviousWorkshops);
+export default memo(Portfolio);

@@ -43,15 +43,17 @@ const Comparison = () => {
       data-section="services"
     >
       <div className={classNames(styles.customContainer)}>
-        <SectionHeadingCard
-          badge="Comparison"
-          heading="Choosing Us Over Others"
-          description="See why we stand out with superior service, innovation, and client satisfaction benchmarks."
-          centered={true}
-          maxParticles={200}
-          section="services"
-          backgroundImage={Images.ServiceSectionBg.src}
-        />
+        <div>
+          <SectionHeadingCard
+            badge="Comparison"
+            heading="Choosing Us Over Others"
+            description="See why we stand out with superior service, innovation, and client satisfaction benchmarks."
+            centered={true}
+            maxParticles={200}
+            section="services"
+            backgroundImage={Images.ServiceSectionBg.src}
+          />
+        </div>
 
         <div className={classNames(styles.contentContainer)}>
           <div

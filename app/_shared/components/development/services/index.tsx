@@ -11,42 +11,42 @@ const servicesData = [
     icon: Images.DesignFeature3.src,
     title: "Frontend Development",
     description:
-      "Crafting intuitive and visually stunning interfaces for an enhanced user experience",
+      "Modern, responsive web applications built with React, Vue, Angular, and Next.js. We create intuitive user interfaces that deliver exceptional user experiences",
   },
   {
     id: 2,
     icon: Images.DevFeature3.src,
     title: "Backend Development",
     description:
-      "Building robust server-side applications and APIs for scalable solutions",
+      "Robust server-side applications and APIs built with Node.js, Python, PHP, and Java. We ensure scalability, security, and optimal performance",
   },
   {
     id: 3,
     icon: Images.DesignService6.src,
     title: "E-Commerce Development",
     description:
-      "Creating powerful online stores with seamless shopping experiences",
+      "Custom e-commerce solutions with payment processing, inventory management, and seamless shopping experiences that drive conversions",
   },
   {
     id: 4,
     icon: Images.DevFeature6.src,
     title: "Maintenance & Support",
     description:
-      "Providing ongoing technical support and maintenance for your applications",
+      "Ongoing technical support, bug fixes, updates, and performance optimization to keep your applications running smoothly",
   },
   {
     id: 5,
     icon: Images.DevService5.src,
     title: "API Development",
     description:
-      "Delivering websites that are fast, functional, and tailored to your business goals",
+      "RESTful and GraphQL APIs that enable seamless integration between systems and provide secure data exchange capabilities",
   },
   {
     id: 6,
     icon: Images.DesignService4.src,
     title: "MVP Development",
     description:
-      "Get access to a pool of amazing resources to help you get ahead with your tech challenges.",
+      "Rapid development of minimum viable products to validate your business ideas and get to market quickly with core features",
   },
 ];
 
@@ -55,9 +55,9 @@ const Features = () => {
     <div className={classNames(styles.sectionWrapper)}>
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <CustomSectionHeading
-          badge="Services"
-          heading="Services We Offer"
-          description="From cutting-edge web development to creative design and strategic marketing, we provide tailored solutions to meet your unique needs"
+          badge="Our Services"
+          heading="Comprehensive Development Solutions"
+          description="From frontend to backend, APIs to e-commerce, we provide end-to-end development services tailored to your business requirements"
           centered={true}
         />
         <div
@@ -72,7 +72,7 @@ const Features = () => {
               icon={service.icon}
               title={service.title}
               description={service.description}
-              button={true}
+              // button={true}
             />
           ))}
         </div>

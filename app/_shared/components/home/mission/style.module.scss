@@ -3,7 +3,6 @@
 
 .sectionWrapper {
   z-index: 100 !important;
-  // background-color: rgba(0, 59, 255, 0.45);
   @include RP(
     (
       "padding-top": 15,
@@ -16,18 +15,10 @@
   height: 100%;
 
   .sectionContainer {
-    border: 1px solid #0e122e;
-    background-image: url("../../../../_assets/images/mission-bg.png");
     background-position: center center;
     background-size: contain;
     position: relative;
     width: 100%;
-    @include RP(
-      (
-        "border-radius": 20,
-        "height": 440,
-      )
-    );
 
     &::before {
       content: "";
@@ -49,14 +40,29 @@
 
   .missionText {
     h2 {
-      max-width: 70%;
+      font-weight: 700;
+      text-align: left;
+      max-width: 90%;
       @include RP(
         (
-          "font-size": 58,
-          "line-height": 68,
+          "font-size": 50,
+          "padding-left": 30,
+          "line-height": 60,
         ),
         1
       );
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(rgb(97, 77, 255) 0%, rgb(64, 25, 255) 100%);
+        z-index: 1;
+      }
       color: $WHITE;
       @media screen and (max-width: 768px) {
         max-width: 100% !important;
@@ -79,6 +85,66 @@
         1
       );
       color: $DESC;
+    }
+
+    .bulletList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      @include RP(
+        (
+          "margin-top": 16,
+        ),
+        1
+      );
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $WHITE;
+        opacity: 0.9;
+        @include RP(
+          (
+            "font-size": 16,
+            "line-height": 24,
+          ),
+          1
+        );
+      }
+
+      .bulletIcon {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #614dff 0%, #4019ff 100%);
+        box-shadow: 0 0 0 3px rgba(97, 77, 255, 0.25);
+      }
+    }
+
+    .buttonsRow {
+      @include RP(
+        (
+          "margin-top": 18,
+        ),
+        1
+      );
+    }
+  }
+
+  .statsContainer {
+    display: flex;
+    align-items: center;
+
+    > div {
+      /* Override Stats root full-height to allow vertical centering */
+      height: auto !important;
+      margin-top: auto;
+      margin-bottom: auto;
+      width: 100%;
     }
   }
 }

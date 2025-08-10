@@ -93,70 +93,18 @@
     }
   }
 
-  .missionText {
-    @include RP(
-      (
-        "margin-top": 100,
-      )
-    );
-    @media screen and (max-width: 768px) {
-      margin-top: 0px !important;
-    }
-    h2 {
-      @include RP(
-        (
-          "font-size": 58,
-          "line-height": 68,
-        ),
-        1
-      );
-      color: $WHITE;
-      @media screen and (max-width: 640px) {
-        @include RP(
-          (
-            "font-size": 40,
-            "line-height": 50,
-          ),
-          1
-        );
-      }
-    }
-    p {
-      max-width: 90%;
-      @include RP(
-        (
-          "font-size": 20,
-          "line-height": 28,
-          "margin-top": 16,
-        ),
-        1
-      );
-      color: $DESC;
-      @media screen and (max-width: 640px) {
-        max-width: 100% !important;
-        margin-top: 0px !important;
-      }
-    }
-  }
-
   .featuresContainer {
     z-index: 999 !important;
     position: relative;
     @include RP(
       (
-        "margin-top": 120,
-      )
+        "margin-top": 60,
+      ),
+      1
     );
-    @media screen and (max-width: 768px) {
-      @include RP(
-        (
-          "margin-top": 50,
-        )
-      );
-    }
     .feature {
       background-color: rgba($color: #00041f, $alpha: 0.78);
-      background-image: url("../../../../_assets/images/feature-item-bg.png");
+      background-image: url("../../../../_assets/images/design-process-card-bg.png");
       background-size: cover !important;
       background-position: bottom right !important;
       background-position: right !important;
@@ -233,6 +181,7 @@
             )
           );
           transition: transform 0.3s ease;
+          filter: drop-shadow(0 4px 14px rgba(126, 88, 255, 0.35));
         }
       }
     }
