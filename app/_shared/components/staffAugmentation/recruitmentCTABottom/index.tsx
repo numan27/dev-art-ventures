@@ -32,7 +32,7 @@ const RecruitmentCTABottom = () => {
             <CustomButton
               // Icon={Icons.Phone}
               // IconDirection="left"
-              title="Book Call"
+              title="Book a Free Consultation"
             />
           </div>
         </div>

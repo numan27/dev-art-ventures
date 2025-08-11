@@ -129,11 +129,7 @@ const TalentForm = () => {
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <SectionHeadingCard
           badge="Get Started"
-          heading={
-            <>
-              Request Staff <br /> Augmentation
-            </>
-          }
+          heading={<>Request Staff Augmentation</>}
           description="Tell us about your project needs and we'll match you with the right professionals to scale your team."
           centered={true}
           maxParticles={200}

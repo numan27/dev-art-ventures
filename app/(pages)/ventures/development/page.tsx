@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import type { Metadata } from "next";
 import styles from "./style.module.scss";
-import HeroBanner from "components/common/generalHeroBanner";
 import DevelopmentPortfolioSlider from "components/development/portfolioSlider";
 import Services from "components/development/services";
 import Process from "components/development/process";
@@ -11,6 +10,7 @@ import CaseStudies from "components/development/caseStudies";
 import Testimonials from "components/home/testimonials";
 import CTA from "components/home/cta";
 import FAQs from "components/design/faqs";
+import DevelopmentHeroBanner from "components/development/devHeroBanner";
 
 export const metadata: Metadata = {
   title: "Web & App Development | DevArt Ventures",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function Development() {
   return (
     <div className={classNames(styles.pageWrapper)}>
-      <HeroBanner
+      <DevelopmentHeroBanner
         tag="Bring Your Ideas To Life"
         heading={
           <>

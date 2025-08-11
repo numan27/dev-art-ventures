@@ -114,6 +114,7 @@
     pointer-events: none;
     text-wrap: wrap;
     border-top: 1px dashed #161c44;
+    height: 100% !important;
 
     &.open {
       opacity: 1;

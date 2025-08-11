@@ -10,7 +10,20 @@ import CustomBadge from "components/common/customBadge";
 import CustomButton from "components/common/customButton";
 import CustomAccordion from "components/common/customAccordion";
 
-const faqsData = [
+interface FAQItem {
+  id: number;
+  title: string;
+  content: string;
+}
+
+interface FAQsProps {
+  faqsData?: FAQItem[];
+  badge?: string;
+  heading?: string;
+  description?: string;
+}
+
+const defaultFaqsData: FAQItem[] = [
   {
     id: 1,
     title: "What services do you offer?",
@@ -43,7 +56,12 @@ const faqsData = [
   },
 ];
 
-const FAQs = () => {
+const FAQs = ({
+  faqsData = defaultFaqsData,
+  badge = "FAQ's",
+  heading = "Frequently Asked Questions",
+  description = "Answers to common questions about our services, processes, and what sets us apart.",
+}: FAQsProps) => {
   const [openAccordion, setOpenAccordion] = useState<number | null>(1);
 
   const handleAccordionClick = (faqId: number) => {
@@ -58,9 +76,9 @@ const FAQs = () => {
     >
       <div className={classNames(styles.customContainer)}>
         <SectionHeadingCard
-          badge="FAQ's"
-          heading="Frequently Asked Questions"
-          description="Answers to common questions about our services, processes, and what sets us apart."
+          badge={badge}
+          heading={heading}
+          description={description}
           centered={true}
           maxParticles={200}
           section="services"
