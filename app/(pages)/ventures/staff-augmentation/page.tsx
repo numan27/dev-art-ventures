@@ -97,7 +97,7 @@ export default function StaffAugmentation() {
       </div>
       <Features />
       <HireTalent />
-      <Highlights />
+      {/* <Highlights /> */}
       <RolesWeProvide />
       <WhyChooseUs />
       <Testimonials />
