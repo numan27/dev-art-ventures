@@ -74,32 +74,22 @@ export default function StaffAugmentation() {
         tag="Trusted by 50+ Tech Teams"
         heading={
           <>
-            Scale Your Team with Pre-Vetted <br /> Tech Talent
+            Hire Top Design <br /> Talent On-Demand
           </>
         }
         description={
           <>
-            Access a curated pool of skilled developers, designers, and <br />{" "}
-            engineers ready to join your projects immediately.
+            Scale your team with pre-vetted UI/UX, Graphic, and Product
+            Designers ready to integrate seamlessly with your projects
           </>
         }
         primaryButtonText="Hire in 72 Hours"
         primaryButtonPath="/contact"
       />
-      <div className="pt-10">
-        <Mission
-          heading="Our Mission"
-          description=<>
-            Connect businesses with exceptional tech talent through our rigorous
-            vetting process and proven track record of successful placements.
-          </>
-        />
-      </div>
       <Features />
-      <HireTalent />
-      {/* <Highlights /> */}
-      <RolesWeProvide />
       <WhyChooseUs />
+      <HireTalent />
+      <RolesWeProvide />
       <Testimonials />
       <TalentForm />
       <FAQs

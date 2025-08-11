@@ -56,53 +56,42 @@ const RecruitmentHeroBanner = ({
         className={classNames(
           styles.sectionWrapper,
           containerClassName,
-          "relative"
+          "flex items-center justify-center relative flex-col gap-12"
         )}
       >
-        {/* Sophisticated dark background with subtle patterns */}
-        <div className={styles.darkBackground}>
-          <div className={styles.gradientOverlay}></div>
-          <div className={styles.geometricPattern}></div>
-          <div className={styles.floatingElements}>
-            <div className={styles.floatingElement1}></div>
-            <div className={styles.floatingElement2}></div>
-            <div className={styles.floatingElement3}></div>
-          </div>
+        {/* Subtle animated background elements */}
+        <div className={styles.backgroundElements}>
+          <div className={styles.bgElement1}></div>
+          <div className={styles.bgElement2}></div>
         </div>
 
-        <div className="relative w-full h-full flex items-center justify-center mt-16">
+        <div className="relative w-full flex justify-center h-full">
           <div
             className={classNames(
               styles.sectionContainer,
-              "flex items-center flex-col justify-center gap-6 relative z-10 mt-16"
+              "flex items-center flex-col justify-center h-full lg:gap-6 md:gap-5 gap-4 relative"
             )}
           >
             {tag && (
-              <div className={styles.sophisticatedTag}>
+              <div className={styles.tagWrapper}>
                 <CustomBadge title={tag} />
-                <div className={styles.tagGlow}></div>
               </div>
             )}
 
-            <h1
-              className={classNames(
-                styles.sophisticatedHeading,
-                headingClassName
-              )}
-            >
+            <h1 className={classNames(styles.heading, headingClassName)}>
               {heading}
             </h1>
 
-            <p
-              className={classNames(
-                styles.sophisticatedDescription,
-                descriptionClassName
-              )}
-            >
+            <p className={classNames(styles.description, descriptionClassName)}>
               {description}
             </p>
 
-            <div className={styles.sophisticatedButtons}>
+            <div
+              className={classNames(
+                styles.buttons,
+                "flex items-center gap-3 mt-2"
+              )}
+            >
               <CustomButton
                 title={primaryButtonText}
                 onClick={handlePrimaryClick}
@@ -117,29 +106,15 @@ const RecruitmentHeroBanner = ({
               )}
             </div>
 
-            <div className={styles.trustSection}>
-              <div className={styles.trustDivider}></div>
-              <div className={styles.trustContent}>
-                <span className={styles.trustText}>
-                  Trusted by 500+ companies worldwide
-                </span>
-                <div className={styles.trustBadges}>
-                  <span className={styles.trustBadge}>ISO Certified</span>
-                  <span className={styles.trustBadge}>GDPR Compliant</span>
-                  <span className={styles.trustBadge}>24/7 Support</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Recruitment service alternative link */}
-            <div className={styles.recruitmentAlternative}>
-              <p className={styles.alternativeText}>
+            {/* Enhanced alternative link below primary button */}
+            <div className={styles.alternativeLink}>
+              <p>
                 Looking for permanent hires instead?{" "}
                 <a
                   href="https://recruitment.numanventures.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.alternativeLink}
+                  className={styles.alternativeLinkText}
                 >
                   See our Recruitment Service
                 </a>
@@ -148,11 +123,11 @@ const RecruitmentHeroBanner = ({
           </div>
         </div>
 
-        <div className={styles.modernBrandSection}>
-          <div className={styles.brandHeader}>
-            <h6>Industry Leaders Trust Us</h6>
+        <div className="absolute bottom-0 left-0 w-full">
+          <div className="flex flex-col gap-2 items-center justify-center relative z-50">
+            <h6 className="text-center">Industry Leaders Trust Us</h6>
+            <BrandSlider />
           </div>
-          <BrandSlider />
         </div>
       </div>
     </div>

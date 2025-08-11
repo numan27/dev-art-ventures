@@ -11,16 +11,22 @@ const featuresData = [
     id: 1,
     title: "Define Your Needs",
     description: "Tell us about your project requirements and team needs.",
+    icon: Icons.Step1,
+    color: "primary",
   },
   {
     id: 2,
     title: "Get Matched",
     description: "Receive pre-vetted candidates within 24 hours.",
+    icon: Icons.Step2,
+    color: "secondary",
   },
   {
     id: 3,
     title: "Start Immediately",
     description: "Onboard talent and begin your project right away.",
+    icon: Icons.Step3,
+    color: "accent",
   },
 ];
 
@@ -42,43 +48,60 @@ const Features = () => {
           section="services"
           backgroundImage={Images.ServiceSectionBg.src}
         />
+
         <div
           className={classNames(
             styles.cardContainer,
-            "flex flex-col sm:flex-row md:gap-0 gap-4 items-center justify-center bg-transparent"
+            "flex flex-col lg:flex-row gap-6 lg:gap-8 items-center justify-center bg-transparent"
           )}
         >
           {featuresData.map((feature, index) => (
             <div
               key={feature.id}
-              className="flex items-center sm:w-auto w-full"
-            >
-              <div
-                className={classNames(
-                  styles.cardItem,
-                  "flex flex-col items-center"
-                )}
-              >
-                <div className={styles.count}>
-                  <span>{feature.id}</span>
-                </div>
-                <h4 className={styles.cardTitle}>{feature.title}</h4>
-                <p className={classNames(styles.cardDescription)}>
-                  {feature.description}
-                </p>
-              </div>
-              {index < featuresData.length - 1 && (
-                <div className="hidden md:flex lg:mx-4 mx-2 items-center justify-center">
-                  <Icons.JoinArrow />
-                </div>
+              className={classNames(
+                styles.cardItem,
+                "flex flex-col items-center relative group"
               )}
+              data-aos="fade-up"
+              data-aos-delay={index * 150}
+              style={{
+                // Custom CSS variable for progress bar animation delay
+                ["--delay" as any]: `${index * 0.15}s`,
+              }}
+            >
+              {/* Progress bar at top */}
+              <div className={styles.progressBar} />
+
+              {/* Icon with drop shadow effect */}
+              <div className={styles.iconWrapper}>
+                <feature.icon />
+              </div>
+
+              {/* Step number badge */}
+              <div className={styles.stepBadge}>
+                <span>{feature.id}</span>
+              </div>
+
+              {/* Content */}
+              <h4 className={styles.cardTitle}>{feature.title}</h4>
+              <p className={styles.cardDescription}>{feature.description}</p>
+
+              {/* Hover effect indicator */}
+              <div className={styles.hoverIndicator} />
             </div>
           ))}
         </div>
+
+        {/* Connection lines between cards */}
+        <div className={styles.connectionLines}>
+          <div className={styles.connectionLine} />
+          <div className={styles.connectionLine} />
+        </div>
+
         <div
           className={classNames(
             styles.buttonContainer,
-            "flex justify-center lg:mt-16 md:mt-12 mt-8"
+            "flex justify-center lg:mt-20 md:mt-16 mt-12"
           )}
         >
           <CustomButton title="Scale Your Team" />

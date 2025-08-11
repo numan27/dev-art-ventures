@@ -2,47 +2,48 @@
 
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Images } from "assets";
+import { Icons, Images } from "assets";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 import CustomButton from "components/common/customButton";
 import { motion } from "framer-motion";
+import React from "react";
 
 const advantages = [
   {
     id: 1,
-    icon: "⚡",
-    title: "Lightning Fast Deployment",
+    icon: Images.DevFeature5.src,
+    title: "Rapid Team Scaling",
     description:
-      "Get your team up and running in 72 hours, not months. Our pre-vetted talent pool eliminates lengthy hiring processes.",
-    highlight: "72 Hours",
-    color: "neon-blue",
+      "Scale your development team from 2 to 20 developers in under 2 weeks. Our pre-screened talent pool eliminates 90% of traditional hiring time.",
+    highlight: "2 Weeks",
+    color: "lightning",
   },
   {
     id: 2,
-    icon: "🛡️",
-    title: "Enterprise-Grade Security",
+    icon: Images.DesignService6.src,
+    title: "Enterprise Security & Compliance",
     description:
-      "NDAs, compliance certifications, and secure infrastructure. Your intellectual property is protected at every level.",
-    highlight: "100% Secure",
-    color: "neon-green",
+      "ISO 27001 certified with SOC 2 Type II compliance. All developers sign NDAs and work through secure, monitored environments.",
+    highlight: "ISO 27001",
+    color: "shield",
   },
   {
     id: 3,
-    icon: "🌍",
-    title: "Global Talent Pool",
+    icon: Images.DevFeature2.src,
+    title: "Global Talent Network",
     description:
-      "Access top-tier developers from emerging tech hubs. Cost-effective without compromising on quality or expertise.",
-    highlight: "Global Scale",
-    color: "neon-purple",
+      "Access senior developers from tech hubs in Eastern Europe, Asia, and Latin America. 40-60% cost savings with same quality standards.",
+    highlight: "40-60% Savings",
+    color: "globe",
   },
   {
     id: 4,
-    icon: "📈",
-    title: "Flexible Scaling",
+    icon: Images.DesignFeature2.src,
+    title: "Flexible Engagement Models",
     description:
-      "Scale up or down based on project demands. No long-term commitments, just agile team management.",
-    highlight: "Flexible",
-    color: "neon-orange",
+      "Monthly contracts with 30-day notice. Scale up during sprints, down during maintenance. No long-term commitments or hidden fees.",
+    highlight: "30-Day Notice",
+    color: "chart",
   },
 ];
 
@@ -55,8 +56,8 @@ const WhyChooseUs = () => {
       <div className={classNames(styles.customContainer)}>
         <SectionHeadingCard
           badge="Why Choose Us"
-          heading="The DevArt Advantage"
-          description="Discover why leading tech companies choose our staff augmentation services over traditional hiring methods."
+          heading="Proven Staff Augmentation Solutions"
+          description="Join 500+ companies that trust our proven approach to building high-performing development teams. Get enterprise-grade talent without the overhead."
           centered={true}
           maxParticles={300}
           section="services"
@@ -84,7 +85,7 @@ const WhyChooseUs = () => {
               <div className={styles.cardGlow}></div>
               <div className={styles.cardContent}>
                 <div className={styles.iconContainer}>
-                  <span className={styles.icon}>{advantage.icon}</span>
+                  <img src={advantage.icon} alt={advantage.title} />
                 </div>
                 <h3 className={styles.title}>{advantage.title}</h3>
                 <p className={styles.description}>{advantage.description}</p>
