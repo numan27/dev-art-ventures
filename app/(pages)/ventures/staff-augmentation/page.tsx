@@ -8,6 +8,7 @@ import HireTalent from "components/staffAugmentation/hireTalent";
 import Highlights from "components/staffAugmentation/highlights";
 import RecruitmentCTABottom from "components/staffAugmentation/recruitmentCTABottom";
 import TalentForm from "components/staffAugmentation/talentForm";
+import AlternativeRecruitment from "components/staffAugmentation/alternativeRecruitment";
 import RolesWeProvide from "components/staffAugmentation/rolesWeProvide";
 import WhyChooseUs from "components/staffAugmentation/pricingExample";
 import StaffAugmentationHeroBanner from "components/staffAugmentation/recruitmentHeroBanner";
@@ -88,10 +89,10 @@ export default function StaffAugmentation() {
       />
       <Features />
       <WhyChooseUs />
-      <HireTalent />
       <RolesWeProvide />
       <Testimonials />
       <TalentForm />
+      <AlternativeRecruitment />
       <FAQs
         faqsData={faqs}
         badge="Staff Augmentation FAQ's"

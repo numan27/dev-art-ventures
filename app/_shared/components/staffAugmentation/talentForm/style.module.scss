@@ -16,6 +16,39 @@
   width: 100%;
   height: 100%;
 
+  .tabContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+
+    .tabButton {
+      padding: 12px 24px;
+      border: 1px solid #131839;
+      background: transparent;
+      color: #ffffff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      min-width: 160px;
+
+      &:hover {
+        background: rgba(19, 24, 57, 0.3);
+        border-color: #2a3a7a;
+      }
+
+      &.activeTab {
+        background: #2a3a7a;
+        border-color: #2a3a7a;
+        color: #ffffff;
+        box-shadow: 0 0 20px rgba(42, 58, 122, 0.3);
+      }
+    }
+  }
+
   .formContainer {
     background-color: #00041f;
     border: 1px solid #131839;
@@ -28,5 +61,21 @@
     );
     position: relative;
     z-index: 1;
+
+    .formTitle {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .formSubtitle {
+      font-size: 16px;
+      color: #a0a0a0;
+      margin-bottom: 30px;
+      text-align: center;
+      line-height: 1.6;
+    }
   }
 }
