@@ -6,6 +6,7 @@ import CustomAnimatedBorder from "components/common/customAnimatedBorder";
 import classNames from "classnames";
 import dynamic from "next/dynamic";
 import { handleScrollToQuote } from "utils/scrollHelpers";
+import NextLink from "next/link";
 
 const DynamicActions = () => {
   return (
@@ -22,11 +23,16 @@ const DynamicActions = () => {
             animationSpeed="4s"
             borderRadius="8px"
           >
-            <CustomButton
-              title="Get A Quote"
-              containerStyle="transparent-button"
-              onClick={handleScrollToQuote}
-            />
+            <NextLink
+              target="_blank"
+              href="https://calendly.com/devartventures/30min"
+              className={styles.ctaButton}
+            >
+              <CustomButton
+                title="Get A Quote"
+                containerStyle="transparent-button"
+              />
+            </NextLink>
           </CustomAnimatedBorder>
           <a href="tel:+17134834953" target="_blank" rel="noopener noreferrer">
             <CustomButton
@@ -65,11 +71,16 @@ export default dynamic(() => Promise.resolve(DynamicActions), {
               animationSpeed="4s"
               borderRadius="8px"
             >
-              <CustomButton
-                title="Get A Quote"
-                containerStyle="transparent-button"
-                onClick={handleScrollToQuote}
-              />
+              <NextLink
+                target="_blank"
+                href="https://calendly.com/devartventures/30min"
+                className={styles.ctaButton}
+              >
+                <CustomButton
+                  title="Get A Quote"
+                  containerStyle="transparent-button"
+                />
+              </NextLink>
             </CustomAnimatedBorder>
             <a
               href="tel:+17134834953"

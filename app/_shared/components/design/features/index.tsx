@@ -5,6 +5,7 @@ import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import CustomCard from "components/common/customCard";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
+import NextLink from "next/link";
 
 const Features = () => {
   return (
@@ -58,7 +59,13 @@ const Features = () => {
           />
         </div>
         <div className="flex justify-center items-center mt-10">
-          <CustomButton title="Get Started Today" />
+          <NextLink
+            target="_blank"
+            href="https://calendly.com/devartventures/30min"
+            className={styles.ctaButton}
+          >
+            <CustomButton title="Get Started Today" />
+          </NextLink>
         </div>
       </div>
     </div>

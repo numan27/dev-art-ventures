@@ -23,14 +23,14 @@ const DevelopmentPortfolioSlider = () => {
 
   return (
     <div className="w-full">
-      <SectionHeadingCard
+      {/* <SectionHeadingCard
         heading="Our Portfolio"
         description="We have worked with some of the best brands in the world"
         badge="Our Portfolio"
         centered={true}
         maxParticles={150}
         section="testimonials"
-      />
+      /> */}
       <div className="w-full">
         <InfiniteSlider images={images} />
       </div>

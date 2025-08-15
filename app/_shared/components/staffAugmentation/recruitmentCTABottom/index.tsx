@@ -3,6 +3,7 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
+import NextLink from "next/link";
 
 const RecruitmentCTABottom = () => {
   return (
@@ -29,11 +30,17 @@ const RecruitmentCTABottom = () => {
               confidence. Whether you need developers, designers, or engineers,
               we've got you covered.
             </p>
-            <CustomButton
-              // Icon={Icons.Phone}
-              // IconDirection="left"
-              title="Book a Free Consultation"
-            />
+            <NextLink
+              target="_blank"
+              href="https://calendly.com/devartventures/30min"
+              className={styles.ctaButton}
+            >
+              <CustomButton
+                // Icon={Icons.Phone}
+                // IconDirection="left"
+                title="Book a Free Consultation"
+              />
+            </NextLink>
           </div>
         </div>
       </div>

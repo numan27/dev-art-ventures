@@ -6,10 +6,6 @@ let nav_items = [
     path: routeConstant.home.path,
   },
   {
-    label: "Why Us",
-    path: routeConstant.whyUs.path,
-  },
-  {
     label: "Ventures",
     hasDropdown: true,
     dropdownItems: [
@@ -38,6 +34,10 @@ let nav_items = [
   {
     label: "About",
     path: routeConstant.about.path,
+  },
+  {
+    label: "Contact",
+    path: routeConstant.contact.path,
   },
 ];
 

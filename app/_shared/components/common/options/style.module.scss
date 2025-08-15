@@ -12,11 +12,23 @@
       "margin-top": 35,
     )
   );
-  background-color: $WHITE;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 4, 31, 0.95) 0%,
+    rgba(19, 24, 57, 0.9) 100%
+  );
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   z-index: 9999;
-  border-radius: 8px;
+  @include RP(
+    (
+      "border-radius": 20,
+    ),
+    1
+  );
   overflow: hidden;
+  border: 1px solid #0e122e;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
   &.open {
     display: block;
@@ -24,36 +36,72 @@
 }
 
 .labelStyle {
-  color: $DARK;
+  color: #ffffff;
   @include RP(
     (
       "font-size": 15,
     )
   );
+  font-weight: 500;
 }
 
 .iconStyle {
   height: 16px;
   width: 16px;
-}
-
-.optionContainer {
-  border-bottom: 1px solid #ffffff0a;
-  &:hover,
-  &:hover > .labelStyle,
-  &:hover > .iconStyle > path {
-    color: $PRIMARY;
-  }
-}
-.optionContainer {
-  padding: 10px;
-  cursor: pointer;
-}
-
-// .activeItem {
-//   background-color: #e0e0e0;
-// }
-
-.iconStyle {
   margin-right: 8px;
+}
+
+.optionContainer {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(83, 15, 255, 0.15);
+    transform: translateX(4px);
+
+    .labelStyle {
+      color: #ffffff;
+    }
+
+    .iconStyle > path {
+      stroke: #530fff;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(83, 15, 255, 0.1) 0%,
+        transparent 100%
+      );
+      z-index: -1;
+    }
+  }
+
+  &.activeItem {
+    background: rgba(83, 15, 255, 0.2);
+    border-left: 3px solid #530fff;
+
+    .labelStyle {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .iconStyle > path {
+      stroke: #530fff;
+    }
+  }
 }

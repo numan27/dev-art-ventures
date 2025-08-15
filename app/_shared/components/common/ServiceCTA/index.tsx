@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import styles from "./style.module.scss";
 import classNames from "classnames";
+import NextLink from "next/link";
 
 interface ServiceCTAProps {
   title?: string;
@@ -42,15 +43,20 @@ export default function ServiceCTA({
         >
           {subtitle}
         </motion.p>
-        <motion.button
-          className={styles.primaryButton}
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={onButtonClick}
-          transition={{ type: "spring", stiffness: 300 }}
+        <NextLink
+          target="_blank"
+          href="https://calendly.com/devartventures/30min"
+          className={styles.ctaButton}
         >
-          {buttonText}
-        </motion.button>
+          <motion.button
+            className={styles.primaryButton}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            {buttonText}
+          </motion.button>
+        </NextLink>
       </div>
     </motion.section>
   );

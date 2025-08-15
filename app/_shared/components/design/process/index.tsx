@@ -7,6 +7,7 @@ import Image from "next/image";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 import CustomBadge from "components/common/customBadge";
 import CustomButton from "components/common/customButton";
+import NextLink from "next/link";
 
 const servicesData = [
   {
@@ -97,7 +98,13 @@ const Process = () => {
         </div>
 
         <div className="flex items-center justify-center md:mt-12 sm:mt-10 mt-8">
-          <CustomButton title="Get Started Today" />
+          <NextLink
+            target="_blank"
+            href="https://calendly.com/devartventures/30min"
+            className={styles.ctaButton}
+          >
+            <CustomButton title="Get Started Today" />
+          </NextLink>
         </div>
       </div>
     </div>

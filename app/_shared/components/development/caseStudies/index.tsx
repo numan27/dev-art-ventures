@@ -3,8 +3,8 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Images } from "assets";
 import CustomSectionHeading from "components/common/customSectionHeading";
-import CustomButton from "components/common/customButton";
-import { useState } from "react";
+import CustomSlider from "components/common/customSlider";
+import { Settings } from "react-slick";
 
 const caseStudiesData = [
   {
@@ -70,20 +70,18 @@ const caseStudiesData = [
 ];
 
 const CaseStudies = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev + 1) % caseStudiesData.length);
-  };
-
-  const prevSlide = () => {
-    setActiveIndex(
-      (prev) => (prev - 1 + caseStudiesData.length) % caseStudiesData.length
-    );
-  };
-
-  const goToSlide = (index: number) => {
-    setActiveIndex(index);
+  const sliderSettings: Settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    fade: false,
+    arrows: false,
+    cssEase: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
   };
 
   return (
@@ -101,97 +99,44 @@ const CaseStudies = () => {
         />
 
         <div className={styles.carouselContainer}>
-          <div className={styles.carouselWrapper}>
-            <div
-              className={styles.carouselTrack}
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {caseStudiesData.map((project) => (
-                <div key={project.id} className={styles.carouselSlide}>
-                  <div className={styles.slideContent}>
-                    <div className={styles.slideImage}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className={styles.projectImage}
-                      />
-                      <div className={styles.imageOverlay} />
+          <CustomSlider settings={sliderSettings}>
+            {caseStudiesData.map((project) => (
+              <div key={project.id} className={styles.carouselSlide}>
+                <div className={styles.slideContent}>
+                  <div className={styles.slideImage}>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={styles.projectImage}
+                    />
+                    <div className={styles.imageOverlay} />
+                  </div>
+
+                  <div className={styles.slideInfo}>
+                    <div className={styles.categoryBadge}>
+                      <span className={styles.categoryText}>
+                        {project.category}
+                      </span>
                     </div>
 
-                    <div className={styles.slideInfo}>
-                      <div className={styles.categoryBadge}>
-                        <span className={styles.categoryText}>
-                          {project.category}
+                    <h3 className={styles.slideTitle}>{project.title}</h3>
+
+                    <p className={styles.slideDescription}>
+                      {project.description}
+                    </p>
+
+                    <div className={styles.techTags}>
+                      {project.technologies.map((tech, index) => (
+                        <span key={index} className={styles.techTag}>
+                          {tech}
                         </span>
-                      </div>
-
-                      <h3 className={styles.slideTitle}>{project.title}</h3>
-
-                      <p className={styles.slideDescription}>
-                        {project.description}
-                      </p>
-
-                      <div className={styles.techTags}>
-                        {project.technologies.map((tech, index) => (
-                          <span key={index} className={styles.techTag}>
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation Controls */}
-          <button
-            className={styles.navButton}
-            onClick={prevSlide}
-            aria-label="Previous slide"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M15 18L9 12L15 6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
-          <button
-            className={styles.navButton}
-            onClick={nextSlide}
-            aria-label="Next slide"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M9 18L15 12L9 6"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
-          {/* Dots Indicator */}
-          <div className={styles.dotsContainer}>
-            {caseStudiesData.map((_, index) => (
-              <button
-                key={index}
-                className={classNames(
-                  styles.dot,
-                  index === activeIndex && styles.activeDot
-                )}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-              />
+              </div>
             ))}
-          </div>
+          </CustomSlider>
         </div>
       </div>
     </div>

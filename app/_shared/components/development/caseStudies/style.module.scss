@@ -17,18 +17,6 @@
   height: 100%;
 }
 
-.customContainer {
-  @include RP(
-    (
-      "padding-left": 20,
-      "padding-right": 20,
-    ),
-    1
-  );
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .carouselContainer {
   @include RP(
     (
@@ -37,8 +25,9 @@
     1
   );
   position: relative;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 60px;
 }
 
 .carouselWrapper {
@@ -58,6 +47,13 @@
 .carouselSlide {
   flex: 0 0 100%;
   width: 100%;
+  border-radius: 24px;
+  background: rgba(0, 4, 31, 0.8);
+  // border: 1px solid rgba(126, 88, 255, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  margin: 0 12px;
+  // box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .slideContent {
@@ -68,12 +64,14 @@
     ),
     1
   );
+  height: 100%;
 }
 
 .slideImage {
   flex: 0 0 45%;
   position: relative;
   overflow: hidden;
+  height: 100%;
 
   &::before {
     content: "";
@@ -96,6 +94,7 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.8) contrast(1.1);
+  min-height: 100%;
 }
 
 .imageOverlay {
@@ -203,115 +202,36 @@
   }
 }
 
-/* Navigation Controls */
-.navButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  @include RP(
-    (
-      "width": 48,
-      "height": 48,
-    ),
-    1
-  );
-  background: rgba(126, 88, 255, 0.1);
-  border: 1px solid rgba(126, 88, 255, 0.3);
-  border-radius: 50%;
-  color: $WHITE;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  z-index: 10;
-
-  &:hover {
-    background: rgba(126, 88, 255, 0.2);
-    border-color: rgba(126, 88, 255, 0.5);
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  &:first-child {
-    left: -24px;
-  }
-
-  &:last-of-type {
-    right: -24px;
-  }
-}
-
-/* Dots Indicator */
-.dotsContainer {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  @include RP(
-    (
-      "margin-top": 24,
-    ),
-    1
-  );
-}
-
-.dot {
-  @include RP(
-    (
-      "width": 12,
-      "height": 12,
-    ),
-    1
-  );
-  border-radius: 50%;
-  background: rgba(126, 88, 255, 0.3);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: rgba(126, 88, 255, 0.5);
-    transform: scale(1.2);
-  }
-}
-
-.activeDot {
-  background: $PRIMARY;
-  transform: scale(1.2);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .carouselContainer {
+    padding: 0;
+  }
+
   .slideContent {
     flex-direction: column;
     min-height: auto;
   }
 
   .slideImage {
-    flex: 0 0 200px;
+    flex: 0 0 auto;
+    height: 100%;
   }
 
   .slideInfo {
     padding: 24px;
   }
 
-  .navButton {
-    width: 40px;
-    height: 40px;
-
-    &:first-child {
-      left: 16px;
-    }
-
-    &:last-of-type {
-      right: 16px;
-    }
+  .carouselSlide {
+    border-radius: 16px;
+    margin: 0 8px;
   }
 }
 
 @media (max-width: 480px) {
-  .carouselWrapper {
-    border-radius: 16px;
+  .carouselSlide {
+    border-radius: 12px;
+    margin: 0 6px;
   }
 
   .slideInfo {
@@ -326,5 +246,46 @@
   .slideDescription {
     font-size: 14px;
     line-height: 20px;
+  }
+}
+
+/* CustomSlider Styles */
+.slick-slider {
+  margin-bottom: 0 !important;
+}
+
+.slick-list {
+  padding: 0 20px !important;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.slick-slide {
+  height: auto !important;
+
+  > div {
+    height: 100%;
+    display: flex;
+  }
+}
+
+.slick-dots {
+  bottom: -40px !important;
+
+  li {
+    margin: 0 4px !important;
+
+    button:before {
+      color: rgba(126, 88, 255, 0.3) !important;
+      font-size: 12px !important;
+      opacity: 1 !important;
+    }
+
+    &.slick-active button:before {
+      color: #7e58ff !important;
+    }
   }
 }

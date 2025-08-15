@@ -6,6 +6,7 @@ import CustomButton from "../../common/customButton";
 import CustomBadge from "components/common/customBadge";
 import BrandSlider from "components/common/brandSlider";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import NextLink from "next/link";
 
 const HeroBanner = () => {
   const { width } = useWindowDimensions();
@@ -40,7 +41,13 @@ const HeroBanner = () => {
                   "flex items-center gap-2 mt-2"
                 )}
               >
-                <CustomButton title="Book Free Consultation" />
+                <NextLink
+                  target="_blank"
+                  href="https://calendly.com/devartventures/30min"
+                  className={styles.ctaButton}
+                >
+                  <CustomButton title="Book Free Consultation" />
+                </NextLink>
                 {/* <CustomButton
                   containerStyle="secondary-button"
                   title="Let's Partner"

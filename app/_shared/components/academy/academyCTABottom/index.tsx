@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
 import { Icons, Images } from "assets";
 import Image from "next/image";
+import NextLink from "next/link";
 
 const AcademyCTABottom = () => {
   return (
@@ -31,11 +32,17 @@ const AcademyCTABottom = () => {
               pro-level techniques. Whether you're building a brand or a career,
               this is where your design journey begins.
             </p>
-            <CustomButton
-              // Icon={Icons.Phone}
-              // IconDirection="left"
-              title="Book Call"
-            />
+            <NextLink
+              target="_blank"
+              href="https://calendly.com/devartventures/30min"
+              className={styles.ctaButton}
+            >
+              <CustomButton
+                // Icon={Icons.Phone}
+                // IconDirection="left"
+                title="Book Call"
+              />
+            </NextLink>
           </div>
         </div>
       </div>

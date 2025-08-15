@@ -47,7 +47,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
       <div
         className={classNames(
           styles.arrowContainer,
-          "xs:flex items-center justify-center sm:gap-3 gap-2 hidden"
+          "flex items-center justify-center sm:gap-3 gap-2"
         )}
       >
         {/* Left Arrow */}
@@ -55,7 +55,15 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
           className={`${styles.arrowButton} ${styles.prevArrow}`}
           onClick={handlePrev}
         >
-          {/* <Image src={Images.SliderArrowLeft} alt="icon" /> */}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M15 18L9 12L15 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
 
         {/* Dots */}
@@ -82,7 +90,15 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ settings, children }) => {
           className={`${styles.arrowButton} ${styles.nextArrow}`}
           onClick={handleNext}
         >
-          {/* <Image src={Images.SliderArrowRight} alt="icon" /> */}
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M9 18L15 12L9 6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
       </div>
     </div>

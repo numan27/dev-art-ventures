@@ -12,9 +12,17 @@ const Footer = () => {
   const { width } = useWindowDimensions();
 
   const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/devartventures/",
+      label: "Facebook",
+    },
     { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    {
+      icon: Linkedin,
+      href: "https://pk.linkedin.com/company/devart-ventures",
+      label: "LinkedIn",
+    },
   ];
 
   return (

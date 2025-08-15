@@ -22,8 +22,8 @@ const commonRoutes: any = [
     title: routeConstant.about.title,
   },
   {
-    path: routeConstant.whyUs.path,
-    title: routeConstant.whyUs.title,
+    path: routeConstant.contact.path,
+    title: routeConstant.contact.title,
   },
 ];
 

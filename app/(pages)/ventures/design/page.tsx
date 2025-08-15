@@ -7,10 +7,10 @@ import Features from "components/design/features";
 import Services from "components/design/services";
 import Work from "components/design/work";
 import Process from "components/design/process";
-import Comparison from "components/design/comparison";
 import Testimonials from "components/home/testimonials";
 import CTA from "components/home/cta";
 import FAQs from "components/design/faqs";
+import Comparison from "components/design/comparison";
 
 export const metadata: Metadata = {
   title: "UI/UX and Graphic Design | DevArt Ventures",
@@ -33,9 +33,9 @@ export default function Design() {
         }
         description="Your Partner in Transforming ideas into impactful digital solutions. Let's Build Things Together."
         primaryButtonText="Book Free Consultation"
-        primaryButtonPath="/contact"
+        primaryButtonPath="https://calendly.com/devartventures/30min"
         secondaryButtonText="Start a Project"
-        secondaryButtonPath="/contact"
+        secondaryButtonPath="https://calendly.com/devartventures/30min"
       />
       <div className="mt-16">
         <PortfolioSlider />
@@ -46,7 +46,13 @@ export default function Design() {
         <Comparison />
         <Testimonials />
         <FAQs />
-        <CTA showBadge={false} />
+        <CTA
+          heading="Let's work together!"
+          description="Contact us today to start crafting your exceptional and customized design solutions! Start today, scale tomorrow!"
+          buttonText="Start a Project"
+          buttonLink="https://calendly.com/devartventures/30min"
+          buttonTarget="_blank"
+        />
       </div>
     </div>
   );

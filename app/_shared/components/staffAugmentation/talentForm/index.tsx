@@ -249,7 +249,7 @@ const TalentForm = () => {
   };
 
   return (
-    <div className={classNames(styles.sectionWrapper)}>
+    <div className={classNames(styles.sectionWrapper)} id="talent-form">
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <SectionHeadingCard
           badge="Get Started"

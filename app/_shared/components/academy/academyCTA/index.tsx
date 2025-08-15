@@ -5,6 +5,7 @@ import styles from "./style.module.scss";
 import CustomButton from "components/common/customButton";
 import { Images } from "assets";
 import Image from "next/image";
+import NextLink from "next/link";
 
 const AcademyCTA = () => {
   return (
@@ -28,7 +29,13 @@ const AcademyCTA = () => {
             <Image src={Images.Clock} alt="icon" />
             <h2>Limited-Time Offers</h2>
             <p>First 10 sign-ups get a free 1:1 mentorship session!</p>
-            <CustomButton title="Book Your Session Now" />
+            <NextLink
+              target="_blank"
+              href="https://calendly.com/devartventures/30min"
+              className={styles.ctaButton}
+            >
+              <CustomButton title="Book Your Session Now" />
+            </NextLink>
             <div className={classNames(styles.offerText)}>
               <span>Enroll now</span> – 20% off until <span>25/12/2025</span>
             </div>

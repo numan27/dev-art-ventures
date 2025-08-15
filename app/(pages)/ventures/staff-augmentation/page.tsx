@@ -13,6 +13,8 @@ import RolesWeProvide from "components/staffAugmentation/rolesWeProvide";
 import WhyChooseUs from "components/staffAugmentation/pricingExample";
 import StaffAugmentationHeroBanner from "components/staffAugmentation/recruitmentHeroBanner";
 import FAQs from "components/design/faqs";
+import CTA from "components/home/cta";
+import PortfolioSlider from "components/development/portfolioSlider";
 
 export const metadata: Metadata = {
   title: "Staff Augmentation | DevArt Ventures",
@@ -84,22 +86,34 @@ export default function StaffAugmentation() {
             Designers ready to integrate seamlessly with your projects
           </>
         }
-        primaryButtonText="Hire in 72 Hours"
-        primaryButtonPath="/contact"
+        primaryButtonText="Hire a Designer Now"
+        primaryButtonPath="#talent-form"
+        secondaryButtonText="Get Started"
+        secondaryButtonPath="#talent-form"
       />
+      <div className="mt-16">
+        <PortfolioSlider />
+      </div>
+      <RolesWeProvide />
       <Features />
       <WhyChooseUs />
-      <RolesWeProvide />
-      <Testimonials />
-      <TalentForm />
       <AlternativeRecruitment />
+      <Testimonials />
       <FAQs
         faqsData={faqs}
         badge="Staff Augmentation FAQ's"
         heading="Frequently Asked Questions"
         description="Get answers to common questions about our staff augmentation services, processes, and how we can help scale your development team."
       />
-      <RecruitmentCTABottom />
+      <TalentForm />
+      {/* <CTA
+        tag="On-Demand Talent"
+        heading="Vetted Talent On-Demand"
+        description="Scale your team with pre-vetted tech talent. Hire skilled developers, designers, and engineers on-demand."
+        buttonText="Hire in 72 Hours"
+        buttonLink="https://calendly.com/devartventures/30min"
+        buttonTarget="_blank"
+      /> */}
     </div>
   );
 }

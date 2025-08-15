@@ -6,7 +6,6 @@ import CustomButton from "../../common/customButton";
 import CustomBadge from "components/common/customBadge";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import NextLink from "next/link";
-import BrandSlider from "components/common/brandSlider";
 
 const HeroBanner = () => {
   const { width } = useWindowDimensions();
@@ -26,28 +25,21 @@ const HeroBanner = () => {
                 "flex items-center flex-col justify-center h-full lg:gap-5 md:gap-4 gap-3 relative"
               )}
             >
-              <CustomBadge title="Bring Your Ideas To Life" />
+              <CustomBadge title="Page Not Found" />
               <h1 className="text-center">
-                Custom Software <br /> Development Made Easy
+                Seems we missed the {width > 768 && <br />} mark on this page
               </h1>
               <p>
-                We work with the latest technologies and methodologies to create
-                software that is innovative, reliable, and tailored exactly to
-                your business requirements.
+                Looks like you've reached a page that isn’t here. Not to
+                worry—there’s plenty more {width > 768 && <br />} to explore
+                across our site.
               </p>
               <div className={classNames(styles.buttons, "mt-2")}>
-                <NextLink
-                  href="https://calendly.com/devartventures/30min"
-                  className={styles.ctaButton}
-                >
-                  <CustomButton title="Book Free Consultation" />
+                <NextLink href="/" className={styles.ctaButton}>
+                  <CustomButton title="Go Back Home" />
                 </NextLink>
               </div>
             </div>
-          </div>
-          <div className="absolute bottom-0 left-0 w-full">
-            <h6 className="text-center">Our Trusted Partners</h6>
-            <BrandSlider />
           </div>
         </div>
       </div>

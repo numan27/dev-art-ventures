@@ -2,13 +2,18 @@
 import classNames from "classnames";
 import styles from "./style.module.scss";
 import CustomBadge from "components/common/customBadge";
+import CustomButton from "../customButton";
+import NextLink from "next/link";
 
 interface CustomSectionHeadingProps {
-  heading: string | any;
+  heading: string | JSX.Element | React.ReactNode;
   description?: string;
   badge?: string;
   centered?: boolean;
   className?: string;
+  isHaveCTA?: boolean;
+  ctaLink?: string;
+  ctaTitle?: string;
 }
 
 const CustomSectionHeading = ({
@@ -17,6 +22,9 @@ const CustomSectionHeading = ({
   badge,
   centered = false,
   className,
+  isHaveCTA = false,
+  ctaLink = "https://calendly.com/devartventures/30min",
+  ctaTitle = "Book Free Consultation",
 }: CustomSectionHeadingProps) => {
   return (
     <div
@@ -40,6 +48,16 @@ const CustomSectionHeading = ({
         <h3 data-aos="fade-up">{heading}</h3>
       </div>
       {description && <p data-aos="fade-up">{description}</p>}
+      {isHaveCTA && (
+        <div
+          data-aos="fade-up"
+          className="flex items-center justify-center mt-4"
+        >
+          <NextLink href={ctaLink || "#"}>
+            <CustomButton title={ctaTitle || "Click Here"} />
+          </NextLink>
+        </div>
+      )}
     </div>
   );
 };

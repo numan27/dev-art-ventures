@@ -37,6 +37,10 @@
     z-index: 1 !important;
     .buttons {
       button {
+        background: $WHITE !important;
+        span {
+          color: $DARK !important;
+        }
         @include RP(
           (
             "padding-left": 30,

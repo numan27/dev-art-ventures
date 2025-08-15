@@ -5,38 +5,25 @@ import styles from "./style.module.scss";
 import { Images } from "assets";
 import Image from "next/image";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
-import CustomBadge from "components/common/customBadge";
-import CustomButton from "components/common/customButton";
+import {
+  ComparisonItem,
+  ComparisonProps,
+  defaultComparisonData,
+} from "./constants";
 
-const comparisonData = [
-  {
-    id: 1,
-    otherAgencies: "Experienced team delivering standard solutions.",
-    devArtVentures: "Skilled specialists delivering customized solutions.",
-  },
-  {
-    id: 2,
-    otherAgencies: "Offers standard, template-based designs.",
-    devArtVentures: "Offers innovative, bespoke website designs.",
-  },
-  {
-    id: 3,
-    otherAgencies: "Limited post-launch support and updates.",
-    devArtVentures: "Comprehensive post-launch support and updates.",
-  },
-  {
-    id: 4,
-    otherAgencies: "Basic performance with average loading times.",
-    devArtVentures: "Optimal performance with fast loading times.",
-  },
-  {
-    id: 5,
-    otherAgencies: "Basic SEO practices implemented.",
-    devArtVentures: "Advanced SEO tactics for enhanced online visibility.",
-  },
-];
-
-const Comparison = () => {
+const Comparison = ({
+  comparisonData = defaultComparisonData,
+  badge = "Comparison",
+  heading = "Choosing Us Over Others",
+  description = "See why we stand out with superior service, innovation, and client satisfaction benchmarks.",
+  centered = true,
+  maxParticles = 200,
+  section = "services",
+  backgroundImage,
+  leftLabel = "Other Agencies",
+  rightLabel = "DevArtVentures",
+  showLogo = true,
+}: ComparisonProps) => {
   return (
     <div
       className={classNames(styles.sectionWrapper, "")}
@@ -45,13 +32,13 @@ const Comparison = () => {
       <div className={classNames(styles.customContainer)}>
         <div>
           <SectionHeadingCard
-            badge="Comparison"
-            heading="Choosing Us Over Others"
-            description="See why we stand out with superior service, innovation, and client satisfaction benchmarks."
-            centered={true}
-            maxParticles={200}
-            section="services"
-            backgroundImage={Images.ServiceSectionBg.src}
+            badge={badge}
+            heading={heading}
+            description={description}
+            centered={centered}
+            maxParticles={maxParticles}
+            section={section}
+            backgroundImage={backgroundImage || Images.ServiceSectionBg.src}
           />
         </div>
 
@@ -63,7 +50,7 @@ const Comparison = () => {
             )}
           >
             <div className="col-span-5 flex items-center justify-center xs:pl-0 pl-8">
-              <h4>Other Agencies</h4>
+              <h4 className="text-center break-words">{leftLabel}</h4>
             </div>
             <span className="col-span-2 flex items-center justify-center">
               <Image width={70} height={70} src={Images.Vs.src} alt="arrow" />
@@ -74,8 +61,15 @@ const Comparison = () => {
                 "col-span-5 flex justify-center items-center gap-2 xs:pr-0 pr-8"
               )}
             >
-              <Image width={31} height={31} src={Images.Logo.src} alt="logo" />
-              <span>DevArtVentures</span>
+              {showLogo && (
+                <Image
+                  width={31}
+                  height={31}
+                  src={Images.Logo.src}
+                  alt="logo"
+                />
+              )}
+              <h4 className="text-center break-words">{rightLabel}</h4>
             </div>
           </div>
 
@@ -85,7 +79,7 @@ const Comparison = () => {
               "flex flex-col lg:gap-4 md:3.5 gap-3"
             )}
           >
-            {comparisonData.map((item) => (
+            {comparisonData.map((item: ComparisonItem) => (
               <div
                 key={item.id}
                 className={classNames(styles.cardItem, "grid grid-cols-2")}

@@ -76,19 +76,7 @@ export default function Development() {
 
   return (
     <div className={classNames(styles.pageWrapper)}>
-      <DevelopmentHeroBanner
-        tag="Bring Your Ideas To Life"
-        heading={
-          <>
-            Custom Software <br /> Development Made Easy
-          </>
-        }
-        description="We work with the latest technologies and methodologies to create software that is innovative, reliable, and tailored exactly to your business requirements."
-        primaryButtonText="Book Free Consultation"
-        primaryButtonPath="/contact"
-        secondaryButtonText="Start a Project"
-        secondaryButtonPath="/contact"
-      />
+      <DevelopmentHeroBanner />
       <div className="mt-16">
         <DevelopmentPortfolioSlider />
         <Services />
@@ -98,7 +86,13 @@ export default function Development() {
         <CaseStudies />
         <Testimonials />
         <FAQs faqsData={faqs} />
-        <CTA showBadge={false} />
+        <CTA
+          heading="Let's work together!"
+          description="Contact us today to start crafting your exceptional and customized design solutions! Start today, scale tomorrow!"
+          buttonText="Start a Project"
+          buttonLink="https://calendly.com/devartventures/30min"
+          buttonTarget="_blank"
+        />
       </div>
     </div>
   );

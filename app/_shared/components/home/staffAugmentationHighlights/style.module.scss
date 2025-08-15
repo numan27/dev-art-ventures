@@ -1,0 +1,44 @@
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  position: relative;
+  width: 100%;
+  padding: 80px 0;
+  background: linear-gradient(
+    135deg,
+    rgba(83, 15, 255, 0.02) 0%,
+    rgba(65, 200, 241, 0.02) 100%
+  );
+
+  @media screen and (max-width: 640px) {
+    padding: 60px 0;
+  }
+
+  @media screen and (min-width: 641px) and (max-width: 1024px) {
+    padding: 70px 0;
+  }
+}
+
+.customContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media screen and (max-width: 640px) {
+    padding: 0 16px;
+  }
+}
+
+.cardContainer {
+  position: relative;
+  z-index: 2;
+
+  h4 {
+    text-align: center !important;
+  }
+}
+
+.buttonContainer {
+  position: relative;
+  z-index: 2;
+}

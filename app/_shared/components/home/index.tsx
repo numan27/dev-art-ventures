@@ -12,6 +12,7 @@ import HeroBanner from "./heroBanner";
 import PortfolioSlider from "components/development/portfolioSlider";
 import Process from "./process";
 import PreviousWorkshops from "components/academy/previousWorkshops";
+import StaffAugmentationHighlights from "./staffAugmentationHighlights";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -54,9 +55,16 @@ const LandingPage = () => {
         {/* <PortfolioSlider /> */}
         <Process />
         <PreviousWorkshops />
+        <StaffAugmentationHighlights />
         <Features />
         <Testimonials />
-        <CTA />
+        <CTA
+          heading="Let's work together!"
+          description="Contact us today to start crafting your exceptional and customized design solutions! Start today, scale tomorrow!"
+          buttonText="Start a Project"
+          buttonLink="https://calendly.com/devartventures/30min"
+          buttonTarget="_blank"
+        />
       </div>
     </>
   );

@@ -4,54 +4,55 @@ import styles from "./style.module.scss";
 import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
+import NextLink from "next/link";
 
 const Highlights = () => {
   const cardData = [
     {
-      icon: Images.DesignProcess1.src,
-      title: "Requirements Analysis",
+      icon: Images.DesignFeature1.src,
+      title: "Advanced Git Workflow",
       description:
-        "Deep understanding of your business needs and technical requirements to deliver the perfect solution",
+        "Enterprise-grade Git strategies with feature branching, code reviews, automated CI/CD pipelines, and comprehensive version control management",
       size: "large",
       accent: "primary",
     },
     {
       icon: Images.DevFeature2.src,
-      title: "Agile Development",
+      title: "Cloud-Native Development",
       description:
-        "Iterative development process with regular feedback and continuous improvement throughout the project",
+        "Building applications designed for cloud environments with microservices architecture, containerization, and auto-scaling capabilities",
       size: "medium",
       accent: "secondary",
     },
     {
       icon: Images.DevFeature3.src,
-      title: "Scalable Architecture",
+      title: "Performance Optimization",
       description:
-        "Building robust, scalable systems that grow with your business and handle increasing demands",
+        "Code-level optimizations, database query tuning, caching strategies, and performance monitoring to ensure lightning-fast applications",
       size: "medium",
       accent: "tertiary",
     },
     {
       icon: Images.DevFeature4.src,
-      title: "Code Quality",
+      title: "Security-First Approach",
       description:
-        "Clean, maintainable code following industry best practices and coding standards",
+        "Built-in security measures including input validation, authentication, authorization, and regular security audits and penetration testing",
       size: "small",
       accent: "primary",
     },
     {
       icon: Images.DevFeature5.src,
-      title: "Testing & QA",
+      title: "API-First Design",
       description:
-        "Comprehensive testing including unit tests, integration tests, and user acceptance testing",
+        "RESTful and GraphQL APIs with comprehensive documentation, rate limiting, and seamless third-party integrations",
       size: "small",
       accent: "secondary",
     },
     {
       icon: Images.DevFeature6.src,
-      title: "Deployment & Support",
+      title: "DevOps Excellence",
       description:
-        "Smooth deployment process with ongoing maintenance, updates, and technical support",
+        "Infrastructure as Code, automated testing, deployment automation, monitoring, and 24/7 system reliability and uptime",
       size: "large",
       accent: "tertiary",
     },
@@ -61,9 +62,9 @@ const Highlights = () => {
     <div className={classNames(styles.sectionWrapper)}>
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <SectionHeadingCard
-          badge="Why Choose Us"
-          heading="How We Deliver Development Excellence"
-          description="Our proven development methodology combines technical expertise with business understanding to deliver solutions that exceed expectations"
+          badge="Technical Excellence"
+          heading="Advanced Development Capabilities"
+          description="Our development team excels in cutting-edge technologies and methodologies, delivering robust, scalable, and maintainable solutions that drive business growth"
           centered={true}
           maxParticles={300}
           section="services"
@@ -102,7 +103,13 @@ const Highlights = () => {
           ))}
         </div>
         <div className="flex justify-center items-center mt-10">
-          <CustomButton title="Get Started Today" />
+          <NextLink
+            target="_blank"
+            href="https://calendly.com/devartventures/30min"
+            className={styles.ctaButton}
+          >
+            <CustomButton title="Get Started Today" />
+          </NextLink>
         </div>
       </div>
     </div>

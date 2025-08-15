@@ -6,6 +6,7 @@ import CustomButton from "components/common/customButton";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 import { Images } from "assets";
 import CustomCard from "components/common/customCard";
+import Comparison from "components/design/comparison";
 
 const AlternativeRecruitment = () => {
   const handleRecruitmentClick = () => {
@@ -35,6 +36,34 @@ const AlternativeRecruitment = () => {
       icon: "📊",
       title: "Talent Assessment",
       description: "Comprehensive evaluation and vetting of candidates",
+    },
+  ];
+
+  const comparisonData = [
+    {
+      id: 1,
+      otherAgencies: "Long-term team building",
+      devArtVentures: "Flexible scaling up/down",
+    },
+    {
+      id: 2,
+      otherAgencies: "Company culture integration",
+      devArtVentures: "No long-term commitment",
+    },
+    {
+      id: 3,
+      otherAgencies: "Dedicated team members",
+      devArtVentures: "Quick deployment (72 hours)",
+    },
+    {
+      id: 4,
+      otherAgencies: "Investment in growth",
+      devArtVentures: "Cost-effective for projects",
+    },
+    {
+      id: 5,
+      otherAgencies: "Full company benefits",
+      devArtVentures: "Managed by your team",
     },
   ];
 
@@ -72,6 +101,20 @@ const AlternativeRecruitment = () => {
             ))}
           </div>
 
+          {/* Comparison Section */}
+          <Comparison
+            comparisonData={comparisonData}
+            badge="Comparison"
+            heading="Staff Augmentation vs. Permanent Recruitment"
+            description="Understand the key differences between flexible staffing and permanent team building to make the right choice for your business needs."
+            centered={true}
+            maxParticles={200}
+            section="services"
+            leftLabel="Permanent Recruitment"
+            rightLabel="Staff Augmentation"
+            showLogo={false}
+          />
+
           {/* CTA Section */}
           <div className={classNames(styles.cardItem, styles.ctaSection)}>
             <div className={styles.ctaContent}>
@@ -93,41 +136,6 @@ const AlternativeRecruitment = () => {
                   title="Schedule a Consultation"
                   containerStyle="secondary-button"
                 />
-              </div>
-            </div>
-          </div>
-
-          {/* Comparison Section */}
-          <div className={styles.comparisonSection}>
-            <h3 className={styles.comparisonHeading}>
-              Staff Augmentation vs. Permanent Recruitment
-            </h3>
-            <div className={styles.comparisonGrid}>
-              <div
-                className={classNames(styles.cardItem, styles.comparisonCard)}
-              >
-                <h4 className={styles.comparisonTitle}>Staff Augmentation</h4>
-                <ul className={styles.comparisonList}>
-                  <li>Flexible scaling up/down</li>
-                  <li>No long-term commitment</li>
-                  <li>Quick deployment (72 hours)</li>
-                  <li>Cost-effective for projects</li>
-                  <li>Managed by your team</li>
-                </ul>
-              </div>
-              <div
-                className={classNames(styles.cardItem, styles.comparisonCard)}
-              >
-                <h4 className={styles.comparisonTitle}>
-                  Permanent Recruitment
-                </h4>
-                <ul className={styles.comparisonList}>
-                  <li>Long-term team building</li>
-                  <li>Company culture integration</li>
-                  <li>Dedicated team members</li>
-                  <li>Investment in growth</li>
-                  <li>Full company benefits</li>
-                </ul>
               </div>
             </div>
           </div>

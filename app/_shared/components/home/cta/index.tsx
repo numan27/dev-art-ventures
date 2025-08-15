@@ -2,18 +2,34 @@
 
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import AdaptiveParticles from "../../common/adaptiveParticles";
 import CustomButton from "components/common/customButton";
 import CustomBadge from "components/common/customBadge";
+import NextLink from "next/link";
 
 interface CTAProps {
   showBadge?: boolean;
+  tag?: string;
+  heading: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  buttonTarget?: "_blank" | "_self";
+  className?: string;
 }
 
-const CTA = ({ showBadge = true }: CTAProps) => {
+const CTA = ({
+  showBadge = true,
+  tag = "Transform Your Vision",
+  heading,
+  description,
+  buttonText,
+  buttonLink,
+  buttonTarget = "_blank",
+  className = "",
+}: CTAProps) => {
   return (
     <div
-      className={classNames(styles.sectionWrapper, "")}
+      className={classNames(styles.sectionWrapper, className)}
       data-section="mission"
     >
       <div className={classNames(styles.customContainer)}>
@@ -29,13 +45,16 @@ const CTA = ({ showBadge = true }: CTAProps) => {
               "flex flex-col gap-4 justify-center items-center text-center relative z-10"
             )}
           >
-            {showBadge && <CustomBadge title="Transform Your Vision" />}
-            <h2>Let's work together!</h2>
-            <p>
-              Contact us today to start crafting your exceptional and customized
-              design solutions! Start today, scale tomorrow!
-            </p>
-            <CustomButton title="Start a Project" />
+            {showBadge && <CustomBadge title={tag} />}
+            <h2>{heading}</h2>
+            <p>{description}</p>
+            <NextLink
+              target={buttonTarget}
+              href={buttonLink}
+              className={styles.ctaButton}
+            >
+              <CustomButton title={buttonText} />
+            </NextLink>
           </div>
         </div>
       </div>

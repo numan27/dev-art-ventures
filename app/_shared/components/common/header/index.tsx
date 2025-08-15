@@ -10,6 +10,7 @@ import { nav_items } from "./constant";
 import classNames from "classnames";
 import CustomButton from "../customButton";
 import { useRouter } from "next13-progressbar";
+import NextLink from "next/link";
 
 interface HeaderProps {
   // scrollToSection?: (val: string) => void;
@@ -69,14 +70,7 @@ const Header: React.FC<HeaderProps> = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Handle dropdown item clicks with delay
-
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
-
-  const handleNavigateAuth = () => {
-    // router.push(routeConstant.signUp.path);
-    console.log("Navigate to auth");
-  };
 
   const handleNavItemClick = (path: string) => {
     // scrollToSection?.(sectionRefKey);
@@ -248,10 +242,13 @@ const Header: React.FC<HeaderProps> = () => {
               {/* CTA Button - Desktop Only */}
               {!isMobile && (
                 <div className={styles.ctaSection}>
-                  <CustomButton
-                    title="Book Call"
-                    onClick={handleNavigateAuth}
-                  />
+                  <NextLink
+                    target="_blank"
+                    href="https://calendly.com/devartventures/30min"
+                    className={styles.ctaButton}
+                  >
+                    <CustomButton title="Schedule Meeting" />
+                  </NextLink>
                 </div>
               )}
             </div>
@@ -397,11 +394,13 @@ const Header: React.FC<HeaderProps> = () => {
 
                 {/* CTA Button - Mobile Only */}
                 <div className={styles.mobileCtaSection}>
-                  <CustomButton
-                    title="Book Call"
-                    onClick={handleNavigateAuth}
-                    containerStyle={styles.mobileCtaButton}
-                  />
+                  <NextLink
+                    target="_blank"
+                    href="https://calendly.com/devartventures/30min"
+                    className={styles.ctaButton}
+                  >
+                    <CustomButton title="Schedule Meeting" />
+                  </NextLink>
                 </div>
               </nav>
             </div>

@@ -8,9 +8,9 @@ const routeConstant = {
     path: "/about",
     title: "About",
   },
-  whyUs: {
-    path: "/why-us",
-    title: "Why Us",
+  contact: {
+    path: "/contact",
+    title: "Contact",
   },
 
   // Ventures Pages

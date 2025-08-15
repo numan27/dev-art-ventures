@@ -1,0 +1,16 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.pageWrapper {
+  min-height: 100vh;
+
+  .contentWrapper {
+    @include RP(
+      (
+        "padding-top": 200,
+        "padding-bottom": 200,
+      ),
+      1
+    );
+  }
+}

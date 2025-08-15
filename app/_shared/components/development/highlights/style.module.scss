@@ -17,18 +17,6 @@
   height: 100%;
 }
 
-.customContainer {
-  @include RP(
-    (
-      "padding-left": 20,
-      "padding-right": 20,
-    ),
-    1
-  );
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .masonryContainer {
   @include RP(
     (
@@ -37,11 +25,14 @@
     1
   );
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: minmax(120px, auto);
   gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto !important;
+  justify-content: center;
+  justify-items: center;
 }
 
 .masonryCard {
@@ -67,9 +58,9 @@
   }
 
   &:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: scale(1.02);
     border-color: rgba(126, 88, 255, 0.5);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    // box-shadow: 0 20px 40px rgba(126, 88, 255, 0.2);
 
     &::before {
       opacity: 1;
@@ -118,27 +109,27 @@
 
   &:hover {
     border-color: rgba(126, 88, 255, 0.5);
-    box-shadow: 0 20px 40px rgba(126, 88, 255, 0.2);
+    // box-shadow: 0 20px 40px rgba(126, 88, 255, 0.2);
   }
 }
 
 .accentSecondary {
-  --accent-color: #00d4ff;
-  border-color: rgba(0, 212, 255, 0.2);
+  --accent-color: #7e58ff;
+  border-color: rgba(126, 88, 255, 0.2);
 
   &:hover {
-    border-color: rgba(0, 212, 255, 0.5);
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+    border-color: rgba(126, 88, 255, 0.5);
+    // box-shadow: 0 20px 40px rgba(126, 88, 255, 0.2);
   }
 }
 
 .accentTertiary {
-  --accent-color: #ff50a0;
-  border-color: rgba(255, 80, 160, 0.2);
+  --accent-color: #7e58ff;
+  border-color: rgba(126, 88, 255, 0.2);
 
   &:hover {
-    border-color: rgba(255, 80, 160, 0.5);
-    box-shadow: 0 20px 40px rgba(255, 80, 160, 0.2);
+    border-color: rgba(126, 88, 255, 0.5);
+    // box-shadow: 0 20px 40px rgba(126, 88, 255, 0.2);
   }
 }
 
@@ -149,49 +140,56 @@
   margin-bottom: 16px;
 }
 
-.iconWrapper {
+// .iconWrapper {
+//   @include RP(
+//     (
+//       "width": 70,
+//       "height": 70,
+//     ),
+//     1
+//   );
+//   background: linear-gradient(
+//     135deg,
+//     rgba(126, 88, 255, 0.1),
+//     rgba(0, 212, 255, 0.1)
+//   );
+//   border: 1px solid rgba(126, 88, 255, 0.3);
+//   border-radius: 12px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   backdrop-filter: blur(10px);
+//   transition: all 0.3s ease;
+
+//   .accentSecondary & {
+//     background: linear-gradient(
+//       135deg,
+//       rgba(0, 212, 255, 0.1),
+//       rgba(126, 88, 255, 0.1)
+//     );
+//     border-color: rgba(0, 212, 255, 0.3);
+//   }
+
+//   .accentTertiary & {
+//     background: linear-gradient(
+//       135deg,
+//       rgba(255, 80, 160, 0.1),
+//       rgba(126, 88, 255, 0.1)
+//     );
+//     border-color: rgba(255, 80, 160, 0.3);
+//   }
+// }
+
+.icon {
   @include RP(
     (
-      "width": 48,
-      "height": 48,
+      "min-width": 50,
+      "min-height": 50,
+      "width": 50,
+      "height": 50,
     ),
     1
   );
-  background: linear-gradient(
-    135deg,
-    rgba(126, 88, 255, 0.1),
-    rgba(0, 212, 255, 0.1)
-  );
-  border: 1px solid rgba(126, 88, 255, 0.3);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-
-  .accentSecondary & {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 212, 255, 0.1),
-      rgba(126, 88, 255, 0.1)
-    );
-    border-color: rgba(0, 212, 255, 0.3);
-  }
-
-  .accentTertiary & {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 80, 160, 0.1),
-      rgba(126, 88, 255, 0.1)
-    );
-    border-color: rgba(255, 80, 160, 0.3);
-  }
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(126, 88, 255, 0.3));
 }
@@ -199,7 +197,7 @@
 .cardTitle {
   @include RP(
     (
-      "font-size": 18,
+      "font-size": 22,
       "line-height": 24,
     ),
     1
@@ -212,7 +210,7 @@
 .cardDescription {
   @include RP(
     (
-      "font-size": 14,
+      "font-size": 16,
       "line-height": 20,
     ),
     1
@@ -220,6 +218,7 @@
   color: $DESC;
   opacity: 0.9;
   margin: 0;
+  text-align: left !important;
 }
 
 /* Responsive adjustments */
@@ -247,19 +246,22 @@
     grid-template-columns: repeat(6, 1fr);
     gap: 12px;
   }
+  .masonryCard {
+    padding: 24px !important;
+  }
 
   .sizeLarge {
     grid-column: span 6;
-    grid-row: span 2;
+    grid-row: span 1;
   }
 
   .sizeMedium {
     grid-column: span 3;
-    grid-row: span 2;
+    grid-row: span 1;
   }
 
   .sizeSmall {
-    grid-column: span 2;
+    grid-column: span 3;
     grid-row: span 1;
   }
 }

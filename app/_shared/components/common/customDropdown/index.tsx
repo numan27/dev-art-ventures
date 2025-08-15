@@ -111,9 +111,11 @@ const CustomDropdown = ({
           >
             {value ? value : placeholder}
           </span>
-          <Icons.ChevDown
-            className={classNames(customIconStyle, styles.iconStyle)}
-          />
+          <div className="flex items-center justify-center">
+            <Icons.ChevDown
+              className={classNames(customIconStyle, styles.iconStyle)}
+            />
+          </div>
         </div>
         <OptionsDropDown
           id={`custom-select-dropdown-${uid}`}
