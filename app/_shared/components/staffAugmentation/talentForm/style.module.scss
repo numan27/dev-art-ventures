@@ -119,7 +119,10 @@
   }
 
   .formContainer {
-    background-color: #00041f;
+    background-color: rgba(0, 4, 31, 0.45);
+    background-image: url("../../../../_assets/images/service-card-bg.png");
+    background-position: top right;
+    background-repeat: no-repeat;
     border: 1px solid #131839;
     @include RP(
       (
