@@ -7,6 +7,8 @@ import { Icons, Images } from "assets";
 import Image from "next/image";
 import CustomButton from "components/common/customButton";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
+import NextLink from "next/link";
+import { routeConstant } from "routes/constants";
 
 const servicesData = [
   {
@@ -19,6 +21,7 @@ const servicesData = [
     ],
     videoSrc: "/design.mp4",
     buttonText: "Visit Now",
+    buttonLink: routeConstant.ventures.design.path,
   },
   {
     id: 2,
@@ -30,6 +33,7 @@ const servicesData = [
     ],
     videoSrc: "/web.mp4",
     buttonText: "Visit Now",
+    buttonLink: routeConstant.ventures.development.path,
   },
   {
     id: 3,
@@ -41,6 +45,7 @@ const servicesData = [
     ],
     videoSrc: "/recruitment.mp4",
     buttonText: "Visit Now",
+    buttonLink: routeConstant.ventures.staffAugmentation.path,
   },
 ];
 
@@ -105,11 +110,13 @@ const Services = () => {
                 {service.description.map((paragraph, pIndex) => (
                   <p key={pIndex}>{paragraph}</p>
                 ))}
-                <CustomButton
-                  title={service.buttonText}
-                  IconDirection="right"
-                  Icon={Icons.ArrowRight}
-                />
+                <NextLink href={service.buttonLink}>
+                  <CustomButton
+                    title={service.buttonText}
+                    IconDirection="right"
+                    Icon={Icons.ArrowRight}
+                  />
+                </NextLink>
               </div>
 
               <div

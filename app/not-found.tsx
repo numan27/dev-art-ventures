@@ -6,6 +6,9 @@ import HeroBanner from "components/notFound/heroBanner";
 import CustomSectionHeading from "components/common/customSectionHeading";
 import classNames from "classnames";
 import useWindowDimensions from "hooks/useWindowDimensions";
+import CustomButton from "components/common/customButton";
+import router from "next/router";
+import NextLink from "next/link";
 
 export default function NotFound() {
   const { width } = useWindowDimensions();
@@ -29,6 +32,7 @@ export default function NotFound() {
               }
               description="Choose from our range of services and let us help you achieve your goals."
               centered
+              isHaveCTA={true}
             />
           </div>
         </div>

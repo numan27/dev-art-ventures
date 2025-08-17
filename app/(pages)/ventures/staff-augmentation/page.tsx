@@ -15,6 +15,7 @@ import StaffAugmentationHeroBanner from "components/staffAugmentation/recruitmen
 import FAQs from "components/design/faqs";
 import CTA from "components/home/cta";
 import PortfolioSlider from "components/development/portfolioSlider";
+import { routeConstant } from "routes/constants";
 
 export const metadata: Metadata = {
   title: "Staff Augmentation | DevArt Ventures",
@@ -91,13 +92,20 @@ export default function StaffAugmentation() {
         secondaryButtonText="Get Started"
         secondaryButtonPath="#talent-form"
       />
-      <div className="mt-16">
-        <PortfolioSlider />
-      </div>
       <RolesWeProvide />
       <Features />
       <WhyChooseUs />
       <AlternativeRecruitment />
+      <CTA
+        tag="Permanent Recruitment"
+        heading="Ready to Build Your Permanent Team?"
+        description=" Our recruitment experts will help you find the perfect
+                candidates who align with your company culture and long-term
+                vision."
+        buttonText="Explore Recruitment Service"
+        buttonLink=""
+        buttonTarget="_blank"
+      />
       <Testimonials />
       <FAQs
         faqsData={faqs}
@@ -106,14 +114,6 @@ export default function StaffAugmentation() {
         description="Get answers to common questions about our staff augmentation services, processes, and how we can help scale your development team."
       />
       <TalentForm />
-      {/* <CTA
-        tag="On-Demand Talent"
-        heading="Vetted Talent On-Demand"
-        description="Scale your team with pre-vetted tech talent. Hire skilled developers, designers, and engineers on-demand."
-        buttonText="Hire in 72 Hours"
-        buttonLink="https://calendly.com/devartventures/30min"
-        buttonTarget="_blank"
-      /> */}
     </div>
   );
 }

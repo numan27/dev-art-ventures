@@ -15,25 +15,25 @@ const AlternativeRecruitment = () => {
 
   const recruitmentFeatures = [
     {
-      icon: "🎯",
+      icon: Images.DesignFeature2.src,
       title: "Permanent Hires",
       description:
         "Full-time employees with long-term commitment and company culture fit",
     },
     {
-      icon: "🔍",
+      icon: Images.DesignProcess3.src,
       title: "Executive Search",
       description:
         "C-level and senior leadership positions across tech industries",
     },
     {
-      icon: "🏢",
+      icon: Images.DevFeature2.src,
       title: "Corporate Recruitment",
       description:
         "Enterprise-level hiring solutions with dedicated account management",
     },
     {
-      icon: "📊",
+      icon: Images.DevService5.src,
       title: "Talent Assessment",
       description: "Comprehensive evaluation and vetting of candidates",
     },
@@ -114,31 +114,6 @@ const AlternativeRecruitment = () => {
             rightLabel="Staff Augmentation"
             showLogo={false}
           />
-
-          {/* CTA Section */}
-          <div className={classNames(styles.cardItem, styles.ctaSection)}>
-            <div className={styles.ctaContent}>
-              <h3 className={styles.ctaHeading}>
-                Ready to Build Your Permanent Team?
-              </h3>
-              <p className={styles.ctaDescription}>
-                Our recruitment experts will help you find the perfect
-                candidates who align with your company culture and long-term
-                vision.
-              </p>
-              <div className={styles.ctaButtons}>
-                <CustomButton
-                  title="Explore Recruitment Service"
-                  onClick={handleRecruitmentClick}
-                  containerStyle="primary-button"
-                />
-                <CustomButton
-                  title="Schedule a Consultation"
-                  containerStyle="secondary-button"
-                />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

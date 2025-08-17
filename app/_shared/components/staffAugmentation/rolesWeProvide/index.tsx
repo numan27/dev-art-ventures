@@ -14,7 +14,7 @@ const rolesData = [
     description:
       "Creative designers for intuitive and beautiful user experiences",
     skills: ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"],
-    image: Images.AcademyTeam1.src,
+    image: Images.UIUXDesigner.src,
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const rolesData = [
       "Typography",
       "Layout Design",
     ],
-    image: Images.AcademyTeam2.src,
+    image: Images.WebDesigner.src,
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const rolesData = [
       "User Testing",
       "Design Systems",
     ],
-    image: Images.AcademyTeam1.src,
+    image: Images.MobileAppDesigner.src,
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ const rolesData = [
       "Branding",
       "Print Design",
     ],
-    image: Images.AcademyTeam2.src,
+    image: Images.GraphicsDesigner.src,
   },
   {
     id: 5,
@@ -70,21 +70,21 @@ const rolesData = [
       "Design Thinking",
       "User Journey Mapping",
     ],
-    image: Images.AcademyTeam1.src,
+    image: Images.ProductDesigner.src,
   },
   {
     id: 6,
-    title: "Design System Specialists",
+    title: "Brand Designers",
     description:
-      "Experts in creating and maintaining scalable design systems and component libraries",
+      "Creative professionals specializing in brand identity, visual branding, and brand strategy development",
     skills: [
-      "Design Systems",
-      "Component Design",
-      "Design Tokens",
-      "Documentation",
-      "Design Governance",
+      "Brand Identity",
+      "Logo Design",
+      "Visual Branding",
+      "Brand Guidelines",
+      "Typography",
     ],
-    image: Images.AcademyTeam2.src,
+    image: Images.BrandDesigner.src,
   },
 ];
 

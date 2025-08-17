@@ -5,6 +5,7 @@ import OptionsDropDown from "../options";
 import styles from "./style.module.scss";
 import { Icons } from "assets";
 import { getLeftPosition, getTopPosition } from "utils/helper";
+import { LuChevronDown } from "react-icons/lu";
 
 interface OptionProps {
   title: string;
@@ -111,11 +112,18 @@ const CustomDropdown = ({
           >
             {value ? value : placeholder}
           </span>
-          <div className="flex items-center justify-center">
-            <Icons.ChevDown
-              className={classNames(customIconStyle, styles.iconStyle)}
-            />
-          </div>
+          <span
+            className="flex items-center justify-center"
+            style={{ lineHeight: 0 }}
+          >
+            <div className="flex items-center justify-center">
+              <div className="w-6 h-6 flex items-center justify-center">
+                <LuChevronDown
+                  className={classNames(customIconStyle, styles.iconStyle)}
+                />
+              </div>
+            </div>
+          </span>
         </div>
         <OptionsDropDown
           id={`custom-select-dropdown-${uid}`}

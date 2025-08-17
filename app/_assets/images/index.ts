@@ -87,6 +87,12 @@ import AcademyTeam2 from "./academy-team-2.png";
 import HireTalent from "./hire-talent.png";
 import FindJobs from "./find-jobs.png";
 import Dollar from "./dollar.png";
+import UIUXDesigner from "./ui:ux.jpg";
+import GraphicsDesigner from "./graphics-design.jpg";
+import WebDesigner from "./web-design.jpg";
+import MobileAppDesigner from "./mobile-app.png";
+import ProductDesigner from "./product-design.jpg";
+import BrandDesigner from "./brand-design.png";
 
 const Images = {
   Logo,
@@ -178,6 +184,12 @@ const Images = {
   HireTalent,
   FindJobs,
   Dollar,
+  UIUXDesigner,
+  GraphicsDesigner,
+  WebDesigner,
+  MobileAppDesigner,
+  ProductDesigner,
+  BrandDesigner,
 };
 
 export { Images };
