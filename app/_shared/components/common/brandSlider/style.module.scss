@@ -90,7 +90,7 @@
       display: flex;
       // width: max-content;
       align-items: center;
-      animation: loop 10s linear infinite;
+      animation: loop 20s linear infinite;
       will-change: transform;
       background: rgba(0, 0, 0, 0.5) !important;
       // img {
@@ -126,7 +126,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: grayscale(1) brightness(1.2);
+  // filter: grayscale(1) brightness(1.2);
   @include RP(
     (
       "width": 100,
