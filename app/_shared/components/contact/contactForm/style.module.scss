@@ -1,0 +1,153 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  @include RP(
+    (
+      "margin-top": 50,
+      "margin-bottom": 50,
+      "padding-top": 50,
+      "padding-bottom": 50,
+    ),
+    1
+  );
+  position: relative;
+  z-index: 1 !important;
+  width: 100%;
+  height: 100%;
+
+  .tabContainer {
+    display: flex;
+    justify-content: center;
+    @include RP(
+      (
+        "gap": 16,
+        "margin-bottom": 50,
+      ),
+      1
+    );
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 4, 31, 0.3);
+    border: 1px solid #0e122e;
+    padding: 8px;
+    @include RP(
+      (
+        "border-radius": 50,
+      ),
+      1
+    );
+    backdrop-filter: blur(10px);
+
+    .tabButton {
+      padding: 16px 32px;
+      @include RP(
+        (
+          "padding-top": 16,
+          "padding-bottom": 16,
+          "padding-left": 32,
+          "padding-right": 32,
+          "font-size": 16,
+          "border-radius": 50,
+        ),
+        1
+      );
+      border: 1px solid transparent;
+      background: transparent;
+      color: #a7adbe;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+
+      &:hover {
+        color: #ffffff;
+        background: rgba(83, 15, 255, 0.1);
+        border-color: rgba(83, 15, 255, 0.3);
+        transform: translateY(-1px);
+      }
+
+      &.activeTab {
+        background: linear-gradient(135deg, #530fff 0%, #41c8f1 100%);
+        border-color: rgba(83, 15, 255, 0.5);
+        color: #ffffff;
+        box-shadow: 0 8px 25px rgba(83, 15, 255, 0.3);
+        transform: translateY(-2px);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(83, 15, 255, 0.2) 0%,
+            rgba(65, 200, 241, 0.2) 100%
+          );
+          border-radius: inherit;
+          z-index: -1;
+        }
+      }
+
+      // Subtle glow effect for active tab
+      &.activeTab::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          rgba(83, 15, 255, 0.6) 0%,
+          rgba(65, 200, 241, 0.4) 100%
+        );
+        -webkit-mask: linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .formContainer {
+    background-color: rgba(0, 4, 31, 0.45);
+    background-image: url("../../../../_assets/images/service-card-bg.png");
+    background-position: top right;
+    background-repeat: no-repeat;
+    border: 1px solid #131839;
+    @include RP(
+      (
+        "border-radius": 20,
+        "padding": 50,
+      ),
+      1
+    );
+    position: relative;
+    z-index: 1;
+
+    .formTitle {
+      font-size: 24px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .formSubtitle {
+      font-size: 16px;
+      color: #a0a0a0;
+      margin-bottom: 30px;
+      text-align: center;
+      line-height: 1.6;
+    }
+  }
+}

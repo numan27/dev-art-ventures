@@ -9,7 +9,6 @@ import Testimonials from "./testimonials";
 import Features from "./features";
 import CTA from "./cta";
 import HeroBanner from "./heroBanner";
-import PortfolioSlider from "components/development/portfolioSlider";
 import Process from "./process";
 import PreviousWorkshops from "components/academy/previousWorkshops";
 import StaffAugmentationHighlights from "./staffAugmentationHighlights";

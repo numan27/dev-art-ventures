@@ -7,15 +7,11 @@ import React, {
 } from "react";
 
 const SUPPORTED_LANGUAGES = [
-  { code: "de-AT", label: "German (AU)", flag: "🇦🇹" },
+  { code: "en", label: "English (US)", flag: "🇺🇸" },
+  { code: "zh", label: "Chinese", flag: "🇨🇳" },
+  { code: "ja", label: "Japanese", flag: "🇯🇵" },
   { code: "de", label: "German", flag: "🇩🇪" },
-  { code: "en", label: "English", flag: "🇺🇸" },
-  { code: "es", label: "Spanish", flag: "🇪🇸" },
   { code: "fr", label: "French", flag: "🇫🇷" },
-  { code: "it", label: "Italian", flag: "🇮🇹" },
-  { code: "hu", label: "Hungarian", flag: "🇭🇺" },
-  { code: "nl", label: "Dutch", flag: "🇳🇱" },
-  { code: "pl", label: "Polish", flag: "🇵🇱" },
 ];
 
 const TranslationContext = createContext({

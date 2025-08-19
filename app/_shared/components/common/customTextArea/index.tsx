@@ -8,6 +8,7 @@ interface TextAreaProps {
   error?: string;
   placeholder?: string;
   value?: string;
+  name?: string;
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
   customLabelStyle?: string;
@@ -23,6 +24,7 @@ const CustomTextArea = ({
   required,
   error,
   value,
+  name,
   placeholder,
   onChange,
   onBlur,
@@ -57,6 +59,7 @@ const CustomTextArea = ({
           )}
         >
           <textarea
+            name={name}
             rows={rows}
             onChange={onChange} // Ensure this is correctly bound
             onBlur={onBlur} // Ensure this is correctly bound

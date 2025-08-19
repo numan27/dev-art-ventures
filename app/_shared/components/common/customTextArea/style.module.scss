@@ -12,7 +12,7 @@
 }
 
 .asterik {
-  color: $PRIMARY;
+  color: $WHITE;
 }
 
 .inputContainer {
@@ -71,7 +71,11 @@
 
 .inputStyle::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  font-size: 12px !important;
+  @include RP(
+    (
+      "font-size": 14,
+    )
+  );
   color: $LIGHT_GRAY2 !important;
   opacity: 1;
   /* Firefox */
@@ -79,13 +83,21 @@
 
 .inputStyle:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  font-size: 12px !important;
+  @include RP(
+    (
+      "font-size": 14,
+    )
+  );
   color: $LIGHT_GRAY2 !important;
 }
 
 .inputStyle::-ms-input-placeholder {
   /* Microsoft Edge */
-  font-size: 12px !important;
+  @include RP(
+    (
+      "font-size": 14,
+    )
+  );
   color: $LIGHT_GRAY2 !important;
 }
 

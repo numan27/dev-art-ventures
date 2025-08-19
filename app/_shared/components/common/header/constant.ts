@@ -31,10 +31,10 @@ let nav_items = [
       },
     ],
   },
-  {
-    label: "About",
-    path: routeConstant.about.path,
-  },
+  // {
+  //   label: "About",
+  //   path: routeConstant.about.path,
+  // },
   {
     label: "Contact",
     path: routeConstant.contact.path,

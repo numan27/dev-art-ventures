@@ -2,11 +2,7 @@ import classNames from "classnames";
 import type { Metadata } from "next";
 import styles from "./style.module.scss";
 import Testimonials from "components/home/testimonials";
-import Mission from "components/home/mission";
 import Features from "components/staffAugmentation/features";
-import HireTalent from "components/staffAugmentation/hireTalent";
-import Highlights from "components/staffAugmentation/highlights";
-import RecruitmentCTABottom from "components/staffAugmentation/recruitmentCTABottom";
 import TalentForm from "components/staffAugmentation/talentForm";
 import AlternativeRecruitment from "components/staffAugmentation/alternativeRecruitment";
 import RolesWeProvide from "components/staffAugmentation/rolesWeProvide";
@@ -14,8 +10,6 @@ import WhyChooseUs from "components/staffAugmentation/pricingExample";
 import StaffAugmentationHeroBanner from "components/staffAugmentation/recruitmentHeroBanner";
 import FAQs from "components/design/faqs";
 import CTA from "components/home/cta";
-import PortfolioSlider from "components/development/portfolioSlider";
-import { routeConstant } from "routes/constants";
 
 export const metadata: Metadata = {
   title: "Staff Augmentation | DevArt Ventures",

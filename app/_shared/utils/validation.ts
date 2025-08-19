@@ -159,6 +159,28 @@ const ContactVS = yup.object().shape({
     .max(3000, "Message can't be more than 3000 characters long"),
 });
 
+const ContactFormVS = yup.object().shape({
+  fullname: yup.string().required("Full Name is Required").label("fullname"),
+  phoneNumber: yup
+    .string()
+    .required("Phone Number is Required")
+    .label("phoneNumber"),
+  email: yup
+    .string()
+    .required("Email is Required")
+    .email("Invalid Email")
+    .label("email"),
+  projectType: yup
+    .string()
+    .required("Project Type is Required")
+    .label("projectType"),
+  message: yup
+    .string()
+    .required("Message is Required")
+    .label("message")
+    .max(3000, "Message can't be more than 3000 characters long"),
+});
+
 const ReportVS = yup.object().shape({
   message: yup
     .string()
@@ -234,6 +256,7 @@ export {
   UpdateProfileVS,
   UpdatePasswordVS,
   ContactVS,
+  ContactFormVS,
   ReportVS,
   AddLocationStep1VS,
   AddAminityVS,

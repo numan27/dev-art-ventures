@@ -11,6 +11,7 @@ interface CustomCardProps {
   className?: string;
   button?: boolean;
   buttonText?: string;
+  height?: string;
 }
 
 const CustomCard = ({
@@ -21,6 +22,7 @@ const CustomCard = ({
   className,
   button = false,
   buttonText = "Learn More",
+  height = "min-h-[220px]",
 }: CustomCardProps) => {
   return (
     <div
@@ -30,6 +32,7 @@ const CustomCard = ({
         centered ? "items-center" : "items-start",
         className
       )}
+      style={{ minHeight: height }}
     >
       <img src={icon} alt={title} className={styles.cardIcon} />
       <h4 className={styles.cardTitle}>{title}</h4>

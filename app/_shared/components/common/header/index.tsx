@@ -11,6 +11,7 @@ import classNames from "classnames";
 import CustomButton from "../customButton";
 import { useRouter } from "next13-progressbar";
 import NextLink from "next/link";
+import LanguageDropdown from "../languageDropdown";
 
 interface HeaderProps {
   // scrollToSection?: (val: string) => void;
@@ -241,7 +242,13 @@ const Header: React.FC<HeaderProps> = () => {
 
               {/* CTA Button - Desktop Only */}
               {!isMobile && (
-                <div className={styles.ctaSection}>
+                <div
+                  className={classNames(
+                    styles.ctaSection,
+                    "flex items-center gap-2"
+                  )}
+                >
+                  {/* <LanguageDropdown /> */}
                   <NextLink
                     target="_blank"
                     href="https://calendly.com/devartventures/30min"

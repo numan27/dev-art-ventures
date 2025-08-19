@@ -239,12 +239,217 @@ const TalentForm = () => {
     });
   };
 
-  const handleCompanySubmit = () => {
-    console.log("Staff augmentation request submitted:", companyFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+
+  const validateCompanyForm = () => {
+    const requiredFields = [
+      "companyName",
+      "contactName",
+      "email",
+      "phone",
+      "projectType",
+      "teamSize",
+      "duration",
+      "timeline",
+      "skills",
+      "budget",
+      "description",
+    ];
+    const missingFields = requiredFields.filter(
+      (field) => !companyFormData[field as keyof typeof companyFormData]?.trim()
+    );
+
+    if (missingFields.length > 0) {
+      setSubmitMessage({
+        type: "error",
+        message: `Please fill in all required fields: ${missingFields.join(
+          ", "
+        )}`,
+      });
+      return false;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(companyFormData.email)) {
+      setSubmitMessage({
+        type: "error",
+        message: "Please enter a valid email address",
+      });
+      return false;
+    }
+
+    return true;
   };
 
-  const handleDesignerSubmit = () => {
-    console.log("Designer application submitted:", designerFormData);
+  const validateDesignerForm = () => {
+    const requiredFields = [
+      "fullName",
+      "email",
+      "phone",
+      "portfolio",
+      "experience",
+      "availability",
+      "skills",
+      "hourlyRate",
+      "bio",
+    ];
+    const missingFields = requiredFields.filter(
+      (field) =>
+        !designerFormData[field as keyof typeof designerFormData]?.trim()
+    );
+
+    if (missingFields.length > 0) {
+      setSubmitMessage({
+        type: "error",
+        message: `Please fill in all required fields: ${missingFields.join(
+          ", "
+        )}`,
+      });
+      return false;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(designerFormData.email)) {
+      setSubmitMessage({
+        type: "error",
+        message: "Please enter a valid email address",
+      });
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleCompanySubmit = async () => {
+    if (!agreementChecked) return;
+
+    if (!validateCompanyForm()) return;
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "company",
+          formData: companyFormData,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage({
+          type: "success",
+          message:
+            "Your staff augmentation request has been submitted successfully! We will get back to you within 24-48 hours.",
+        });
+        // Reset form
+        setCompanyFormData({
+          companyName: "",
+          contactName: "",
+          email: "",
+          phone: "",
+          projectType: "",
+          teamSize: "",
+          duration: "",
+          skills: "",
+          budget: "",
+          timeline: "",
+          description: "",
+        });
+        setAgreementChecked(false);
+      } else {
+        setSubmitMessage({
+          type: "error",
+          message:
+            result.error || "Failed to submit request. Please try again.",
+        });
+        console.error("API Error Response:", result);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitMessage({
+        type: "error",
+        message:
+          "An error occurred while submitting your request. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleDesignerSubmit = async () => {
+    if (!agreementChecked) return;
+
+    if (!validateDesignerForm()) return;
+
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch("/api/submit-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "designer",
+          formData: designerFormData,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage({
+          type: "success",
+          message:
+            "Your designer application has been submitted successfully! We will review your profile and get back to you within 24-48 hours.",
+        });
+        // Reset form
+        setDesignerFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          portfolio: "",
+          experience: "",
+          skills: "",
+          availability: "",
+          hourlyRate: "",
+          bio: "",
+          linkedin: "",
+          github: "",
+        });
+        setAgreementChecked(false);
+      } else {
+        setSubmitMessage({
+          type: "error",
+          message:
+            result.error || "Failed to submit application. Please try again.",
+        });
+        console.error("API Error Response:", result);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitMessage({
+        type: "error",
+        message:
+          "An error occurred while submitting your application. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -299,24 +504,28 @@ const TalentForm = () => {
                   placeholder="Enter your company name"
                   value={companyFormData.companyName}
                   onChange={(e) => handleCompanyInputChange("companyName", e)}
+                  required
                 />
                 <CustomInput
                   label="Contact Name"
                   placeholder="Enter your name"
                   value={companyFormData.contactName}
                   onChange={(e) => handleCompanyInputChange("contactName", e)}
+                  required
                 />
                 <CustomInput
                   label="Email"
                   placeholder="Enter your email"
                   value={companyFormData.email}
                   onChange={(e) => handleCompanyInputChange("email", e)}
+                  required
                 />
                 <CustomInput
                   label="Phone"
                   placeholder="Enter your phone number"
                   value={companyFormData.phone}
                   onChange={(e) => handleCompanyInputChange("phone", e)}
+                  required
                 />
                 <CustomDropdown
                   label="Project Type"
@@ -324,6 +533,7 @@ const TalentForm = () => {
                   value={companyFormData.projectType}
                   options={projectTypeOptions}
                   wrapInGlobalWrapper={false}
+                  required
                 />
                 <CustomDropdown
                   label="Team Size Needed"
@@ -331,6 +541,7 @@ const TalentForm = () => {
                   value={companyFormData.teamSize}
                   options={teamSizeOptions}
                   wrapInGlobalWrapper={false}
+                  required
                 />
                 <CustomDropdown
                   label="Project Duration"
@@ -338,6 +549,7 @@ const TalentForm = () => {
                   value={companyFormData.duration}
                   options={durationOptions}
                   wrapInGlobalWrapper={false}
+                  required
                 />
                 <CustomDropdown
                   label="Timeline to Start"
@@ -345,18 +557,21 @@ const TalentForm = () => {
                   value={companyFormData.timeline}
                   options={timelineOptions}
                   wrapInGlobalWrapper={false}
+                  required
                 />
                 <CustomInput
                   label="Required Skills"
                   placeholder="e.g., React, Node.js, AWS"
                   value={companyFormData.skills}
                   onChange={(e) => handleCompanyInputChange("skills", e)}
+                  required
                 />
                 <CustomInput
                   label="Budget Range"
                   placeholder="e.g., $50k-100k"
                   value={companyFormData.budget}
                   onChange={(e) => handleCompanyInputChange("budget", e)}
+                  required
                 />
               </div>
 
@@ -366,6 +581,7 @@ const TalentForm = () => {
                   placeholder="Describe your project requirements, goals, and any specific needs..."
                   value={companyFormData.description}
                   onChange={(e) => handleCompanyInputChange("description", e)}
+                  required
                 />
               </div>
 
@@ -385,10 +601,22 @@ const TalentForm = () => {
                 </label>
               </div>
 
+              {submitMessage && (
+                <div
+                  className={`mb-4 p-4 rounded-lg ${
+                    submitMessage.type === "success"
+                      ? "bg-green-100 text-green-800 border border-green-200"
+                      : "bg-red-100 text-red-800 border border-red-200"
+                  }`}
+                >
+                  {submitMessage.message}
+                </div>
+              )}
+
               <CustomButton
-                title="Submit Request"
+                title={isSubmitting ? "Submitting..." : "Submit Request"}
                 onClick={handleCompanySubmit}
-                disabled={!agreementChecked}
+                disabled={!agreementChecked || isSubmitting}
               />
             </>
           )}
@@ -410,24 +638,28 @@ const TalentForm = () => {
                   placeholder="Enter your full name"
                   value={designerFormData.fullName}
                   onChange={(e) => handleDesignerInputChange("fullName", e)}
+                  required
                 />
                 <CustomInput
                   label="Email"
                   placeholder="Enter your email"
                   value={designerFormData.email}
                   onChange={(e) => handleDesignerInputChange("email", e)}
+                  required
                 />
                 <CustomInput
                   label="Phone"
                   placeholder="Enter your phone number"
                   value={designerFormData.phone}
                   onChange={(e) => handleDesignerInputChange("phone", e)}
+                  required
                 />
                 <CustomInput
                   label="Portfolio URL"
                   placeholder="Your portfolio website or Behance/Dribbble profile"
                   value={designerFormData.portfolio}
                   onChange={(e) => handleDesignerInputChange("portfolio", e)}
+                  required
                 />
                 <CustomDropdown
                   label="Years of Experience"
@@ -435,6 +667,7 @@ const TalentForm = () => {
                   value={designerFormData.experience}
                   options={experienceOptions}
                   wrapInGlobalWrapper={false}
+                  required
                 />
                 <CustomDropdown
                   label="Availability"
@@ -442,18 +675,21 @@ const TalentForm = () => {
                   value={designerFormData.availability}
                   options={availabilityOptions}
                   wrapInGlobalWrapper={false}
+                  required
                 />
                 <CustomInput
                   label="Skills & Technologies"
                   placeholder="e.g., Figma, Adobe Creative Suite, React, UI/UX Design"
                   value={designerFormData.skills}
                   onChange={(e) => handleDesignerInputChange("skills", e)}
+                  required
                 />
                 <CustomInput
                   label="Hourly Rate (USD)"
                   placeholder="e.g., $25-50"
                   value={designerFormData.hourlyRate}
                   onChange={(e) => handleDesignerInputChange("hourlyRate", e)}
+                  required
                 />
                 <CustomInput
                   label="LinkedIn Profile"
@@ -475,6 +711,7 @@ const TalentForm = () => {
                   placeholder="Tell us about your background, design philosophy, and notable projects..."
                   value={designerFormData.bio}
                   onChange={(e) => handleDesignerInputChange("bio", e)}
+                  required
                 />
               </div>
 
@@ -494,10 +731,22 @@ const TalentForm = () => {
                 </label>
               </div>
 
+              {submitMessage && (
+                <div
+                  className={`mb-4 p-4 rounded-lg ${
+                    submitMessage.type === "success"
+                      ? "bg-green-100 text-green-800 border border-green-200"
+                      : "bg-red-100 text-red-800 border border-red-200"
+                  }`}
+                >
+                  {submitMessage.message}
+                </div>
+              )}
+
               <CustomButton
-                title="Submit Application"
+                title={isSubmitting ? "Submitting..." : "Submit Application"}
                 onClick={handleDesignerSubmit}
-                disabled={!agreementChecked}
+                disabled={!agreementChecked || isSubmitting}
               />
             </>
           )}

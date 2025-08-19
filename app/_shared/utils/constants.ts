@@ -42,7 +42,7 @@ export const footerLinks: FooterColumn[] = [
   {
     title: "Contact",
     contactInfo: {
-      email: "hello@devartventures.com",
+      email: "contact@devartventures.com",
       address: ["3, Block B1 PGECHS, Lahore,", "Pakistan"],
     },
   },
