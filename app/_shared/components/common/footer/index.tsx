@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./style.module.scss";
 import classNames from "classnames";
 import Image from "next/image";
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import { routeConstant } from "routes/constants";
 import { footerLinks } from "utils/constants";
 import useWindowDimensions from "hooks/useWindowDimensions";

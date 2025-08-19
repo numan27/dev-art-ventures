@@ -6,8 +6,8 @@ const commonRoutes: any = [
     title: routeConstant.home.title,
   },
   {
-    path: routeConstant.ventures.design.path,
-    title: routeConstant.ventures.design.title,
+    path: routeConstant.services.design.path,
+    title: routeConstant.services.design.title,
   },
   {
     path: routeConstant.privacyPolicy.path,

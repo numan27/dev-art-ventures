@@ -7,6 +7,8 @@ import CustomBadge from "components/common/customBadge";
 import BrandSlider from "components/common/brandSlider";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import NextLink from "next/link";
+import SectionHeading from "components/common/sectionHeading";
+import CustomSectionHeading from "components/common/customSectionHeading";
 
 const HeroBanner = () => {
   const { width } = useWindowDimensions();
@@ -28,12 +30,14 @@ const HeroBanner = () => {
             >
               <CustomBadge title="Building Future Ventures" />
               <h1 className="text-center">
-                We Partner With Industry {width > 768 && <br />} Leaders To
-                Build Exceptional Solutions
+                Design. Develop. Scale. {width > 768 && <br />} Your End-to-End
+                Digital Product Partner
               </h1>
               <p>
-                Your Partner in Transforming ideas into impactful digital
-                solutions. Let's <br /> Build Things Together
+                DevArtVentures provides elite UI/UX design and full-stack
+                development services. We also specialize in staff augmentation,
+                embedding our pre-vetted designers directly into your team to
+                accelerate your roadmap
               </p>
               <div
                 className={classNames(

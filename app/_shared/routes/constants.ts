@@ -15,17 +15,17 @@ const routeConstant = {
 
   // Ventures Pages
 
-  ventures: {
+  services: {
     design: {
-      path: "/ventures/design",
+      path: "/services/design",
       title: "UI/UX and Graphic Design",
     },
     development: {
-      path: "/ventures/development",
+      path: "/services/development",
       title: "Web & App Development",
     },
     staffAugmentation: {
-      path: "/ventures/staff-augmentation",
+      path: "/services/staff-augmentation",
       title: "Hire Best Designers",
     },
     // academy: {

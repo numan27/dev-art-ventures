@@ -125,7 +125,7 @@ const RecruitmentHeroBanner = ({
 
         <div className="absolute bottom-0 left-0 w-full">
           <div className="flex flex-col gap-2 items-center justify-center relative z-50">
-            <h6 className="text-center">Industry Leaders Trust Us</h6>
+            <h6 className="text-center">Technologies We Master</h6>
             <BrandSlider />
           </div>
         </div>

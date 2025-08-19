@@ -3,30 +3,37 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons, Images } from "assets";
 import CustomButton from "components/common/customButton";
-import CustomCard from "components/common/customCard";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const featuresData = [
   {
     id: 1,
-    title: "Define Your Needs",
-    description: "Tell us about your project requirements and team needs.",
-    icon: Icons.Step1,
+    title: "Consult",
+    description: "You tell us about your project, goals, and team culture.",
+    icon: Images.DevFeature4.src,
     color: "primary",
   },
   {
     id: 2,
-    title: "Get Matched",
-    description: "Receive pre-vetted candidates within 24 hours.",
-    icon: Icons.Step2,
+    title: "Match",
+    description: "We shortlist 2-3 pre-vetted designers for your review.",
+    icon: Images.DesignProcess1.src,
     color: "secondary",
   },
   {
     id: 3,
-    title: "Start Immediately",
-    description: "Onboard talent and begin your project right away.",
-    icon: Icons.Step3,
+    title: "Interview",
+    description:
+      "You interview the candidates (at no cost). Choose your favorite.",
+    icon: Images.DesignProcess2.src,
     color: "accent",
+  },
+  {
+    id: 4,
+    title: "Start",
+    description: "Onboard and begin collaborating. We handle all the admin.",
+    icon: Images.DesignProcess5.src,
+    color: "primary",
   },
 ];
 
@@ -36,12 +43,7 @@ const Features = () => {
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <SectionHeadingCard
           badge="How it works"
-          heading={
-            <>
-              3 Simple Steps to Scale <br />
-              Your Team
-            </>
-          }
+          heading={<>Simple 4-Step Process</>}
           description="Streamlined process to get you the right talent when you need it"
           centered={true}
           maxParticles={200}
@@ -52,7 +54,7 @@ const Features = () => {
         <div
           className={classNames(
             styles.cardContainer,
-            "flex flex-col lg:flex-row gap-6 lg:gap-8 items-center justify-center bg-transparent"
+            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center justify-center bg-transparent"
           )}
         >
           {featuresData.map((feature, index) => (
@@ -74,7 +76,7 @@ const Features = () => {
 
               {/* Icon with drop shadow effect */}
               <div className={styles.iconWrapper}>
-                <feature.icon />
+                <img src={feature.icon} alt={feature.title} />
               </div>
 
               {/* Step number badge */}
@@ -90,12 +92,6 @@ const Features = () => {
               <div className={styles.hoverIndicator} />
             </div>
           ))}
-        </div>
-
-        {/* Connection lines between cards */}
-        <div className={styles.connectionLines}>
-          <div className={styles.connectionLine} />
-          <div className={styles.connectionLine} />
         </div>
 
         <div

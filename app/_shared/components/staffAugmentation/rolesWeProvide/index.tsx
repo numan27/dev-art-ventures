@@ -10,59 +10,23 @@ import CustomBadge from "components/common/customBadge";
 const rolesData = [
   {
     id: 1,
-    title: "UI/UX Designers",
+    title: "UI/UX Designer",
     description:
-      "Creative designers for intuitive and beautiful user experiences",
-    skills: ["Figma", "Adobe XD", "Sketch", "Prototyping", "User Research"],
+      "Creates intuitive, user-centered interfaces and experiences for web and mobile apps. Proficient in Figma, user flows, and prototyping.",
+    skills: [
+      "Figma",
+      "User Flows",
+      "Prototyping",
+      "User Research",
+      "Interface Design",
+    ],
     image: Images.UIUXDesigner.src,
   },
   {
     id: 2,
-    title: "Web Designers",
+    title: "Product Designer",
     description:
-      "Specialists in creating responsive and modern website designs",
-    skills: [
-      "HTML/CSS",
-      "Responsive Design",
-      "Adobe Creative Suite",
-      "Typography",
-      "Layout Design",
-    ],
-    image: Images.WebDesigner.src,
-  },
-  {
-    id: 3,
-    title: "Mobile App Designers",
-    description:
-      "Experts in designing intuitive mobile app interfaces and experiences",
-    skills: [
-      "Mobile UI/UX",
-      "iOS/Android Guidelines",
-      "Prototyping",
-      "User Testing",
-      "Design Systems",
-    ],
-    image: Images.MobileAppDesigner.src,
-  },
-  {
-    id: 4,
-    title: "Graphic Designers",
-    description:
-      "Creative professionals for branding, marketing, and visual communication",
-    skills: [
-      "Adobe Illustrator",
-      "Photoshop",
-      "InDesign",
-      "Branding",
-      "Print Design",
-    ],
-    image: Images.GraphicsDesigner.src,
-  },
-  {
-    id: 5,
-    title: "Product Designers",
-    description:
-      "Strategic designers focused on product strategy and user-centered design",
+      "Focuses on the entire product lifecycle, from strategy and research to execution and iteration.",
     skills: [
       "Product Strategy",
       "User Research",
@@ -73,18 +37,74 @@ const rolesData = [
     image: Images.ProductDesigner.src,
   },
   {
-    id: 6,
-    title: "Brand Designers",
+    id: 3,
+    title: "Graphic Designer",
     description:
-      "Creative professionals specializing in brand identity, visual branding, and brand strategy development",
+      "Develops compelling visual assets for branding, marketing, and sales collateral.",
     skills: [
-      "Brand Identity",
+      "Adobe Illustrator",
+      "Photoshop",
+      "InDesign",
+      "Branding",
+      "Visual Design",
+    ],
+    image: Images.GraphicsDesigner.src,
+  },
+  {
+    id: 4,
+    title: "Motion Graphics Designer",
+    description:
+      "Brings interfaces and brands to life with engaging animation and video.",
+    skills: [
+      "After Effects",
+      "Animation",
+      "Video Editing",
+      "Motion Design",
+      "Visual Effects",
+    ],
+    image: Images.GraphicsDesigner.src,
+  },
+  {
+    id: 5,
+    title: "LOGO Designer",
+    description:
+      "Specializes in creating distinctive and memorable brand identities through logo design and visual branding.",
+    skills: [
       "Logo Design",
-      "Visual Branding",
-      "Brand Guidelines",
+      "Brand Identity",
       "Typography",
+      "Visual Branding",
+      "Creative Design",
     ],
     image: Images.BrandDesigner.src,
+  },
+  {
+    id: 6,
+    title: "Mobile App Designer",
+    description:
+      "Expert in designing intuitive and engaging mobile app interfaces and user experiences.",
+    skills: [
+      "Mobile UI/UX",
+      "iOS/Android Guidelines",
+      "App Prototyping",
+      "User Testing",
+      "Mobile Design Systems",
+    ],
+    image: Images.MobileAppDesigner.src,
+  },
+  {
+    id: 7,
+    title: "Design Director (Part-time)",
+    description:
+      "Provides high-level strategic oversight and creative direction for key projects.",
+    skills: [
+      "Creative Strategy",
+      "Team Leadership",
+      "Project Oversight",
+      "Creative Direction",
+      "Strategic Planning",
+    ],
+    image: Images.ProductDesigner.src,
   },
 ];
 
@@ -96,8 +116,8 @@ const RolesWeProvide = () => {
     >
       <div className={classNames(styles.customContainer)}>
         <SectionHeadingCard
-          badge="Design Roles"
-          heading="Design Roles We Provide"
+          badge="Designer Roles"
+          heading="Designer Roles We Provide"
           description="Access pre-vetted design professionals across all major creative disciplines"
           centered={true}
           maxParticles={300}

@@ -6,18 +6,18 @@ let nav_items = [
     path: routeConstant.home.path,
   },
   {
-    label: "Ventures",
+    label: "Services",
     hasDropdown: true,
     dropdownItems: [
       {
         title: "Design",
         description: "UI/UX and Graphic Design",
-        path: routeConstant.ventures.design.path,
+        path: routeConstant.services.design.path,
       },
       {
         title: "Development",
         description: "Web & App Development",
-        path: routeConstant.ventures.development.path,
+        path: routeConstant.services.development.path,
       },
       // {
       //   title: "DevArtAcademy",
@@ -27,7 +27,7 @@ let nav_items = [
       {
         title: "Staff Augmentation",
         description: "Hire Best Talent",
-        path: routeConstant.ventures.staffAugmentation.path,
+        path: routeConstant.services.staffAugmentation.path,
       },
     ],
   },

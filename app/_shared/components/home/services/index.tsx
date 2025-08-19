@@ -21,7 +21,7 @@ const servicesData = [
     ],
     videoSrc: "/design.mp4",
     buttonText: "Visit Now",
-    buttonLink: routeConstant.ventures.design.path,
+    buttonLink: routeConstant.services.design.path,
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const servicesData = [
     ],
     videoSrc: "/web.mp4",
     buttonText: "Visit Now",
-    buttonLink: routeConstant.ventures.development.path,
+    buttonLink: routeConstant.services.development.path,
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const servicesData = [
     ],
     videoSrc: "/recruitment.mp4",
     buttonText: "Visit Now",
-    buttonLink: routeConstant.ventures.staffAugmentation.path,
+    buttonLink: routeConstant.services.staffAugmentation.path,
   },
 ];
 
@@ -66,9 +66,9 @@ const Services = () => {
             <AdaptiveParticles section="services" maxParticles={100} />
           </div>
           <SectionHeadingCard
-            heading="What We Do"
+            badge="Services"
+            heading="How We Help You Build & Scale"
             description="Explore our streamlined approach to creating bespoke websites that align with your goals."
-            badge="Ventures"
             centered={true}
             maxParticles={150}
             section="services"

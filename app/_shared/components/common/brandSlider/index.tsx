@@ -3,19 +3,16 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 
 const socialIcons = [
-  // Major Brand Logos (High Priority)
   "/brands/adobe-xs.png",
-  "/brands/aws.png",
+  "/brands/aws.svg",
   "/brands/figma.png",
+  "/brands/zoom.svg",
+  "/brands/google.svg",
   "/brands/framer.png",
-  "/brands/zoom.png",
-  "/brands/google.png",
-
-  // Major Development Tools (Medium Priority)
-  "/tools/react.png",
   "/tools/next.png",
   "/tools/nest.png",
   "/tools/angular.png",
+  "/tools/react.png",
   "/tools/typescript.png",
   "/tools/mongo-db.png",
   "/tools/wordpress.png",
@@ -25,13 +22,12 @@ const socialIcons = [
   "/tools/vite.png",
   "/tools/vercel.png",
   "/tools/tailwind.png",
-
-  // Other Development Tools (Lower Priority)
   "/tools/css.png",
   "/tools/git-lab.png",
   "/tools/html.png",
   "/tools/jira.png",
   "/tools/nuxt.png",
+  "/brands/cisco.svg",
   "/tools/php.png",
   "/tools/svelte.png",
 ];
@@ -48,9 +44,7 @@ const BrandSlider = () => {
           )}
         >
           <div className={classNames(styles.loopSlider)}>
-            <div
-              className={classNames(styles.inner, "flex items-center gap-2")}
-            >
+            <div className={classNames(styles.inner)}>
               {/* Render the PNGs three times for seamless looping */}
               {socialIcons.map((icon, index) => (
                 <span
@@ -70,6 +64,7 @@ const BrandSlider = () => {
                 <span
                   key={`duplicate-${index}`}
                   className={styles.techIconWrapper}
+                  style={{ marginLeft: index === 0 ? "-8px" : undefined }}
                 >
                   <img
                     src={icon}

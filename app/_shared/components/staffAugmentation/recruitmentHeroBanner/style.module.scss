@@ -163,6 +163,23 @@
       );
     }
   }
+  .heading {
+    @include RP(
+      (
+        "line-height": 75,
+      ),
+      1
+    );
+  }
+  .description {
+    @include RP(
+      (
+        "font-size": 18,
+        "line-height": 24,
+      ),
+      1
+    );
+  }
 
   @media screen and (max-width: 1440px) {
     max-width: 60% !important;

@@ -93,6 +93,7 @@ import WebDesigner from "./web-design.jpg";
 import MobileAppDesigner from "./mobile-app.png";
 import ProductDesigner from "./product-design.jpg";
 import BrandDesigner from "./brand-design.png";
+import Networking from "./networking.png";
 
 const Images = {
   Logo,
@@ -190,6 +191,7 @@ const Images = {
   MobileAppDesigner,
   ProductDesigner,
   BrandDesigner,
+  Networking,
 };
 
 export { Images };

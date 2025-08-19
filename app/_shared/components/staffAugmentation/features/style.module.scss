@@ -16,13 +16,6 @@
   width: 100%;
   height: 100%;
 
-  .customContainer {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
   .cardContainer {
     @include RP(
       (
@@ -31,13 +24,20 @@
       1
     );
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
     align-items: center;
+    justify-items: center;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
 
     @media (min-width: 1024px) {
-      flex-direction: row;
-      justify-content: center;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
     }
   }
 
@@ -46,10 +46,14 @@
     background: linear-gradient(135deg, #00041f 0%, #0a0a2e 100%);
     border: 1px solid #131839;
     border-radius: 24px;
-    padding: 32px 24px;
+    @include RP(
+      (
+        "padding": 20,
+        "min-height": 250,
+      ),
+      1
+    );
     width: 100%;
-    max-width: 320px;
-    min-height: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,6 +61,7 @@
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    justify-self: center;
 
     /* Subtle background pattern */
     background-image: radial-gradient(
@@ -163,9 +168,14 @@
     position: relative;
     z-index: 2;
 
-    svg {
-      width: 48px;
-      height: 48px;
+    img {
+      @include RP(
+        (
+          "width": 48,
+          "height": 48,
+        ),
+        1
+      );
       filter: drop-shadow(0 4px 14px rgba(126, 88, 255, 0.35));
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -198,7 +208,6 @@
     font-weight: 700;
     line-height: 1.3;
     color: $WHITE;
-    margin-bottom: 16px;
     background: linear-gradient(90deg, #ffffff 0%, #e2e8f0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -228,41 +237,6 @@
     transform: scaleX(0);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left;
-  }
-
-  /* Connection lines between cards */
-  .connectionLines {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    display: none;
-
-    @media (min-width: 1024px) {
-      display: block;
-    }
-  }
-
-  .connectionLine {
-    position: absolute;
-    top: 0;
-    width: 80px;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(83, 15, 255, 0.3) 50%,
-      transparent 100%
-    );
-
-    &:nth-child(1) {
-      left: calc(33.33% - 40px);
-    }
-
-    &:nth-child(2) {
-      left: calc(66.66% - 40px);
-    }
   }
 
   /* Button container */
@@ -318,6 +292,17 @@
   .cardItem {
     max-width: 100%;
     min-height: 240px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cardContainer {
+    gap: 20px;
+  }
+
+  .cardItem {
+    max-width: 100%;
+    min-height: 220px;
   }
 }
 
