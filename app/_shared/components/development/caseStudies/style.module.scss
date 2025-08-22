@@ -33,7 +33,12 @@
 .carouselWrapper {
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
+  @include RP(
+    (
+      "border-radius": 20,
+    ),
+    1
+  );
   background: rgba(0, 4, 31, 0.8);
   border: 1px solid rgba(126, 88, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -47,31 +52,50 @@
 .carouselSlide {
   flex: 0 0 100%;
   width: 100%;
-  border-radius: 24px;
   background: rgba(0, 4, 31, 0.8);
   // border: 1px solid rgba(126, 88, 255, 0.2);
   backdrop-filter: blur(10px);
   overflow: hidden;
   margin: 0 12px;
+  @include RP(
+    (
+      "border-radius": 20,
+    ),
+    1
+  );
   // box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .slideContent {
   display: flex;
-  @include RP(
-    (
-      "min-height": 400,
-    ),
-    1
-  );
+  align-items: center;
+  // @include RP(
+  //   (
+  //     "min-height": 500,
+  //   ),
+  //   1
+  // );
   height: 100%;
 }
 
 .slideImage {
-  flex: 0 0 45%;
+  flex: 0 0 50%;
   position: relative;
   overflow: hidden;
   height: 100%;
+  display: flex;
+  align-items: center;
+  // align-items: stretch;
+
+  @include RP(
+    (
+      "border-radius": 20,
+      "min-height": 360,
+      "padding-left": 24,
+      "padding-right": 24,
+    ),
+    1
+  );
 
   &::before {
     content: "";
@@ -86,6 +110,12 @@
       rgba(0, 212, 255, 0.05) 100%
     );
     z-index: 1;
+    @include RP(
+      (
+        "border-radius": 20,
+      ),
+      1
+    );
   }
 }
 
@@ -93,8 +123,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  @include RP(
+    (
+      "border-radius": 20,
+    ),
+    1
+  );
   filter: brightness(0.8) contrast(1.1);
   min-height: 100%;
+  flex: 1;
 }
 
 .imageOverlay {
@@ -107,6 +144,12 @@
     rgba(255, 80, 160, 0.1) 100%
   );
   z-index: 2;
+  @include RP(
+    (
+      "border-radius": 20,
+    ),
+    1
+  );
 }
 
 .slideInfo {
@@ -120,6 +163,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 
 .categoryBadge {
@@ -164,19 +208,21 @@
     (
       "font-size": 16,
       "line-height": 24,
-      "margin-bottom": 24,
+      "margin-bottom": 20,
     ),
     1
   );
   color: $DESC;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   opacity: 0.9;
+  flex: 1;
 }
 
 .techTags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: auto;
 }
 
 .techTag {
@@ -215,11 +261,13 @@
 
   .slideImage {
     flex: 0 0 auto;
-    height: 100%;
+    height: 300px;
+    width: 100%;
   }
 
   .slideInfo {
     padding: 24px;
+    height: auto;
   }
 
   .carouselSlide {

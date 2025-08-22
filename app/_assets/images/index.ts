@@ -94,6 +94,24 @@ import MobileAppDesigner from "./mobile-app.png";
 import ProductDesigner from "./product-design.jpg";
 import BrandDesigner from "./brand-design.png";
 import Networking from "./networking.png";
+import DevPortfolio1 from "./dev-portfolio-1.png";
+import DevPortfolio2 from "./dev-portfolio-2.png";
+import DevPortfolio3 from "./dev-portfolio-3.png";
+import DevPortfolio4 from "./dev-portfolio-4.png";
+import DevPortfolio5 from "./dev-portfolio-5.png";
+import DevPortfolio6 from "./dev-portfolio-6.png";
+import DevPortfolio7 from "./dev-portfolio-7.png";
+import DevPortfolio8 from "./dev-portfolio-8.png";
+import DevPortfolio9 from "./dev-portfolio-9.png";
+import DevPortfolio10 from "./dev-portfolio-10.png";
+import DevPortfolioDetail1 from "./dev-portfolio-detail-1.png";
+import DevPortfolioDetail2 from "./dev-portfolio-detail-2.png";
+import DevPortfolioDetail3 from "./dev-portfolio-detail-3.png";
+import DevPortfolioDetail4 from "./dev-portfolio-detail-4.png";
+import DevPortfolioDetail5 from "./dev-portfolio-detail-5.png";
+import DevPortfolioDetail6 from "./dev-portfolio-detail-6.png";
+import DevPortfolioDetail7 from "./dev-portfolio-detail-7.png";
+import DevPortfolioDetail8 from "./dev-portfolio-detail-8.png";
 
 const Images = {
   Logo,
@@ -192,6 +210,24 @@ const Images = {
   ProductDesigner,
   BrandDesigner,
   Networking,
+  DevPortfolio1,
+  DevPortfolio2,
+  DevPortfolio3,
+  DevPortfolio4,
+  DevPortfolio5,
+  DevPortfolio6,
+  DevPortfolio7,
+  DevPortfolio8,
+  DevPortfolio9,
+  DevPortfolio10,
+  DevPortfolioDetail1,
+  DevPortfolioDetail2,
+  DevPortfolioDetail3,
+  DevPortfolioDetail4,
+  DevPortfolioDetail5,
+  DevPortfolioDetail6,
+  DevPortfolioDetail7,
+  DevPortfolioDetail8,
 };
 
 export { Images };

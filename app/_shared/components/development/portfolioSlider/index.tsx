@@ -1,18 +1,18 @@
 import { memo } from "react";
 import { Images } from "assets";
 import InfiniteSlider from "components/common/infiniteSlider";
-import SectionHeadingCard from "components/common/sectionHeadingCard";
 
 const developmentIcons = [
-  Images.DesignSlider1,
-  Images.DesignSlider2,
-  Images.DesignSlider3,
-  Images.DesignSlider4,
-  Images.DesignSlider5,
-  Images.DesignSlider6,
-  Images.DesignSlider7,
-  Images.DesignSlider8,
-  Images.DesignSlider9,
+  Images.DevPortfolio1,
+  Images.DevPortfolio2,
+  Images.DevPortfolio3,
+  Images.DevPortfolio4,
+  Images.DevPortfolio5,
+  Images.DevPortfolio6,
+  Images.DevPortfolio7,
+  Images.DevPortfolio8,
+  Images.DevPortfolio9,
+  Images.DevPortfolio10,
 ];
 
 const DevelopmentPortfolioSlider = () => {
@@ -23,14 +23,6 @@ const DevelopmentPortfolioSlider = () => {
 
   return (
     <div className="w-full">
-      {/* <SectionHeadingCard
-        heading="Our Portfolio"
-        description="We have worked with some of the best brands in the world"
-        badge="Our Portfolio"
-        centered={true}
-        maxParticles={150}
-        section="testimonials"
-      /> */}
       <div className="w-full">
         <InfiniteSlider images={images} />
       </div>
