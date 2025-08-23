@@ -10,7 +10,7 @@ import Process from "components/design/process";
 import Testimonials from "components/home/testimonials";
 import CTA from "components/home/cta";
 import FAQs from "components/design/faqs";
-import Comparison from "components/design/comparison";
+import CustomComparison from "components/design/customComparisonTable";
 
 export const metadata: Metadata = {
   title: "UI/UX and Graphic Design | DevArt Ventures",
@@ -43,7 +43,7 @@ export default function Design() {
         <Services />
         <Work />
         <Process />
-        <Comparison />
+        <CustomComparison />
         <Testimonials />
         <FAQs />
         <CTA

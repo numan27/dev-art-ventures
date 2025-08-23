@@ -2,16 +2,15 @@
 
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import CustomButton from "components/common/customButton";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 import { Images } from "assets";
 import CustomCard from "components/common/customCard";
-import Comparison from "components/design/comparison";
+import CustomComparison from "components/design/customComparisonTable";
 
 const AlternativeRecruitment = () => {
-  const handleRecruitmentClick = () => {
-    window.open("https://recruitment.numanventures.com", "_blank");
-  };
+  // const handleRecruitmentClick = () => {
+  //   window.open("https://recruitment.numanventures.com", "_blank");
+  // };
 
   const recruitmentFeatures = [
     {
@@ -102,7 +101,7 @@ const AlternativeRecruitment = () => {
           </div>
 
           {/* Comparison Section */}
-          <Comparison
+          <CustomComparison
             comparisonData={comparisonData}
             badge="Comparison"
             heading="Staff Augmentation vs. Permanent Recruitment"

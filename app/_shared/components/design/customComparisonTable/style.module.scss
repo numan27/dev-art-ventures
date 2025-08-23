@@ -165,10 +165,11 @@
             1
           );
 
+          // Ensure table cells maintain the same styling
           td {
             vertical-align: middle;
 
-            h5 {
+            span {
               color: #a7adbe !important;
               font-family: var(--font-rethink-sans) !important;
               @include RP(
@@ -235,20 +236,14 @@
                 ),
                 1
               );
-              background: linear-gradient(
-                180deg,
-                transparent 0%,
-                rgba(59, 130, 246, 0.2) 50%,
-                transparent 100%
-              );
-              top: 50%;
-              transform: translateY(-50%);
+              background: #4133ff;
+              border-radius: inherit;
+              pointer-events: none;
             }
           }
 
           .devArtVentures {
-            position: relative;
-
+            background: linear-gradient(90deg, #3363ff26, #00020f00);
             @include RP(
               (
                 "padding-top": 18,
@@ -258,48 +253,136 @@
               ),
               1
             );
+          }
+        }
+      }
+    }
 
-            // Premium feature indicator
-            &::before {
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              height: 100% !important;
-              background: linear-gradient(
-                135deg,
-                rgba(59, 130, 246, 0.05) 0%,
-                rgba(59, 130, 246, 0.02) 100%
-              );
-              border-radius: inherit;
-              pointer-events: none;
-            }
+    // Legacy content styles for backward compatibility
+    .content {
+      background-image: url("../../../../_assets/images/light-bg.png");
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      width: 100%;
+      height: 100%;
+      .cardItem {
+        border: 1px solid #131839;
 
-            &::after {
-              content: "";
-              position: absolute;
-              left: 0;
-              width: 1px;
-              @include RP(
-                (
-                  "height": 36,
-                ),
-                1
-              );
-              background: linear-gradient(
-                180deg,
-                transparent 0%,
-                rgba(59, 130, 246, 0.2) 50%,
-                transparent 100%
-              );
-              top: 50%;
-              transform: translateY(-50%);
-            }
+        @include RP(
+          (
+            "border-radius": 16,
+            "height": 90,
+          ),
+          1
+        );
+
+        h5 {
+          color: #a7adbe !important;
+          font-family: var(--font-rethink-sans) !important;
+          @include RP(
+            (
+              "font-size": 18,
+              "line-height": 26,
+            ),
+            1
+          );
+        }
+
+        .otherAgencies {
+          position: relative;
+
+          @include RP(
+            (
+              "padding-top": 18,
+              "padding-bottom": 18,
+              "padding-left": 20,
+              "padding-right": 20,
+            ),
+            1
+          );
+
+          img {
+            @include RP(
+              (
+                "width": 24,
+                "height": 24,
+              ),
+              1
+            );
+          }
+          // Diagonal pattern overlay
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100% !important;
+            background-image: repeating-linear-gradient(
+              -45deg,
+              transparent,
+              transparent 3px,
+              rgba(59, 130, 246, 0.03) 3px,
+              rgba(59, 130, 246, 0.03) 6px
+            );
+            border-radius: inherit;
+            pointer-events: none;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            width: 1px;
+            @include RP(
+              (
+                "height": 36,
+              ),
+              1
+            );
+            background: #4133ff;
+            border-radius: inherit;
+            pointer-events: none;
+          }
+        }
+
+        .devArtVentures {
+          background: linear-gradient(90deg, #3363ff26, #00020f00);
+          @include RP(
+            (
+              "padding-top": 18,
+              "padding-bottom": 18,
+              "padding-left": 20,
+              "padding-right": 20,
+            ),
+            1
+          );
+
+          img {
+            @include RP(
+              (
+                "width": 24,
+                "height": 24,
+              ),
+              1
+            );
           }
         }
       }
     }
   }
+}
+
+// Screen reader only class for accessibility
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

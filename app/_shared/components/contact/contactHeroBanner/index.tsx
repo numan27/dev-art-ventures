@@ -67,7 +67,7 @@ const ContactHeroBanner = () => {
                 />
                 <CustomCard
                   icon={Images.DevFeature5.src}
-                  title="5+ Years"
+                  title="10+ Years"
                   description="Industry experience"
                   centered={true}
                 />

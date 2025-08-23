@@ -9,6 +9,7 @@ import useWindowDimensions from "hooks/useWindowDimensions";
 import NextLink from "next/link";
 import SectionHeading from "components/common/sectionHeading";
 import CustomSectionHeading from "components/common/customSectionHeading";
+import { routeConstant } from "routes/constants";
 
 const HeroBanner = () => {
   const { width } = useWindowDimensions();
@@ -52,15 +53,21 @@ const HeroBanner = () => {
                 >
                   <CustomButton title="Book Free Consultation" />
                 </NextLink>
-                {/* <CustomButton
-                  containerStyle="secondary-button"
-                  title="Let's Partner"
-                /> */}
+                <NextLink
+                  target="_blank"
+                  href={routeConstant.contact.path}
+                  className={styles.ctaButton}
+                >
+                  <CustomButton
+                    containerStyle="secondary-button"
+                    title="Contact Us"
+                  />
+                </NextLink>
               </div>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 w-full">
-            <h6 className="text-center">Technologies We Master</h6>
+            <h6 className="text-center">Companies We've Worked With</h6>
             <BrandSlider />
           </div>
         </div>

@@ -4,10 +4,10 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 
 const statsData = [
-  { value: "150+", label: "Projects" },
+  { value: "120+", label: "Projects" },
   { value: "10+", label: "Years of Experience" },
-  { value: "100+", label: "Happy Clients" },
-  { value: "100+", label: "Happy Clients" },
+  { value: "100%", label: "Happy Clients" },
+  { value: "24/7", label: "Support" },
 ];
 
 const Stats = () => {

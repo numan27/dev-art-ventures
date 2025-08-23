@@ -20,7 +20,7 @@ const servicesData = [
       "Whether you're starting fresh or improving an existing product, we take care of everything from wireframes to high-fidelity designs. It's all about building experiences that users love.",
     ],
     videoSrc: "/design.mp4",
-    buttonText: "Visit Now",
+    buttonText: "Visit Details",
     buttonLink: routeConstant.services.design.path,
   },
   {
@@ -32,7 +32,7 @@ const servicesData = [
       "From modern business sites to powerful web applications, we handle the entire process from concept to deployment. The result? A website that looks great, works fast, and grows with you.",
     ],
     videoSrc: "/web.mp4",
-    buttonText: "Visit Now",
+    buttonText: "Visit Details",
     buttonLink: routeConstant.services.development.path,
   },
   {
@@ -40,11 +40,11 @@ const servicesData = [
     title: "Staff Augmentation",
     icon: Images.ServiceIcon3,
     description: [
-      "Scale your team with pre-vetted tech talent. Access developers, designers, and engineers who can join your projects immediately.",
+      "Scale your team with pre-vetted design talent. Access skilled designers who can join your projects immediately.",
       "Get matched within 24 hours and start in as little as 3 days. Flexible engagements, culture-fit matching, and ongoing support from our network and academy.",
     ],
     videoSrc: "/recruitment.mp4",
-    buttonText: "Visit Now",
+    buttonText: "Visit Details",
     buttonLink: routeConstant.services.staffAugmentation.path,
   },
 ];

@@ -33,9 +33,9 @@ const Features = () => {
     <div className={classNames(styles.sectionWrapper)}>
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <CustomSectionHeading
-          badge="Services"
-          heading="Our Work"
-          description="From cutting-edge web development to creative design and strategic marketing, we provide tailored solutions to meet your unique needs"
+          badge="Portfolio"
+          heading="Our Recent Work"
+          description="Explore our latest design projects showcasing creativity, innovation, and attention to detail across branding, UI/UX, and visual design"
           centered={true}
         />
         <div

@@ -14,6 +14,7 @@ import CTA from "components/home/cta";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import { staffAugmentationFaqs } from "utils/constants";
 import ProblemsAndSolutions from "./problemsAndSolutions";
+import { routeConstant } from "routes/constants";
 
 export default function StaffAugmentationContent() {
   const { width } = useWindowDimensions();
@@ -38,7 +39,7 @@ export default function StaffAugmentationContent() {
         primaryButtonText="Hire a Designer Now"
         primaryButtonPath="#talent-form"
         secondaryButtonText="Get Started"
-        secondaryButtonPath="#talent-form"
+        secondaryButtonPath={routeConstant.contact.path}
       />
       <ProblemsAndSolutions />
       <RolesWeProvide />

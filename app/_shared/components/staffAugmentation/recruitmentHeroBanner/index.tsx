@@ -69,7 +69,7 @@ const RecruitmentHeroBanner = ({
           <div
             className={classNames(
               styles.sectionContainer,
-              "flex items-center flex-col justify-center h-full lg:gap-6 md:gap-5 gap-4 relative"
+              "flex items-center flex-col justify-center h-full gap-3 relative"
             )}
           >
             {tag && (
@@ -125,7 +125,7 @@ const RecruitmentHeroBanner = ({
 
         <div className="absolute bottom-0 left-0 w-full">
           <div className="flex flex-col gap-2 items-center justify-center relative z-50">
-            <h6 className="text-center">Technologies We Master</h6>
+            <h6 className="text-center">Companies We've Worked With</h6>
             <BrandSlider />
           </div>
         </div>

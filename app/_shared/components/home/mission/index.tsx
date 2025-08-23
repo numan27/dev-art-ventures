@@ -36,7 +36,7 @@ const Mission = ({
               "flex flex-col md:gap-5 sm:gap-4 gap-3 justify-center md:items-start items-center relative z-10"
             )}
           >
-            <CustomBadge title="Our Mission" height={30} />
+            {/* <CustomBadge title="Our Mission" height={30} /> */}
             <h2>{heading}</h2>
             <p>{description}</p>
           </div>

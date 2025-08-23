@@ -37,7 +37,17 @@ const CustomSectionHeading = ({
         className
       )}
     >
-      {badge && <CustomBadge title={badge} />}
+      {badge && (
+        <div
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="800"
+          data-aos-offset="100"
+          data-aos-easing="ease-out-cubic"
+        >
+          <CustomBadge title={badge} />
+        </div>
+      )}
       <div
         className={classNames(
           styles.titleContainer,
@@ -45,12 +55,34 @@ const CustomSectionHeading = ({
           centered ? "items-center" : "items-center"
         )}
       >
-        <h3 data-aos="fade-up">{heading}</h3>
+        <h3
+          data-aos="fade-up"
+          data-aos-delay="200"
+          data-aos-duration="800"
+          data-aos-offset="100"
+          data-aos-easing="ease-out-cubic"
+        >
+          {heading}
+        </h3>
       </div>
-      {description && <p data-aos="fade-up">{description}</p>}
+      {description && (
+        <p
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-aos-duration="800"
+          data-aos-offset="100"
+          data-aos-easing="ease-out-cubic"
+        >
+          {description}
+        </p>
+      )}
       {isHaveCTA && (
         <div
           data-aos="fade-up"
+          data-aos-delay="400"
+          data-aos-duration="800"
+          data-aos-offset="100"
+          data-aos-easing="ease-out-cubic"
           className="flex items-center justify-center mt-4"
         >
           <NextLink href={ctaLink || "#"}>

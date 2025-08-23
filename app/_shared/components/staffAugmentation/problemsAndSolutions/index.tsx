@@ -4,85 +4,109 @@ import classNames from "classnames";
 import styles from "./style.module.scss";
 import { Icons, Images } from "assets";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
-import CustomCard from "components/common/customCard";
+import {
+  AlertTriangle,
+  CheckCircle,
+  Clock,
+  DollarSign,
+  Users,
+  Zap,
+  Target,
+  Shield,
+  TrendingUp,
+  Lightbulb,
+} from "lucide-react";
 
-const problemsData = [
+const tableData = [
   {
     id: 1,
-    title: "Lengthy, expensive hiring processes",
-    description:
-      "Traditional recruitment takes months and costs thousands in agency fees and lost productivity.",
-    icon: Images.DesignProcess6.src,
+    problem: {
+      title: "Lengthy, expensive hiring processes",
+      description:
+        "Traditional recruitment takes months and costs thousands in agency fees and lost productivity.",
+      icon: Clock,
+    },
+    solution: {
+      title: "Lightning-fast onboarding",
+      description:
+        "Get started in under a week with pre-vetted talent ready to hit the ground running.",
+      icon: Zap,
+    },
   },
   {
     id: 2,
-    title: "Inconsistent portfolio quality",
-    description:
-      "Hard to verify design skills and experience through interviews alone.",
-    icon: Images.DesignService6.src,
+    problem: {
+      title: "Inconsistent portfolio quality",
+      description:
+        "Hard to verify design skills and experience through interviews alone.",
+      icon: Target,
+    },
+    solution: {
+      title: "Curated talent pool",
+      description:
+        "Rigorously vetted designers with proven portfolios and verified skills.",
+      icon: Shield,
+    },
   },
   {
     id: 3,
-    title: "High cost of full-time senior designers",
-    description:
-      "Salaries, benefits, and overhead costs add up quickly for permanent hires.",
-    icon: Images.Dollar.src,
+    problem: {
+      title: "High cost of full-time senior designers",
+      description:
+        "Salaries, benefits, and overhead costs add up quickly for permanent hires.",
+      icon: DollarSign,
+    },
+    solution: {
+      title: "Flexible pricing model",
+      description:
+        "Pay only for what you need with transparent rates and no hidden costs.",
+      icon: TrendingUp,
+    },
   },
   {
     id: 4,
-    title: "Design talent gaps stalling projects",
-    description:
-      "Critical deadlines missed due to lack of available skilled designers.",
-    icon: Images.Networking.src,
+    problem: {
+      title: "Design talent gaps stalling projects",
+      description:
+        "Critical deadlines missed due to lack of available skilled designers.",
+      icon: AlertTriangle,
+    },
+    solution: {
+      title: "Immediate availability",
+      description:
+        "Access to skilled designers within 48 hours to keep your projects on track.",
+      icon: CheckCircle,
+    },
   },
   {
     id: 5,
-    title: "Onboarding and management overhead",
-    description:
-      "Time spent training and managing new team members instead of focusing on design.",
-    icon: Images.DesignService4.src,
+    problem: {
+      title: "Onboarding and management overhead",
+      description:
+        "Time spent training and managing new team members instead of focusing on design.",
+      icon: Users,
+    },
+    solution: {
+      title: "Seamless team integration",
+      description:
+        "They work as an extension of your team using your tools and processes.",
+      icon: Users,
+    },
   },
   {
     id: 6,
-    title: "Limited access to specialized skills",
-    description:
-      "Struggling to find designers with expertise in specific tools, industries, or design systems.",
-    icon: Images.DevService5.src,
-  },
-];
-
-const solutionsData = [
-  {
-    id: 1,
-    title: "Curated Talent",
-    description:
-      "Rigorously vetted designers for skill, communication, and culture fit.",
-    icon: Images.DevFeature2.src,
-    color: "success",
-  },
-  {
-    id: 2,
-    title: "Seamless Integration",
-    description:
-      "They work as an extension of your team using your tools (Figma, Adobe Suite, etc.).",
-    icon: Images.DevService5.src,
-    color: "success",
-  },
-  {
-    id: 3,
-    title: "Speed",
-    description:
-      "Get started in under a week with pre-vetted talent ready to hit the ground running.",
-    icon: Images.DevFeature5.src,
-    color: "success",
-  },
-  {
-    id: 4,
-    title: "Flexibility",
-    description:
-      "Scale your team up or down as project needs change with just 2 weeks notice.",
-    icon: Images.DesignFeature2.src,
-    color: "success",
+    problem: {
+      title: "Limited access to specialized skills",
+      description:
+        "Struggling to find designers with expertise in specific tools, industries, or design systems.",
+      icon: Lightbulb,
+    },
+    solution: {
+      title: "Specialized expertise on demand",
+      description:
+        "Find designers with specific skills in Figma, Adobe Suite, or industry experience.",
+      icon: Target,
+    },
   },
 ];
 
@@ -100,74 +124,76 @@ const ProblemsAndSolutions = () => {
           backgroundImage={Images.ServiceSectionBg?.src}
         />
 
-        {/* Problems Section */}
-        <div className={styles.problemsSection}>
-          <div className={styles.sectionHeader}>
-            <h3 className={styles.sectionTitle}>Common Pain Points</h3>
-            <p className={styles.sectionDescription}>
-              These challenges are costing you time, money, and project momentum
-            </p>
+        {/* Modern Table Layout */}
+        <div className={styles.tableContainer}>
+          {/* Table Header */}
+          <div className={styles.tableHeader}>
+            <div className={styles.headerCell}>
+              <div className={styles.headerIcon}>
+                <AlertTriangle size={32} className={styles.headerIconSvg} />
+              </div>
+              <h3 className={styles.headerTitle}>Pain Points</h3>
+              <p className={styles.headerDescription}>
+                Traditional hiring challenges that slow down your projects and
+                increase costs
+              </p>
+            </div>
+            <div className={styles.headerCell}>
+              <div className={styles.headerIcon}>
+                <CheckCircle size={32} className={styles.headerIconSvg} />
+              </div>
+              <h3 className={styles.headerTitle}>Our Solutions</h3>
+              <p className={styles.headerDescription}>
+                Smart alternatives that eliminate hiring headaches and
+                accelerate growth
+              </p>
+            </div>
           </div>
 
-          <div
-            className={classNames(
-              styles.problemsGrid,
-              "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-            )}
-          >
-            {problemsData.map((problem, index) => (
-              <CustomCard
-                key={problem.id}
-                icon={problem.icon}
-                title={problem.title}
-                description={problem.description}
-                centered={true}
-                className={styles.problemCard}
-                height="min-h-[200px]"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Solution Bridge */}
-        <div className={styles.solutionBridge}>
-          <div className={styles.bridgeContent}>
-            <h3 className={styles.bridgeTitle}>We Provide a Smarter Way</h3>
-            <p className={styles.bridgeDescription}>
-              Transform your hiring challenges into competitive advantages
-            </p>
-          </div>
-        </div>
-
-        {/* Solutions Section */}
-        <div className={styles.solutionsSection}>
-          <div className={styles.sectionHeader}>
-            <h3 className={styles.sectionTitle}>Our Solution</h3>
-            <p className={styles.sectionDescription}>
-              Everything you need to scale your design team without the
-              traditional headaches
-            </p>
-          </div>
-
-          <div className={styles.solutionsGrid}>
-            {solutionsData.map((solution, index) => (
+          {/* Table Body */}
+          <div className={styles.tableBody}>
+            {tableData.map((row, index) => (
               <div
-                key={solution.id}
-                className={classNames(
-                  styles.solutionCard,
-                  styles[solution.color]
-                )}
+                key={row.id}
+                className={styles.tableRow}
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <div className={styles.iconWrapper}>
-                  <img src={solution.icon} alt={solution.title} />
+                {/* Problem Cell */}
+                <div className={styles.tableCell}>
+                  <div className={styles.cellContent}>
+                    <div className={styles.cellIcon}>
+                      <row.problem.icon
+                        size={24}
+                        className={styles.cellIconSvg}
+                      />
+                    </div>
+                    <div className={styles.cellText}>
+                      <h4 className={styles.cellTitle}>{row.problem.title}</h4>
+                      <p className={styles.cellDescription}>
+                        {row.problem.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className={styles.cardTitle}>{solution.title}</h4>
-                <p className={styles.cardDescription}>{solution.description}</p>
-                <div className={styles.cardIndicator} />
+
+                {/* Solution Cell */}
+                <div className={styles.tableCell}>
+                  <div className={styles.cellContent}>
+                    <div className={styles.cellIcon}>
+                      <row.solution.icon
+                        size={24}
+                        className={styles.cellIconSvg}
+                      />
+                    </div>
+                    <div className={styles.cellText}>
+                      <h4 className={styles.cellTitle}>{row.solution.title}</h4>
+                      <p className={styles.cellDescription}>
+                        {row.solution.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

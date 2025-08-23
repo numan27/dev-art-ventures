@@ -46,16 +46,6 @@
         1
       );
     }
-    p {
-      color: #6d7792 !important;
-      @include RP(
-        (
-          "font-size": 18,
-          "line-height": 26,
-        ),
-        1
-      );
-    }
 
     .particlesContainer {
       position: absolute;

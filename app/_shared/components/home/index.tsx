@@ -12,6 +12,7 @@ import HeroBanner from "./heroBanner";
 import Process from "./process";
 import PreviousWorkshops from "components/academy/previousWorkshops";
 import StaffAugmentationHighlights from "./staffAugmentationHighlights";
+import { routeConstant } from "routes/constants";
 
 const LandingPage = () => {
   useEffect(() => {
@@ -61,8 +62,8 @@ const LandingPage = () => {
           heading="Let's work together!"
           description="Contact us today to start crafting your exceptional and customized design solutions! Start today, scale tomorrow!"
           buttonText="Start a Project"
-          buttonLink="https://calendly.com/devartventures/30min"
-          buttonTarget="_blank"
+          buttonLink={routeConstant.contact.path}
+          buttonTarget="_self"
         />
       </div>
     </>

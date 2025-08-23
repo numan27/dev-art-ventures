@@ -13,20 +13,55 @@ const CustomProvider = ({ children }: any) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    AOS.init({
-      easing: "ease-in-out",
-      duration: 1000,
-      delay: 0,
-      once: false,
-      mirror: true,
-    });
+    console.log("Initializing AOS...");
+
+    // Check if AOS is available
+    if (typeof AOS === "undefined") {
+      console.error("AOS is not available");
+      return;
+    }
+
+    try {
+      AOS.init({
+        easing: "ease-out-cubic",
+        duration: 800,
+        delay: 0,
+        once: true,
+        mirror: false,
+        offset: 100,
+        anchorPlacement: "top-bottom",
+      });
+      console.log("AOS initialized successfully");
+
+      // Test AOS functionality
+      setTimeout(() => {
+        if (AOS.refresh) {
+          console.log("AOS refresh function is available");
+          AOS.refresh();
+        } else {
+          console.error("AOS refresh function is not available");
+        }
+      }, 1000);
+    } catch (error) {
+      console.error("Error initializing AOS:", error);
+    }
 
     const handleResize = () => {
-      AOS.refresh();
+      console.log("Refreshing AOS on resize");
+      try {
+        AOS.refresh();
+      } catch (error) {
+        console.error("Error refreshing AOS:", error);
+      }
     };
 
     const handleLoad = () => {
-      AOS.refresh();
+      console.log("Refreshing AOS on load");
+      try {
+        AOS.refresh();
+      } catch (error) {
+        console.error("Error refreshing AOS:", error);
+      }
     };
 
     window.addEventListener("resize", handleResize);

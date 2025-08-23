@@ -92,20 +92,6 @@ const rolesData = [
     ],
     image: Images.MobileAppDesigner.src,
   },
-  {
-    id: 7,
-    title: "Design Director (Part-time)",
-    description:
-      "Provides high-level strategic oversight and creative direction for key projects.",
-    skills: [
-      "Creative Strategy",
-      "Team Leadership",
-      "Project Oversight",
-      "Creative Direction",
-      "Strategic Planning",
-    ],
-    image: Images.ProductDesigner.src,
-  },
 ];
 
 const RolesWeProvide = () => {
