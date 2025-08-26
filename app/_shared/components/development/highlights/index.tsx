@@ -5,6 +5,7 @@ import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 import NextLink from "next/link";
+import { routeConstant } from "routes/constants";
 
 const Highlights = () => {
   const cardData = [
@@ -104,8 +105,7 @@ const Highlights = () => {
         </div>
         <div className="flex justify-center items-center mt-10">
           <NextLink
-            target="_blank"
-            href="https://calendly.com/devartventures/30min"
+            href={routeConstant.contact.path}
             className={styles.ctaButton}
           >
             <CustomButton title="Get Started Today" />

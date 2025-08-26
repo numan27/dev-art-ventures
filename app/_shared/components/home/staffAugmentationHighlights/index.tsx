@@ -5,6 +5,8 @@ import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import CustomCard from "components/common/customCard";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
+import { routeConstant } from "routes/constants";
+import NextLink from "next/link";
 
 const StaffAugmentationHighlights = () => {
   const highlightsData = [
@@ -71,7 +73,9 @@ const StaffAugmentationHighlights = () => {
             "flex justify-center mt-12"
           )}
         >
-          <CustomButton title="Hire in 72 Hours" />
+          <NextLink href={routeConstant.services.staffAugmentation.path}>
+            <CustomButton title="Hire in 72 Hours" />
+          </NextLink>
         </div>
       </div>
     </div>

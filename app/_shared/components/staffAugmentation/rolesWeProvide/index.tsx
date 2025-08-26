@@ -133,11 +133,11 @@ const RolesWeProvide = () => {
                   {role.title}
                 </h4>
                 <p className="text-gray-300 text-sm mb-3">{role.description}</p>
-                <div className="flex flex-wrap gap-1">
+                {/* <div className="flex flex-wrap gap-1">
                   {role.skills.slice(0, 3).map((skill, index) => (
                     <CustomBadge key={index} title={skill} height={28} />
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

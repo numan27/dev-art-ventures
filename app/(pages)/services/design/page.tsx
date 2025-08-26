@@ -11,6 +11,7 @@ import Testimonials from "components/home/testimonials";
 import CTA from "components/home/cta";
 import FAQs from "components/design/faqs";
 import CustomComparison from "components/design/customComparisonTable";
+import { routeConstant } from "routes/constants";
 
 export const metadata: Metadata = {
   title: "UI/UX and Graphic Design | DevArt Ventures",
@@ -35,7 +36,7 @@ export default function Design() {
         primaryButtonText="Book Free Consultation"
         primaryButtonPath="https://calendly.com/devartventures/30min"
         secondaryButtonText="Start a Project"
-        secondaryButtonPath="https://calendly.com/devartventures/30min"
+        secondaryButtonPath={routeConstant.contact.path}
       />
       <div className="mt-16">
         <PortfolioSlider />
@@ -50,8 +51,7 @@ export default function Design() {
           heading="Let's work together!"
           description="Contact us today to start crafting your exceptional and customized design solutions! Start today, scale tomorrow!"
           buttonText="Start a Project"
-          buttonLink="https://calendly.com/devartventures/30min"
-          buttonTarget="_blank"
+          buttonLink={routeConstant.contact.path}
         />
       </div>
     </div>

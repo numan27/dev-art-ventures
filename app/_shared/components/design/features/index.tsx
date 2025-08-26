@@ -6,26 +6,11 @@ import CustomButton from "components/common/customButton";
 import CustomCard from "components/common/customCard";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 import NextLink from "next/link";
+import { routeConstant } from "routes/constants";
 
 const Features = () => {
   return (
     <div className={classNames(styles.sectionWrapper)}>
-      {/* <div
-        className={styles.backgroundImage}
-        style={{
-          backgroundImage: `url(${Images.DesignFeaturesBg.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "bottom center",
-          backgroundSize: "cover",
-          width: "712px",
-          height: "692px",
-          position: "absolute",
-          left: "calc(50% - 356px)",
-          top: "calc(54.6012% - 346px)",
-          opacity: "0.75",
-          zIndex: 0,
-        }}
-      ></div> */}
       <div className={classNames(styles.customContainer, "relative z-10")}>
         <SectionHeadingCard
           badge="Solution"
@@ -60,8 +45,7 @@ const Features = () => {
         </div>
         <div className="flex justify-center items-center mt-10">
           <NextLink
-            target="_blank"
-            href="https://calendly.com/devartventures/30min"
+            href={routeConstant.contact.path}
             className={styles.ctaButton}
           >
             <CustomButton title="Get Started Today" />

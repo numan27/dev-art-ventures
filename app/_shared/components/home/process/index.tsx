@@ -8,6 +8,7 @@ import SectionHeadingCard from "components/common/sectionHeadingCard";
 import CustomBadge from "components/common/customBadge";
 import CustomButton from "components/common/customButton";
 import NextLink from "next/link";
+import { routeConstant } from "routes/constants";
 
 const steps = [
   {
@@ -112,8 +113,7 @@ const HomeProcess = () => {
 
         <div className="flex items-center justify-center md:mt-12 sm:mt-10 mt-8">
           <NextLink
-            target="_blank"
-            href="https://calendly.com/devartventures/30min"
+            href={routeConstant.contact.path}
             className={styles.ctaButton}
           >
             <CustomButton title="Get Started Today" />

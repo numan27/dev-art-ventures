@@ -11,6 +11,7 @@ import Testimonials from "components/home/testimonials";
 import CTA from "components/home/cta";
 import FAQs from "components/design/faqs";
 import DevelopmentHeroBanner from "components/development/devHeroBanner";
+import { routeConstant } from "routes/constants";
 
 export const metadata: Metadata = {
   title: "Web & App Development | DevArt Ventures",
@@ -90,8 +91,8 @@ export default function Development() {
           heading="Let's work together!"
           description="Contact us today to start crafting your exceptional and customized design solutions! Start today, scale tomorrow!"
           buttonText="Start a Project"
-          buttonLink="https://calendly.com/devartventures/30min"
-          buttonTarget="_blank"
+          buttonLink={routeConstant.contact.path}
+          buttonTarget="_self"
         />
       </div>
     </div>

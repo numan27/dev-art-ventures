@@ -34,11 +34,11 @@
 .tableHeader {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: linear-gradient(
-    135deg,
-    rgba(26, 11, 46, 0.8) 0%,
-    rgba(45, 27, 78, 0.8) 100%
-  );
+  // background: linear-gradient(
+  //   135deg,
+  //   rgba(26, 11, 46, 0.8) 0%,
+  //   rgba(45, 27, 78, 0.8) 100%
+  // );
   border-bottom: 1px solid rgba(126, 88, 255, 0.2);
   padding: 40px 32px;
 
@@ -52,10 +52,21 @@
       margin-bottom: 16px;
 
       .headerIconSvg {
-        color: $PRIMARY;
         filter: drop-shadow(0 4px 16px rgba(126, 88, 255, 0.3));
         transition: all 0.3s ease;
       }
+    }
+
+    // Pain Points header (first column)
+    &:first-child .headerIcon .headerIconSvg {
+      color: #ef4444; // Red color for pain points
+      filter: drop-shadow(0 4px 16px rgba(239, 68, 68, 0.3));
+    }
+
+    // Solutions header (second column)
+    &:last-child .headerIcon .headerIconSvg {
+      color: #10b981; // Green color for solutions
+      filter: drop-shadow(0 4px 16px rgba(16, 185, 129, 0.3));
     }
 
     .headerTitle {

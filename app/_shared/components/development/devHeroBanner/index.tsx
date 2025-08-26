@@ -7,6 +7,7 @@ import CustomBadge from "components/common/customBadge";
 import useWindowDimensions from "hooks/useWindowDimensions";
 import NextLink from "next/link";
 import BrandSlider from "components/common/brandSlider";
+import { routeConstant } from "routes/constants";
 
 const HeroBanner = () => {
   const { width } = useWindowDimensions();
@@ -35,12 +36,26 @@ const HeroBanner = () => {
                 software that is innovative, reliable, and tailored exactly to
                 your business requirements.
               </p>
-              <div className={classNames(styles.buttons, "mt-2")}>
+              <div
+                className={classNames(
+                  styles.buttons,
+                  "flex items-center gap-2 mt-2"
+                )}
+              >
                 <NextLink
                   href="https://calendly.com/devartventures/30min"
                   className={styles.ctaButton}
                 >
                   <CustomButton title="Book Free Consultation" />
+                </NextLink>{" "}
+                <NextLink
+                  href={routeConstant.contact.path}
+                  className={styles.ctaButton}
+                >
+                  <CustomButton
+                    containerStyle="secondary-button"
+                    title="Start a Project"
+                  />
                 </NextLink>
               </div>
             </div>
