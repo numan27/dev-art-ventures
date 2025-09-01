@@ -4,8 +4,10 @@ import Header from "components/common/header";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <Header />
-      <Wrapper>{children}</Wrapper>
+      {/* <Header /> */}
+      {/* <Wrapper> */}
+      {children}
+      {/* </Wrapper> */}
     </>
   );
 };

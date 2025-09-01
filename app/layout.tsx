@@ -198,7 +198,7 @@ export default function RootLayout({
           <CustomProvider>
             {children}
             {/* <WhatsAppCTA /> */}
-            {/* <ScrollToTop /> */}
+            <ScrollToTop />
             {/* <CustomTawkLauncher /> */}
             <Script
               id="tawkto-hide-default-launcher"

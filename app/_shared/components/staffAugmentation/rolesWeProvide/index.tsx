@@ -20,7 +20,7 @@ const rolesData = [
       "User Research",
       "Interface Design",
     ],
-    image: Images.UIUXDesigner.src,
+    image: Images.UiUx.src,
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ const rolesData = [
       "Motion Design",
       "Visual Effects",
     ],
-    image: Images.GraphicsDesigner.src,
+    image: Images.MotionGraphics.src,
   },
   {
     id: 5,
@@ -76,7 +76,7 @@ const rolesData = [
       "Visual Branding",
       "Creative Design",
     ],
-    image: Images.BrandDesigner.src,
+    image: Images.LogoDesigner.src,
   },
   {
     id: 6,

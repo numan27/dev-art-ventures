@@ -60,6 +60,17 @@
   }
 
   .servicesContainer {
+    .serviceItemLink {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+
     .serviceItem {
       background-color: #00041f !important;
       background-image: url("../../../../_assets/images/service-card-bg.png");

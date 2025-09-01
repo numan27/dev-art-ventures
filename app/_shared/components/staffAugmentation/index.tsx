@@ -54,7 +54,7 @@ export default function StaffAugmentationContent() {
                 vision."
         buttonText="Explore Recruitment Service"
         buttonLink=""
-        buttonTarget="_blank"
+        buttonTarget="_self"
       />
       <Testimonials />
       <FAQs

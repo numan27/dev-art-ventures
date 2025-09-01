@@ -41,7 +41,7 @@ const servicesData = [
     icon: Images.ServiceIcon3,
     description: [
       "Scale your team with pre-vetted design talent. Access skilled designers who can join your projects immediately.",
-      "Get matched within 24 hours and start in as little as 3 days. Flexible engagements, culture-fit matching, and ongoing support from our network and academy.",
+      "Get matched within 24 hours and start in as little as 3 days. Flexible engagements, culture-fit matching, and ongoing support from our network.",
     ],
     videoSrc: "/recruitment.mp4",
     buttonText: "Visit Details",
@@ -82,52 +82,61 @@ const Services = () => {
           )}
         >
           {servicesData.map((service, index) => (
-            <div
+            <NextLink
               key={service.id}
-              className={classNames(
-                styles.serviceItem,
-                "grid lg:grid-cols-2 grid-cols-1 lg:gap-10 md:gap-8 sm:gap-6 gap-5"
-              )}
+              href={service.buttonLink}
+              className={styles.serviceItemLink}
             >
               <div
                 className={classNames(
-                  styles.content,
-                  "flex flex-col justify-between items-start lg:gap-4 gap-3",
-                  index % 2 === 1 ? "lg:order-2 order-2" : "lg:order-1 order-2"
+                  styles.serviceItem,
+                  "grid lg:grid-cols-2 grid-cols-1 lg:gap-10 md:gap-8 sm:gap-6 gap-5 cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                 )}
               >
-                <div className={classNames("flex items-center gap-2.5")}>
-                  <span className={styles.iconContainer}>
-                    <Image
-                      src={service.icon}
-                      alt={`${service.title.toLowerCase()}-icon`}
-                      width={52}
-                      height={52}
+                <div
+                  className={classNames(
+                    styles.content,
+                    "flex flex-col justify-between items-start lg:gap-4 gap-3",
+                    index % 2 === 1
+                      ? "lg:order-2 order-2"
+                      : "lg:order-1 order-2"
+                  )}
+                >
+                  <div className={classNames("flex items-center gap-2.5")}>
+                    <span className={styles.iconContainer}>
+                      <Image
+                        src={service.icon}
+                        alt={`${service.title.toLowerCase()}-icon`}
+                        width={52}
+                        height={52}
+                      />
+                    </span>
+                    <h3>{service.title}</h3>
+                  </div>
+                  {service.description.map((paragraph, pIndex) => (
+                    <p key={pIndex}>{paragraph}</p>
+                  ))}
+                  <div onClick={(e) => e.stopPropagation()}>
+                    <CustomButton
+                      title={service.buttonText}
+                      IconDirection="right"
+                      Icon={Icons.ArrowRight}
                     />
-                  </span>
-                  <h3>{service.title}</h3>
+                  </div>
                 </div>
-                {service.description.map((paragraph, pIndex) => (
-                  <p key={pIndex}>{paragraph}</p>
-                ))}
-                <NextLink href={service.buttonLink}>
-                  <CustomButton
-                    title={service.buttonText}
-                    IconDirection="right"
-                    Icon={Icons.ArrowRight}
-                  />
-                </NextLink>
-              </div>
 
-              <div
-                className={classNames(
-                  styles.videoContainer,
-                  index % 2 === 1 ? "lg:order-1 order-1" : "lg:order-2 order-1"
-                )}
-              >
-                <video src={service.videoSrc} autoPlay muted loop />
+                <div
+                  className={classNames(
+                    styles.videoContainer,
+                    index % 2 === 1
+                      ? "lg:order-1 order-1"
+                      : "lg:order-2 order-1"
+                  )}
+                >
+                  <video src={service.videoSrc} autoPlay muted loop />
+                </div>
               </div>
-            </div>
+            </NextLink>
           ))}
         </div>
       </div>

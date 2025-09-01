@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import React, { useState, useEffect } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
 import styles from "./style.module.scss";
 
 const ScrollToTop = () => {
@@ -27,8 +27,10 @@ const ScrollToTop = () => {
       className={classNames(styles.scrollToTop, {
         [styles.visible]: isVisible,
       })}
+      aria-label="Scroll to top"
+      title="Scroll to top"
     >
-      <FaArrowUp size={18} />
+      <FaChevronUp size={20} />
     </button>
   );
 };

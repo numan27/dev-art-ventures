@@ -112,6 +112,9 @@ import DevPortfolioDetail5 from "./dev-portfolio-detail-5.png";
 import DevPortfolioDetail6 from "./dev-portfolio-detail-6.png";
 import DevPortfolioDetail7 from "./dev-portfolio-detail-7.png";
 import DevPortfolioDetail8 from "./dev-portfolio-detail-8.png";
+import UiUx from "./ui-ux.jpg";
+import MotionGraphics from "./motion-graphics.jpg";
+import LogoDesigner from "./logo-designer.jpg";
 
 const Images = {
   Logo,
@@ -228,6 +231,9 @@ const Images = {
   DevPortfolioDetail6,
   DevPortfolioDetail7,
   DevPortfolioDetail8,
+  UiUx,
+  MotionGraphics,
+  LogoDesigner,
 };
 
 export { Images };

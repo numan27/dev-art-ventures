@@ -26,7 +26,7 @@ export const footerLinks: FooterColumn[] = [
         href: routeConstant.termsAndConditions.path,
       },
       { title: "Privacy Policy", href: routeConstant.privacyPolicy.path },
-      { title: "Contact", href: "" },
+      { title: "Contact", href: routeConstant.contact.path },
     ],
   },
   {

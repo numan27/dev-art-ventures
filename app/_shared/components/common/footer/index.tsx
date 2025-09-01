@@ -124,7 +124,13 @@ const Footer = () => {
                             Email Address
                           </span>
                           <div className={classNames(styles.emailBox)}>
-                            {column.contactInfo.email}
+                            <a
+                              href={`mailto:${column.contactInfo.email}`}
+                              className={classNames(styles.emailLink)}
+                              aria-label={`Send email to ${column.contactInfo.email}`}
+                            >
+                              {column.contactInfo.email}
+                            </a>
                           </div>
                         </div>
                       )}

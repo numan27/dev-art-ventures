@@ -335,7 +335,7 @@ const TalentForm = () => {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch("/api/submit-form", {
+      const response = await fetch("/api/sheets", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -398,7 +398,7 @@ const TalentForm = () => {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch("/api/submit-form", {
+      const response = await fetch("/api/sheets", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

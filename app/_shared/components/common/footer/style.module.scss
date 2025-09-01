@@ -173,6 +173,18 @@
           background: rgba(255, 255, 255, 0.15);
           border-color: rgba($color: #888888, $alpha: 0.1);
         }
+
+        .emailLink {
+          color: inherit;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            color: $WHITE !important;
+            text-decoration: underline;
+          }
+        }
       }
 
       .addressText {
@@ -289,7 +301,7 @@
         margin-bottom: 0 !important;
         @include RP(
           (
-            "font-size": 18,
+            "font-size": 16,
           ),
           1
         );

@@ -1,9 +1,10 @@
 "use client";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import { Icons, Images } from "assets";
+import { Images } from "assets";
 import CustomButton from "components/common/customButton";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
+import NextLink from "next/link";
 
 const featuresData = [
   {
@@ -100,7 +101,9 @@ const Features = () => {
             "flex justify-center lg:mt-20 md:mt-16 mt-12"
           )}
         >
-          <CustomButton title="Scale Your Team" />
+          <NextLink href="#talent-form">
+            <CustomButton title="Scale Your Team" />
+          </NextLink>
         </div>
       </div>
     </div>
