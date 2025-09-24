@@ -47,6 +47,18 @@ const servicesData = [
     buttonText: "Visit Details",
     buttonLink: routeConstant.services.staffAugmentation.path,
   },
+  {
+    id: 4,
+    title: "Recruitment",
+    icon: Images.ServiceIcon4,
+    description: [
+      "Hire high-caliber designers, developers, and product talent — fully vetted and ready to join.",
+      "We handle sourcing, screening, interviews, and offers so you can hire faster with better fit.",
+    ],
+    videoSrc: "/recruitment-service.mp4",
+    buttonText: "Visit Details",
+    buttonLink: routeConstant.services.recruitmentServices.path,
+  },
 ];
 
 const Services = () => {
