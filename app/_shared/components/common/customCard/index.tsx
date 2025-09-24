@@ -4,7 +4,8 @@ import styles from "./style.module.scss";
 import CustomButton from "../customButton";
 
 interface CustomCardProps {
-  icon: string;
+  icon?: string;
+  iconNode?: React.ReactNode;
   title: string;
   description: string;
   centered?: boolean;
@@ -16,6 +17,7 @@ interface CustomCardProps {
 
 const CustomCard = ({
   icon,
+  iconNode,
   title,
   description,
   centered = false,
@@ -34,7 +36,11 @@ const CustomCard = ({
       )}
       style={{ minHeight: height }}
     >
-      <img src={icon} alt={title} className={styles.cardIcon} />
+      {iconNode ? (
+        <div className={styles.cardIcon}>{iconNode}</div>
+      ) : icon ? (
+        <img src={icon} alt={title} className={styles.cardIcon} />
+      ) : null}
       <h4 className={styles.cardTitle}>{title}</h4>
       <p
         className={classNames(

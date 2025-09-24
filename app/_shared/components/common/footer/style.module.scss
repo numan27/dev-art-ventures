@@ -195,6 +195,20 @@
             "font-size": 14,
           )
         );
+        a {
+          color: inherit !important;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $WHITE !important;
+            text-decoration: underline;
+          }
+
+          svg {
+            color: inherit !important;
+          }
+        }
       }
     }
 

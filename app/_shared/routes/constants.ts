@@ -28,6 +28,10 @@ const routeConstant = {
       path: "/services/staff-augmentation",
       title: "Hire Best Designers",
     },
+    recruitmentServices: {
+      path: "/services/recruitment-services",
+      title: "Recruitment Services",
+    },
     // academy: {
     //   path: "/ventures/academy",
     //   title: "Learn Design & Development",

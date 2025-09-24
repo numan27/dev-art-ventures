@@ -6,7 +6,7 @@ import { Images } from "assets";
 import { routeConstant } from "routes/constants";
 import { footerLinks } from "utils/constants";
 import useWindowDimensions from "hooks/useWindowDimensions";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   const { width } = useWindowDimensions();
@@ -126,9 +126,13 @@ const Footer = () => {
                           <div className={classNames(styles.emailBox)}>
                             <a
                               href={`mailto:${column.contactInfo.email}`}
-                              className={classNames(styles.emailLink)}
+                              className={classNames(
+                                styles.emailLink,
+                                "flex items-center"
+                              )}
                               aria-label={`Send email to ${column.contactInfo.email}`}
                             >
+                              <Mail size={16} className="mr-2" />
                               {column.contactInfo.email}
                             </a>
                           </div>
@@ -140,16 +144,36 @@ const Footer = () => {
                             Address
                           </span>
                           <div className={classNames(styles.addressText)}>
-                            {column.contactInfo?.address?.map(
-                              (line, lineIndex) => (
-                                <span key={lineIndex}>
-                                  {line}
-                                  {lineIndex <
-                                    (column.contactInfo?.address?.length || 0) -
-                                      1 && <br />}
-                                </span>
-                              )
-                            )}
+                            <a
+                              href={`https://maps.google.com/?q=${encodeURIComponent(
+                                column.contactInfo.address.join(", ")
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={classNames(
+                                // styles.addressLink,
+                                "flex items-start text-nowrap"
+                              )}
+                              aria-label="Open address in Google Maps"
+                            >
+                              <MapPin
+                                size={16}
+                                className="mr-2 mt-1 flex-shrink-0"
+                              />
+                              <div className="flex flex-col">
+                                {column.contactInfo?.address?.map(
+                                  (line, lineIndex) => (
+                                    <span key={lineIndex}>
+                                      {line}
+                                      {lineIndex <
+                                        (column.contactInfo?.address?.length ||
+                                          0) -
+                                          1 && <br />}
+                                    </span>
+                                  )
+                                )}
+                              </div>
+                            </a>
                           </div>
                         </div>
                       )}

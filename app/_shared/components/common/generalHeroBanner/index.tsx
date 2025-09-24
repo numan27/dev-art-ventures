@@ -93,7 +93,8 @@ const GeneralHeroBanner = ({
             </div>
           </div>
           <div className="absolute bottom-0 left-0 w-full">
-            <h6 className="text-center">Companies We've Worked With</h6>
+            {/* <h6 className="text-center">Companies We've Worked With</h6> */}
+            <h6 className="text-center">Industry-Leading Solutions</h6>
             <BrandSlider />
           </div>
         </div>

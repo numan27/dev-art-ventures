@@ -1,0 +1,136 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  @include RP(
+    (
+      "margin-top": 50,
+      "margin-bottom": 50,
+      "padding-top": 50,
+      "padding-bottom": 50,
+    ),
+    1
+  );
+  position: relative;
+  z-index: 1 !important;
+  width: 100%;
+  height: 100%;
+
+  .missionText {
+    h2 {
+      font-weight: 700;
+      text-align: left;
+      max-width: 90%;
+      @include RP(
+        (
+          "font-size": 50,
+          "padding-left": 30,
+          "line-height": 60,
+        ),
+        1
+      );
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(rgb(97, 77, 255) 0%, rgb(64, 25, 255) 100%);
+        z-index: 1;
+      }
+      color: $WHITE;
+      @media screen and (max-width: 768px) {
+        max-width: 100% !important;
+        @include RP(
+          (
+            "font-size": 40,
+            "line-height": 50,
+          ),
+          1
+        );
+      }
+    }
+    p {
+      @include RP(
+        (
+          "font-size": 20,
+          "line-height": 28,
+          "margin-top": 16,
+        ),
+        1
+      );
+      color: $DESC;
+      text-wrap: wrap !important;
+      text-align: left !important;
+    }
+
+    .bulletList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      @include RP(
+        (
+          "margin-top": 16,
+        ),
+        1
+      );
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: $WHITE;
+        opacity: 0.9;
+        @include RP(
+          (
+            "font-size": 16,
+            "line-height": 24,
+          ),
+          1
+        );
+      }
+
+      .bulletIcon {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #614dff 0%, #4019ff 100%);
+        box-shadow: 0 0 0 3px rgba(97, 77, 255, 0.25);
+      }
+    }
+
+    .buttonsRow {
+      @include RP(
+        (
+          "margin-top": 18,
+        ),
+        1
+      );
+    }
+  }
+}
+
+.painPointsContainer {
+  @include RP(
+    (
+      "margin-top": 60,
+    ),
+    1
+  );
+  width: 100%;
+  margin: 0 auto !important;
+  justify-content: center;
+  justify-items: center;
+}
+
+@media (max-width: 480px) {
+  .customContainer {
+    padding: 0 16px;
+  }
+}

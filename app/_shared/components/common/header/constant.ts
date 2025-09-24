@@ -29,6 +29,11 @@ let nav_items = [
         description: "Hire Best Talent",
         path: routeConstant.services.staffAugmentation.path,
       },
+      {
+        title: "Recruitment Services",
+        description: "Talent Acquisition Solutions",
+        path: routeConstant.services.recruitmentServices.path,
+      },
     ],
   },
   // {

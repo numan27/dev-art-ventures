@@ -1,0 +1,369 @@
+@import "utils/responsive.module.scss";
+@import "utils/colors.scss";
+
+.sectionWrapper {
+  @include RP(
+    (
+      "margin-top": 50,
+      "margin-bottom": 50,
+      "padding-top": 50,
+      "padding-bottom": 50,
+    ),
+    1
+  );
+  position: relative;
+  z-index: 1 !important;
+  width: 100%;
+  height: 100%;
+}
+
+.customContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pricingContainer {
+  @include RP(
+    (
+      "margin-top": 60,
+    ),
+    1
+  );
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto !important;
+  justify-content: center;
+  justify-items: center;
+}
+
+.pricingCard {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(83, 15, 255, 0.08) 0%,
+    rgba(65, 200, 241, 0.08) 50%,
+    rgba(172, 228, 245, 0.08) 100%
+  );
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 24px;
+  padding: 40px 32px;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(83, 15, 255, 0.1);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      rgba(83, 15, 255, 0.3) 0%,
+      rgba(65, 200, 241, 0.2) 50%,
+      rgba(172, 228, 245, 0.3) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 24px 60px rgba(83, 15, 255, 0.2);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .iconWrapper {
+      transform: scale(1.15) rotate(5deg);
+    }
+
+    .icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.iconWrapper {
+  @include RP(
+    (
+      "width": 80,
+      "height": 80,
+    ),
+    1
+  );
+  background: linear-gradient(
+    135deg,
+    rgba(83, 15, 255, 0.15),
+    rgba(65, 200, 241, 0.15)
+  );
+  border: 2px solid rgba(83, 15, 255, 0.3);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 16px rgba(83, 15, 255, 0.3));
+}
+
+.icon {
+  @include RP(
+    (
+      "font-size": 36,
+    ),
+    1
+  );
+  transition: all 0.3s ease;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.cardTitle {
+  @include RP(
+    (
+      "font-size": 24,
+      "line-height": 28,
+    ),
+    1
+  );
+  font-weight: 700;
+  color: $WHITE;
+  margin: 0;
+  background: linear-gradient(90deg, #ffffff 0%, #ace4f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cardDescription {
+  @include RP(
+    (
+      "font-size": 16,
+      "line-height": 22,
+    ),
+    1
+  );
+  color: $DESC;
+  margin: 0;
+  opacity: 0.9;
+  text-align: center;
+}
+
+.highlight {
+  @include RP(
+    (
+      "font-size": 14,
+      "line-height": 18,
+    ),
+    1
+  );
+  color: $PRIMARY_LIGHT;
+  font-weight: 600;
+  background: rgba(65, 200, 241, 0.1);
+  border: 1px solid rgba(65, 200, 241, 0.3);
+  border-radius: 12px;
+  padding: 6px 12px;
+  margin-top: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.ctaSection {
+  @include RP(
+    (
+      "margin-top": 80,
+    ),
+    1
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.ctaContent {
+  background: linear-gradient(
+    135deg,
+    rgba(83, 15, 255, 0.1) 0%,
+    rgba(65, 200, 241, 0.1) 100%
+  );
+  border: 2px solid rgba(83, 15, 255, 0.2);
+  border-radius: 24px;
+  padding: 48px 40px;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(
+      135deg,
+      rgba(83, 15, 255, 0.4) 0%,
+      rgba(65, 200, 241, 0.3) 100%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.6;
+  }
+}
+
+.ctaTitle {
+  @include RP(
+    (
+      "font-size": 28,
+      "line-height": 32,
+    ),
+    1
+  );
+  font-weight: 700;
+  color: $WHITE;
+  margin: 0 0 16px 0;
+  background: linear-gradient(90deg, #ffffff 0%, #ace4f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ctaDescription {
+  @include RP(
+    (
+      "font-size": 16,
+      "line-height": 22,
+    ),
+    1
+  );
+  color: $DESC;
+  margin: 0 0 32px 0;
+  opacity: 0.9;
+}
+
+.ctaButton {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pricingContainer {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricingCard {
+    padding: 32px 24px;
+  }
+
+  .iconWrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+
+  .cardTitle {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .cardDescription {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .ctaContent {
+    padding: 40px 24px;
+  }
+
+  .ctaTitle {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .ctaDescription {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .customContainer {
+    padding: 0 16px;
+  }
+
+  .pricingCard {
+    padding: 28px 20px;
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .cardDescription {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .ctaContent {
+    padding: 32px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .ctaDescription {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
