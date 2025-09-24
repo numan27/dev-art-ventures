@@ -96,6 +96,7 @@
         }
       }
 
+      // Subtle glow effect for active tab
       &.activeTab::after {
         content: "";
         position: absolute;

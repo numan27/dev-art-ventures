@@ -310,12 +310,12 @@
 
     .copyright {
       p {
-        color: #a7adbe !important;
+        color: rgba($color: #fff, $alpha: 0.8);
         font-weight: 400 !important;
         margin-bottom: 0 !important;
         @include RP(
           (
-            "font-size": 16,
+            "font-size": 15,
           ),
           1
         );

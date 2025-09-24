@@ -454,9 +454,8 @@ const RecruitmentForm = () => {
         />
 
         <div className={classNames(styles.tabContainer)}>
-          {/* Anchor for Request tab */}
-          <div id="recruitment-form-request" />
           <button
+            id="recruitment-form-request"
             className={classNames(
               styles.tabButton,
               activeTab === "request" && styles.activeTab
@@ -465,9 +464,8 @@ const RecruitmentForm = () => {
           >
             Request Talent
           </button>
-          {/* Anchor for Job tab */}
-          <div id="recruitment-form-job" />
           <button
+            id="recruitment-form-job"
             className={classNames(
               styles.tabButton,
               activeTab === "job" && styles.activeTab
