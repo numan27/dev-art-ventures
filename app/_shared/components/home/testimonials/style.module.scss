@@ -61,6 +61,11 @@
       height: 800px;
       margin-top: 40px;
     }
+
+    @media screen and (max-width: 510px) {
+      height: auto;
+      margin-top: 30px;
+    }
   }
 
   .sliderContainer {
@@ -78,7 +83,10 @@
 
     @media screen and (max-width: 510px) {
       grid-template-columns: 1fr;
-      gap: 15px;
+      gap: 0;
+      display: block;
+      height: auto;
+      position: relative;
     }
   }
 
@@ -106,6 +114,51 @@
 
     @media screen and (max-width: 768px) {
       gap: 15px;
+    }
+  }
+
+  // Mobile horizontal scroller
+  .row {
+    @media screen and (max-width: 510px) {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgb(0, 0, 0) 10%,
+        rgb(0, 0, 0) 90%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+  }
+
+  .rowContent {
+    @media screen and (max-width: 510px) {
+      display: inline-flex;
+      gap: 12px;
+      white-space: nowrap;
+      padding: 0 12px;
+      > .testimonialItem {
+        flex: 0 0 100%;
+        width: 100% !important;
+        margin: 0; // override centering
+      }
+    }
+  }
+
+  .slideLeft {
+    @media screen and (max-width: 510px) {
+      animation: slideLeft 45s linear infinite;
+    }
+  }
+
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 
@@ -193,6 +246,47 @@
     }
   }
 
+  // Mobile horizontal fade overlays
+  .fadeOverlayLeft {
+    display: none;
+    @media screen and (max-width: 510px) {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      background: linear-gradient(
+        90deg,
+        rgba(1, 4, 31, 0.6) 0%,
+        rgba(1, 4, 31, 0.4) 30%,
+        rgba(1, 4, 31, 0.05) 100%
+      );
+      z-index: 10;
+      pointer-events: none;
+    }
+  }
+
+  .fadeOverlayRight {
+    display: none;
+    @media screen and (max-width: 510px) {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80px;
+      background: linear-gradient(
+        270deg,
+        rgba(1, 4, 31, 0.6) 0%,
+        rgba(1, 4, 31, 0.4) 30%,
+        rgba(1, 4, 31, 0.05) 100%
+      );
+      z-index: 10;
+      pointer-events: none;
+    }
+  }
+
   .testimonialItem {
     border: 1px solid #121738;
     background-color: #01041f;
@@ -219,6 +313,13 @@
 
     @media screen and (max-width: 991px) {
       z-index: 3;
+    }
+    @media screen and (max-width: 510px) {
+      height: 160px !important;
+      min-height: 160px !important;
+      width: 100% !important;
+      max-width: 340px !important;
+      margin: 0 auto;
     }
 
     img {

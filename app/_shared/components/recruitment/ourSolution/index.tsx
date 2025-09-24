@@ -20,7 +20,7 @@ const OurSolution = () => {
   const solutions = [
     {
       iconNode: (
-        <CheckCircle2 size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <CheckCircle2 size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Pre-Vetted Candidates",
       description:
@@ -28,7 +28,7 @@ const OurSolution = () => {
     },
     {
       iconNode: (
-        <Layers3 size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Layers3 size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Coverage Across All Tech Stacks",
       description:
@@ -36,7 +36,7 @@ const OurSolution = () => {
     },
     {
       iconNode: (
-        <Rocket size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Rocket size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Fast Turnaround",
       description:
@@ -44,7 +44,7 @@ const OurSolution = () => {
     },
     {
       iconNode: (
-        <Users2 size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Users2 size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Culture Fit Guaranteed",
       description:
@@ -53,9 +53,9 @@ const OurSolution = () => {
     {
       iconNode: (
         <BadgeDollarSign
-          size={48}
+          size={36}
           strokeWidth={1.75}
-          className="text-[#B7A9FF]"
+          className="text-[#530fff]"
         />
       ),
       title: "Transparent Pricing",
@@ -64,11 +64,11 @@ const OurSolution = () => {
     },
     {
       iconNode: (
-        <ShieldCheck size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <ShieldCheck size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Replacement Guarantee",
       description:
-        "If the hire doesn't work out within 60 days, we replace at no cost. Your success is our commitment.",
+        "If the hire doesn't work out within 30 days, we replace at no cost. Your success is our commitment.",
     },
   ];
 

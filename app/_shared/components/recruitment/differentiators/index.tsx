@@ -10,21 +10,21 @@ import {
   BadgeDollarSign,
   Palette,
   Globe2,
+  Handshake,
 } from "lucide-react";
 
 const Differentiators = () => {
   const differentiators = [
     {
       iconNode: (
-        <Sparkles size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Sparkles size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
-      title: "Exclusive Network Of Pre‑Vetted Talent",
-      description:
-        "Curated designers and developers rigorously tested for skills and reliability.",
+      title: "Exclusive Network Of Pre-Vetted Talent",
+      description: "Top designers and developers, rigorously vetted.",
     },
     {
       iconNode: (
-        <Timer size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Timer size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Faster Hiring Than Traditional Recruiters",
       description: "Qualified candidates in days, not months.",
@@ -32,9 +32,9 @@ const Differentiators = () => {
     {
       iconNode: (
         <BadgeDollarSign
-          size={48}
+          size={36}
           strokeWidth={1.75}
-          className="text-[#B7A9FF]"
+          className="text-[#530fff]"
         />
       ),
       title: "No Hidden Fees — Fixed Percentage Only",
@@ -43,18 +43,26 @@ const Differentiators = () => {
     },
     {
       iconNode: (
-        <Palette size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Palette size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
       title: "Strong Focus On Design + Development Talent",
       description:
-        "Specialized in creative and technical roles for high‑impact delivery.",
+        "Specialized in creative and technical roles for high-impact delivery.",
     },
     {
       iconNode: (
-        <Globe2 size={48} strokeWidth={1.75} className="text-[#B7A9FF]" />
+        <Globe2 size={36} strokeWidth={1.75} className="text-[#530fff]" />
       ),
-      title: "Flexible Roles: Remote, Hybrid, Or On‑Site",
-      description: "Talent that fits your model—remote, hybrid, or on‑site.",
+      title: "Flexible Roles: Remote, Hybrid, Or On-Site",
+      description: "Talent that fits your model—remote, hybrid, or on-site.",
+    },
+    {
+      iconNode: (
+        <Handshake size={36} strokeWidth={1.75} className="text-[#530fff]" />
+      ),
+      title: "Long-Term Partnership & Retention Support",
+      description:
+        "We help ensure smooth onboarding and lasting talent relationships.",
     },
   ];
 
@@ -75,8 +83,8 @@ const Differentiators = () => {
             <div
               key={index}
               className={classNames(
-                styles.cardWrapper,
-                index === 0 ? styles.featured : undefined
+                styles.cardWrapper
+                // index === 0 ? styles.featured : undefined
               )}
               style={{ animationDelay: `${index * 80}ms` }}
             >

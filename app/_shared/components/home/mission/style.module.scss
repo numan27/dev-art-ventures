@@ -87,9 +87,7 @@
       );
       color: $DESC;
       text-wrap: wrap !important;
-      @media screen and (max-width: 768px) {
-        text-align: center;
-      }
+      text-align: left !important;
     }
 
     .bulletList {

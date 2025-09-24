@@ -57,7 +57,7 @@ const servicesData = [
     ],
     videoSrc: "/recruitment-service.mp4",
     buttonText: "Visit Details",
-    buttonLink: routeConstant.services.recruitmentServices.path,
+    buttonLink: routeConstant.services.recruitment.path,
   },
 ];
 

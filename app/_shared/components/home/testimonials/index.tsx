@@ -3,8 +3,6 @@
 import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
-import AdaptiveParticles from "../../common/adaptiveParticles";
-import CustomBadge from "components/common/customBadge";
 import { Images } from "assets";
 import SectionHeadingCard from "components/common/sectionHeadingCard";
 
@@ -129,8 +127,8 @@ const Testimonials = () => {
     if (screenSize.width <= 510) {
       const duplicatedItems = [...testimonialsData, ...testimonialsData];
       return (
-        <div className={classNames(styles.column, styles.column1)}>
-          <div className={classNames(styles.columnContent, styles.slideDown)}>
+        <div className={classNames(styles.row)}>
+          <div className={classNames(styles.rowContent, styles.slideLeft)}>
             {duplicatedItems.map((testimonial, index) => (
               <div
                 key={`${testimonial.id}-${index}`}
@@ -355,11 +353,23 @@ const Testimonials = () => {
         </div>
 
         <div className={classNames(styles.contentContainer)}>
-          <div className={styles.fadeOverlayTop} />
-          <div className={styles.sliderContainer}>
-            {createResponsiveColumns()}
-          </div>
-          <div className={styles.fadeOverlayBottom} />
+          {screenSize.width <= 510 ? (
+            <>
+              <div className={styles.fadeOverlayLeft} />
+              <div className={styles.sliderContainer}>
+                {createResponsiveColumns()}
+              </div>
+              <div className={styles.fadeOverlayRight} />
+            </>
+          ) : (
+            <>
+              <div className={styles.fadeOverlayTop} />
+              <div className={styles.sliderContainer}>
+                {createResponsiveColumns()}
+              </div>
+              <div className={styles.fadeOverlayBottom} />
+            </>
+          )}
         </div>
       </div>
     </div>

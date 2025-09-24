@@ -17,22 +17,16 @@
   height: 100%;
 }
 
-.customContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
 .differentiatorsContainer {
   @include RP(
     (
-      "margin-top": 60,
+      "margin-top": 50,
+      "gap": 24,
     ),
     1
   );
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto !important;

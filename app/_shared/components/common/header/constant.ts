@@ -32,7 +32,7 @@ let nav_items = [
       {
         title: "Recruitment Services",
         description: "Talent Acquisition Solutions",
-        path: routeConstant.services.recruitmentServices.path,
+        path: routeConstant.services.recruitment.path,
       },
     ],
   },

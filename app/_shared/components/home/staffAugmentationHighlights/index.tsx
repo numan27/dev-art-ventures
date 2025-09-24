@@ -53,7 +53,7 @@ const StaffAugmentationHighlights = () => {
         <div
           className={classNames(
             styles.cardContainer,
-            "grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 bg-transparent mt-16"
+            "grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 lg:gap-6 md:gap-5 gap-4 bg-transparent lg:mt-16 md:mt-12 sm:mt-8 mt-6"
           )}
         >
           {highlightsData.map((highlight, index) => (
@@ -70,7 +70,7 @@ const StaffAugmentationHighlights = () => {
         <div
           className={classNames(
             styles.buttonContainer,
-            "flex justify-center mt-12"
+            "flex justify-center sm:mt-12 mt-10"
           )}
         >
           <NextLink href={routeConstant.services.staffAugmentation.path}>

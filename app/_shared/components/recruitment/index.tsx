@@ -38,12 +38,12 @@ export default function RecruitmentServices() {
         }
         description="We connect you with top designers and developers across all tech stacks. Every candidate is rigorously vetted for skills, experience, and culture fit. Start building your dream team in days — not months"
         primaryButtonText="Request Talent"
-        primaryButtonPath="#recruitment-form"
+        primaryButtonPath="#recruitment-form-request"
         secondaryButtonText="Submit Your Job Role"
-        secondaryButtonPath="#recruitment-form"
+        secondaryButtonPath="#recruitment-form-job"
       />
-      <PainPoints />
       <OurSolution />
+      <PainPoints />
       <HowItWorks />
       <Pricing />
       <TalentSnapshot />

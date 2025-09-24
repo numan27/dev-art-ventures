@@ -7,11 +7,44 @@ import SectionHeadingCard from "components/common/sectionHeadingCard";
 import CustomInput from "components/common/customInput";
 import CustomDropdown from "components/common/customDropdown";
 import CustomTextArea from "components/common/customTextArea";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
 const RecruitmentForm = () => {
   const [activeTab, setActiveTab] = useState<"request" | "job">("request");
+
+  // On mount, check if a preferred tab was set by the hero banner
+  useEffect(() => {
+    try {
+      const preferred = sessionStorage.getItem("recruitment-form-active-tab");
+      if (preferred === "job" || preferred === "request") {
+        setActiveTab(preferred);
+        // Clean up so subsequent visits default normally
+        sessionStorage.removeItem("recruitment-form-active-tab");
+      }
+    } catch {}
+  }, []);
+
+  // Keep tab in sync with URL hash for subsequent clicks without remounting
+  useEffect(() => {
+    const syncTabWithHash = () => {
+      const hash = window.location.hash;
+      if (hash === "#recruitment-form-job") {
+        setActiveTab("job");
+      } else if (hash === "#recruitment-form-request") {
+        setActiveTab("request");
+      }
+    };
+
+    // Initial sync
+    try {
+      syncTabWithHash();
+    } catch {}
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", syncTabWithHash);
+    return () => window.removeEventListener("hashchange", syncTabWithHash);
+  }, []);
 
   // Shared agreement flag
   const [agreementChecked, setAgreementChecked] = useState(false);
@@ -421,6 +454,8 @@ const RecruitmentForm = () => {
         />
 
         <div className={classNames(styles.tabContainer)}>
+          {/* Anchor for Request tab */}
+          <div id="recruitment-form-request" />
           <button
             className={classNames(
               styles.tabButton,
@@ -430,6 +465,8 @@ const RecruitmentForm = () => {
           >
             Request Talent
           </button>
+          {/* Anchor for Job tab */}
+          <div id="recruitment-form-job" />
           <button
             className={classNames(
               styles.tabButton,

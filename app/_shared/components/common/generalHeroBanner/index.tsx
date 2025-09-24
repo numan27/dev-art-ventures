@@ -35,6 +35,16 @@ const GeneralHeroBanner = ({
   const { width } = useWindowDimensions();
 
   const handlePrimaryClick = () => {
+    // If navigating to the recruitment form section, ensure the first tab (request) is active
+    try {
+      if (
+        primaryButtonPath?.startsWith("#recruitment-form") ||
+        primaryButtonPath === "#recruitment-form-request"
+      ) {
+        sessionStorage.setItem("recruitment-form-active-tab", "request");
+      }
+    } catch {}
+
     if (primaryButtonPath.startsWith("http")) {
       window.open(primaryButtonPath, "_blank");
     } else {
@@ -43,6 +53,16 @@ const GeneralHeroBanner = ({
   };
 
   const handleSecondaryClick = () => {
+    // If navigating to the recruitment form section, ensure the second tab (job) is active
+    try {
+      if (
+        secondaryButtonPath?.startsWith("#recruitment-form") ||
+        secondaryButtonPath === "#recruitment-form-job"
+      ) {
+        sessionStorage.setItem("recruitment-form-active-tab", "job");
+      }
+    } catch {}
+
     if (secondaryButtonPath && secondaryButtonPath.startsWith("http")) {
       window.open(secondaryButtonPath, "_blank");
     } else if (secondaryButtonPath) {

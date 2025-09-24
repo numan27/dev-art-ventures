@@ -15,7 +15,6 @@
     1
   );
   @media screen and (max-width: 510px) {
-    margin-bottom: 0px !important;
     @include RP(
       (
         "margin-top": 40,
