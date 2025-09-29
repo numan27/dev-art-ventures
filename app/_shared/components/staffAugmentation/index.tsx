@@ -22,7 +22,7 @@ export default function StaffAugmentationContent() {
   return (
     <div className={classNames(styles.pageWrapper)}>
       <StaffAugmentationHeroBanner
-        tag="Trusted by 50+ Tech Teams"
+        tag="Trusted by 50+ teams"
         heading={
           <>
             Scale Your Design Team. {width > 768 && <br />} On Demand, On

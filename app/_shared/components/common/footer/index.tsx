@@ -152,7 +152,7 @@ const Footer = () => {
                               rel="noopener noreferrer"
                               className={classNames(
                                 // styles.addressLink,
-                                "flex items-start text-nowrap"
+                                "flex items-start whitespace-nowrap"
                               )}
                               aria-label="Open address in Google Maps"
                             >
@@ -160,18 +160,9 @@ const Footer = () => {
                                 size={16}
                                 className="mr-2 mt-1 flex-shrink-0"
                               />
-                              <div className="flex flex-col text-nowrap">
-                                {column.contactInfo?.address?.map(
-                                  (line, lineIndex) => (
-                                    <span
-                                      className="text-nowrap inline"
-                                      key={lineIndex}
-                                    >
-                                      {line}
-                                    </span>
-                                  )
-                                )}
-                              </div>
+                              <span className="whitespace-nowrap inline">
+                                {column.contactInfo?.address?.join(", ")}
+                              </span>
                             </a>
                           </div>
                         </div>

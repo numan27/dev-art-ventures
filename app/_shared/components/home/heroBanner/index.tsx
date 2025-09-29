@@ -31,14 +31,14 @@ const HeroBanner = () => {
             >
               <CustomBadge title="Building Future Ventures" />
               <h1 className="text-center">
-                Design. Develop. Scale. {width > 768 && <br />} Your End-to-End
-                Digital Product Partner
+                Design. Develop. Scale. {width > 768 && <br />} Your Digital
+                Product Partner
               </h1>
               <p>
-                DevArtVentures provides elite UI/UX design, full-stack
-                development, and recruitment services. We also specialize in
-                staff augmentation, embedding our pre-vetted designers and
-                engineers directly into your team to accelerate your roadmap.
+                DevArtVentures delivers end-to-end UI/UX design and full-stack
+                development services—and as a trusted tech talent provider, we
+                offer recruitment and staff augmentation to embed pre-vetted
+                designers and engineers directly into your team.
               </p>
               <div
                 className={classNames(

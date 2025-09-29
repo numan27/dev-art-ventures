@@ -46,7 +46,7 @@ const Portfolio = () => {
       <SectionHeadingCard
         badge="Portfolio"
         heading="Our Portfolio"
-        description="Explore our latest projects, workshops, and creative showcases that demonstrate our expertise and commitment to excellence."
+        description="Explore our latest projects and creative showcases that demonstrate our expertise and commitment to excellence."
         centered={true}
         maxParticles={250}
         section="services"

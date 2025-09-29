@@ -145,7 +145,16 @@ const Services = () => {
                       : "lg:order-2 order-1"
                   )}
                 >
-                  <video src={service.videoSrc} autoPlay muted loop />
+                  <video
+                    src={service.videoSrc}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    // @ts-ignore: vendor attribute for iOS Safari
+                    webkit-playsinline="true"
+                    preload="auto"
+                  />
                 </div>
               </div>
             </NextLink>
