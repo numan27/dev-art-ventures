@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useEffect, useRef } from "react";
 import classNames from "classnames";
 import styles from "./style.module.scss";
 
@@ -33,60 +33,67 @@ const socialIcons = [
   "/brands/cridio-studio.png",
   "/brands/core-it-ventures.png",
   "/brands/ace-homes.png",
+  "/brands/code-ninjas.png",
   "/brands/92-startups.png",
   "/brands/zemotify.png",
   "/brands/logo-3.png",
+  "/brands/ecomrades.png",
   "/brands/wp-vendor.png",
+  "/brands/2b_visiontechnologies_logo.png",
 ];
 
 const BrandSlider = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    let scrolled = false;
+    const onScroll = () => {
+      if (!scrolled && sectionRef.current) {
+        sectionRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+        scrolled = true;
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
-    <section className={classNames(styles.brands__section)}>
-      <div className={styles.brands__container}>
-        <div className={styles.brands__fadeOverlay} />
-        <div
-          className={classNames(
-            styles.brands__sectionContent,
-            styles.customContainer
-          )}
-        >
-          <div className={classNames(styles.loopSlider)}>
-            <div className={classNames(styles.inner)}>
-              {/* Render the PNGs three times for seamless looping */}
-              {socialIcons.map((icon, index) => (
-                <span
-                  key={`original-${index}`}
-                  className={styles.techIconWrapper}
-                >
-                  <img
-                    src={icon}
-                    alt={`Social brand ${index + 1}`}
-                    className={styles.brandImage}
-                    style={{ objectFit: "contain" }}
-                  />
-                </span>
-              ))}
-              {/* Second set for seamless looping */}
-              {socialIcons.map((icon, index) => (
-                <span
-                  key={`duplicate-${index}`}
-                  className={styles.techIconWrapper}
-                  style={{ marginLeft: index === 0 ? "-8px" : undefined }}
-                >
-                  <img
-                    src={icon}
-                    alt={`Social brand ${index + 1}`}
-                    className={styles.brandImage}
-                    style={{ objectFit: "contain" }}
-                  />
-                </span>
-              ))}
-            </div>
+    <section ref={sectionRef} className={classNames(styles.brands__section)}>
+      <div className={classNames(styles.brands__sectionContent)}>
+        <div data-aos="fade-up" className={classNames(styles.loopSlider)}>
+          <div className={classNames(styles.inner, "flex items-center gap-2")}>
+            {/* Render the images once */}
+            {socialIcons.map((image, index) => (
+              <SlideItem image={image} key={`original-${index}`} />
+            ))}
+            {/* Render the images again for seamless looping */}
+            {socialIcons.map((image, index) => (
+              <SlideItem image={image} key={`duplicate-${index}`} />
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 };
+
+interface SlideItemProps {
+  image: string; // SVG path
+}
+
+const SlideItem = ({ image }: SlideItemProps) => (
+  <div className={classNames(styles.slideItem)}>
+    <img
+      src={image}
+      alt="Brand logo"
+      width={100}
+      height={50}
+      className={styles.brandLogo}
+      loading="lazy"
+    />
+  </div>
+);
 
 export default memo(BrandSlider);
