@@ -7,31 +7,26 @@ import SectionHeadingCard from "components/common/sectionHeadingCard";
 const HowItWorks = () => {
   const steps = [
     {
-      number: "1️⃣",
       title: "Share your requirements",
       description: "role, tech stack, seniority, timeline",
       icon: "📝",
     },
     {
-      number: "2️⃣",
       title: "Receive 3–5 pre-vetted candidate profiles",
       description: "within 72 hours",
       icon: "👥",
     },
     {
-      number: "3️⃣",
       title: "Interview your chosen candidates",
       description: "directly",
       icon: "💬",
     },
     {
-      number: "4️⃣",
       title: "Hire with confidence",
       description: "fixed percentage fee, no hidden costs",
       icon: "🤝",
     },
     {
-      number: "5️⃣",
       title: "Enjoy a 60-day replacement guarantee",
       description: "peace of mind included",
       icon: "🛡️",
@@ -54,7 +49,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className={styles.stepWrapper}>
               <div className={styles.stepContent}>
-                <div className={styles.stepNumber}>{step.number}</div>
+                <div className={styles.stepNumber}>{index + 1}</div>
                 <div className={styles.stepIcon}>{step.icon}</div>
                 <div className={styles.stepText}>
                   <h3 className={styles.stepTitle}>{step.title}</h3>

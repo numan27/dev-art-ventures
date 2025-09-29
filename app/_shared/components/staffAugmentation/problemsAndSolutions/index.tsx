@@ -177,6 +177,20 @@ const ProblemsAndSolutions = () => {
                   </div>
                 </div>
 
+                {/* Mobile-only Solutions Subheader (appears once between problems and solutions) */}
+                {index === 0 && (
+                  <div className={styles.mobileSolutionsHeader}>
+                    <div className={styles.headerIcon}>
+                      <CheckCircle size={28} className={styles.headerIconSvg} />
+                    </div>
+                    <h3 className={styles.headerTitle}>Our Solutions</h3>
+                    <p className={styles.headerDescription}>
+                      Smart alternatives that eliminate hiring headaches and
+                      accelerate growth
+                    </p>
+                  </div>
+                )}
+
                 {/* Solution Cell */}
                 <div className={styles.tableCell}>
                   <div className={styles.cellContent}>

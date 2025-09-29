@@ -185,6 +185,11 @@
   }
 }
 
+// Mobile-only Solutions header inserted inside body
+.mobileSolutionsHeader {
+  display: none;
+}
+
 // Responsive adjustments
 @media (max-width: 1023px) {
   .tableHeader {
@@ -241,8 +246,7 @@
   .tableContainer {
     margin-top: 40px;
     border-radius: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: visible; /* no horizontal scroll */
 
     /* Custom scrollbar styling */
     &::-webkit-scrollbar {
@@ -265,8 +269,12 @@
   }
 
   .tableHeader {
+    /* Stack header cells vertically */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
     padding: 24px 20px;
-    min-width: 600px; /* Ensure minimum width for table content */
+    min-width: auto;
 
     .headerCell {
       .headerIcon .headerIconSvg {
@@ -283,14 +291,36 @@
         max-width: 250px;
       }
     }
+    // Hide the Solutions header (second cell) on mobile, we'll show an inline one in the body
+    .headerCell:last-child {
+      display: none;
+    }
   }
 
   .tableBody {
-    min-width: 600px; /* Ensure minimum width for table content */
+    min-width: auto; /* Full width on mobile */
+    display: flex;
+    flex-direction: column;
 
     .tableRow {
+      /* Flatten rows so cells can be re-ordered */
+      display: contents;
+
       .tableCell {
         padding: 20px;
+        border-right: none; /* No vertical divider on stacked layout */
+
+        /* Group all problem cells first, then all solution cells */
+        /* Select problem cells (first cell of each original row) */
+        &:first-child {
+          order: 1;
+          border-bottom: 1px solid rgba(126, 88, 255, 0.08);
+        }
+
+        /* Select solution cells (second cell of each original row) */
+        &:last-child {
+          order: 2;
+        }
 
         .cellContent {
           gap: 12px;
@@ -313,6 +343,47 @@
       }
     }
   }
+
+  .mobileSolutionsHeader {
+    display: block;
+    order: 2; /* comes after the problem cells that have order:1 */
+    padding: 20px 20px 8px 20px;
+    border-top: 1px solid rgba(126, 88, 255, 0.12);
+    text-align: center;
+
+    .headerIcon {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+
+      .headerIconSvg {
+        color: #10b981;
+        filter: drop-shadow(0 4px 16px rgba(16, 185, 129, 0.3));
+      }
+    }
+
+    .headerTitle {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: $WHITE;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #ffffff 0%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .headerDescription {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -322,11 +393,16 @@
 
   .tableContainer {
     border-radius: 16px;
+    overflow: visible; /* ensure no scrollbars on very small screens */
   }
 
   .tableHeader {
+    /* Keep stacked header */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
     padding: 20px 16px;
-    min-width: 500px; /* Smaller minimum width for mobile */
+    min-width: auto;
 
     .headerCell {
       .headerTitle {
@@ -340,7 +416,7 @@
   }
 
   .tableBody {
-    min-width: 500px; /* Smaller minimum width for mobile */
+    min-width: auto;
 
     .tableCell {
       padding: 16px;

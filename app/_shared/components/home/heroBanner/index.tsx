@@ -35,10 +35,10 @@ const HeroBanner = () => {
                 Digital Product Partner
               </h1>
               <p>
-                DevArtVentures provides elite UI/UX design and full-stack
-                development services. We also specialize in staff augmentation,
-                embedding our pre-vetted designers directly into your team to
-                accelerate your roadmap
+                DevArtVentures provides elite UI/UX design, full-stack
+                development, and recruitment services. We also specialize in
+                staff augmentation, embedding our pre-vetted designers and
+                engineers directly into your team to accelerate your roadmap.
               </p>
               <div
                 className={classNames(

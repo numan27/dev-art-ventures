@@ -41,6 +41,10 @@ export const footerLinks: FooterColumn[] = [
         title: "Staff Augmentation",
         href: routeConstant.services.staffAugmentation.path,
       },
+      {
+        title: "Recruitment",
+        href: routeConstant.services.recruitment.path,
+      },
     ],
   },
   {

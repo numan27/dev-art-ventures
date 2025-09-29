@@ -160,15 +160,14 @@ const Footer = () => {
                                 size={16}
                                 className="mr-2 mt-1 flex-shrink-0"
                               />
-                              <div className="flex flex-col">
+                              <div className="flex flex-col text-nowrap">
                                 {column.contactInfo?.address?.map(
                                   (line, lineIndex) => (
-                                    <span key={lineIndex}>
+                                    <span
+                                      className="text-nowrap inline"
+                                      key={lineIndex}
+                                    >
                                       {line}
-                                      {lineIndex <
-                                        (column.contactInfo?.address?.length ||
-                                          0) -
-                                          1 && <br />}
                                     </span>
                                   )
                                 )}

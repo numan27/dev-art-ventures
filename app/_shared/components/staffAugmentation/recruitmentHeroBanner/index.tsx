@@ -107,7 +107,7 @@ const RecruitmentHeroBanner = ({
             </div>
 
             {/* Enhanced alternative link below primary button */}
-            <div className={styles.alternativeLink}>
+            {/* <div className={styles.alternativeLink}>
               <p>
                 Looking for permanent hires instead?{" "}
                 <a
@@ -119,7 +119,7 @@ const RecruitmentHeroBanner = ({
                   See our Recruitment Service
                 </a>
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
 
