@@ -373,6 +373,10 @@ const Header: React.FC<HeaderProps> = () => {
                                   href={dropdownItem.path}
                                   className={styles.mobileDropdownItem}
                                   role="menuitem"
+                                  onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    setActiveMobileDropdown(null);
+                                  }}
                                 >
                                   <div
                                     className={styles.mobileDropdownItemContent}
