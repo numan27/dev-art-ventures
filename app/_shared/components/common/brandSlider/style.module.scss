@@ -102,23 +102,80 @@
 }
 
 .slideItem {
-  background: #23262f;
-  border: 1px solid #23262f;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #1a1d26, #0f1115);
+  border: 1px solid #1a1d26;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   width: 160px;
   height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 8px;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 5px 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.08) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 14px;
+    pointer-events: none;
+  }
 
   &:hover {
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.22);
-    transform: translateY(-4px) scale(1.04);
-    background: #23262f;
+    background: linear-gradient(135deg, #1f222b, #12151a);
+    border-color: #1f222b;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px) scale(1.05);
+  }
+
+  &:hover::before {
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.12) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+  }
+
+  &:hover::after {
+    background: rgba(255, 255, 255, 0.06);
   }
 
   .brandLogo {
@@ -126,9 +183,19 @@
     height: auto;
     object-fit: contain !important;
     max-height: 99% !important;
+    opacity: 0.95;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3)) brightness(1.1)
+      contrast(1.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover .brandLogo {
     opacity: 1;
-    transition: filter 0.2s, opacity 0.2s;
-    filter: drop-shadow(0 0 4px #fff5);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4)) brightness(1.2)
+      contrast(1.2);
+    transform: scale(1.05);
   }
 }
 
