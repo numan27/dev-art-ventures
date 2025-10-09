@@ -122,6 +122,25 @@ export default function RootLayout({
         />
         {/* End Google Tag Manager */}
 
+        {/* Google tag (gtag.js) - GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JD88RVGNQH"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="ga4"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);} 
+              gtag('js', new Date());
+              gtag('config', 'G-JD88RVGNQH');
+            `,
+          }}
+        />
+        {/* End Google tag (gtag.js) - GA4 */}
+
         {/* Meta Pixel Code */}
         {/* <script
           dangerouslySetInnerHTML={{
