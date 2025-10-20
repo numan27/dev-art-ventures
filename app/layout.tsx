@@ -141,6 +141,15 @@ export default function RootLayout({
         />
         {/* End Google tag (gtag.js) - GA4 */}
 
+        {/* hubSpot */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js-na2.hs-scripts.com/244144966.js"
+        ></script>
+
         {/* Meta Pixel Code */}
         {/* <script
           dangerouslySetInnerHTML={{
